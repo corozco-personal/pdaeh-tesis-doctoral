@@ -348,3 +348,25 @@ td:empty,
 td[data-center="true"] {
   text-align: center !important;
 }
+
+/* === Eliminar restricciones de ancho (max-width) en todos los parrafos y bloques de texto === */
+p,
+.subsection > p,
+.subsection p,
+.section > p,
+.section p,
+.section-header > p,
+.phase-heading > p,
+.element-section > header p,
+.model-section > *,
+.rsl-stage header,
+.rsl-stage p,
+.protocol p,
+.protocol ul,
+.protocol ol,
+.structured-list,
+.contents-list {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
