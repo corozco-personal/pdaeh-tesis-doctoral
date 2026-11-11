@@ -123,33 +123,6 @@ Al interactuar con el agente proporcionando el contexto de la empresa, este entr
 
 ---
 
-## Estructura del repositorio
-
-```text
-├── pdaeh-evaluacion-expertos/     # Portal web interactivo de evaluación y consulta
-│   └── dist/                     # Código fuente web para producción (HTML5, CSS3, JS)
-│       ├── index.html            # Portal principal (RSL, Armonización, 5 Fases, Roles, Artefactos)
-│       ├── fase.html             # Vista individual de cada fase (F1 a F5)
-│       ├── plantilla.html        # Vista interactiva y visor de plantillas normativas
-│       ├── declaracion-ia.html   # Declaración de uso responsable de inteligencia artificial
-│       ├── install.sh            # Script de instalación automática de una sola línea
-│       └── assets/               # Diagramas vectoriales, logos y descargas (.md / .docx / .tex)
-├── agente-pdaeh-consultor/       # Agente consultor y especificaciones formales
-│   ├── PDAEH_SPECIFICATION_V1.md # Especificación metodológica formal y skill
-│   ├── PDAEH_SPECIFICATION_V1.json # Esquema formal en formato JSON Schema
-│   ├── SYSTEM_PROMPT.md          # Prompt de sistema del consultor
-│   ├── knowledge_base_pdaeh.json # Base de conocimiento del proceso PDAEH
-│   ├── GEMINI_GEM_INSTRUCTIONS.md # Guía para Google Gemini (Gems)
-│   ├── CLAUDE_PROJECT_INSTRUCTIONS.md # Guía para Anthropic Claude (Projects)
-│   └── CHATGPT_GPT_INSTRUCTIONS.md # Guía para OpenAI ChatGPT (Custom GPTs)
-├── diagramas/                    # Fuentes de diagramas vectoriales
-├── scripts/                      # Scripts de automatización e instalación
-├── SECURITY.md                   # Política de seguridad y directrices post-cuánticas
-└── README.md                     # Documentación general del repositorio
-```
-
----
-
 ## Publicaciones científicas vinculadas
 
 1. **Revisión sistemática de literatura (RSL):**
