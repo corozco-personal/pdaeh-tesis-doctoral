@@ -157,4 +157,4 @@ Al interactuar con el agente proporcionando el contexto de la empresa, este entr
 2. **Armonización de modelos y elementos:**
    * Universidad Cooperativa de Colombia: [doi.org/10.16925/gcsc.130](https://doi.org/10.16925/gcsc.130)
 3. **Proceso metodológico PDAEH:**
-   * JIISIC 2026: *A Process for Defining Hybrid Classical-Quantum Enterprise Architectures*.
+   * JIISIC 2026: *A Governance-Oriented Process for Defining Hybrid Classical-Quantum Enterprise Architectures*.
