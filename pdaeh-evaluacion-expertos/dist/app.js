@@ -29,6 +29,65 @@ function richArtifactItem(text){const s=cleanText(text),code=artifactCodeFrom(s)
 function list(value,mode="general",artifacts=false){return `<ul class="structured-list">${splitItems(value,mode).map(x=>`<li>${artifacts?richArtifactItem(x):esc(x)}</li>`).join("")}</ul>`}
 function indicatorList(value){return `<ul class="structured-list indicators">${splitItems(value,"indicators").map(x=>{const i=x.indexOf(":");return `<li>${i>0?`<strong>${esc(x.slice(0,i))}:</strong> ${esc(x.slice(i+1).trim())}`:`<strong>${esc(x)}</strong>`}</li>`}).join("")}</ul>`}
 
+function cleanNoAcronyms(str = "") {
+  let s = cleanText(str);
+  const map = [
+    [/\(DOE\)/g, ""],
+    [/\(MTA\)/g, ""],
+    [/\(DCA\)/g, ""],
+    [/\(MSP\)/g, ""],
+    [/\(DPV\)/g, ""],
+    [/\(DNA\)/g, ""],
+    [/\(ITA\)/g, ""],
+    [/\(DVA\)/g, ""],
+    [/\(MAC\)/g, ""],
+    [/\(DEA\)/g, ""],
+    [/\(DCO\)/g, ""],
+    [/\(BER\)/g, ""],
+    [/\(CEP\)/g, ""],
+    [/\(CPD\)/g, ""],
+    [/\(LBA\)/g, ""],
+    [/\bEl OGA\b/g, "El Órgano de Gobierno Arquitectónico"],
+    [/\bel OGA\b/g, "el Órgano de Gobierno Arquitectónico"],
+    [/\bdel OGA\b/g, "del Órgano de Gobierno Arquitectónico"],
+    [/\bal OGA\b/g, "al Órgano de Gobierno Arquitectónico"],
+    [/\bOGA\b/g, "Órgano de Gobierno Arquitectónico"],
+    [/\bla fase F2\b/g, "la segunda fase del proceso"],
+    [/\bla fase F3\b/g, "la tercera fase del proceso"],
+    [/\bla fase F4\b/g, "la cuarta fase del proceso"],
+    [/\bla fase F5\b/g, "la quinta fase del proceso"],
+    [/\ben F2\b/g, "en la fase de formalización conceptual"],
+    [/\ben F3\b/g, "en la fase de configuración estructural"],
+    [/\ben F4\b/g, "en la fase de materialización arquitectónica"],
+    [/\ben F5\b/g, "en la fase de sistematización del diseño"],
+    [/\bde F3\b/g, "de la fase de configuración estructural"],
+    [/\bde F4\b/g, "de la fase de materialización arquitectónica"],
+    [/\bde F5\b/g, "de la fase de sistematización del diseño"],
+    [/\bel DCO\b/g, "el documento de componentes estructurales"],
+    [/\bEl DCO\b/g, "El documento de componentes estructurales"],
+    [/\bel BER\b/g, "la biblioteca de elementos reutilizables"],
+    [/\bEl BER\b/g, "La biblioteca de elementos reutilizables"],
+    [/\bel CEP\b/g, "el catálogo de estilos y patrones arquitectónicos"],
+    [/\bEl CEP\b/g, "El catálogo de estilos y patrones arquitectónicos"],
+    [/\bel CPD\b/g, "el catálogo de patrones de diseño"],
+    [/\bEl CPD\b/g, "El catálogo de patrones de diseño"],
+    [/\bFase 1\b/g, "primera fase"],
+    [/\bElemento E3\b/g, "tercer elemento"],
+    [/\bE9\b/g, "el elemento de componentes estructurales"],
+    [/\bE7\b/g, "el elemento de estilos y patrones"]
+  ];
+  for (const [re, repl] of map) {
+    s = s.replace(re, repl);
+  }
+  return s.replace(/\s{2,}/g, " ").trim();
+}
+
+function splitCriterios(text = "") {
+  const s = cleanNoAcronyms(text);
+  if (!s) return [];
+  return s.split(/\.\s+(?=[A-ZÁÉÍÓÚÑ])/).map(x => cleanText(x).replace(/\.$/, "")).filter(Boolean);
+}
+
 function renderResearch(){
   $("#generalObjective").textContent=cleanText(data.research.generalObjective);
   const dims=[["Dimensión conceptual (DC)","Define el propósito, el contexto, el grado de abstracción y el vocabulario común del modelo.",["E1","E2","E3","E4"]],["Dimensión organizativa (DO)","Materializa la estructura del modelo mediante estructuras, componentes y mecanismos de reutilización.",["E5","E9","E10"]],["Dimensión de Calidad y Diseño (DCD)","Orienta las decisiones sobre atributos de calidad, estilos arquitectónicos y patrones de diseño.",["E6","E7","E8"]]];
@@ -54,13 +113,17 @@ function renderResearch(){
     <div class="element-accordion">${ordered.map(code => {
       const e = data.elements.find(x => elementCode(x) === code);
       const meta = fullElementDetails[code] || {};
-      const propositoTesis = esc(cleanText(field(e, ["Propósito", "Propósito del elemento"])));
-      const defOriginal = meta.defOriginal ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición conceptual original:</strong><p style="margin-top:0.3rem;">${esc(meta.defOriginal)}</p></div>` : "";
-      const defIntegrada = meta.defIntegrada ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición integrada (dominio híbrido):</strong><p style="margin-top:0.3rem;">${esc(meta.defIntegrada)}</p></div>` : "";
-      const estudios = meta.estudios ? `<p style="margin-bottom:1.2rem;font-size:0.9rem;color:var(--muted);"><strong>Estudios que motivan el elemento en la literatura e industria:</strong> ${esc(meta.estudios)}</p>` : "";
-      const objEsp = field(e, ["Objetivos específicos"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Objetivos específicos del elemento:</strong>${list(field(e, ["Objetivos específicos"]), "general", false)}</div>` : "";
-      const productos = field(e, ["Productos generados"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Productos generados / Artefactos:</strong>${list(field(e, ["Productos generados"]), "general", true)}</div>` : "";
-      const criterios = field(e, ["Criterios de aceptación"]) ? `<div style="margin-bottom:0.8rem;"><strong style="color:var(--green);">Criterios de aceptación:</strong><p style="margin-top:0.3rem;">${esc(cleanText(field(e, ["Criterios de aceptación"])))}</p></div>` : "";
+      const propositoTesis = esc(cleanNoAcronyms(field(e, ["Propósito", "Propósito del elemento"])));
+      const defOriginal = meta.defOriginal ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición conceptual original:</strong><p style="margin-top:0.3rem;">${esc(cleanNoAcronyms(meta.defOriginal))}</p></div>` : "";
+      const defIntegrada = meta.defIntegrada ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición integrada (dominio híbrido):</strong><p style="margin-top:0.3rem;">${esc(cleanNoAcronyms(meta.defIntegrada))}</p></div>` : "";
+      const estudios = meta.estudios ? `<p style="margin-bottom:1.2rem;font-size:0.9rem;color:var(--muted);"><strong>Estudios que motivan el elemento en la literatura e industria:</strong> ${esc(cleanNoAcronyms(meta.estudios))}</p>` : "";
+      const objEsp = field(e, ["Objetivos específicos"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Objetivos específicos del elemento:</strong>${list(cleanNoAcronyms(field(e, ["Objetivos específicos"])), "general", false)}</div>` : "";
+      const productos = field(e, ["Productos generados"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Productos generados / Artefactos:</strong><ul class="structured-list">${splitItems(cleanNoAcronyms(field(e, ["Productos generados"]))).map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>` : "";
+      
+      // Bullets for Criterios de aceptación
+      const criteriosRaw = field(e, ["Criterios de aceptación"]);
+      const criteriosList = splitCriterios(criteriosRaw);
+      const criterios = criteriosList.length ? `<div style="margin-bottom:0.8rem;"><strong style="color:var(--green);">Criterios de aceptación:</strong><ul class="structured-list">${criteriosList.map(c => `<li>${esc(c)}.</li>`).join("")}</ul></div>` : "";
 
       return `<details>
         <summary><span><b>${code}:</b> ${elementNames[code]}</span></summary>
