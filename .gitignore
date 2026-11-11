@@ -37,6 +37,8 @@ env/
 # Large deployment archives (already represented in clean source)
 *.tar.gz
 *.zip
+!assets/descargas/pdaeh-plantillas-completas.zip
+!agente-pdaeh-consultor.zip
 
 # Temporary scripts
 generate_specs.py

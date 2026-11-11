@@ -322,5 +322,231 @@ function renderArtifacts() {
 function renderGlossary(){if(!data.glossaries?.length)return;const target=$("#glossaryTables");target.innerHTML=data.glossaries.map(g=>{const keep=g.rows[0].map((h,i)=>({h,i})).filter(x=>!cleanText(x.h).toLocaleLowerCase().includes("fuente"));return table(cleanText(g.caption.replace(/^Tabla\s+\d+\.\s*/,"")),keep.map(x=>x.h),g.rows.slice(1).map(r=>`<tr>${keep.map(x=>`<td>${esc(cleanText(r[x.i]||""))}</td>`).join("")}</tr>`))}).join("")}
 function setupSearch(){const dialog=$("#searchDialog"),input=$("#searchInput"),results=$("#searchResults");$("#searchTrigger").onclick=()=>{dialog.showModal();input.focus()};input.oninput=()=>{const q=input.value.toLocaleLowerCase().trim();if(q.length<2){results.innerHTML="";return}const hits=[...Object.entries(elementNames).map(([code,name])=>({code,name,url:"#modelo"})),...phaseNames.map((name,i)=>({code:`F${i+1}`,name,url:`fase.html?id=${i+1}`})),...artifactCodes.map(code=>({code,name:artifactNames[code],url:`plantilla.html?id=${code}`}))].filter(x=>(x.code+x.name).toLocaleLowerCase().includes(q));results.innerHTML=hits.map(h=>`<a href="${h.url}"><b>${h.code}</b><span>${h.name}</span></a>`).join("")}}
 
-renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderArtifacts();renderGlossary();setupSearch();
+function renderTraceabilityMatrix() {
+  const container = $("#traceabilityMatrixContainer");
+  if (!container) return;
+
+  const matrixData = [
+    {
+      fase: "F1: Definición estratégica",
+      elementos: "E1 (Integración), E2 (Patrones híbridos)",
+      artefactos: ["DOE", "MTA", "DCA"],
+      rolesResp: "AEP (Principal), LNP (Negocio)",
+      rolesConsult: "ASP, OGA, GPA",
+      puntoOGA: "OGA-1",
+      criterioOGA: "Aprobación formal del caso de uso cuántico, objetivos de negocio (DOE) y restricciones de contexto (DCA)."
+    },
+    {
+      fase: "F2: Formalización conceptual",
+      elementos: "E3 (Modelado), E4 (Alineación estratégica)",
+      artefactos: ["MSP", "DPV", "DNA"],
+      rolesResp: "AEP (Principal), ASP (Solución)",
+      rolesConsult: "LNP, EQP, GEP",
+      puntoOGA: "OGA-2",
+      criterioOGA: "Validación de expectativas de stakeholders (MSP), vistas conceptuales (DPV) y niveles de abstracción (DNA)."
+    },
+    {
+      fase: "F3: Configuración estructural",
+      elementos: "E5 (Gobernanza), E6 (Roles y responsabilidades)",
+      artefactos: ["ITA", "DVA", "MAC"],
+      rolesResp: "ASP (Solución), AIP (Infraestructura)",
+      rolesConsult: "AEP, ASecP, EQP",
+      puntoOGA: "OGA-3",
+      criterioOGA: "Certificación de escenarios de atributos de calidad (MAC), léxico unificado (ITA/DVA) y esquema de gobierno."
+    },
+    {
+      fase: "F4: Materialización arquitectónica",
+      elementos: "E9 (Métricas), E10 (Herramientas y simulación)",
+      artefactos: ["DEA", "DCO", "BER"],
+      rolesResp: "ASP (Solución), EQP (Especialista cuántico)",
+      rolesConsult: "AIP, ASecP, GPA",
+      puntoOGA: "OGA-4",
+      criterioOGA: "Aprobación de estructuras de descomposición (DEA), contratos de componentes (DCO) y módulos reusables (BER)."
+    },
+    {
+      fase: "F5: Sistematización del diseño",
+      elementos: "E7 (Atributos de calidad), E8 (Proceso de desarrollo)",
+      artefactos: ["CEP", "CPD", "LBA"],
+      rolesResp: "AEP (Principal), ASP (Solución)",
+      rolesConsult: "Todos los roles involucrados",
+      puntoOGA: "OGA-5",
+      criterioOGA: "Aprobación definitiva de catálogos CEP/CPD y formalización de la Línea Base Arquitectónica integral (LBA)."
+    }
+  ];
+
+  const rows = matrixData.map(item => `
+    <tr>
+      <td style="vertical-align:middle;font-weight:700;color:var(--green);">${item.fase}</td>
+      <td style="vertical-align:middle;">${item.elementos}</td>
+      <td style="vertical-align:middle;text-align:center;">
+        ${item.artefactos.map(code => `<a href="plantilla.html?id=${code}" class="artifact-link" style="font-weight:700;margin:0 3px;">${code}</a>`).join(" · ")}
+      </td>
+      <td style="vertical-align:middle;"><small><b>Resp:</b> ${item.rolesResp}<br><b>Cons:</b> ${item.rolesConsult}</small></td>
+      <td style="vertical-align:middle;text-align:center;font-weight:700;background:#f9fbfa;"><span style="color:var(--navy);">${item.puntoOGA}</span></td>
+      <td style="vertical-align:middle;font-size:0.88rem;line-height:1.5;">${item.criterioOGA}</td>
+    </tr>
+  `).join("");
+
+  container.innerHTML = `
+    <div class="table-shell" style="margin-top:1.2rem;">
+      <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
+        <thead>
+          <tr style="background:#eaf1fb;color:#1f2a44;">
+            <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Fase del proceso</th>
+            <th style="padding:10px;border:1px solid var(--line);width:22%;text-align:left;">Elementos cubiertos</th>
+            <th style="padding:10px;border:1px solid var(--line);width:15%;text-align:center;">Artefactos vinculados</th>
+            <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Asignación de roles</th>
+            <th style="padding:10px;border:1px solid var(--line);width:90px;text-align:center;">Compuerta OGA</th>
+            <th style="padding:10px;border:1px solid var(--line);text-align:left;">Criterio de aprobación</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function setupAgentDemo() {
+  const btn = $("#btnRunDemo");
+  const selectSize = $("#demoOrgSize");
+  const txtUseCase = $("#demoUseCase");
+  const txtStack = $("#demoStack");
+  const outContainer = $("#demoOutputContainer");
+  const statusTag = $("#demoStatusTag");
+
+  if (!btn || !selectSize || !outContainer) return;
+
+  const presets = {
+    pyme: {
+      useCase: "Optimización combinatoria de flota de vehículos para entrega de última milla con ventanas horarias y restricciones de carga dinámica.",
+      stack: "Microservicios en AWS (EKS), bases de datos PostgreSQL y colas Kafka."
+    },
+    startup: {
+      useCase: "Scoring y cálculo de riesgo crediticio no lineal mediante Quantum Machine Learning (QSVM variacional).",
+      stack: "Arquitectura Serverless en GCP (Cloud Run, BigQuery) y Python FastAPI."
+    },
+    corporacion: {
+      useCase: "Simulación de reactividad y afinidad molecular para descubrimiento acelerado de principios activos farmacéuticos.",
+      stack: "Clúster HPC híbrido on-premise + Slurm, interconectado con nubes privadas mediante MPI."
+    },
+    inadecuado: {
+      useCase: "Desarrollo de un portal de comercio electrónico con carrito de compras, catálogo de productos y pasarela de pagos.",
+      stack: "Next.js con Node.js, base de datos MongoDB y hosting en Vercel."
+    }
+  };
+
+  selectSize.onchange = () => {
+    const p = presets[selectSize.value];
+    if (p) {
+      txtUseCase.value = p.useCase;
+      txtStack.value = p.stack;
+    }
+  };
+
+  const runEvaluation = () => {
+    const size = selectSize.value;
+    const useCase = txtUseCase.value.trim();
+    const stack = txtStack.value.trim();
+
+    if (size === "inadecuado") {
+      statusTag.textContent = "Alerta: Solicitud Clásica";
+      statusTag.style.background = "#fed7d7";
+      statusTag.style.color = "#9b2c2c";
+      outContainer.innerHTML = `
+        <div style="background:#fff5f5;border:1px solid #feb2b2;padding:1.2rem;border-radius:4px;color:#742a2a;">
+          <h4 style="margin:0 0 0.5rem;font-size:1.1rem;color:#9b2c2c;">Dictamen de idoneidad cuántica (Regla de Realismo NISQ)</h4>
+          <p style="margin:0 0 0.8rem;line-height:1.6;">
+            <strong>Advertencia categórica:</strong> El caso planteado (<em>${useCase}</em>) corresponde a un problema transaccional estándar de ingeniería de software clásica.
+          </p>
+          <p style="margin:0;line-height:1.6;">
+            La adopción de hardware o simuladores cuánticos en este contexto introduciría latencia innecesaria, costes de cómputo desproporcionados y sobreingeniería arquitectónica sin brindar ventaja algorítmica demostrable. <strong>Recomendación PDAEH:</strong> Mantener la arquitectura 100% clásica convencional (microservicios y bases de datos relacionales).
+          </p>
+        </div>
+      `;
+      return;
+    }
+
+    statusTag.textContent = "Roadmap Determinista Generado";
+    statusTag.style.background = "#eaf1fb";
+    statusTag.style.color = "#1f2a44";
+
+    let roleAllocation = "";
+    let family = "";
+    let regim = "";
+
+    if (size === "startup") {
+      family = "Quantum Machine Learning (QML / QSVM Variacional)";
+      regim = "Simulador cuántico con ruido (Qiskit Aer / PennyLane) previo a ejecución en QPU cloud";
+      roleAllocation = `
+        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
+          <li><b>AEP / ASP:</b> Asumido por el Co-fundador Técnico / CTO.</li>
+          <li><b>AIP / GPA:</b> Ingeniero Full-Stack Líder.</li>
+          <li><b>EQP:</b> Asesor PhD externo en Algoritmos Cuánticos.</li>
+          <li><b>LNP:</b> CEO / Product Lead de la Startup.</li>
+          <li><b>OGA:</b> Revisión Colegiada de Fundadores + Asesores Técnicos.</li>
+        </ul>
+      `;
+    } else if (size === "corporacion") {
+      family = "Simulación Hamiltoniana / Variational Quantum Eigensolver (VQE)";
+      regim = "QPU NISQ con mitigación de ruido (Zero-Noise Extrapolation) interconectado con HPC";
+      roleAllocation = `
+        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
+          <li><b>AEP:</b> Arquitecto Empresarial Principal dedicado.</li>
+          <li><b>ASP:</b> Arquitecto de Solución de Cómputo Cuántico.</li>
+          <li><b>AIP / GPA:</b> Administrador de Infraestructura HPC y Contratos Cloud QPU.</li>
+          <li><b>EQP:</b> Grupo de Investigación en Química Cuántica Computacional.</li>
+          <li><b>LNP:</b> Vicepresidente de I+D Farmacéutica.</li>
+          <li><b>OGA:</b> Architecture Review Board (ARB) formal y Comité de Gobernanza.</li>
+        </ul>
+      `;
+    } else {
+      family = "Optimización Combinatoria (QAOA / Quantum Annealing)";
+      regim = "Simulación clásica local y pruebas piloto en QPU NISQ compartida";
+      roleAllocation = `
+        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
+          <li><b>AEP:</b> CTO o Líder de Arquitectura de la PYME.</li>
+          <li><b>ASP:</b> Ingeniero de Software Principal.</li>
+          <li><b>AIP:</b> Ingeniero DevOps / Cloud compartido.</li>
+          <li><b>EQP:</b> Consultor especialista cuántico externo.</li>
+          <li><b>LNP:</b> Director de Operaciones y Logística.</li>
+          <li><b>OGA:</b> Comité Directivo (CTO + CEO + Líder de Operaciones).</li>
+        </ul>
+      `;
+    }
+
+    outContainer.innerHTML = `
+      <div style="font-family:inherit;">
+        <h4 style="margin:0 0 0.5rem;font-size:1.15rem;color:var(--ink);">Diagnóstico del caso: ${family}</h4>
+        <p style="margin:0 0 0.8rem;color:var(--muted);font-size:0.88rem;">
+          <b>Régimen tecnológico recomendado:</b> ${regim}
+        </p>
+
+        <div style="background:#f2f7f4;border-left:3px solid var(--green);padding:0.8rem 1rem;margin-bottom:1rem;border-radius:3px;">
+          <strong style="color:var(--green);font-size:0.88rem;display:block;margin-bottom:0.2rem;">Asignación de roles PDAEH (E6) adaptada a escala:</strong>
+          ${roleAllocation}
+        </div>
+
+        <h4 style="margin:1rem 0 0.5rem;font-size:1.05rem;color:var(--ink);">Hoja de ruta secuencial y compuertas OGA</h4>
+        <ol style="padding-left:1.2rem;margin:0;line-height:1.7;">
+          <li><b>Fase 1 (Estratégica):</b> Formalizar objetivos en <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a> y restricciones en <a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>. $\\rightarrow$ <em>Compuerta OGA-1</em>.</li>
+          <li><b>Fase 2 (Conceptual):</b> Modelar vistas en <a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a> y niveles en <a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>. $\\rightarrow$ <em>Compuerta OGA-2</em>.</li>
+          <li><b>Fase 3 (Estructural):</b> Ponderar escenarios de latencia y disponibilidad en <a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>. $\\rightarrow$ <em>Compuerta OGA-3</em>.</li>
+          <li><b>Fase 4 (Materialización):</b> Descomponer orquestador híbrido en <a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a> y contratos en <a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>. $\\rightarrow$ <em>Compuerta OGA-4</em>.</li>
+          <li><b>Fase 5 (Sistematización):</b> Consolidar catálogo de patrones <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y Línea Base Integral <a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>. $\\rightarrow$ <em>Compuerta OGA-5</em>.</li>
+        </ol>
+
+        <div style="margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid var(--line);font-size:0.85rem;">
+          <strong>Paso sugerido inmediato:</strong> Redactar el Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Plantilla DOE</a>) con el comité directivo.
+        </div>
+      </div>
+    `;
+  };
+
+  btn.onclick = runEvaluation;
+  runEvaluation();
+}
+
+renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupAgentDemo();setupSearch();
 window.PDAEH={data,cleanText,splitItems,list,indicatorList,artifactLink,richArtifactItem,elementCode,elementNames,phaseNames,artifactCodes,artifactNames,field,esc};
