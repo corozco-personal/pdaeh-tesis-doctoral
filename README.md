@@ -58,27 +58,27 @@ sequenceDiagram
 
 ## Guía de instalación del agente y skill
 
-Puedes instalar y activar el agente consultor mediante un **comando directo de una sola línea**, o configurarlo en tu plataforma de preferencia.
+Puedes instalar y activar el skill consultor de forma inmediata mediante un **comando directo de una sola línea** (Opción 1), o configurarlo manualmente en plataformas web (Opción 2).
 
-### Instalación automática con un solo comando (CLI / Antigravity / Claude Code)
+### Opción 1: Instalación del skill con un solo comando (Recomendada)
 
-Para instalar el skill del agente directamente en cualquier proyecto o espacio de trabajo sin copiar archivos manualmente, ejecuta en tu terminal:
-
-```bash
-curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash
-```
-
-Si deseas instalarlo de manera **global** para que esté disponible en todas las sesiones y proyectos del usuario:
+Para instalar y activar el **Skill PDAEH** en tu agente o entorno de desarrollo (Antigravity, Gemini CLI, Claude Code, Cursor) sin tener que copiar archivos a mano, ejecuta el siguiente comando en tu terminal:
 
 ```bash
 curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash -s -- --global
+```
+
+Si prefieres instalarlo únicamente dentro del proyecto o espacio de trabajo actual (`.agents/skills/pdaeh-advisor/`):
+
+```bash
+curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash
 ```
 
 El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento (`knowledge_base_pdaeh.json`).
 
 ---
 
-### Configuración en clientes de inteligencia artificial (plataformas web)
+### Opción 2: Configuración en clientes web de inteligencia artificial (Gems, Projects, Custom GPTs)
 
 Si prefieres interactuar con el agente a través de una interfaz de chat web, utiliza los archivos empaquetados en [`agente-pdaeh-consultor/`](./agente-pdaeh-consultor/):
 
