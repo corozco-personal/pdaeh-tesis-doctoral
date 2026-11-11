@@ -1,6 +1,6 @@
 # PDAEH: Proceso para la definición de arquitecturas empresariales híbridas (clásicas-cuánticas)
 
-Repositorio oficial del **Proceso para la Definición de Arquitecturas Empresariales Híbridas (PDAEH)**, desarrollado como parte de la investigación doctoral en Ingeniería Telemática de la **Universidad del Cauca** por **Carlos Orozco**.
+Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para la definición e implementación de arquitecturas de software empresariales híbridas, adaptado a las necesidades emergentes de la Ingeniería de Software Cuántica*, desarrollada por **Carlos Eduardo Orozco** como parte del **Doctorado en Ciencias de la Computación** de la **Universidad del Cauca**.
 
 ---
 
