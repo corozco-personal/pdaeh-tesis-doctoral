@@ -92,18 +92,19 @@ El agente evalúa:
 ### Paso 3: Generación del RACI y Gobernanza
 Genera la tabla de asignación de roles de acuerdo a la Sección 2 de este documento.
 
-### Paso 4: Hoja de Ruta Ejecutable (Roadmap PDAEH)
+### Paso 4: Hoja de Ruta Ejecutable, Diagramas Guiados y Mapa Conceptual
 Para cada una de las 5 fases (`F1` a `F5`), el agente debe emitir:
-1. **Objetivo de la Fase:** Ajustado a las metas del cliente.
-2. **Actividades Clave:** Extraídas del catálogo formal de 52 actividades del PDAEH.
-3. **Artefactos Obligatorios a Diligenciar:** Nombres oficiales, acrónimos y secciones indispensables a completar.
-4. **Criterio de Aprobación OGA (Checkpoint Gate):** Condición exacta que el comité OGA debe validar para autorizar el avance.
+1. **Mapa Conceptual / Diagrama de Flujo Guiado Paso a Paso (Bloque Mermaid Renderizable):** Un diagrama de flujo claro (`flowchart TD` o `flowchart LR`) o mapa mental conceptual que ilustre la secuencia cronológica de actividades, los artefactos generados y la puerta de control OGA de cada fase, permitiendo al usuario visualizar el proceso de forma gráfica e interactiva.
+2. **Objetivo de la Fase:** Ajustado a las metas del cliente.
+3. **Actividades Clave:** Extraídas del catálogo formal de 52 actividades del PDAEH.
+4. **Artefactos Obligatorios a Diligenciar:** Nombres oficiales, acrónimos y secciones indispensables a completar con enlace a plantillas.
+5. **Criterio de Aprobación OGA (Checkpoint Gate):** Condición exacta que el comité OGA debe validar para autorizar el avance.
 
 ---
 
 ## 4. ESQUEMA DE SALIDA ESTANDARIZADO (OUTPUT CONTRACT)
 
-Cuando el agente emita un diagnóstico y hoja de ruta, debe estructurar su respuesta obligatoriamente con el siguiente formato Markdown:
+Cuando el agente emita un diagnóstico y hoja de ruta, debe estructurar su respuesta obligatoriamente con el siguiente formato, asegurando la inclusión de diagramas visuales en Mermaid:
 
 ```markdown
 # DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
@@ -114,10 +115,45 @@ Cuando el agente emita un diagnóstico y hoja de ruta, debe estructurar su respu
 - **Complejidad y Familia Algorítmica:** [QAOA | VQE | QML | PQC]
 - **Régimen Tecnológico Recomendado:** [Simulación Clásica | NISQ Real con Mitigación | Plan PQC]
 
-## 2. Asignación Metodológica de Roles (PDAEH E6)
+## 2. Mapa Conceptual y Diagrama Guiado de Adopción (Paso a Paso)
+```mermaid
+flowchart TD
+    subgraph F1["Fase 1: Alineación Estratégica"]
+        direction TB
+        A1["Definición de Objetivos y Casos de Uso"] --> Art1["Artefactos: DOE, MTA, DCA"]
+        Art1 --> OGA1{"Checkpoint OGA-1"}
+    end
+    subgraph F2["Fase 2: Preparación y Viabilidad"]
+        direction TB
+        OGA1 -->|Aprobado| A2["Evaluación de Madurez y Stack As-Is"]
+        A2 --> Art2["Artefactos: MSP, DPV, DNA"]
+        Art2 --> OGA2{"Checkpoint OGA-2"}
+    end
+    subgraph F3["Fase 3: Diseño y Modelado Híbrido"]
+        direction TB
+        OGA2 -->|Aprobado| A3["Selección de Patrones e Integración"]
+        A3 --> Art3["Artefactos: ITA, DVA, MAC"]
+        Art3 --> OGA3{"Checkpoint OGA-3"}
+    end
+    subgraph F4["Fase 4: Implementación y Pruebas Piloto"]
+        direction TB
+        OGA3 -->|Aprobado| A4["Desarrollo, Mitigación de Ruido y PoC"]
+        A4 --> Art4["Artefactos: DEA, DCO, BER"]
+        Art4 --> OGA4{"Checkpoint OGA-4"}
+    end
+    subgraph F5["Fase 5: Despliegue y Gobernanza Continua"]
+        direction TB
+        OGA4 -->|Aprobado| A5["Monitoreo, Telemetría y Línea Base"]
+        A5 --> Art5["Artefactos: CEP, CPD, LBA"]
+        Art5 --> OGA5{"Checkpoint OGA-5"}
+    end
+    OGA5 -->|Aprobado| Exito(["Arquitectura Híbrida Operativa"])
+```
+
+## 3. Asignación Metodológica de Roles (PDAEH E6)
 [Tabla RACI simplificada con los roles correspondientes según la escala]
 
-## 3. Hoja de Ruta de Implementación (Fases F1 a F5)
+## 4. Hoja de Ruta Detallada de Implementación (Fases F1 a F5)
 
 ### Fase 1: Inicio y Alineación Estratégica
 - **Objetivo:** [...]
@@ -149,7 +185,7 @@ Cuando el agente emita un diagnóstico y hoja de ruta, debe estructurar su respu
 - **Artefactos Requeridos:** `CEP`, `CPD`, `LBA`
 - **Punto de Control OGA-5:** [Gobernanza y ROI continuo]
 
-## 4. Próximo Paso Inmediato
+## 5. Próximo Paso Inmediato
 [Instrucción concreta sobre con qué plantilla de la Fase 1 empezar a redactar]
 ```
 

@@ -2171,5 +2171,24 @@
       "descriptive_headings": true,
       "screen_reader_friendly": true
     }
+  },
+  "output_contract": {
+    "mandatory_sections": [
+      "Resumen del Perfilado Organizacional",
+      "Mapa Conceptual y Diagrama Guiado de Adopción (Paso a Paso)",
+      "Asignación Metodológica de Roles",
+      "Hoja de Ruta Detallada de Implementación (Fases F1 a F5)",
+      "Próximo Paso Inmediato"
+    ],
+    "visualization_mandate": {
+      "required": true,
+      "format": "Mermaid renderizable (flowchart TD / flowchart LR)",
+      "elements_to_render": [
+        "fases_F1_a_F5",
+        "actividades_clave",
+        "artefactos_principales",
+        "checkpoints_OGA"
+      ]
+    }
   }
 }

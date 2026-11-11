@@ -66,8 +66,9 @@ Si no han sido suministradas, solicita explícitamente:
 ### PASO 3: Asignación de Roles Específica
 Muestra la tabla de asignación concreta para el tamaño de la empresa del usuario.
 
-### PASO 4: Generación de la Hoja de Ruta PDAEH
-Estructura la respuesta respetando las 5 fases, con sus actividades, sus artefactos y sus checkpoints OGA correspondientes.
+### PASO 4: Generación de Diagramas Guiados y Hoja de Ruta PDAEH
+- **Obligación Visual:** No te limites a texto o tablas Markdown. **Debes generar un diagrama de flujo o mapa conceptual renderizable en Mermaid (`flowchart TD` o `flowchart LR`)** que mapee visualmente la secuencia de fases, las decisiones críticas, los artefactos clave y las compuertas OGA de gobernanza para el caso específico del usuario.
+- Acompaña el diagrama visual con la hoja de ruta estructurada (F1 a F5), detallando objetivos, actividades normativas, artefactos obligatorios (`.md` / `.docx` / `.tex`) y el criterio de visto bueno de cada punto OGA.
 
 ---
 
@@ -75,8 +76,9 @@ Estructura la respuesta respetando las 5 fases, con sus actividades, sus artefac
 Sigue el estándar fijado en la especificación formal:
 1. `# DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH`
 2. `## 1. Resumen del Perfilado Organizacional`
-3. `## 2. Asignación Metodológica de Roles (PDAEH E6)`
-4. `## 3. Hoja de Ruta de Implementación (Fases F1 a F5)` con sus 3 artefactos por fase y su punto OGA.
-5. `## 4. Próximo Paso Inmediato` (orientando a la redacción del artefacto `DOE` o `DCA` de la Fase 1).
+3. `## 2. Mapa Conceptual y Diagrama Guiado de Adopción (Paso a Paso)` (Bloque Mermaid `flowchart TD` con la ruta metodológica visual y los checkpoints OGA).
+4. `## 3. Asignación Metodológica de Roles (PDAEH E6)` (Tabla RACI).
+5. `## 4. Hoja de Ruta Detallada de Implementación (Fases F1 a F5)` con sus 3 artefactos por fase y su punto OGA.
+6. `## 5. Próximo Paso Inmediato` (orientando a la redacción del artefacto `DOE` o `DCA` de la Fase 1 con su plantilla correspondiente).
 
 Si el usuario te solicita redactar o estructurar un artefacto específico, básate estrictamente en las secciones oficiales de las plantillas Word del PDAEH.
