@@ -188,7 +188,7 @@ function renderRoles(index=0){
         const centerStyle = isShortOrDash(c) ? ' style="text-align:center !important;"' : '';
         if (cIdx === tipoIdx) {
           if (spans[idx]) {
-            cells += `<td rowspan="${spans[idx]}" style="vertical-align:middle;font-weight:700;background:#f8faf9;text-align:center !important;">${cleaned}</td>`;
+            cells += `<td rowspan="${spans[idx]}" style="vertical-align:middle;font-weight:700;background:#fff;text-align:center !important;">${cleaned}</td>`;
           }
         } else {
           cells += `<td${centerStyle}>${cleaned}</td>`;
