@@ -12,10 +12,12 @@ Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para l
 Doctorado en Ciencias de la Computación  
 Popayán, Colombia  
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-online-success?style=flat-square&logo=github)](https://corozco-personal.github.io/pdaeh-tesis-doctoral/)
-[![Skill Agent](https://img.shields.io/badge/PDAEH%20Advisor-active-blue?style=flat-square&logo=openai)](agente-pdaeh-consultor/)
-[![Templates](https://img.shields.io/badge/Plantillas-MD%20%7C%20DOCX%20%7C%20TEX-informational?style=flat-square)](assets/descargas/)
-[![Licencia](https://img.shields.io/badge/Acceso-Académico%20Abierto-brightgreen?style=flat-square)](LICENSE)
+<p align="center">
+  <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/"><img src="https://img.shields.io/badge/GitHub%20Pages-online-success?style=flat-square&logo=github" alt="GitHub Pages" /></a>
+  <a href="agente-pdaeh-consultor/"><img src="https://img.shields.io/badge/PDAEH%20Advisor-active-blue?style=flat-square&logo=openai" alt="PDAEH Advisor" /></a>
+  <a href="assets/descargas/"><img src="https://img.shields.io/badge/Plantillas-MD%20%7C%20DOCX%20%7C%20TEX-informational?style=flat-square" alt="Plantillas" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Acceso-Académico%20Abierto-brightgreen?style=flat-square" alt="Licencia" /></a>
+</p>
 
 <div align="center">
   <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
