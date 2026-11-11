@@ -1,26 +1,48 @@
-# PDAEH: Proceso para la definición de arquitecturas empresariales híbridas (clásicas-cuánticas)
+# Proceso para la definición de arquitecturas empresariales híbridas (clásicas-cuánticas)
 
-Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para la definición e implementación de arquitecturas de software empresariales híbridas, adaptado a las necesidades emergentes de la Ingeniería de Software Cuántica*, desarrollada por **Carlos Eduardo Orozco** como parte del **Doctorado en Ciencias de la Computación** de la **Universidad del Cauca**.
+## Complemento digital de la investigación doctoral
+
+Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para la definición e implementación de arquitecturas de software empresariales híbridas, adaptado a las necesidades emergentes de la Ingeniería de Software Cuántica*, desarrollada por:
+
+- **Carlos Eduardo Orozco Garcés** (Autor)
+- **César Jesús Pardo Calvache** (Director)
+
+**Universidad del Cauca**  
+Doctorado en Ciencias de la Computación  
+Popayán, Colombia  
+
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-online-success?style=flat-square&logo=github)](https://corozco-personal.github.io/pdaeh-tesis-doctoral/)
+[![Skill Agent](https://img.shields.io/badge/PDAEH%20Advisor-active-blue?style=flat-square&logo=openai)](agente-pdaeh-consultor/)
+[![Templates](https://img.shields.io/badge/Plantillas-MD%20%7C%20DOCX%20%7C%20TEX-informational?style=flat-square)](assets/descargas/)
+[![Licencia](https://img.shields.io/badge/Acceso-Académico%20Abierto-brightgreen?style=flat-square)](LICENSE)
+
+<table align="center">
+  <tr>
+    <td align="center" width="260">
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
+        <img src="assets/qr-portal-pdaeh.png" alt="QR Portal Web PDAEH" width="200" />
+      </a>
+      <br />
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Consultar portal web</strong></a>
+    </td>
+    <td align="center" width="260">
+      <a href="https://github.com/corozco-personal/pdaeh-tesis-doctoral" target="_blank">
+        <img src="assets/qr-repositorio.png" alt="QR Repositorio GitHub" width="200" />
+      </a>
+      <br />
+      <a href="https://github.com/corozco-personal/pdaeh-tesis-doctoral" target="_blank"><strong>Consultar repositorio en GitHub</strong></a>
+    </td>
+  </tr>
+</table>
 
 El sitio web disponible en GitHub Pages presenta el detalle riguroso de cada uno de los elementos, fases, actividades, roles, puntos de control de gobierno arquitectónico y artefactos que conforman el proceso PDAEH. Por su parte, el agente consultor toma esta base de conocimiento metodológica para brindar orientación personalizada, diagnosticar la situación de la organización y generar hojas de ruta de adopción precisas. De este modo, un usuario final puede interactuar y utilizar el agente de forma directa, y consultar el material complementario en el portal web cuando necesite comprender el detalle de algún concepto, actividad o plantilla técnica del proceso.
 
 ---
 
-## Portal de validación por expertos
+## Componentes metodológicos del proceso
 
-El detalle integral de todos los componentes metodológicos que conforman el proceso se encuentra disponible y abierto al público en el portal web interactivo:
+El portal web interactivo reúne y formaliza los siguientes componentes:
 
-<div align="center">
-  <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
-    <img src="assets/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
-  </a>
-  <p>
-    <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Enlace directo</strong></a>
-  </p>
-  <p><em>Escanea el código QR o utiliza el enlace directo para ingresar al portal web público.</em></p>
-</div>
-
-El enlace provisto contiene el detalle exhaustivo de los componentes que conforman el proceso en términos de:
 - **Diez elementos estructurales armonizados (E1–E10)** agrupados en tres dimensiones arquitectónicas (conceptual, organizativa, y de calidad y diseño).
 - **Cinco fases consecutivas** que estructuran el ciclo metodológico (Fase 1: Definición estratégica, Fase 2: Formalización conceptual, Fase 3: Configuración estructural, Fase 4: Materialización arquitectónica, y Fase 5: Sistematización del diseño), con sus actividades, tareas, entradas, salidas y flujos de trabajo detallados.
 - **Actividad transversal de revisión de líneas base** y los puntos de control formal a cargo del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
