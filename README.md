@@ -143,8 +143,12 @@ Al interactuar con el agente proporcionando el contexto de la empresa, este entr
 ## Publicaciones científicas vinculadas
 
 1. **Revisión sistemática de literatura (RSL):**
-   * SciELO / Ingenierías USBMed: [doi.org/10.21500/20275846.6433](https://doi.org/10.21500/20275846.6433)
+   * *Orozco, C., Pardo, C., & Perez-Castillo, R. (2024).* **Tendencias emergentes y desafíos de las arquitecturas de software en la computación cuántica. Una revisión sistemática de la literatura.** *Revista Ingenierías Universidad de Medellín*, SciELO.  
+     Enlace a la publicación: [http://www.scielo.org.co/scielo.php?pid=S0124-22532024000300087&script=sci_arttext](http://www.scielo.org.co/scielo.php?pid=S0124-22532024000300087&script=sci_arttext)
+
 2. **Armonización de modelos y elementos:**
-   * Universidad Cooperativa de Colombia: [doi.org/10.16925/gcsc.130](https://doi.org/10.16925/gcsc.130)
+   * *Orozco, C., Pardo, C., Perez-Castillo, R., & Sepúlveda, S. (2026).* **Towards a hybrid classical–quantum software architecture derived from literature harmonization.** *Ingeniería Solidaria*, Universidad Cooperativa de Colombia.  
+     Enlace a la revista: [https://revistas.ucc.edu.co/index.php/in/es/article/view/5610](https://revistas.ucc.edu.co/index.php/in/es/article/view/5610)
+
 3. **Proceso metodológico PDAEH:**
-   * JIISIC 2026: *A Governance-Oriented Process for Defining Hybrid Classical-Quantum Enterprise Architectures*.
+   * *Orozco, C., Pardo, C., & Perez-Castillo, R. (2026).* **A Governance-Oriented Process for Defining Hybrid Classical-Quantum Enterprise Architectures.** *JIISIC 2026*.
