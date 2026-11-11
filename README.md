@@ -2,6 +2,8 @@
 
 Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para la definición e implementación de arquitecturas de software empresariales híbridas, adaptado a las necesidades emergentes de la Ingeniería de Software Cuántica*, desarrollada por **Carlos Eduardo Orozco** como parte del **Doctorado en Ciencias de la Computación** de la **Universidad del Cauca**.
 
+El sitio web disponible en GitHub Pages presenta el detalle riguroso de cada uno de los elementos, fases, actividades, roles, puntos de control de gobierno arquitectónico y artefactos que conforman el proceso PDAEH. Por su parte, el agente consultor toma esta base de conocimiento metodológica para brindar orientación personalizada, diagnosticar la situación de la organización y generar hojas de ruta de adopción precisas. De este modo, un usuario final puede interactuar y utilizar el agente de forma directa, y consultar el material complementario en el portal web cuando necesite comprender el detalle de algún concepto, actividad o plantilla técnica del proceso.
+
 ---
 
 ## Portal de validación por expertos
