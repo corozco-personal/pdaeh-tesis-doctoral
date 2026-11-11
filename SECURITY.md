@@ -1,34 +1,38 @@
-# Security Policy: PDAEH Repository
+# Política de seguridad: Repositorio PDAEH
 
-## Supported Versions
+## Versiones soportadas
 
-| Project / Component | Supported | Status |
-| ------------------- | --------- | ------ |
-| PDAEH Framework     | v1.0.x    | Active |
-| PDAEH Web Portal    | v1.0.x    | Active |
-| PDAEH Advisor Agent | v1.0.x    | Active |
+| Proyecto / Componente | Versión soportada | Estado |
+| :--- | :--- | :--- |
+| Marco metodológico PDAEH | v1.0.x | Activo |
+| Portal web interactivo PDAEH | v1.0.x | Activo |
+| Agente consultor PDAEH Advisor | v1.0.x | Activo |
 
-## Reporting a Vulnerability
+---
 
-We take the security of the PDAEH framework, its deployment assets, and its AI consultation tools seriously.
+## Reporte de vulnerabilidades
 
-If you discover a security vulnerability, sensitive data leakage, or credential exposure within this repository, please do **NOT** open a public issue.
+La seguridad, la integridad metodológica y la protección de datos en el marco PDAEH, sus recursos web y las herramientas de asistencia basadas en inteligencia artificial son prioritarias para el equipo de investigación.
 
-### Reporting Procedure:
-1. Contact the primary researcher directly via email:
-   - **Carlos Orozco**: `carlosorozco@unicauca.edu.co`
-2. Include in your report:
-   - Detailed description of the vulnerability.
-   - Affected file, component, or endpoint.
-   - Steps or proof-of-concept (PoC) to reproduce the issue.
-   - Potential impact on quantum or classical enterprise infrastructure.
+Si identificas alguna vulnerabilidad de seguridad, fuga de información sensible o exposición indebida de credenciales en este repositorio, te solicitamos **NO** abrir una incidencia pública (*issue*).
 
-## Security Constraints & Best Practices for PDAEH Deployments
+### Procedimiento para el reporte:
+1. Contacta directamente al investigador principal por correo electrónico:
+   - **Carlos Eduardo Orozco Garcés**: `carlosorozco@unicauca.edu.co`
+2. Incluye en tu mensaje:
+   - Descripción técnica detallada del hallazgo.
+   - Archivo, componente o ruta afectada.
+   - Pasos para reproducir la vulnerabilidad o prueba de concepto (PoC).
+   - Evaluación del impacto potencial sobre la arquitectura clásica o la infraestructura cuántica.
 
-1. **Post-Quantum Cryptography (PQC) Readiness:**
-   - Architectural decisions must consider NIST-standardized post-quantum algorithms (ML-KEM / Crystals-Kyber, ML-DSA / Crystals-Dilithium, SLH-DSA / SPHINCS+) when classical-quantum communication channels are exposed.
-2. **Access Control & API Tokens:**
-   - Quantum Processing Unit (QPU) provider API keys (IBM Quantum, AWS Braket, Azure Quantum) must **never** be hardcoded into configuration repositories, web portal frontends, or client-side JavaScript.
-   - Always inject QPU tokens via secure secret managers and backend proxies.
-3. **Model & Agent Guardrails:**
-   - Implementations of the PDAEH Advisor Agent must adhere strictly to `agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md` to prevent architectural hallucination, unauthorized scope creep, or bypassing of Architecture Governance Body (OGA) checkpoints.
+---
+
+## Restricciones de seguridad y buenas prácticas en implementaciones PDAEH
+
+1. **Preparación para Criptografía Post-Cuántica (PQC):**
+   - Toda decisión arquitectónica que involucre canales de comunicación entre sistemas clásicos y procesadores cuánticos (QPU) debe prever la adopción de algoritmos post-cuánticos estandarizados por el NIST (ML-KEM / Crystals-Kyber, ML-DSA / Crystals-Dilithium, SLH-DSA / SPHINCS+), mitigando riesgos de almacenamiento previo y descifrado futuro (*Harvest Now, Decrypt Later*).
+2. **Control de acceso y claves de API:**
+   - Las claves de API y credenciales de acceso a proveedores cuánticos en la nube (IBM Quantum, AWS Braket, Azure Quantum) **jamás** deben quedar registradas en repositorios de código, configuraciones públicas ni scripts cliente.
+   - Deben gestionarse mediante bóvedas seguras de secretos (*Secret Managers*) y proxies de backend autenticados.
+3. **Guardrails y gobernanza estricta del agente consultor:**
+   - Toda instancia del agente PDAEH Advisor debe ceñirse a las especificaciones formales inmutables (`agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md` y `PDAEH_SPECIFICATION_V1.json`) para impedir alucinaciones arquitectónicas, garantizar la inmunidad frente a inyecciones de instrucciones (*jailbreaks*) y respetar taxativamente los puntos de control del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
