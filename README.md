@@ -10,7 +10,7 @@ El detalle integral de todos los componentes metodológicos que conforman el pro
 
 <div align="center">
   <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
-    <img src="diagramas/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
+    <img src="assets/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
   </a>
   <p>
     <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Enlace directo</strong></a>
