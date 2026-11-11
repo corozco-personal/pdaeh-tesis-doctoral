@@ -154,7 +154,9 @@ function renderRoles(index=0){
   const rawHeaders = t.rows[0];
   const headers = ["Perfil"].concat(rawHeaders);
 
-  const isShortOrDash = (str) => {
+  const isShortOrDash = (str, headerName = "") => {
+    const h = cleanText(headerName).toLowerCase();
+    if (h.includes("nivel") || h.includes("intervenci")) return true;
     const val = cleanText(str).trim();
     if (!val || val === "—" || val === "-" || val === "–" || val === "N/A" || val === "n/a") return true;
     // Check if it's an acronym or list of acronyms like 'AEP', 'ASP, AIP, OGA ASecP y GPA'
@@ -185,7 +187,7 @@ function renderRoles(index=0){
       let cells = `<td><span class="role-avatar" aria-hidden="true">${initials(r[0])}</span></td>`;
       r.forEach((c, cIdx) => {
         const cleaned = esc(cleanText(c));
-        const centerStyle = isShortOrDash(c) ? ' style="text-align:center !important;"' : '';
+        const centerStyle = isShortOrDash(c, rawHeaders[cIdx]) ? ' style="text-align:center !important;vertical-align:middle !important;"' : '';
         if (cIdx === tipoIdx) {
           if (spans[idx]) {
             cells += `<td rowspan="${spans[idx]}" style="vertical-align:middle;font-weight:700;background:#fff;text-align:center !important;">${cleaned}</td>`;
@@ -199,9 +201,9 @@ function renderRoles(index=0){
   } else {
     rowsHtml = t.rows.slice(1).map(r => {
       let cells = `<td><span class="role-avatar" aria-hidden="true">${initials(r[0])}</span></td>`;
-      r.forEach(c => {
+      r.forEach((c, cIdx) => {
         const cleaned = esc(cleanText(c));
-        const centerStyle = isShortOrDash(c) ? ' style="text-align:center !important;"' : '';
+        const centerStyle = isShortOrDash(c, rawHeaders[cIdx]) ? ' style="text-align:center !important;vertical-align:middle !important;"' : '';
         cells += `<td${centerStyle}>${cleaned}</td>`;
       });
       return `<tr>${cells}</tr>`;
