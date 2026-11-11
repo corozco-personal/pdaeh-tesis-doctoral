@@ -282,23 +282,42 @@ const artifactInfo = {
 function renderArtifacts() {
   const container = $("#artifactTemplates");
   if (!container) return;
-  container.innerHTML = artifactCodes.map((code, i) => {
+  const rows = artifactCodes.map(code => {
     const info = artifactInfo[code] || { queEs: artifactNames[code], paraQueSirve: "Plantilla estandarizada del proceso." };
-    return `<article class="artifact-card">
-      <span>${String(i + 1).padStart(2, "0")}</span>
-      <div>
-        <h3>${code} - ${artifactNames[code]}</h3>
-        <p style="margin-bottom:0.4rem;text-align:justify;"><strong>¿Qué es?</strong> ${info.queEs}</p>
-        <p style="margin-bottom:0.7rem;color:var(--ink-light);text-align:justify;"><strong>¿Para qué sirve e importancia?</strong> ${info.paraQueSirve}</p>
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:0.5rem;">
-          <a href="plantilla.html?id=${code}" style="font-weight:700;">Consultar plantilla <span aria-hidden="true">→</span></a>
-          <span style="color:var(--line);">|</span>
-          <a href="assets/descargas/docx/Plantilla_${code}.docx" download style="font-size:0.86rem;color:var(--muted);text-decoration:none;">📄 DOCX</a>
-          <a href="assets/descargas/latex/Plantilla_${code}.tex" download style="font-size:0.86rem;color:var(--muted);text-decoration:none;">📝 LaTeX</a>
+    const desc = `${info.queEs} ${info.paraQueSirve}`;
+    return `<tr>
+      <td style="text-align:center;vertical-align:middle;font-weight:700;"><a href="plantilla.html?id=${code}" style="color:var(--green);text-decoration:none;">${code}</a></td>
+      <td style="vertical-align:middle;font-weight:600;"><a href="plantilla.html?id=${code}" class="artifact-link">${artifactNames[code]}</a></td>
+      <td style="vertical-align:middle;text-align:justify;">${desc}</td>
+      <td style="vertical-align:middle;text-align:center;white-space:nowrap;">
+        <div style="display:inline-flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;">
+          <a href="plantilla.html?id=${code}" class="artifact-link" style="font-weight:700;font-size:0.85rem;margin-right:4px;">Ver</a>
+          <a href="assets/descargas/markdown/Plantilla_${code}.md" download title="Descargar plantilla Markdown (.MD)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.MD</a>
+          <a href="assets/descargas/docx/Plantilla_${code}.docx" download title="Descargar plantilla Word (.DOCX)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.DOCX</a>
+          <a href="assets/descargas/latex/Plantilla_${code}.tex" download title="Descargar plantilla LaTeX (.TEX)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.TEX</a>
         </div>
-      </div>
-    </article>`;
+      </td>
+    </tr>`;
   }).join("");
+
+  container.innerHTML = `<section class="numbered-table" style="margin-top:1.5rem;">
+    <h4 style="font-family:Newsreader,serif;font-size:1.35rem;font-weight:600;margin:0 0 1rem;text-align:center;color:var(--ink);">Catálogo de plantillas normalizadas de artefactos arquitectónicos</h4>
+    <div class="table-shell">
+      <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
+        <thead>
+          <tr style="background:#eaf1fb;color:#1f2a44;">
+            <th style="padding:10px;border:1px solid var(--line);width:90px;text-align:center;vertical-align:middle;">Identificador</th>
+            <th style="padding:10px;border:1px solid var(--line);width:26%;text-align:left;vertical-align:middle;">Nombre</th>
+            <th style="padding:10px;border:1px solid var(--line);text-align:left;vertical-align:middle;">Descripción</th>
+            <th style="padding:10px;border:1px solid var(--line);width:240px;text-align:center;vertical-align:middle;">Plantillas</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  </section>`;
 }
 function renderGlossary(){if(!data.glossaries?.length)return;const target=$("#glossaryTables");target.innerHTML=data.glossaries.map(g=>{const keep=g.rows[0].map((h,i)=>({h,i})).filter(x=>!cleanText(x.h).toLocaleLowerCase().includes("fuente"));return table(cleanText(g.caption.replace(/^Tabla\s+\d+\.\s*/,"")),keep.map(x=>x.h),g.rows.slice(1).map(r=>`<tr>${keep.map(x=>`<td>${esc(cleanText(r[x.i]||""))}</td>`).join("")}</tr>`))}).join("")}
 function setupSearch(){const dialog=$("#searchDialog"),input=$("#searchInput"),results=$("#searchResults");$("#searchTrigger").onclick=()=>{dialog.showModal();input.focus()};input.oninput=()=>{const q=input.value.toLocaleLowerCase().trim();if(q.length<2){results.innerHTML="";return}const hits=[...Object.entries(elementNames).map(([code,name])=>({code,name,url:"#modelo"})),...phaseNames.map((name,i)=>({code:`F${i+1}`,name,url:`fase.html?id=${i+1}`})),...artifactCodes.map(code=>({code,name:artifactNames[code],url:`plantilla.html?id=${code}`}))].filter(x=>(x.code+x.name).toLocaleLowerCase().includes(q));results.innerHTML=hits.map(h=>`<a href="${h.url}"><b>${h.code}</b><span>${h.name}</span></a>`).join("")}}
