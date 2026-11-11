@@ -58,49 +58,21 @@ sequenceDiagram
 
 ## Guía de instalación del agente y skill
 
-Puedes instalar y activar el skill consultor de forma inmediata mediante un **comando directo de una sola línea** (Opción 1), o configurarlo manualmente en plataformas web (Opción 2).
+Para instalar y activar el **Skill PDAEH** en cualquier agente o entorno de desarrollo (Antigravity, Gemini CLI, Claude Code, Cursor) sin tener que copiar archivos a mano, basta con ejecutar el siguiente comando en la terminal:
 
-### Opción 1: Instalación del skill con un solo comando (Recomendada)
-
-Para instalar y activar el **Skill PDAEH** en tu agente o entorno de desarrollo (Antigravity, Gemini CLI, Claude Code, Cursor) sin tener que copiar archivos a mano, ejecuta el siguiente comando en tu terminal:
+### Instalación global (recomendada para todas las sesiones y proyectos)
 
 ```bash
 curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash -s -- --global
 ```
 
-Si prefieres instalarlo únicamente dentro del proyecto o espacio de trabajo actual (`.agents/skills/pdaeh-advisor/`):
+### Instalación local (únicamente en el proyecto o espacio de trabajo actual)
 
 ```bash
 curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash
 ```
 
-El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento (`knowledge_base_pdaeh.json`).
-
----
-
-### Opción 2: Configuración en clientes web de inteligencia artificial (Gems, Projects, Custom GPTs)
-
-Si prefieres interactuar con el agente a través de una interfaz de chat web, utiliza los archivos empaquetados en [`agente-pdaeh-consultor/`](./agente-pdaeh-consultor/):
-
-#### Opción A: Google Gemini (Gems)
-1. Ingresa a [gemini.google.com](https://gemini.google.com) y accede al **Administrador de Gems** (*Nuevo Gem*).
-2. **Nombre:** `PDAEH Advisor - Consultor de Arquitectura Cuántica`
-3. **Instrucciones:** Pega el contenido de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
-4. **Archivos de conocimiento:** Adjunta [`PDAEH_SPECIFICATION_V1.json`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json) y [`PDAEH_SPECIFICATION_V1.md`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md).
-5. Guarda y comienza la consulta.
-
-#### Opción B: Anthropic Claude (Projects)
-1. En [claude.ai](https://claude.ai), accede a **Projects** y haz clic en **Create Project**.
-2. **Project Name:** `PDAEH Advisor`
-3. **Project Instructions:** Pega el contenido de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
-4. **Project Knowledge:** Sube [`knowledge_base_pdaeh.json`](./agente-pdaeh-consultor/knowledge_base_pdaeh.json) y [`PDAEH_SPECIFICATION_V1.json`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json).
-
-#### Opción C: OpenAI ChatGPT (Custom GPTs)
-1. En [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor), crea un nuevo GPT.
-2. **Instructions:** Pega el contenido de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
-3. **Knowledge:** Sube [`agente-pdaeh-consultor/knowledge_base_pdaeh.json`](./agente-pdaeh-consultor/knowledge_base_pdaeh.json).
-
----
+El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional de actividades (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento estructurada (`knowledge_base_pdaeh.json`), dejando el skill listo para su invocación inmediata.
 
 ## Ejemplo de diagnóstico y mapa de adopción generado por el agente
 
