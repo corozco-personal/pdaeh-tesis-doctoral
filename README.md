@@ -6,6 +6,7 @@ Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para l
 
 - **Carlos Eduardo Orozco Garcés** (Autor)
 - **César Jesús Pardo Calvache** (Director)
+- **Ricardo Pérez del Castillo** (Codirector)
 
 **Universidad del Cauca**  
 Doctorado en Ciencias de la Computación  
