@@ -4,17 +4,18 @@ Repositorio oficial del **Proceso para la Definición de Arquitecturas Empresari
 
 ---
 
-## 🌐 Acceso al Portal Interactivo de Validación por Expertos
+## 🌐 Portal de Validación por Expertos
 
-El portal web oficial de evaluación, consulta interactiva y descarga de plantillas normativas se encuentra desplegado y accesible públicamente en:
-
-👉 **[https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site](https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site)**
+El portal web oficial de evaluación, consulta interactiva y descarga de plantillas normativas se encuentra disponible para su acceso público:
 
 <div align="center">
   <a href="https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site" target="_blank">
     <img src="diagramas/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
   </a>
-  <p><em>Escanea el código QR o haz clic en él para acceder directamente al portal de validación.</em></p>
+  <p>
+    👉 <a href="https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site" target="_blank"><strong>Enlace directo</strong></a>
+  </p>
+  <p><em>Escanea el código QR o utiliza el enlace directo para ingresar al portal web.</em></p>
 </div>
 
 ---
