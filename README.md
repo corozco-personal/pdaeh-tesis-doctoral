@@ -1,11 +1,21 @@
 # PDAEH: Proceso para la Definición de Arquitecturas Empresariales Híbridas (Clásicas-Cuánticas)
 
-Repositorio oficial del **Proceso para la Definición de Arquitecturas Empresariales Híbridas (PDAEH)**, desarrollado como parte de la tesis doctoral en Ingeniería de la **Universidad del Cauca** por **Carlos Orozco**.
+Repositorio oficial del **Proceso para la Definición de Arquitecturas Empresariales Híbridas (PDAEH)**, desarrollado como parte de la investigación doctoral en Ingeniería de la **Universidad del Cauca** por **Carlos Orozco**.
 
-Este repositorio unifica:
-1. 🌐 **El Portal Web de Validación por Expertos**: Interfaz interactiva completa que expone el estudio exploratorio, la revisión sistemática de literatura (RSL), la armonización de elementos, las 5 fases del proceso, los 9 roles consolidados y las 15 plantillas normativas descargables (`.docx` y `.tex`).
-2. 🤖 **El Agente Consultor PDAEH (Spec-Driven AI Agent)**: Especificación formal, guardrails anti-alucinación y configuración lista para desplegar en **Google Gemini (Gems)**, **Anthropic Claude (Projects)**, **OpenAI ChatGPT (Custom GPTs)** o agentes locales.
-3. 📐 **Diagramas y Modelado Arquitectural**: Fuentes vectoriales editables (`.drawio`, `.svg`) de las vistas y fases metodológicas.
+---
+
+## 🌐 Acceso al Portal Interactivo de Validación por Expertos
+
+El portal web oficial de evaluación, consulta interactiva y descarga de plantillas normativas se encuentra desplegado y accesible públicamente en:
+
+👉 **[https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site](https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site)**
+
+<div align="center">
+  <a href="https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site" target="_blank">
+    <img src="diagramas/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
+  </a>
+  <p><em>Escanea el código QR o haz clic en él para acceder directamente al portal de validación.</em></p>
+</div>
 
 ---
 
@@ -46,7 +56,7 @@ graph TD
 
 ---
 
-### 2. Flujo de las 5 Fases del Proceso y Puntos de Control OGA
+### 2. Flujo Metodológico de las 5 Fases y Puntos de Control OGA
 
 ```mermaid
 flowchart TD
@@ -119,7 +129,13 @@ flowchart LR
 
 ---
 
-## 🤖 Arquitectura del Agente Consultor Spec-Driven
+## 🤖 Agente Consultor PDAEH (Spec-Driven AI Agent)
+
+El agente **PDAEH-Advisor** permite a cualquier empresa u organización interactuar con un consultor virtual especializado que:
+1. Diagnostica su situación técnica y de negocio (*As-Is*).
+2. Determina si su problema presenta idoneidad o ventaja cuántica real (o si debe mantenerse clásico).
+3. Asigna los 9 roles metodológicos según el tamaño de su equipo.
+4. Genera una hoja de ruta accionable estructurada en las 5 fases del PDAEH con sus 15 artefactos normativos y puntos de aprobación OGA.
 
 ```mermaid
 sequenceDiagram
@@ -138,6 +154,90 @@ sequenceDiagram
     Agent->>OGA: Estructura plan con compuertas OGA-1 a OGA-5
     Agent->>Templates: Entrega secciones clave para DOE, MTA, DCA...
     Agent-->>User: Roadmap de adopción paso a paso
+```
+
+---
+
+## 🛠️ Instrucciones de Instalación del Agente
+
+El agente está diseñado para instalarse en cualquier cliente LLM moderno utilizando los archivos de la carpeta [`agente-pdaeh-consultor/`](./agente-pdaeh-consultor/):
+
+### Opción A: Google Gemini (Gems)
+1. Ve a [gemini.google.com](https://gemini.google.com) y abre el **Administrador de Gems** (*Nuevo Gem*).
+2. **Nombre:** `PDAEH Advisor - Consultor de Arquitectura Cuántica`
+3. **Instrucciones:** Copia y pega el contenido completo de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
+4. **Conocimiento / Archivos adjuntos:** Sube los archivos [`PDAEH_SPECIFICATION_V1.json`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json) y [`PDAEH_SPECIFICATION_V1.md`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md).
+5. Guarda el Gem.
+
+### Opción B: Anthropic Claude (Projects)
+1. En [claude.ai](https://claude.ai), dirígete a **Projects** y haz clic en **Create Project**.
+2. **Project Name:** `PDAEH Advisor`
+3. **Project Instructions:** Copia y pega el contenido de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
+4. **Project Knowledge:** Sube [`agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json) y [`PDAEH_SPECIFICATION_V1.md`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md).
+
+### Opción C: OpenAI ChatGPT (Custom GPT)
+1. En [chatgpt.com](https://chatgpt.com), ve a **Explore GPTs** $\rightarrow$ **+ Create** $\rightarrow$ pestaña **Configure**.
+2. **Name:** `PDAEH Advisor`
+3. **Instructions:** Pega el texto de [`agente-pdaeh-consultor/SYSTEM_PROMPT.md`](./agente-pdaeh-consultor/SYSTEM_PROMPT.md).
+4. **Knowledge:** Sube [`PDAEH_SPECIFICATION_V1.json`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.json) y [`PDAEH_SPECIFICATION_V1.md`](./agente-pdaeh-consultor/PDAEH_SPECIFICATION_V1.md).
+5. Guarda y publica.
+
+---
+
+## 💡 Ejemplo Práctico de Uso
+
+### Mensaje Inicial del Usuario:
+> *"Hola, somos una PYME de logística con 16 desarrolladores. Operamos con microservicios en AWS. Queremos resolver el ruteo de 400 vehículos de última milla con restricciones de ventanas horarias, ya que el algoritmo genético clásico tarda más de 3 horas en converger. ¿Cómo nos diagnostica PDAEH y cuál es nuestro plan de acción?"*
+
+### Respuesta Generada por el Agente (Estructura Determinista):
+
+```markdown
+# 🏛️ DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
+
+## 1. Resumen del Perfilado Organizacional
+- **Tipo de Organización:** PYME (16 ingenieros).
+- **Problema de Negocio:** Optimización combinatoria de ruteo de vehículos (VRP / TSP extendido) con ventanas horarias.
+- **Complejidad y Familia Algorítmica:** Problema NP-hard susceptible de formulación QUBO (Quadratic Unconstrained Binary Optimization). Algoritmos candidatos: QAOA (Quantum Approximate Optimization Algorithm) o Quantum Annealing.
+- **Régimen Tecnológico Recomendado:** Fase de exploración en simuladores clásicos (Qiskit Aer / statevector) y posterior ejecución híbrida desacoplada mediante AWS Braket hacia QPUs NISQ con mitigación de error de lectura.
+
+## 2. Asignación Metodológica de Roles (PDAEH E6 para PYME)
+- **AEP (Arquitecto Empresarial):** Asumido por el CTO / Líder de Arquitectura de la PYME.
+- **ASP (Arquitecto de Solución):** Ingeniero de Software Principal (diseña las interfaces REST/gRPC y la lógica híbrida).
+- **AIP (Arquitecto de Plataforma):** Ingeniero DevOps (gestiona el pipeline CI/CD en AWS y la cola asíncrona hacia AWS Braket).
+- **EQP (Especialista Cuántico):** Consultor externo o PhD en computación cuántica por horas (modelado QUBO y transpilación).
+- **LNP (Líder de Negocio):** Director de Operaciones / Producto (define KPIs de reducción de tiempo de ruteo y costos de combustible).
+- **OGA (Órgano de Gobernanza):** Comité directivo integrado por CTO + Director de Operaciones + Asesor Cuántico.
+- **ASecP / GEP / GPA:** Asumidos de manera transversal por el CTO y DevOps.
+
+## 3. Hoja de Ruta de Implementación (Fases F1 a F5)
+
+### Fase 1: Inicio y Alineación Estratégica
+- **Actividades:** Definir el caso de negocio cuantitativo, mapear KPIs logísticos con ventaja cuántica esperada y firmar el acta del proyecto.
+- **Artefactos a diligenciar:** `DOE` (Objetivos Empresariales), `MTA` (Matriz de Trazabilidad), `DCA` (Acta de Constitución).
+- **Punto de Control OGA-1:** Aprobación del patrocinio directivo y viabilidad estratégica inicial.
+
+### Fase 2: Evaluación de Preparación Cuántica y Viabilidad
+- **Actividades:** Auditar infraestructura en AWS, formular el problema en grafo/QUBO y realizar benchmarking teórico vs. solvers clásicos (OR-Tools, Gurobi).
+- **Artefactos a diligenciar:** `MSP` (Priorización de Casos), `DPV` (Viabilidad Técnica), `DNA` (Diagnóstico As-Is).
+- **Punto de Control OGA-2:** Validación de factibilidad computacional del caso QUBO.
+
+### Fase 3: Diseño y Modelado de la Arquitectura Híbrida
+- **Actividades:** Aplicar el patrón *Split Execution* y *Variational Loop*, modelar componentes con UML extendido y definir el Utility Tree de calidad (latencia vs. fidelidad).
+- **Artefactos a diligenciar:** `ITA` (Trade-Offs), `DVA` (Vistas Arquitecturales), `MAC` (Atributos de Calidad).
+- **Punto de Control OGA-3:** Certificación y aprobación del diseño de arquitectura híbrida.
+
+### Fase 4: Implementación, Integración y Pruebas Piloto
+- **Actividades:** Construir el prototipo en Qiskit/Braket SDK, aplicar mitigación de ruido (Zero-Noise Extrapolation) y medir aceleración frente al algoritmo genético clásico.
+- **Artefactos a diligenciar:** `DEA` (Estrategia de Acceso QPU), `DCO` (Mitigación de Ruido), `BER` (Banco de Ensayos del Piloto).
+- **Punto de Control OGA-4:** Aprobación de resultados experimentales del piloto.
+
+### Fase 5: Despliegue, Monitoreo y Gobernanza Continua
+- **Actividades:** Puesta en producción como servicio asíncrono, telemetría de costos por ejecución en QPU y monitoreo de degradación.
+- **Artefactos a diligenciar:** `CEP` (Cuadro de Mando), `CPD` (Paso a Producción), `LBA` (Línea Base y Evolución).
+- **Punto de Control OGA-5:** Evaluación de retorno de inversión y evolución arquitectural hacia nuevos procesadores.
+
+## 4. Próximo Paso Inmediato
+Descargue la plantilla oficial de la Fase 1: **Documento de Objetivos Empresariales (DOE)** desde el portal web e ingrese los KPIs de despacho logístico para iniciar la evaluación del checkpoint **OGA-1**.
 ```
 
 ---
@@ -168,21 +268,9 @@ sequenceDiagram
 
 ---
 
-## 🚀 Despliegue del Portal Web
-
-El portal está construido con estándares web universales (HTML5, CSS responsivo moderno, JavaScript Vanilla) sin dependencias de frameworks externos:
-
-```bash
-cd pdaeh-evaluacion-expertos/dist
-python3 -m http.server 8085
-```
-Abre tu navegador en `http://localhost:8085`.
-
----
-
 ## 🔒 Seguridad y Gobernanza
 
-Consulta [SECURITY.md](./SECURITY.md) para conocer las directrices de ciberseguridad post-cuántica (PQC), protección de credenciales de QPUs y reporte de vulnerabilidades.
+Consulta [SECURITY.md](./SECURITY.md) para conocer las políticas de reporte de vulnerabilidades, protección de credenciales de QPUs y lineamientos de ciberseguridad post-cuántica (PQC).
 
 ---
 
