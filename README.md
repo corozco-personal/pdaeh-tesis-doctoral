@@ -4,9 +4,9 @@
 
 Este proyecto hace parte de la tesis doctoral *Arquitectura de referencia para la definición e implementación de arquitecturas de software empresariales híbridas, adaptado a las necesidades emergentes de la Ingeniería de Software Cuántica*, desarrollada por:
 
-- **Carlos Eduardo Orozco Garcés** (Autor)
-- **César Jesús Pardo Calvache** (Director)
-- **Ricardo Pérez del Castillo** (Codirector)
+- **Carlos Eduardo Orozco Garcés** (Autor) — *Universidad del Cauca, Colombia*
+- **César Jesús Pardo Calvache** (Director) — *Universidad del Cauca, Colombia*
+- **Ricardo Pérez del Castillo** (Codirector) — *Universidad de Castilla - La Mancha, España*
 
 **Universidad del Cauca**  
 Doctorado en Ciencias de la Computación  
