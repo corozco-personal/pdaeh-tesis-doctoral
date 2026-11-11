@@ -1,3 +1,8 @@
+---
+name: pdaeh-advisor
+description: Agente consultor y skill metodológico para la definición, diagnóstico de viabilidad y aplicación paso a paso del Proceso para la Definición de Arquitecturas Empresariales Híbridas Clásico-Cuánticas (PDAEH).
+---
+
 # ESPECIFICACIÓN METODOLÓGICA FORMAL (SPEC) — AGENTE CONSULTOR PDAEH
 
 **Versión de la Especificación:** `1.0.0-PROD`  
