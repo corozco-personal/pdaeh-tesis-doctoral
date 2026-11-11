@@ -1,0 +1,267 @@
+{
+  "framework": "PDAEH - Proceso para la Definición de Arquitecturas Empresariales Híbridas (Clásicas-Cuánticas)",
+  "author": "Carlos Orozco (Tesis Doctoral Universidad del Cauca)",
+  "dimensions": [
+    {
+      "name": "Dimensión Conceptual",
+      "elements": [
+        {
+          "code": "E1",
+          "name": "Tipos de integración cuántica-clásica",
+          "description": "Clasificación de modelos de integración: estrechamente acoplada (co-procesadores integrados mediante bus de baja latencia) y desacoplada (servicios asíncronos en la nube/HPC)."
+        },
+        {
+          "code": "E2",
+          "name": "Patrones arquitecturales híbridos",
+          "description": "Catálogo de patrones arquitecturales para sistemas híbridos clásico-cuánticos: Split Execution, Variational Loop / Hybrid Quantum-Classical Loop, Quantum-Assisted Optimizer, Quantum Ensemble, Circuit Knitting / Cut, Quantum Annealing Offloader."
+        },
+        {
+          "code": "E3",
+          "name": "Lenguajes y marcos de modelado",
+          "description": "Notaciones y marcos formales para la representación de componentes cuánticos y clásicos: UML extendido con estereotipos cuánticos, ArchiMate 3.x extendido, Q-BPMN y C4 Model extendido."
+        }
+      ]
+    },
+    {
+      "name": "Dimensión Organizacional",
+      "elements": [
+        {
+          "code": "E4",
+          "name": "Alineación estratégica de negocio",
+          "description": "Mecanismos formales de articulación entre los objetivos corporativos, las ventajas cuánticas esperadas y el retorno de inversión arquitectural."
+        },
+        {
+          "code": "E5",
+          "name": "Gobernanza y gestión del cambio",
+          "description": "Políticas, marcos éticos, gestión del riesgo tecnológico y planes de transición cultural para la adopción de computación cuántica."
+        },
+        {
+          "code": "E6",
+          "name": "Roles y responsabilidades organizacionales",
+          "description": "Estructura de perfiles de talento y competencias requeridas para gobernar, diseñar, construir y operar soluciones híbridas."
+        }
+      ]
+    },
+    {
+      "name": "Dimensión de Calidad y Diseño",
+      "elements": [
+        {
+          "code": "E7",
+          "name": "Atributos de calidad",
+          "description": "Requisitos no funcionales específicos de sistemas híbridos: fidelidad cuántica, tiempo de coherencia, latencia de comunicación clásico-cuántica, seguridad post-cuántica y escalabilidad en qubits."
+        },
+        {
+          "code": "E8",
+          "name": "Proceso de desarrollo de software",
+          "description": "Ciclo de vida metodológico para el ciclo iterativo de formulación, simulación clásica, optimización de circuitos, transpilación y ejecución cuántica."
+        },
+        {
+          "code": "E9",
+          "name": "Métricas de diseño y evaluación",
+          "description": "Indicadores cuantitativos y cualitativos para medir la idoneidad, costo por ejecución, error mitigation factor y aceleración cuántica (Quantum Speedup)."
+        },
+        {
+          "code": "E10",
+          "name": "Herramientas de soporte y simulación",
+          "description": "Herramientas de software, frameworks (Qiskit, Cirq, PennyLane, Braket SDK), simuladores y emuladores de ruido para el ciclo de vida del software cuántico."
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "code": "F1",
+      "name": "Inicio y Alineación Estratégica",
+      "description": "Establece la visión del negocio, define los objetivos estratégicos que justificarían una ventaja cuántica, evalúa el apetito de riesgo y conforma el equipo inicial.",
+      "oga_checkpoint": "OGA-1: Aprobación de Viabilidad Inicial y Patrocinio Ejecutivo",
+      "artifacts": [
+        "DOE",
+        "MTA",
+        "DCA"
+      ]
+    },
+    {
+      "code": "F2",
+      "name": "Evaluación de Preparación Cuántica y Viabilidad",
+      "description": "Audita la infraestructura clásica existente, evalúa la viabilidad algorítmica cuántica (NISQ vs. simuladores), prioriza casos de uso y emite un diagnóstico formal de madurez.",
+      "oga_checkpoint": "OGA-2: Veredicto de Factibilidad y Selección de Casos de Uso Candidatos",
+      "artifacts": [
+        "MSP",
+        "DPV",
+        "DNA"
+      ]
+    },
+    {
+      "code": "F3",
+      "name": "Diseño y Modelado de la Arquitectura Híbrida",
+      "description": "Diseña la arquitectura del sistema hibridando componentes clásicos y cuánticos mediante patrones arquitecturales (E2), modelado formal (E3) y análisis de trade-offs de calidad (E7).",
+      "oga_checkpoint": "OGA-3: Certificación y Aprobación del Diseño Arquitectural Híbrido",
+      "artifacts": [
+        "ITA",
+        "DVA",
+        "MAC"
+      ]
+    },
+    {
+      "code": "F4",
+      "name": "Implementación, Integración y Pruebas Piloto",
+      "description": "Implementa el prototipo o piloto en entornos de simulación y QPUs reales seleccionadas, aplica mitigación de errores, optimiza circuitos y realiza benchmarking comparativo con algoritmos clásicos.",
+      "oga_checkpoint": "OGA-4: Aprobación de Resultados del Piloto y Factibilidad de Pase a Producción",
+      "artifacts": [
+        "DEA",
+        "DCO",
+        "BER"
+      ]
+    },
+    {
+      "code": "F5",
+      "name": "Despliegue, Monitoreo y Gobernanza Continua",
+      "description": "Pone en operación el sistema híbrido, monitorea telemetría de fidelidad y costos por ejecución en QPUs, audita la ciberseguridad post-cuántica y gestiona la evolución arquitectural continua.",
+      "oga_checkpoint": "OGA-5: Evaluación de Retorno de Inversión y Autorización de Evolución Arquitectural",
+      "artifacts": [
+        "CEP",
+        "CPD",
+        "LBA"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "code": "DOE",
+      "name": "Documento de Objetivos Empresariales y Caso de Negocio",
+      "phase": "F1",
+      "purpose": "Justificar el valor estratégico y retorno de inversión de la adopción cuántica."
+    },
+    {
+      "code": "MTA",
+      "name": "Matriz de Trazabilidad Estratégico-Arquitectural",
+      "phase": "F1",
+      "purpose": "Vincular cada objetivo corporativo con componentes arquitecturales específicos."
+    },
+    {
+      "code": "DCA",
+      "name": "Documento de Constitución de la Arquitectura Híbrida",
+      "phase": "F1",
+      "purpose": "Acta formal de constitución del proyecto arquitectural y definición de alcance."
+    },
+    {
+      "code": "MSP",
+      "name": "Matriz de Selección y Priorización de Casos de Uso Candidatos",
+      "phase": "F2",
+      "purpose": "Evaluar y rankear casos de uso según ventaja cuántica esperada y complejidad técnica."
+    },
+    {
+      "code": "DPV",
+      "name": "Documento de Preparación y Viabilidad Técnica-Económica",
+      "phase": "F2",
+      "purpose": "Dictamen formal de viabilidad computacional, algoritmos seleccionados y costos de QPU."
+    },
+    {
+      "code": "DNA",
+      "name": "Diagnóstico del Nivel de Preparación Actual (As-Is)",
+      "phase": "F2",
+      "purpose": "Auditoría del estado actual de infraestructura clásica, datos y competencias de personal."
+    },
+    {
+      "code": "ITA",
+      "name": "Informe de Trade-Offs Arquitecturales y Selección de Patrones",
+      "phase": "F3",
+      "purpose": "Documentar la justificación y evaluación comparativa de patrones híbridos adoptados."
+    },
+    {
+      "code": "DVA",
+      "name": "Documento de Vistas Arquitecturales Híbridas",
+      "phase": "F3",
+      "purpose": "Vistas estructurales, de comportamiento, despliegue y datos con extensiones cuánticas."
+    },
+    {
+      "code": "MAC",
+      "name": "Matriz de Atributos de Calidad Cuántico-Clásicos",
+      "phase": "F3",
+      "purpose": "Árbol de utilidad y priorización de atributos no funcionales (latencia, fidelidad, PQC)."
+    },
+    {
+      "code": "DEA",
+      "name": "Documento de Estrategia de Adquisición y Acceso Cuántico",
+      "phase": "F4",
+      "purpose": "Definición de proveedores cuánticos (IBM Quantum, AWS Braket, Azure) y régimen contractual."
+    },
+    {
+      "code": "DCO",
+      "name": "Documento de Criterios de Optimización y Mitigación de Ruido",
+      "phase": "F4",
+      "purpose": "Técnicas de transpilación, mitigación de error de lectura y optimización de compuertas."
+    },
+    {
+      "code": "BER",
+      "name": "Banco de Ensayos y Resultados del Piloto Cuántico-Clásico",
+      "phase": "F4",
+      "purpose": "Evidencias experimentales, comparativas de tiempos clásico vs. híbrido y métricas de error."
+    },
+    {
+      "code": "CEP",
+      "name": "Cuadro de Mando y Políticas de Monitoreo Continuo",
+      "phase": "F5",
+      "purpose": "Métricas operativas de producción, alertas de degradación de fidelidad y consumo presupuestal."
+    },
+    {
+      "code": "CPD",
+      "name": "Criterios de Paso a Producción e Integración Progresiva",
+      "phase": "F5",
+      "purpose": "Protocolo de despliegue, rollback y desacoplamiento ante contingencias en la nube cuántica."
+    },
+    {
+      "code": "LBA",
+      "name": "Línea Base y Plan de Evolución Arquitectural",
+      "phase": "F5",
+      "purpose": "Hoja de ruta futura para migración hacia tolerancia a fallos (FTQC) y nuevos procesadores."
+    }
+  ],
+  "roles": [
+    {
+      "acronym": "AEP",
+      "name": "Arquitecto Empresarial Principal",
+      "focus": "Alineación estratégica, gobernanza holística y supervisión metodológica."
+    },
+    {
+      "acronym": "ASP",
+      "name": "Arquitecto de Solución Principal",
+      "focus": "Diseño detallado de módulos clásicos y cuánticos, interfaces y patrones."
+    },
+    {
+      "acronym": "AIP",
+      "name": "Arquitecto de Infraestructura y Plataforma",
+      "focus": "Canales de comunicación, Cloud/HPC, orquestación y entornos de despliegue."
+    },
+    {
+      "acronym": "EQP",
+      "name": "Especialista en Computación Cuántica",
+      "focus": "Modelado algorítmico cuántico, diseño de circuitos, mitigación de ruido y transpilación."
+    },
+    {
+      "acronym": "LNP",
+      "name": "Líder de Negocio y Producto",
+      "focus": "Definición de requisitos de negocio, ROI y priorización de casos de valor."
+    },
+    {
+      "acronym": "OGA",
+      "name": "Órgano de Gobernanza de Arquitectura",
+      "focus": "Comité colegiado que audita y emite dictámenes en los 5 checkpoints."
+    },
+    {
+      "acronym": "ASecP",
+      "name": "Arquitecto de Ciberseguridad Post-Cuántica",
+      "focus": "Cifrado robusto post-cuántico (PQC), autenticación y privacidad de datos."
+    },
+    {
+      "acronym": "GEP",
+      "name": "Gestor de Ética y Propiedad Intelectual",
+      "focus": "Patentes de algoritmos híbridos, licenciamiento y consideraciones éticas."
+    },
+    {
+      "acronym": "GPA",
+      "name": "Gestor de Plataformas Cuánticas y Accesos",
+      "focus": "Gestión de créditos de QPU, tiempos de cola en clusters y contratos con vendors."
+    }
+  ]
+}

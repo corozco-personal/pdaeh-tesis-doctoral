@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head> <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="description" content="Proceso para la Definición de Arquitecturas Empresariales Híbridas PDAEH"> <title>Proceso para la Definición de Arquitecturas Empresariales Híbridas</title> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="overrides.css"><link rel="stylesheet" href="rsl.css"><link rel="stylesheet" href="vector-figures.css">
+</head>
+<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
+
+  <nav class="breadcrumb-bar" aria-label="Miga de pan">
+    <div class="breadcrumb-nav">
+      <a href="#informacion-general">🏠 Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#revision">RSL y Exploratorio</a><span class="breadcrumb-separator">/</span><a href="#sintesis">Síntesis</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#armonizacion">Armonización</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#modelo">Modelo Integrado</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#proceso">Proceso PDAEH</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#roles">Roles</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#fases">Fases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#artefactos">Artefactos</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#glosario">Glosario</a><span class="breadcrumb-separator">/</span><a href="#referencias">Referencias</a>
+    </div>
+  </nav>
+ <main id="contenido"> <section class="intro" id="informacion-general"><div class="intro-inner"> <p class="section-number">Información general del proyecto</p><h1>Arquitectura de referencia para arquitecturas de software empresariales híbridas</h1> <div class="research-intro"><p>El estudio de la computación cuántica ha abierto oportunidades para abordar problemas de optimización, simulación y análisis que resultan difíciles para los sistemas convencionales. Esto ha llevado a que las empresas comiencen, de manera gradual, a explorar capacidades cuánticas dentro de sus ecosistemas tecnológicos.</p><p>Como resultado, la industria ha empezado a considerar arquitecturas híbridas clásico-cuánticas que articulan servicios, datos y componentes convencionales con recursos cuánticos especializados. Sin embargo, los estudios existentes se concentran principalmente en aspectos técnicos y operativos, dejando en segundo plano la definición integral de la arquitectura empresarial, su alineación estratégica, su gobierno y su incorporación en organizaciones reales.</p></div> <div class="project-overview"><article><h2>Situación que aborda</h2><p>Las propuestas disponibles son heterogéneas y no articulan de forma sistemática la estrategia, la organización, el gobierno y las decisiones tecnológicas. Esto dificulta comprenderlas, compararlas y aplicarlas de manera consistente.</p></article><article><h2>Objetivo de la investigación</h2><p id="generalObjective"></p></article><article><h2>Propuesta</h2><p>Una arquitectura de referencia que integra conocimiento académico e industrial, acompañada de un proceso sistemático y gobernable para definir arquitecturas empresariales híbridas.</p></article><article><h2>Alcance como tesis doctoral</h2><p>La investigación identifica el estado del conocimiento, armoniza propuestas, caracteriza una arquitectura de referencia y define el proceso PDAEH. Se centra en la arquitectura empresarial; no incluye la programación de algoritmos o circuitos cuánticos ni la implementación directa sobre hardware cuántico.</p></article></div> </div></section> <section class="section" id="revision">
+  <header class="section-header">
+    <p class="section-number">Origen de la propuesta</p>
+    <h2>Revisión Sistemática de la Literatura y Estudio Exploratorio</h2>
+    <div>
+      <p>
+        Para fundamentar rigurosamente la propuesta doctoral y delimitar el estado del conocimiento, se llevó a cabo una <strong>Revisión Sistemática de la Literatura (RSL)</strong> complementada con un <strong>Estudio Exploratorio de la Industria</strong>. La RSL siguió los lineamientos metodológicos formales establecidos por <strong>Kitchenham et al. (2007)</strong> para la ingeniería de software, permitiendo identificar de forma sistemática y reproducible las tendencias, modelos, directrices de diseño, atributos de calidad, desafíos y líneas futuras en torno a la arquitectura de software aplicada a la computación cuántica.
+      </p>
+    </div>
+  </header>
+
+  <!-- Fases de la RSL -->
+  <h3 style="margin:1.8rem 0 1rem;font-size:1.6rem;color:var(--ink);">Fases de la Revisión Sistemática de la Literatura</h3>
+  <div class="element-accordion" style="margin-bottom:2.5rem;">
+    <details>
+      <summary><span><b>Fase 1. Planeación de la RSL</b>: Propósito, objetivos, preguntas y criterios</span></summary>
+      <div class="element-summary-body" style="padding-top:1.2rem;">
+        <p>Establece el alcance y la rigurosidad científica de la revisión. Incluye la formulación de objetivos y preguntas de investigación, diseño de la cadena de búsqueda adaptada por motor, delimitación de literatura gris y establecimiento de criterios explícitos de inclusión, exclusión y evaluación de pertinencia.</p>
+        <figure class="wide-figure vector-figure" style="margin-top:1rem;">
+          <img src="assets/diagramas/planeacion.svg" alt="Actividades de planeación de la Revisión Sistemática de la Literatura">
+          <figcaption>Actividades que conforman la fase de planeación de la RSL.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details>
+      <summary><span><b>Fase 2. Ejecución de la RSL</b>: Búsqueda, filtrado y extracción de datos</span></summary>
+      <div class="element-summary-body" style="padding-top:1.2rem;">
+        <p>Aplica la cadena de búsqueda en los motores seleccionados, depura duplicados, aplica los criterios de inclusión/exclusión y evalúa la pertinencia de las publicaciones para conformar el corpus de estudios primarios a partir del cual se extrae la información arquitectónica estructurada.</p>
+        <figure class="wide-figure vector-figure" style="margin-top:1rem;">
+          <img src="assets/diagramas/ejecucion.svg" alt="Actividades de ejecución de la Revisión Sistemática de la Literatura">
+          <figcaption>Actividades que conforman la fase de ejecución de la RSL.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details>
+      <summary><span><b>Fase 3. Análisis y Reporte de Resultados</b>: Síntesis de evidencia y brechas</span></summary>
+      <div class="element-summary-body" style="padding-top:1.2rem;">
+        <p>Organiza cuantitativa y cualitativamente los hallazgos para responder a cada pregunta de investigación, categorizar las propuestas arquitectónicas (puramente cuánticas vs. híbridas) y sintetizar los desafíos no resueltos en la literatura que orientan la propuesta doctoral.</p>
+        <figure class="wide-figure vector-figure" style="margin-top:1rem;">
+          <img src="assets/diagramas/reporte-resultados.svg" alt="Actividades para el análisis y reporte de resultados de la RSL">
+          <figcaption>Actividades para analizar, sintetizar y reportar los resultados de la RSL.</figcaption>
+        </figure>
+      </div>
+    </details>
+  </div>
+
+  <!-- Estudio Exploratorio -->
+  <h3 style="margin:2.5rem 0 1rem;font-size:1.6rem;color:var(--ink);">Estudio Exploratorio en la Industria</h3>
+  <p style="margin-bottom:1.2rem;line-height:1.7;">
+    Con el fin de evitar sesgos puramente teóricos y contrastar los hallazgos académicos con el estado real de la práctica tecnológica, se incorporó un estudio exploratorio enfocado en reportes técnicos, plataformas operativas y arquitecturas híbridas piloto desarrolladas por organizaciones líderes de la industria (IBM, Microsoft, Google, Quantinuum).
+  </p>
+
+  <div class="element-accordion" style="margin-bottom:2.5rem;">
+    <details>
+      <summary><span><b>Fases y protocolo del estudio exploratorio</b>: Consulta de reportes y casos piloto</span></summary>
+      <div class="element-summary-body" style="padding-top:1.2rem;">
+        <div class="protocol" style="margin-bottom:1.5rem;">
+          <ol>
+            <li>Formulación del objetivo y delimitación de fuentes industriales reconocidas.</li>
+            <li>Búsqueda y selección de iniciativas comerciales, plataformas cuánticas y reportes técnicos.</li>
+            <li>Extracción de patrones prácticos, componentes estructurales y decisiones arquitectónicas reales.</li>
+            <li>Contraste y triangulación de las soluciones industriales con la evidencia académica identificada.</li>
+          </ol>
+        </div>
+        <figure class="wide-figure vector-figure">
+          <img src="assets/diagramas/estudio-exploratorio.svg" alt="Protocolo para la ejecución del estudio exploratorio">
+          <figcaption>Protocolo y actividades para la ejecución del estudio exploratorio en la industria.</figcaption>
+        </figure>
+      </div>
+    </details>
+  </div>
+
+  <!-- Nota de publicación al final de la sección RSL -->
+  <div style="margin-top:2rem;background:#f2f7f4;border-left:4px solid var(--green);padding:1.1rem 1.4rem;border-radius:4px;">
+    <p style="margin:0;font-size:0.95rem;color:var(--ink);line-height:1.65;">
+      <em>Nota de publicación:</em> El detalle metodológico, las preguntas de investigación y los resultados cuantitativos y cualitativos completos de esta revisión sistemática se encuentran publicados en: <a href="http://www.scielo.org.co/scielo.php?pid=S0124-22532024000300087&script=sci_arttext" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;text-decoration:underline;"><strong>Orozco, C., Pardo, C., &amp; Perez-Castillo, R. (2024). Tendencias emergentes y desafíos de las arquitecturas de software en la computación cuántica. Una revisión sistemática de la literatura</strong></a>.
+    </p>
+  </div>
+</section>
+
+<!-- Sección de Síntesis de Evidencia -->
+<section class="section" id="sintesis">
+  <header class="section-header">
+    <p class="section-number">Consolidación de evidencia</p>
+    <h2>Síntesis de la Evidencia Identificada</h2>
+    <div>
+      <p style="line-height:1.7;">
+        Como resultado de la ejecución rigurosa de este proceso, se consolidó un cuerpo base conformado por un total de <strong>17 estudios primarios académicos (S1–S17)</strong> y <strong>7 casos y reportes técnicos de la industria (S18–S24)</strong>, los cuales describen las tendencias, modelos preliminares, patrones estructurales y desafíos arquitectónicos emergentes, acotados rigurosamente a la fecha de corte y ejecución de la Revisión Sistemática de la Literatura.
+      </p>
+      <p style="margin-top:0.75rem;line-height:1.7;color:var(--ink-light);">
+        Es importante señalar que, desde la fecha de cierre de la revisión, se ha publicado una <strong>cantidad significativa de nuevos estudios científicos y desarrollos industriales</strong> en el ámbito de la computación cuántica y la ingeniería de software cuántica. Estas nuevas contribuciones representan insumos de gran valor que podrán ser incorporados y evaluados sistemáticamente como parte de <strong>integraciones y trabajos futuros</strong> para continuar enriqueciendo, refinando y extendiendo el alcance de la propuesta.
+      </p>
+    </div>
+  </header>
+
+  <!-- Lista desplegable con el detalle de la tabla de estudios de la tesis -->
+  <div class="element-accordion" id="tablaEstudios" style="margin-top:1.8rem;">
+    <details>
+      <summary><span><b>Detalle de los estudios primarios y reportes industriales identificados (S1–S24)</b></span></summary>
+      <div class="element-summary-body" style="padding-top:1.2rem;overflow-x:auto;">
+        <p style="margin-bottom:1rem;">A continuación se presenta el inventario consolidado de los 24 estudios y reportes técnicos analizados en la tesis doctoral (Tablas 11, 23 y 24 de la monografía):</p>
+        <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
+          <thead>
+            <tr style="background:#eaf1fb;color:#1f2a44;">
+              <th style="padding:10px;border:1px solid var(--line);width:60px;">Id</th>
+              <th style="padding:10px;border:1px solid var(--line);width:35%;">Estudio / Título</th>
+              <th style="padding:10px;border:1px solid var(--line);">Descripción y Aporte</th>
+              <th style="padding:10px;border:1px solid var(--line);width:110px;">Referencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S1" style="color:var(--green);text-decoration:none;">S1</a></td>
+      <td><strong>Software architecture for quantum computing systems — A systematic review</strong><br><small style="color:var(--muted);">Palma, K., et al. (2023) — IEEE Access</small></td>
+      <td style="text-align:justify;">Estudio exploratorio y revisión sistemática sobre procesos arquitectónicos, notaciones de modelado, patrones de diseño de arquitectura y marcos de soporte para sistemas de computación cuántica.</td>
+      <td style="text-align:center;"><a href="#REF-S1" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S2" style="color:var(--green);text-decoration:none;">S2</a></td>
+      <td><strong>Towards process centered architecting for quantum software systems</strong><br><small style="color:var(--muted);">Ahmad, A., et al. (2023) — ACM / IEEE International Conference on Software Engineering</small></td>
+      <td style="text-align:justify;">Investiga actividades de arquitectura, roles humanos y herramientas para automatizar el desarrollo centrado en procesos de arquitectura de software cuántico, validado con distribución de llaves cuánticas.</td>
+      <td style="text-align:center;"><a href="#REF-S2" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S3" style="color:var(--green);text-decoration:none;">S3</a></td>
+      <td><strong>Engineering Reliable Hybrid Quantum Software: An Architectural-driven Approach</strong><br><small style="color:var(--muted);">Pérez-Delgado, C. A., & Perez-Castillo, R. (2022) — IEEE Transactions on Software Engineering</small></td>
+      <td style="text-align:justify;">Propone modelar y analizar software cuántico híbrido extendiendo el modelo de componentes Palladio y qADL para predecir la fiabilidad e integración de componentes cuánticos en arquitecturas híbridas.</td>
+      <td style="text-align:center;"><a href="#REF-S3" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S4" style="color:var(--green);text-decoration:none;">S4</a></td>
+      <td><strong>Selection of quantum computing architecture using a decision tree approach</strong><br><small style="color:var(--muted);">Sodhi, B., & Kapur, P. (2021) — Software: Practice and Experience</small></td>
+      <td style="text-align:justify;">Propone un enfoque basado en árboles de decisión para seleccionar la arquitectura de software adecuada (annealing, computación cuántica universal o simulación) según los requisitos del proyecto.</td>
+      <td style="text-align:center;"><a href="#REF-S4" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S5" style="color:var(--green);text-decoration:none;">S5</a></td>
+      <td><strong>Quality attributes on quantum computing platforms</strong><br><small style="color:var(--muted);">Gemeinhardt, F., et al. (2021) — IEEE International Conference on Quantum Computing and Engineering (QCE)</small></td>
+      <td style="text-align:justify;">Explora las características arquitectónicas de las Plataformas de Computación Cuántica (QCPs) y evalúa su impacto en atributos de calidad clave como mantenibilidad, fiabilidad y testeabilidad.</td>
+      <td style="text-align:center;"><a href="#REF-S5" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S6" style="color:var(--green);text-decoration:none;">S6</a></td>
+      <td><strong>Challenges and Opportunities in Quantum Software Architecture</strong><br><small style="color:var(--muted);">Weder, B., et al. (2022) — European Conference on Software Architecture (ECSA)</small></td>
+      <td style="text-align:justify;">Delinea los desafíos fundamentales para integrar componentes clásicos y cuánticos en aplicaciones híbridas y formaliza preguntas rectoras sobre la transferencia de conocimientos arquitectónicos.</td>
+      <td style="text-align:center;"><a href="#REF-S6" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S7" style="color:var(--green);text-decoration:none;">S7</a></td>
+      <td><strong>A serverless cloud integration for quantum computing</strong><br><small style="color:var(--muted);">Salm, M., et al. (2021) — IEEE Cloud Computing</small></td>
+      <td style="text-align:justify;">Presenta un marco arquitectónico para integrar computación cuántica en entornos cloud serverless mediante contenedores, microservicios y funciones bajo demanda para orquestar cargas de trabajo híbridas.</td>
+      <td style="text-align:center;"><a href="#REF-S7" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S8" style="color:var(--green);text-decoration:none;">S8</a></td>
+      <td><strong>Research on Quantum Computing Standard System Architecture Roadmap</strong><br><small style="color:var(--muted);">Zhao, Y., et al. (2020) — IEEE Access</small></td>
+      <td style="text-align:justify;">Examina la necesidad de estándares internacionales para la computación cuántica y propone una hoja de ruta arquitectónica para estandarizar capas a corto, mediano y largo plazo.</td>
+      <td style="text-align:center;"><a href="#REF-S8" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S9" style="color:var(--green);text-decoration:none;">S9</a></td>
+      <td><strong>Design of classical-quantum systems with UML</strong><br><small style="color:var(--muted);">Pérez-Castillo, R., et al. (2021) — IEEE Software</small></td>
+      <td style="text-align:justify;">Propone un perfil UML cuántico que extiende diagramas estructurales y de comportamiento para modelar la integración entre componentes clásicos y cuánticos en sistemas de información.</td>
+      <td style="text-align:center;"><a href="#REF-S9" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S10" style="color:var(--green);text-decoration:none;">S10</a></td>
+      <td><strong>Hybrid Quantum Algorithms and Quantum Software Development Frameworks</strong><br><small style="color:var(--muted);">McCaskey, A., et al. (2021) — ACM Transactions on Quantum Computing</small></td>
+      <td style="text-align:justify;">Analiza el funcionamiento de algoritmos cuánticos variacionales (VQAs) y evalúa los marcos de desarrollo de software para la ejecución práctica en esquemas híbridos clásico-cuánticos.</td>
+      <td style="text-align:center;"><a href="#REF-S10" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S11" style="color:var(--green);text-decoration:none;">S11</a></td>
+      <td><strong>Quantum computing platforms: assessing the impact on quality attributes & sdlc activities</strong><br><small style="color:var(--muted);">Kumar, A., et al. (2022) — Journal of Systems and Software</small></td>
+      <td style="text-align:justify;">Evalúa el impacto de las plataformas cuánticas en las actividades del ciclo de vida del software (SDLC) y resalta el cambio de paradigma necesario en la ingeniería de software.</td>
+      <td style="text-align:center;"><a href="#REF-S11" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S12" style="color:var(--green);text-decoration:none;">S12</a></td>
+      <td><strong>The Quantum software lifecycle</strong><br><small style="color:var(--muted);">Piattini, M., et al. (2021) — IEEE Software</small></td>
+      <td style="text-align:justify;">Define un ciclo de vida para el software cuántico conformado por diez fases estructuradas, abarcando desde la partición clásico-cuántica hasta la mitigación de errores y análisis de resultados.</td>
+      <td style="text-align:center;"><a href="#REF-S12" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S13" style="color:var(--green);text-decoration:none;">S13</a></td>
+      <td><strong>Towards a distributed quantum computing ecosystem</strong><br><small style="color:var(--muted);">Cuomo, D., et al. (2020) — IEEE Transactions on Quantum Engineering</small></td>
+      <td style="text-align:justify;">Analiza los problemas abiertos en el diseño de un ecosistema distribuido y redes cuánticas (quantum internet) para intercomunicar nodos de procesamiento cuántico heterogéneos.</td>
+      <td style="text-align:center;"><a href="#REF-S13" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S14" style="color:var(--green);text-decoration:none;">S14</a></td>
+      <td><strong>Classical to Quantum Software Migration Journey Begins: A Conceptual Readiness Model</strong><br><small style="color:var(--muted);">Khan, A. A., et al. (2023) — IEEE Transactions on Engineering Management</small></td>
+      <td style="text-align:justify;">Propone un modelo de madurez conceptual para evaluar la preparación de las organizaciones durante la migración de sistemas convencionales hacia tecnologías cuánticas híbridas.</td>
+      <td style="text-align:center;"><a href="#REF-S14" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S15" style="color:var(--green);text-decoration:none;">S15</a></td>
+      <td><strong>Software Architecture Challenges in Integrating Hybrid Classical-Quantum Systems</strong><br><small style="color:var(--muted);">Leymann, F., et al. (2022) — IEEE Software</small></td>
+      <td style="text-align:justify;">Identifica los desafíos arquitectónicos derivados de la discrepancia de abstracción, madurez de herramientas y estilos de comunicación entre software clásico y hardware cuántico.</td>
+      <td style="text-align:center;"><a href="#REF-S15" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S16" style="color:var(--green);text-decoration:none;">S16</a></td>
+      <td><strong>Architecture Decisions in Quantum Software Systems: An Empirical Study on Stack Exchange and GitHub</strong><br><small style="color:var(--muted);">Shaydulin, R., et al. (2022) — ACM Transactions on Software Engineering and Methodology</small></td>
+      <td style="text-align:justify;">Estudio empírico en repositorios de código abierto y foros técnicos que mapea las decisiones de diseño arquitectónico más recurrentes y los atributos de calidad priorizados.</td>
+      <td style="text-align:center;"><a href="#REF-S16" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S17" style="color:var(--green);text-decoration:none;">S17</a></td>
+      <td><strong>Patterns for Quantum Software Development</strong><br><small style="color:var(--muted);">Leymann, F., et al. (2020) — Proceedings of the Conference on Pattern Languages of Programs (PLoP)</small></td>
+      <td style="text-align:justify;">Propone un catálogo de patrones arquitectónicos y de diseño para abordar problemas recurrentes de modularización, integración híbrida y preparación de datos en software cuántico.</td>
+      <td style="text-align:center;"><a href="#REF-S17" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S18" style="color:var(--green);text-decoration:none;">S18</a></td>
+      <td><strong>Qiskit Runtime: Hybrid Classical-Quantum Cloud Architecture</strong><br><small style="color:var(--muted);">IBM Quantum (2023) — IBM Technical Report</small></td>
+      <td style="text-align:justify;">Servicio en la nube optimizado para ejecutar cargas de trabajo híbridas en bucle cerrado clásico-cuántico con baja latencia, soporte de sesiones y mitigación de errores.</td>
+      <td style="text-align:center;"><a href="#REF-S18" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S19" style="color:var(--green);text-decoration:none;">S19</a></td>
+      <td><strong>TensorFlow Quantum (TFQ) + Cirq: Hybrid Machine Learning Architectures</strong><br><small style="color:var(--muted);">Google Quantum AI (2021) — Google AI Report</small></td>
+      <td style="text-align:justify;">Marco híbrido para diseño y entrenamiento de modelos de Machine Learning clásico-cuánticos, integrando circuitos cuánticos en pipelines convencionales de TensorFlow.</td>
+      <td style="text-align:center;"><a href="#REF-S19" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S20" style="color:var(--green);text-decoration:none;">S20</a></td>
+      <td><strong>TensorFlow Quantum: Hybrid ML-Quantum Framework</strong><br><small style="color:var(--muted);">Broughton, M., et al. (2020) — arXiv:2003.02989</small></td>
+      <td style="text-align:justify;">Plataforma de software para integración de datos cuánticos, circuitos paramétricos y diferenciación automática con recursos de cómputo GPU/TPU.</td>
+      <td style="text-align:center;"><a href="#REF-S20" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S21" style="color:var(--green);text-decoration:none;">S21</a></td>
+      <td><strong>Microsoft Azure Quantum: Integrated Hybrid Architecture</strong><br><small style="color:var(--muted);">Microsoft Quantum (2023) — Microsoft Technical Documentation</small></td>
+      <td style="text-align:justify;">Reporte técnico que detalla la arquitectura híbrida de Azure Quantum, soportando modelos por lotes, sesiones iterativas y coprocesamiento clásico-cuántico en la nube.</td>
+      <td style="text-align:center;"><a href="#REF-S21" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S22" style="color:var(--green);text-decoration:none;">S22</a></td>
+      <td><strong>Integrated Hybrid Quantum Computing with Logical Qubits</strong><br><small style="color:var(--muted);">Microsoft & Quantinuum (2024) — Joint Technical Announcement</small></td>
+      <td style="text-align:justify;">Implementación de arquitectura híbrida integrada que combina trampas de iones y control clásico para generar qubits lógicos fiables y ejecutar mediciones intermedias.</td>
+      <td style="text-align:center;"><a href="#REF-S22" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S23" style="color:var(--green);text-decoration:none;">S23</a></td>
+      <td><strong>Fault-Tolerant Quantum Architecture & Qubit Virtualization Report</strong><br><small style="color:var(--muted);">Quantinuum (2024) — Quantinuum Technical Whitepaper</small></td>
+      <td style="text-align:justify;">Informe técnico sobre integración de hardware cuántico y capas clásicas de control en tiempo real para optimizar las tasas de fidelidad lógica.</td>
+      <td style="text-align:center;"><a href="#REF-S23" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr><tr>
+      <td style="text-align:center;font-weight:700;"><a href="#REF-S24" style="color:var(--green);text-decoration:none;">S24</a></td>
+      <td><strong>Digital-Analog Hybrid Physical Simulation</strong><br><small style="color:var(--muted);">Google Quantum AI (2025) — Google AI Lab Report</small></td>
+      <td style="text-align:justify;">Reporte sobre la orquestación híbrida entre simulación digital y emulación analógica sobre procesadores cuánticos superconductores de 69 qubits.</td>
+      <td style="text-align:center;"><a href="#REF-S24" class="artifact-link" style="font-weight:600;">Ver referencia</a></td>
+    </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+<section class="section" id="armonizacion">
+  <header class="section-header">
+    <p class="section-number">Estructuración del conocimiento</p>
+    <h2>Proceso para llevar a cabo la armonización de los estudios y propuestas identificados en el estado del arte</h2>
+    <div>
+      <p style="line-height:1.7;">
+        El propósito de la armonización es estructurar, unificar y estandarizar el conocimiento obtenido en la RSL y el estudio exploratorio de la industria, integrando propuestas heterogéneas en un modelo conceptual cohesivo antes de derivar las actividades y fases del proceso.
+      </p>
+    </div>
+  </header>
+
+  <!-- Protocolo de armonización -->
+  <div class="harmony-steps">
+    <article><h4>1. Homogeneización</h4><ul><li>Adquirir conocimiento sobre los modelos involucrados.</li><li>Identificar los requerimientos comunes.</li><li>Analizar correspondencias entre elementos y estudios.</li><li>Consolidar diez elementos comparables.</li></ul></article>
+    <article><h4>2. Comparación</h4><ul><li>Analizar la base de conocimiento previa.</li><li>Diseñar los criterios de comparación.</li><li>Comparar los elementos con la literatura y con las propuestas industriales.</li><li>Determinar cobertura, coincidencias y brechas.</li></ul></article>
+    <article><h4>3. Integración</h4><ul><li>Definir criterios y términos de integración.</li><li>Clasificar cada elemento como mantenido, ajustado o extendido.</li><li>Integrar los resultados y preservar su trazabilidad.</li><li>Presentar el modelo integrado.</li></ul></article>
+    <article><h4>4. Clasificación en dimensiones</h4><ul><li>Fragmentar semánticamente las definiciones.</li><li>Aplicar codificación abierta.</li><li>Aplicar codificación axial.</li><li>Agrupar los elementos en ejes conceptuales.</li></ul></article>
+  </div>
+
+  <!-- Transición fluida a los resultados sin introducir un nuevo título -->
+  <div style="margin-top:2.5rem;">
+    <p style="line-height:1.7;font-size:1.05rem;">
+      Como resultado de la ejecución de este proceso de armonización, se obtuvo un <strong>modelo de referencia integrado</strong> que consolida <strong>diez elementos estructurales (E1–E10)</strong> organizados en <strong>tres dimensiones arquitectónicas</strong> (Conceptual, Organizativa, y de Calidad y Diseño). Esta estructura fundamenta la arquitectura de referencia que posteriormente se operacionaliza mediante el proceso PDAEH.
+    </p>
+  </div>
+
+  <div class="definition" style="margin-top:1.5rem;">
+    <h3>Dimensión en el contexto de este proyecto</h3>
+    <p>Una dimensión es un eje conceptual que agrupa elementos relacionados por su función, propósito o papel dentro de la arquitectura de referencia. Las dimensiones reducen la complejidad del modelo, separan preocupaciones y permiten analizar cómo varios elementos contribuyen a una misma finalidad arquitectónica.</p>
+  </div>
+
+  <figure class="model-figure vector-figure">
+    <img src="assets/diagramas/vision-general.svg" alt="Visión general de los diez elementos agrupados en tres dimensiones">
+    <figcaption>Visión general de los elementos y las dimensiones obtenidos como resultado de la armonización.</figcaption>
+  </figure>
+
+  <div class="dimensions" id="dimensions"></div>
+  <div class="elements-explained" id="elementsExplained" style="margin-top:2.5rem;"></div>
+
+  <!-- Nota de publicación al final de la sección unificada -->
+  <div style="margin-top:2.5rem;background:#f2f7f4;border-left:4px solid var(--green);padding:1.1rem 1.4rem;border-radius:4px;">
+    <p style="margin:0;font-size:0.95rem;color:var(--ink);line-height:1.65;">
+      <em>Nota de publicación:</em> El método formal y los resultados de este proceso de armonización fueron publicados en la revista <em>Ingeniería Solidaria</em>: <a href="https://revistas.ucc.edu.co/index.php/in/es/article/view/5610" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;text-decoration:underline;"><strong>Orozco, C., Pardo, C., Perez-Castillo, R., &amp; Sepúlveda, S. (2026). Towards a hybrid classical–quantum software architecture derived from literature harmonization</strong></a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="proceso">
+  <header class="section-header">
+    <p class="section-number">Operacionalización de la propuesta</p>
+    <h2>Proceso para la implementación de la arquitectura de referencia</h2>
+    <div style="width:100%;">
+      <p style="margin-bottom:0.85rem;line-height:1.75;text-align:justify;">
+        Con base en la evidencia académica e industrial consolidada en la Revisión Sistemática de la Literatura, la homogeneización y la derivación topológica de dependencias mediante la <em>Design Structure Matrix (DSM)</em>, se obtuvo un <strong>proceso metodológico sistemático, reproducible y gobernable</strong> para la definición e implementación de arquitecturas de software empresariales híbridas clásico-cuánticas, denominado <strong>PDAEH</strong>.
+      </p>
+      <p style="margin-bottom:0.85rem;line-height:1.75;text-align:justify;">
+        El proceso está conformado por un conjunto articulado de actividades, productos de trabajo, artefactos normalizados, mecanismos de trazabilidad y órganos de gobierno, caracterizados y estructurados formalmente en un total de <strong>cinco fases consecutivas</strong>: (i) <em>Fase 1: Definición estratégica</em>, orientada a establecer el propósito y contexto institucional; (ii) <em>Fase 2: Formalización conceptual</em>, encargada de fijar los niveles de abstracción y el vocabulario común; (iii) <em>Fase 3: Configuración estructural</em>, dedicada a especificar las estructuras lógicas y los atributos de calidad rectores; (iv) <em>Fase 4: Materialización arquitectónica</em>, enfocada en consolidar componentes técnicos concretos y activos reutilizables; y (v) <em>Fase 5: Sistematización del diseño</em>, orientada a catalogar estilos, patrones arquitectónicos y patrones de diseño en una <strong>Línea Base Arquitectónica (LBA)</strong> formalmente validada por el Órgano de Gobierno Arquitectónico (OGA).
+      </p>
+    </div>
+  </header>
+  <figure class="wide-figure macro-figure"><img src="assets/jiisic/proceso_pdaeh.svg" alt="Construcción general del proceso PDAEH"><figcaption>Vista general de la evidencia, la armonización, el análisis de dependencias y las fases resultantes.</figcaption></figure> <section class="subsection"><h3>Metodología para derivar las fases que conforman el proceso</h3><p>La metodología Design Structure Matrix representa las dependencias semánticas, estructurales y normativas entre E1–E10. El análisis produce un orden topológico y cinco subconjuntos consecutivos, que se formalizan como fases.</p><figure class="wide-figure macro-figure"><img src="assets/jiisic/derivacion_fases_dsm.svg" alt="Derivación de las fases mediante Design Structure Matrix"><figcaption>Derivación metodológica de los diez elementos armonizados hacia las cinco fases del proceso.</figcaption></figure>
+<p style="margin-top:1.4rem;background:#f8faf9;border-left:4px solid var(--green);padding:1rem 1.4rem;border-radius:4px;color:var(--ink-light);line-height:1.7;">
+  <strong>Nota metodológica:</strong> El detalle metodológico, las matrices intermedias, los criterios formales de precedencia y la descomposición pormenorizada de cada una de las actividades y etapas que conforman la aplicación de la Design Structure Matrix (DSM) se explican y desarrollan exhaustivamente en el <em>Capítulo III y IV de la tesis doctoral</em>. Dicho desglose técnico no se profundiza en este portal para no desviar la atención del panel de evaluadores ni sobrecargar la navegación, permitiendo que el proceso de evaluación permanezca focalizado en la pertinencia, coherencia y aplicabilidad del <strong>proceso metodológico PDAEH</strong>.
+</p>
+</section> <section class="subsection"><h3>Caracterización del proceso</h3><p>La caracterización se presenta en el mismo orden del documento: alcance y plantillas, glosario, definición de roles, documentación del proceso a nivel macro, actividad transversal de revisión de líneas base y desarrollo de las cinco fases.</p> <ol class="contents-list"><li><a href="#macroGrid">Alcance y documentación macro del proceso</a></li><li><a href="#artefactos">Plantillas definidas para documentar el proceso</a></li><li><a href="#glosario">Glosario de términos</a></li><li><a href="#roles">Definición de roles</a></li><li><a href="#macroGrid">Documentación del proceso a nivel macro</a></li><li><a href="#actividad-transversal">Actividad transversal: revisión de líneas base</a></li><li><a href="#fases">Fases 1 a 5</a></li><li><a href="fase.html?id=5#cierre">Cierre del proceso</a></li></ol><div class="macro-grid" id="macroGrid"></div> </section>
+
+  <div style="margin-top:2.2rem;background:#f2f7f4;border-left:4px solid var(--green);padding:1.1rem 1.4rem;border-radius:4px;">
+    <p style="margin:0;font-size:0.95rem;color:var(--ink);line-height:1.65;">
+      <em>Nota de publicación:</em> La derivación metodológica, formalización de fases y estructura operativa del proceso PDAEH fue presentada y se encuentra en proceso de revisión y publicación en las <strong>XXII Jornadas Iberoamericanas de Ingeniería de Software e Ingeniería del Conocimiento (JIISIC 2026)</strong>.
+    </p>
+  </div>
+ <section class="subsection" id="roles"><h3>Definición de roles</h3><p>El proceso define nueve roles y adapta su distribución a la capacidad organizacional de microempresas o startups, pequeñas y medianas empresas y grandes empresas.</p><figure class="wide-figure macro-figure"><img src="assets/jiisic/roles_por_tamano_empresa.svg" alt="Distribución de roles según el tamaño de la empresa"><figcaption>Distribución y consolidación de roles según el tamaño y la madurez organizacional.</figcaption></figure><div class="switcher" id="roleTabs"></div><div class="table-shell" id="roleTable"></div></section> <section class="subsection" id="actividad-transversal"><h3>Actividad transversal: revisión de líneas base</h3><p>Al finalizar cada fase, el Arquitecto Empresarial del Proceso remite los artefactos al Órgano de Gobierno Arquitectónico. La aprobación habilita la siguiente fase; las observaciones activan un ciclo de ajuste y nueva revisión.</p><figure class="wide-figure macro-figure"><img src="assets/jiisic/flujo_fases_linea_base.svg" alt="Flujo de fases y consolidación de líneas base"><figcaption>Vista macro de la progresión entre fases y la consolidación incremental de las líneas base arquitectónicas.</figcaption></figure> <div class="transversal-io"><article><h4>Entradas</h4><ul><li>Paquete de artefactos generado en la fase.</li><li>Línea base arquitectónica de la fase.</li><li>Criterios de aceptación e indicadores de cumplimiento.</li><li>Observaciones pendientes de revisiones anteriores, cuando existan.</li></ul></article><article><h4>Salidas</h4><ul><li>Acta de aprobación o decisión formal del OGA.</li><li>Observaciones, recomendaciones y ajustes requeridos.</li><li>Línea base aprobada y versionada.</li><li>Autorización para continuar con la siguiente fase o cierre del proceso.</li></ul></article></div> <figure class="wide-figure"><img src="assets/figures/figura-25.png" alt="Flujo de actividades del OGA al finalizar cada fase"><figcaption>Flujo de actividades llevadas a cabo por el OGA al finalizar cada fase.</figcaption></figure><div class="oga-steps" id="ogaSteps"></div> </section>  </section> <section class="section phases-section" id="fases"><header class="section-header"><p class="section-number">Caracterización de las fases</p><h2>Fases del proceso</h2><p>Cada fase se abre en una página independiente para presentar sin saturación sus elementos, diagramas, actividades, tareas, artefactos, responsables y puntos de validación.</p></header><figure class="wide-figure macro-figure"><img src="assets/jiisic/fases_pdaeh_entradas_salidas.svg" alt="Entradas, proceso y salidas de las cinco fases"><figcaption>Vista general de las entradas, el propósito y las salidas de las cinco fases.</figcaption></figure><div id="phasePanel"></div></section> <section class="section reference-section" id="artefactos">
+  <header class="section-header">
+    <p class="section-number">Documentación del proceso</p>
+    <h2>Plantillas generales para los artefactos</h2>
+    <div>
+      <p style="margin-bottom:0.75rem;line-height:1.7;">
+        Las plantillas aquí provistas corresponden a una <strong>guía metodológica sugerida</strong> y no constituyen un instrumento rígido, prescriptivo o mandatorio. Su propósito es facilitar la estandarización y trazabilidad en la documentación de la arquitectura; por lo tanto, cada empresa, grupo de investigación y/o equipo de trabajo es libre de adaptarlas, simplificarlas, extenderlas o integrarlas dentro de sus herramientas habituales de gestión arquitectónica según sus necesidades, contexto operativo y nivel de madurez tecnológica.
+      </p>
+      <p style="color:var(--ink-light);font-size:0.95rem;">
+        A continuación se presenta el catálogo de los 15 artefactos del proceso, detallando su razón de ser, su relevancia en la toma de decisiones y enlaces directos para consulta interactiva o descarga en formatos editables (<strong>.DOCX</strong> y <strong>.TEX / LaTeX</strong>).
+      </p>
+    </div>
+  </header><div id="artifactTemplates"></div><section class="subsection" id="glosario" style="margin-top:3rem;">
+  <header>
+    <h3>Glosario de términos arquitectónicos</h3>
+    <p>Consolidación de términos genéricos asociados a la ingeniería y definición de procesos, así como conceptos especializados del dominio arquitectónico híbrido clásico-cuántico.</p>
+  </header>
+  <div id="glossaryTables"></div>
+</section>
+  <div style="margin-top:2.2rem;background:#f2f7f4;border-left:4px solid var(--green);padding:1.1rem 1.4rem;border-radius:4px;">
+    <p style="margin:0;font-size:0.95rem;color:var(--ink);line-height:1.65;">
+      <em>Nota de publicación:</em> El método formal y los resultados de este proceso de armonización fueron publicados en la revista <em>Ingeniería Solidaria</em>: <a href="https://revistas.ucc.edu.co/index.php/in/es/article/view/5610" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;text-decoration:underline;"><strong>Orozco, C., Pardo, C., Perez-Castillo, R., &amp; Sepúlveda, S. (2026). Towards a hybrid classical–quantum software architecture derived from literature harmonization</strong></a>.
+    </p>
+  </div>
+</section>
+<section class="section" id="referencias">
+  <header class="section-header">
+    <p class="section-number">Soporte documental</p>
+    <h2>Referencias bibliográficas</h2>
+    <p>Consolidación de las referencias bibliográficas y fuentes documentales asociadas a los estudios primarios de la RSL y reportes de la industria analizados en la tesis doctoral.</p>
+  </header>
+  <div style="background:#fff;border:1px solid var(--line);padding:2rem 2.5rem;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+    <ol style="padding-left:1.5rem;line-height:1.7;color:var(--ink);">
+      <li id="REF-S1" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S1]</strong> Palma, K., et al. (2023). <em>Software architecture for quantum computing systems — A systematic review</em>. IEEE Access.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S1)</a></div>
+    </li><li id="REF-S2" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S2]</strong> Ahmad, A., et al. (2023). <em>Towards process centered architecting for quantum software systems</em>. ACM / IEEE International Conference on Software Engineering.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S2)</a></div>
+    </li><li id="REF-S3" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S3]</strong> Pérez-Delgado, C. A., & Perez-Castillo, R. (2022). <em>Engineering Reliable Hybrid Quantum Software: An Architectural-driven Approach</em>. IEEE Transactions on Software Engineering.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S3)</a></div>
+    </li><li id="REF-S4" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S4]</strong> Sodhi, B., & Kapur, P. (2021). <em>Selection of quantum computing architecture using a decision tree approach</em>. Software: Practice and Experience.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S4)</a></div>
+    </li><li id="REF-S5" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S5]</strong> Gemeinhardt, F., et al. (2021). <em>Quality attributes on quantum computing platforms</em>. IEEE International Conference on Quantum Computing and Engineering (QCE).
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S5)</a></div>
+    </li><li id="REF-S6" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S6]</strong> Weder, B., et al. (2022). <em>Challenges and Opportunities in Quantum Software Architecture</em>. European Conference on Software Architecture (ECSA).
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S6)</a></div>
+    </li><li id="REF-S7" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S7]</strong> Salm, M., et al. (2021). <em>A serverless cloud integration for quantum computing</em>. IEEE Cloud Computing.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S7)</a></div>
+    </li><li id="REF-S8" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S8]</strong> Zhao, Y., et al. (2020). <em>Research on Quantum Computing Standard System Architecture Roadmap</em>. IEEE Access.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S8)</a></div>
+    </li><li id="REF-S9" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S9]</strong> Pérez-Castillo, R., et al. (2021). <em>Design of classical-quantum systems with UML</em>. IEEE Software.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S9)</a></div>
+    </li><li id="REF-S10" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S10]</strong> McCaskey, A., et al. (2021). <em>Hybrid Quantum Algorithms and Quantum Software Development Frameworks</em>. ACM Transactions on Quantum Computing.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S10)</a></div>
+    </li><li id="REF-S11" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S11]</strong> Kumar, A., et al. (2022). <em>Quantum computing platforms: assessing the impact on quality attributes & sdlc activities</em>. Journal of Systems and Software.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S11)</a></div>
+    </li><li id="REF-S12" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S12]</strong> Piattini, M., et al. (2021). <em>The Quantum software lifecycle</em>. IEEE Software.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S12)</a></div>
+    </li><li id="REF-S13" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S13]</strong> Cuomo, D., et al. (2020). <em>Towards a distributed quantum computing ecosystem</em>. IEEE Transactions on Quantum Engineering.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S13)</a></div>
+    </li><li id="REF-S14" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S14]</strong> Khan, A. A., et al. (2023). <em>Classical to Quantum Software Migration Journey Begins: A Conceptual Readiness Model</em>. IEEE Transactions on Engineering Management.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S14)</a></div>
+    </li><li id="REF-S15" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S15]</strong> Leymann, F., et al. (2022). <em>Software Architecture Challenges in Integrating Hybrid Classical-Quantum Systems</em>. IEEE Software.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S15)</a></div>
+    </li><li id="REF-S16" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S16]</strong> Shaydulin, R., et al. (2022). <em>Architecture Decisions in Quantum Software Systems: An Empirical Study on Stack Exchange and GitHub</em>. ACM Transactions on Software Engineering and Methodology.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S16)</a></div>
+    </li><li id="REF-S17" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S17]</strong> Leymann, F., et al. (2020). <em>Patterns for Quantum Software Development</em>. Proceedings of the Conference on Pattern Languages of Programs (PLoP).
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S17)</a></div>
+    </li><li id="REF-S18" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S18]</strong> IBM Quantum (2023). <em>Qiskit Runtime: Hybrid Classical-Quantum Cloud Architecture</em>. IBM Technical Report.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S18)</a></div>
+    </li><li id="REF-S19" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S19]</strong> Google Quantum AI (2021). <em>TensorFlow Quantum (TFQ) + Cirq: Hybrid Machine Learning Architectures</em>. Google AI Report.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S19)</a></div>
+    </li><li id="REF-S20" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S20]</strong> Broughton, M., et al. (2020). <em>TensorFlow Quantum: Hybrid ML-Quantum Framework</em>. arXiv:2003.02989.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S20)</a></div>
+    </li><li id="REF-S21" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S21]</strong> Microsoft Quantum (2023). <em>Microsoft Azure Quantum: Integrated Hybrid Architecture</em>. Microsoft Technical Documentation.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S21)</a></div>
+    </li><li id="REF-S22" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S22]</strong> Microsoft & Quantinuum (2024). <em>Integrated Hybrid Quantum Computing with Logical Qubits</em>. Joint Technical Announcement.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S22)</a></div>
+    </li><li id="REF-S23" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S23]</strong> Quantinuum (2024). <em>Fault-Tolerant Quantum Architecture & Qubit Virtualization Report</em>. Quantinuum Technical Whitepaper.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S23)</a></div>
+    </li><li id="REF-S24" style="margin-bottom:1.2rem;scroll-margin-top:100px;">
+      <strong>[S24]</strong> Google Quantum AI (2025). <em>Digital-Analog Hybrid Physical Simulation</em>. Google AI Lab Report.
+      <div style="margin-top:0.3rem;"><a href="#tablaEstudios" style="color:var(--green);font-size:0.85rem;text-decoration:none;">↑ Volver a la tabla de estudios (S24)</a></div>
+    </li>
+    </ol>
+  </div>
+</section>
+
+

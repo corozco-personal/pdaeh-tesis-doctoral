@@ -1,0 +1,42 @@
+# OS & System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Temporary & Environment files
+.env
+.env.local
+.env.*.local
+*.log
+*.tmp
+*.bak
+
+# Node & Python caches
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# Large deployment archives (already represented in clean source)
+*.tar.gz
+*.zip
+
+# Temporary scripts
+generate_specs.py

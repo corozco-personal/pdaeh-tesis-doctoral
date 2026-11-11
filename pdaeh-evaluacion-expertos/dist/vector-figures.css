@@ -1,0 +1,15 @@
+
+.vector-figure img, .model-figure.vector-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+.wide-figure, .model-figure, .macro-figure {
+  background-color: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}

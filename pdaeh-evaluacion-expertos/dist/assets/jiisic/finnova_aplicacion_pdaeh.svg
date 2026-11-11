@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1204" width="3600" height="2408" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+<rect x="0.0" y="0.0" width="1800.0" height="1204.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.6"/>
+<rect x="20.0" y="16.0" width="440.0" height="360.0" rx="0" fill="#EEF5FC" stroke="none" stroke-width="1.6"/>
+<path d="M20.0,68.0 V30.0 Q20.0,16.0 34.0,16.0 H446.0 Q460.0,16.0 460.0,30.0 V68.0 Z" fill="#CFE3F7"/>
+<rect x="20.0" y="16.0" width="440.0" height="360.0" rx="14" fill="none" stroke="#A8C8EA" stroke-width="1.8"/>
+<text x="40.0" y="52.0" font-size="27" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">1. Organization and Context</text>
+<rect x="516.0" y="16.0" width="460.0" height="360.0" rx="0" fill="#F1F9F2" stroke="none" stroke-width="1.6"/>
+<path d="M516.0,68.0 V30.0 Q516.0,16.0 530.0,16.0 H962.0 Q976.0,16.0 976.0,30.0 V68.0 Z" fill="#CFE8D3"/>
+<rect x="516.0" y="16.0" width="460.0" height="360.0" rx="14" fill="none" stroke="#9AD1A8" stroke-width="1.8"/>
+<text x="536.0" y="52.0" font-size="27" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">2. Business Need</text>
+<rect x="1032.0" y="16.0" width="748.0" height="360.0" rx="0" fill="#F6F2FD" stroke="none" stroke-width="1.6"/>
+<path d="M1032.0,68.0 V30.0 Q1032.0,16.0 1046.0,16.0 H1766.0 Q1780.0,16.0 1780.0,30.0 V68.0 Z" fill="#DCD0F4"/>
+<rect x="1032.0" y="16.0" width="748.0" height="360.0" rx="14" fill="none" stroke="#BBA8E6" stroke-width="1.8"/>
+<text x="1052.0" y="52.0" font-size="27" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">3. Target Vision: Hybrid Architecture</text>
+<polygon points="466.0,180.4 482.8,180.4 482.8,169.6 504.4,196.0 482.8,222.4 482.8,211.6 466.0,211.6" fill="#8A8F98"/>
+<polygon points="982.0,180.4 998.8,180.4 998.8,169.6 1020.4,196.0 998.8,222.4 998.8,211.6 982.0,211.6" fill="#8A8F98"/>
+<g transform="translate(98.0 126.0) scale(1.75)"><g fill="#1B2B48"><polygon points="-30,-13 0,-33 30,-13"/><rect x="-30" y="-10" width="60" height="5"/><rect x="-24" y="-3" width="9" height="24"/><rect x="-4.5" y="-3" width="9" height="24"/><rect x="15" y="-3" width="9" height="24"/><rect x="-32" y="22" width="64" height="5"/><rect x="-28" y="29" width="56" height="4"/></g><circle cy="-17" r="3" fill="#FFFFFF"/></g>
+<text x="170.0" y="130.0" font-size="48" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">FinNova</text>
+<text x="170.0" y="160.0" font-size="20" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">Mid-sized financial-services</text>
+<text x="170.0" y="183.0" font-size="20" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">firm (SME)</text>
+<rect x="36.0" y="198.0" width="408.0" height="170.0" rx="10" fill="#E6EFF8" stroke="#C9DAEC" stroke-width="1.4"/>
+<circle cx="54" cy="220" r="2.8" fill="#1B2B48"/>
+<text x="66.0" y="226.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Investment-management and</text>
+<text x="66.0" y="248.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">portfolio-analysis services</text>
+<circle cx="54" cy="272" r="2.8" fill="#1B2B48"/>
+<text x="66.0" y="278.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Established classical risk-analytics</text>
+<text x="66.0" y="300.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">platform</text>
+<circle cx="54" cy="324" r="2.8" fill="#1B2B48"/>
+<text x="66.0" y="330.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Clients: institutional and professional</text>
+<text x="66.0" y="352.0" font-size="18.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">investors</text>
+<g transform="translate(578.0 118.0) scale(1.25)"><g fill="#14442F"><rect x="-22" y="8" width="9" height="14" rx="2"/><rect x="-9" y="-2" width="9" height="24" rx="2"/><rect x="4" y="-14" width="9" height="36" rx="2"/><rect x="17" y="-26" width="9" height="48" rx="2"/></g></g>
+<text x="634.0" y="126.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Computational challenge</text>
+<circle cx="546" cy="190" r="2.8" fill="#1B2B48"/>
+<text x="560.0" y="196.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Portfolio rebalancing becomes</text>
+<text x="560.0" y="220.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">increasingly demanding as the number</text>
+<text x="560.0" y="244.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">of assets and constraints grows.</text>
+<circle cx="546" cy="272" r="2.8" fill="#1B2B48"/>
+<text x="560.0" y="278.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Explore a quantum-assisted</text>
+<text x="560.0" y="302.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">optimization capability.</text>
+<circle cx="546" cy="330" r="2.8" fill="#1B2B48"/>
+<text x="560.0" y="336.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Complement the existing classical</text>
+<text x="560.0" y="360.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">platform (not a replacement).</text>
+<rect x="1046.0" y="76.0" width="190.0" height="48.0" rx="8" fill="#E6F2F8" stroke="#A9CBD9" stroke-width="1.5"/>
+<g transform="translate(1072.0 100.0) scale(0.74)"><g fill="none" stroke="#2F5F8F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse cy="-10" rx="12" ry="5"/><path d="M-12 -10 V10 A12 5 0 0 0 12 10 V-10 M-12 0 A12 5 0 0 0 12 0"/></g></g>
+<text x="1096.0" y="97.0" font-size="16.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Market Data</text>
+<text x="1096.0" y="116.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">Services</text>
+<rect x="1046.0" y="132.0" width="190.0" height="48.0" rx="8" fill="#E6F2F8" stroke="#A9CBD9" stroke-width="1.5"/>
+<g transform="translate(1072.0 156.0) scale(0.74)"><g fill="#2F5F8F"><rect x="-13" y="2" width="6" height="14" rx="1"/><rect x="-3" y="-6" width="6" height="22" rx="1"/><rect x="7" y="-15" width="6" height="31" rx="1"/></g></g>
+<text x="1096.0" y="162.0" font-size="16.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Portfolio Services</text>
+<rect x="1046.0" y="188.0" width="190.0" height="48.0" rx="8" fill="#E6F2F8" stroke="#A9CBD9" stroke-width="1.5"/>
+<g transform="translate(1072.0 212.0) scale(0.74)"><circle cx="0" cy="0" r="11.05" fill="none" stroke="#2F5F8F" stroke-width="5.85" stroke-dasharray="4.34 4.34"/><circle cx="0" cy="0" r="8.84" fill="#2F5F8F"/><circle cx="0" cy="0" r="3.64" fill="#FFFFFF"/></g>
+<text x="1096.0" y="209.0" font-size="16.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Risk &amp; Analytics</text>
+<text x="1096.0" y="228.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(Existing)</text>
+<rect x="1046.0" y="244.0" width="190.0" height="48.0" rx="8" fill="#E6F2F8" stroke="#A9CBD9" stroke-width="1.5"/>
+<g transform="translate(1072.0 268.0) scale(0.74)"><g fill="none" stroke="#2F5F8F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -17 L13 -11 V3 Q13 13 0 18 Q-13 13 -13 3 V-11 Z"/><path d="M0 -17 V18"/></g></g>
+<text x="1096.0" y="265.0" font-size="16.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Compliance</text>
+<text x="1096.0" y="284.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">Services</text>
+<rect x="1046.0" y="300.0" width="190.0" height="48.0" rx="8" fill="#E6F2F8" stroke="#A9CBD9" stroke-width="1.5"/>
+<g transform="translate(1072.0 324.0) scale(0.74)"><g fill="none" stroke="#2F5F8F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M-11 -17 H3 L12 -8 V17 H-11 Z"/><path d="M3 -17 V-8 H12"/><path d="M-5 0 H6 M-5 6 H6 M-5 12 H1"/></g></g>
+<text x="1096.0" y="330.0" font-size="16.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Reporting Services</text>
+<line x1="1258.0" y1="100.0" x2="1258.0" y2="324.0" stroke="#4F6F92" stroke-width="2.4"/>
+<line x1="1237.0" y1="100.0" x2="1258.0" y2="100.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1246.0,95.0 1246.0,105.0 1237.0,100.0" fill="#4F6F92"/>
+<line x1="1237.0" y1="156.0" x2="1258.0" y2="156.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1246.0,151.0 1246.0,161.0 1237.0,156.0" fill="#4F6F92"/>
+<line x1="1237.0" y1="212.0" x2="1258.0" y2="212.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1246.0,207.0 1246.0,217.0 1237.0,212.0" fill="#4F6F92"/>
+<line x1="1237.0" y1="268.0" x2="1258.0" y2="268.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1246.0,263.0 1246.0,273.0 1237.0,268.0" fill="#4F6F92"/>
+<line x1="1237.0" y1="324.0" x2="1258.0" y2="324.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1246.0,319.0 1246.0,329.0 1237.0,324.0" fill="#4F6F92"/>
+<line x1="1258.0" y1="211.0" x2="1276.0" y2="211.0" stroke="#4F6F92" stroke-width="2.4"/>
+<polygon points="1267.0,206.0 1267.0,216.0 1276.0,211.0" fill="#4F6F92"/>
+<rect x="1278.0" y="116.0" width="140.0" height="190.0" rx="12" fill="#C3DEF7" stroke="#6FA8DC" stroke-width="2"/>
+<g transform="translate(1348.0 152.0) scale(1.0)"><g fill="#1B2B48"><rect x="-17" y="-20" width="34" height="11" rx="3"/><rect x="-17" y="-5" width="34" height="11" rx="3"/><rect x="-17" y="10" width="34" height="11" rx="3"/></g><g fill="#FFFFFF"><circle cx="-10" cy="-14.5" r="2"/><circle cx="-10" cy="0.5" r="2"/><circle cx="-10" cy="15.5" r="2"/><rect x="2" y="-15.5" width="11" height="2.2"/><rect x="2" y="-0.5" width="11" height="2.2"/><rect x="2" y="14.5" width="11" height="2.2"/></g></g>
+<text x="1348.0" y="204.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Classical</text>
+<text x="1348.0" y="228.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Analytics</text>
+<text x="1348.0" y="252.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Platform</text>
+<text x="1348.0" y="288.0" font-size="17" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(Existing)</text>
+<line x1="1429.0" y1="211.0" x2="1453.0" y2="211.0" stroke="#4F6F92" stroke-width="2.6"/>
+<polygon points="1433.0,205.0 1433.0,217.0 1421.0,211.0" fill="#4F6F92"/>
+<polygon points="1449.0,205.0 1449.0,217.0 1461.0,211.0" fill="#4F6F92"/>
+<rect x="1464.0" y="144.0" width="120.0" height="134.0" rx="10" fill="#E4D9F8" stroke="#B5A0E4" stroke-width="2"/>
+<g transform="translate(1524.0 176.0) scale(1.0)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -4 L-13 11 M0 -4 L13 11 M-13 11 H13 M0 -4 V-14"/></g><g fill="#FFFFFF" stroke="#1B2B48" stroke-width="3"><circle cx="0" cy="-3" r="5"/><circle cx="0" cy="-15" r="3.5"/><circle cx="-13" cy="12" r="4.5"/><circle cx="13" cy="12" r="4.5"/></g></g>
+<text x="1524.0" y="216.0" font-size="19.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Quantum</text>
+<text x="1524.0" y="237.0" font-size="19.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Integration</text>
+<text x="1524.0" y="258.0" font-size="19.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Layer</text>
+<line x1="1595.0" y1="211.0" x2="1621.0" y2="211.0" stroke="#4F6F92" stroke-width="2.6"/>
+<polygon points="1599.0,205.0 1599.0,217.0 1587.0,211.0" fill="#4F6F92"/>
+<polygon points="1617.0,205.0 1617.0,217.0 1629.0,211.0" fill="#4F6F92"/>
+<g transform="translate(1700 189.0) scale(0.92)"><path d="M-52 26 Q-74 26 -74 4 Q-74 -15 -52 -18 Q-48 -44 -20 -45 Q-2 -54 16 -40 Q44 -44 50 -18 Q74 -14 74 6 Q74 26 50 26 Z" fill="#F0F8FE" stroke="#2F6DB5" stroke-width="3"/></g>
+<g transform="translate(1700.0 185.0) scale(0.95)"><g fill="none" stroke="#2F6DB5" stroke-width="2.6"><ellipse rx="22" ry="8.5"/><ellipse rx="22" ry="8.5" transform="rotate(60)"/><ellipse rx="22" ry="8.5" transform="rotate(-60)"/></g><circle r="4" fill="#2F6DB5"/></g>
+<text x="1700.0" y="251.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">External</text>
+<text x="1700.0" y="273.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Quantum Service</text>
+<text x="1700.0" y="293.0" font-size="16.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(provider-agnostic)</text>
+<path d="M1524.0 278 V336 H1348.0 V320" fill="none" stroke="#4F6F92" stroke-width="2.4" stroke-dasharray="6 5"/>
+<polygon points="1342.0,320.0 1354.0,320.0 1348.0,308.0" fill="#4F6F92"/>
+<text x="1436.0" y="360.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Results (optimized solutions)</text>
+<rect x="20.0" y="402.0" width="1760.0" height="556.0" rx="0" fill="#F1F6FB" stroke="none" stroke-width="1.6"/>
+<path d="M20.0,450.0 V416.0 Q20.0,402.0 34.0,402.0 H1766.0 Q1780.0,402.0 1780.0,416.0 V450.0 Z" fill="#D5E3F1"/>
+<rect x="20.0" y="402.0" width="1760.0" height="556.0" rx="14" fill="none" stroke="#BFD0E6" stroke-width="1.8"/>
+<text x="40.0" y="436.0" font-size="27" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">4. Application of PDAEH (Five Phases)</text>
+<rect x="36.0" y="466.0" width="313.6" height="476.0" rx="12" fill="#F2F9FE" stroke="#9ECAEF" stroke-width="1.8"/>
+<path d="M36.0,548.0 V478.0 Q36.0,466.0 48.0,466.0 H337.6 Q349.6,466.0 349.6,478.0 V548.0 Z" fill="#CDE6FA"/>
+<rect x="36.0" y="466.0" width="313.6" height="476.0" rx="12" fill="none" stroke="#9ECAEF" stroke-width="1.8"/>
+<g transform="translate(76.0 504.0) scale(1.35)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle r="15"/><circle r="8"/><path d="M2 -2 L17 -17 M12 -19 V-12 H19"/></g><circle r="3" fill="#1B2B48"/></g>
+<text x="116.0" y="498.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Phase 1</text>
+<text x="116.0" y="522.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Strategic Definition</text>
+<circle cx="56.0" cy="572" r="2.8" fill="#1B2B48"/>
+<text x="68.0" y="578.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Analyze organizational context</text>
+<text x="68.0" y="599.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">and drivers</text>
+<circle cx="56.0" cy="622.0" r="2.8" fill="#1B2B48"/>
+<text x="68.0" y="628.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Identify and engage stakeholders</text>
+<circle cx="56.0" cy="650.5" r="2.8" fill="#1B2B48"/>
+<text x="68.0" y="656.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define scope, objectives,</text>
+<text x="68.0" y="678.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">and constraints</text>
+<circle cx="56.0" cy="700.5" r="2.8" fill="#1B2B48"/>
+<text x="68.0" y="706.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Align with business and</text>
+<text x="68.0" y="728.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">regulatory requirements</text>
+<circle cx="56.0" cy="750.5" r="2.8" fill="#1B2B48"/>
+<text x="68.0" y="756.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Submit artifacts to OGA</text>
+<rect x="50.0" y="846.0" width="285.6" height="82.0" rx="10" fill="#CBE4F7" stroke="none" stroke-width="1.6"/>
+<text x="192.8" y="872.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Key output:</text>
+<text x="192.8" y="895.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Strategic architecture definition</text>
+<polygon points="353.6,692.3 366.2,692.3 366.2,684.2 382.4,704.0 366.2,723.8 366.2,715.7 353.6,715.7" fill="#8A8F98"/>
+<rect x="389.6" y="466.0" width="313.6" height="476.0" rx="12" fill="#F3FAF4" stroke="#93CFA4" stroke-width="1.8"/>
+<path d="M389.6,548.0 V478.0 Q389.6,466.0 401.6,466.0 H691.2 Q703.2,466.0 703.2,478.0 V548.0 Z" fill="#CDEBD4"/>
+<rect x="389.6" y="466.0" width="313.6" height="476.0" rx="12" fill="none" stroke="#93CFA4" stroke-width="1.8"/>
+<g transform="translate(429.6 504.0) scale(1.35)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M-11 -17 H3 L12 -8 V17 H-11 Z"/><path d="M3 -17 V-8 H12"/><path d="M-5 0 H6 M-5 6 H6 M-5 12 H1"/></g></g>
+<text x="469.6" y="498.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Phase 2</text>
+<text x="469.6" y="522.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Conceptual Foundations</text>
+<circle cx="409.6" cy="572" r="2.8" fill="#1B2B48"/>
+<text x="421.6" y="578.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define abstraction degree</text>
+<text x="421.6" y="599.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">and viewpoints</text>
+<circle cx="409.6" cy="622.0" r="2.8" fill="#1B2B48"/>
+<text x="421.6" y="628.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Establish architectural perspectives</text>
+<text x="421.6" y="649.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(business, data, application,</text>
+<text x="421.6" y="671.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">technology, security)</text>
+<circle cx="409.6" cy="693.5" r="2.8" fill="#1B2B48"/>
+<text x="421.6" y="699.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Build and validate unified</text>
+<text x="421.6" y="721.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">vocabulary</text>
+<circle cx="409.6" cy="743.5" r="2.8" fill="#1B2B48"/>
+<text x="421.6" y="749.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Create glossary of terms</text>
+<circle cx="409.6" cy="772.0" r="2.8" fill="#1B2B48"/>
+<text x="421.6" y="778.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Submit artifacts to OGA</text>
+<rect x="403.6" y="846.0" width="285.6" height="82.0" rx="10" fill="#CBE8D2" stroke="none" stroke-width="1.6"/>
+<text x="546.4" y="872.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Key output:</text>
+<text x="546.4" y="895.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Conceptual architecture model</text>
+<polygon points="707.2,692.3 719.8,692.3 719.8,684.2 736.0,704.0 719.8,723.8 719.8,715.7 707.2,715.7" fill="#8A8F98"/>
+<rect x="743.2" y="466.0" width="313.6" height="476.0" rx="12" fill="#FFF9EC" stroke="#EBC36E" stroke-width="1.8"/>
+<path d="M743.2,548.0 V478.0 Q743.2,466.0 755.2,466.0 H1044.8 Q1056.8,466.0 1056.8,478.0 V548.0 Z" fill="#FBE2B0"/>
+<rect x="743.2" y="466.0" width="313.6" height="476.0" rx="12" fill="none" stroke="#EBC36E" stroke-width="1.8"/>
+<g transform="translate(783.2 504.0) scale(1.35)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -8 V0 M-13 0 H13 M-13 0 V6 M13 0 V6 M0 0 V6"/></g><g fill="#1B2B48"><rect x="-7" y="-18" width="14" height="10" rx="1.5"/><rect x="-19" y="6" width="12" height="10" rx="1.5"/><rect x="-6" y="6" width="12" height="10" rx="1.5"/><rect x="7" y="6" width="12" height="10" rx="1.5"/></g></g>
+<text x="823.2" y="498.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Phase 3</text>
+<text x="823.2" y="518.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Structures and Quality</text>
+<text x="823.2" y="537.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Attributes</text>
+<circle cx="763.2" cy="572" r="2.8" fill="#1B2B48"/>
+<text x="775.2" y="578.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define architecture drivers</text>
+<circle cx="763.2" cy="600.5" r="2.8" fill="#1B2B48"/>
+<text x="775.2" y="606.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Specify quality attributes</text>
+<text x="775.2" y="628.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(cross-cutting, integration,</text>
+<text x="775.2" y="649.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">security)</text>
+<circle cx="763.2" cy="672.0" r="2.8" fill="#1B2B48"/>
+<text x="775.2" y="678.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define architectural structures</text>
+<text x="775.2" y="699.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(cross-cutting, integration, data,</text>
+<text x="775.2" y="721.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">security)</text>
+<circle cx="763.2" cy="743.5" r="2.8" fill="#1B2B48"/>
+<text x="775.2" y="749.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Consolidate attribute and</text>
+<text x="775.2" y="771.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">structural models</text>
+<circle cx="763.2" cy="793.5" r="2.8" fill="#1B2B48"/>
+<text x="775.2" y="799.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Submit artifacts to OGA</text>
+<rect x="757.2" y="846.0" width="285.6" height="82.0" rx="10" fill="#FBE0AE" stroke="none" stroke-width="1.6"/>
+<text x="900.0" y="872.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Key output:</text>
+<text x="900.0" y="895.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Validated architecture structure</text>
+<text x="900.0" y="916.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">and quality model</text>
+<polygon points="1060.8,692.3 1073.4,692.3 1073.4,684.2 1089.6,704.0 1073.4,723.8 1073.4,715.7 1060.8,715.7" fill="#8A8F98"/>
+<rect x="1096.8" y="466.0" width="313.6" height="476.0" rx="12" fill="#FFF4F4" stroke="#EE9AA2" stroke-width="1.8"/>
+<path d="M1096.8,548.0 V478.0 Q1096.8,466.0 1108.8,466.0 H1398.4 Q1410.4,466.0 1410.4,478.0 V548.0 Z" fill="#F9C9CD"/>
+<rect x="1096.8" y="466.0" width="313.6" height="476.0" rx="12" fill="none" stroke="#EE9AA2" stroke-width="1.8"/>
+<g transform="translate(1136.8 504.0) scale(1.35)"><polygon points="0.0,-19.0 8.7,-14.0 8.7,-4.0 0.0,1.0 -8.7,-4.0 -8.7,-14.0" fill="#1B2B48" stroke="#FFFFFF" stroke-width="1.2"/><path d="M-8.7 -14.0 L0 -9 L8.7 -14.0 M0 -9 V1.0" stroke="#FFFFFF" stroke-width="1.8" fill="none"/><polygon points="-10.0,-2.0 -1.3,3.0 -1.3,13.0 -10.0,18.0 -18.7,13.0 -18.7,3.0" fill="#1B2B48" stroke="#FFFFFF" stroke-width="1.2"/><path d="M-18.7 3.0 L-10 8 L-1.3 3.0 M-10 8 V18.0" stroke="#FFFFFF" stroke-width="1.8" fill="none"/><polygon points="10.0,-2.0 18.7,3.0 18.7,13.0 10.0,18.0 1.3,13.0 1.3,3.0" fill="#1B2B48" stroke="#FFFFFF" stroke-width="1.2"/><path d="M1.3 3.0 L10 8 L18.7 3.0 M10 8 V18.0" stroke="#FFFFFF" stroke-width="1.8" fill="none"/></g>
+<text x="1176.8" y="498.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Phase 4</text>
+<text x="1176.8" y="522.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Components and Reuse</text>
+<circle cx="1116.8000000000002" cy="572" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="578.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define component framework</text>
+<circle cx="1116.8000000000002" cy="600.5" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="606.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Specify components (cross-cutting,</text>
+<text x="1128.8" y="628.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">integration, data, security)</text>
+<circle cx="1116.8000000000002" cy="650.5" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="656.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Identify classical and quantum</text>
+<text x="1128.8" y="678.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">components</text>
+<circle cx="1116.8000000000002" cy="700.5" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="706.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define reusable elements</text>
+<circle cx="1116.8000000000002" cy="729.0" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="735.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Build reusable-element library</text>
+<circle cx="1116.8000000000002" cy="757.5" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="763.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Consolidate catalogs</text>
+<circle cx="1116.8000000000002" cy="786.0" r="2.8" fill="#1B2B48"/>
+<text x="1128.8" y="792.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Submit artifacts to OGA</text>
+<rect x="1110.8" y="846.0" width="285.6" height="82.0" rx="10" fill="#F8C6CB" stroke="none" stroke-width="1.6"/>
+<text x="1253.6" y="872.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Key output:</text>
+<text x="1253.6" y="895.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Component catalog and</text>
+<text x="1253.6" y="916.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">reusable-element library</text>
+<polygon points="1414.4,692.3 1427.0,692.3 1427.0,684.2 1443.2,704.0 1427.0,723.8 1427.0,715.7 1414.4,715.7" fill="#8A8F98"/>
+<rect x="1450.4" y="466.0" width="313.6" height="476.0" rx="12" fill="#F7F3FD" stroke="#B8A5E6" stroke-width="1.8"/>
+<path d="M1450.4,548.0 V478.0 Q1450.4,466.0 1462.4,466.0 H1752.0 Q1764.0,466.0 1764.0,478.0 V548.0 Z" fill="#DCD0F5"/>
+<rect x="1450.4" y="466.0" width="313.6" height="476.0" rx="12" fill="none" stroke="#B8A5E6" stroke-width="1.8"/>
+<g transform="translate(1490.4 504.0) scale(1.1)"><circle cx="0" cy="0" r="13.60" fill="none" stroke="#1B2B48" stroke-width="7.20" stroke-dasharray="5.34 5.34"/><circle cx="0" cy="0" r="10.88" fill="#1B2B48"/><circle cx="0" cy="0" r="4.48" fill="#FFFFFF"/></g>
+<text x="1530.4" y="498.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Phase 5</text>
+<text x="1530.4" y="518.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Styles, Patterns,</text>
+<text x="1530.4" y="537.0" font-size="17.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">and Baseline</text>
+<circle cx="1470.4" cy="572" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="578.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Define architectural styles</text>
+<text x="1482.4" y="599.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">and patterns</text>
+<circle cx="1470.4" cy="622.0" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="628.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Specify design patterns</text>
+<text x="1482.4" y="649.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(cross-cutting, integration,</text>
+<text x="1482.4" y="671.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">security)</text>
+<circle cx="1470.4" cy="693.5" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="699.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Consolidate styles-and-patterns</text>
+<text x="1482.4" y="721.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">catalog</text>
+<circle cx="1470.4" cy="743.5" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="749.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Establish architectural baseline</text>
+<circle cx="1470.4" cy="772.0" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="778.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Ensure traceability of design</text>
+<text x="1482.4" y="799.5" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">decisions</text>
+<circle cx="1470.4" cy="822.0" r="2.8" fill="#1B2B48"/>
+<text x="1482.4" y="828.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Submit artifacts to OGA</text>
+<rect x="1464.4" y="846.0" width="285.6" height="82.0" rx="10" fill="#DACDF3" stroke="none" stroke-width="1.6"/>
+<text x="1607.2" y="872.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Key output:</text>
+<text x="1607.2" y="895.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Styles and patterns catalog</text>
+<text x="1607.2" y="916.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">and architectural baseline</text>
+<rect x="20.0" y="978.0" width="1760.0" height="206.0" rx="0" fill="#F1F6FB" stroke="none" stroke-width="1.6"/>
+<path d="M20.0,1024.0 V992.0 Q20.0,978.0 34.0,978.0 H1766.0 Q1780.0,978.0 1780.0,992.0 V1024.0 Z" fill="#D5E3F1"/>
+<rect x="20.0" y="978.0" width="1760.0" height="206.0" rx="14" fill="none" stroke="#BFD0E6" stroke-width="1.8"/>
+<text x="40.0" y="1010.0" font-size="27" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">5. Main Artifacts Produced (illustrative)</text>
+<rect x="36.0" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(61.0 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M-11 -17 H3 L12 -8 V17 H-11 Z"/><path d="M3 -17 V-8 H12"/><path d="M-5 0 H6 M-5 6 H6 M-5 12 H1"/></g></g>
+<text x="84.0" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Strategic</text>
+<text x="84.0" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Architecture</text>
+<text x="84.0" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Document</text>
+<polygon points="196.4,1069.0 196.4,1081.0 208.4,1075.0" fill="#7A8CA5"/>
+<rect x="210.4" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(235.4 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle r="16"/></g><g fill="#1B2B48"><circle cx="0" cy="-4" r="5.5"/><path d="M-10 11 Q-10 3 0 3 Q10 3 10 11 Z"/></g></g>
+<text x="258.4" y="1071.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Stakeholder</text>
+<text x="258.4" y="1089.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Map</text>
+<polygon points="370.8,1069.0 370.8,1081.0 382.8,1075.0" fill="#7A8CA5"/>
+<rect x="384.8" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(409.8 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="-14" y="-17" width="28" height="34" rx="2"/><path d="M-14 -3 H14 M0 -17 V17"/></g></g>
+<text x="432.8" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Architectural</text>
+<text x="432.8" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Views and</text>
+<text x="432.8" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Models</text>
+<polygon points="545.2,1069.0 545.2,1081.0 557.2,1075.0" fill="#7A8CA5"/>
+<rect x="559.2" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(584.2 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M-11 -17 H3 L12 -8 V17 H-11 Z"/><path d="M3 -17 V-8 H12"/><path d="M-5 0 H6 M-5 6 H6 M-5 12 H1"/></g></g>
+<text x="607.2" y="1071.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Glossary</text>
+<text x="607.2" y="1089.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">of Terms</text>
+<polygon points="719.6,1069.0 719.6,1081.0 731.6,1075.0" fill="#7A8CA5"/>
+<rect x="733.6" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(758.6 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="-14" y="-16" width="28" height="32" rx="3"/><path d="M-7 -6 H7 M-7 1 H7 M-7 8 H3"/></g></g>
+<text x="781.6" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Quality</text>
+<text x="781.6" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Attribute</text>
+<text x="781.6" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Catalog</text>
+<polygon points="894.0,1069.0 894.0,1081.0 906.0,1075.0" fill="#7A8CA5"/>
+<rect x="908.0" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(933.0 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -8 V0 M-13 0 H13 M-13 0 V6 M13 0 V6 M0 0 V6"/></g><g fill="#1B2B48"><rect x="-7" y="-18" width="14" height="10" rx="1.5"/><rect x="-19" y="6" width="12" height="10" rx="1.5"/><rect x="-6" y="6" width="12" height="10" rx="1.5"/><rect x="7" y="6" width="12" height="10" rx="1.5"/></g></g>
+<text x="956.0" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Structural</text>
+<text x="956.0" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Architecture</text>
+<text x="956.0" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Model</text>
+<polygon points="1068.4,1069.0 1068.4,1081.0 1080.4,1075.0" fill="#7A8CA5"/>
+<rect x="1082.4" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(1107.4 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -17 L15 -9 V8 L0 17 L-15 8 V-9 Z M-15 -9 L0 0 L15 -9 M0 0 V17"/></g></g>
+<text x="1130.4" y="1071.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Component</text>
+<text x="1130.4" y="1089.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Catalog</text>
+<polygon points="1242.8,1069.0 1242.8,1081.0 1254.8,1075.0" fill="#7A8CA5"/>
+<rect x="1256.8" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(1281.8 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -15 L16 -7 L0 1 L-16 -7 Z M-16 1 L0 9 L16 1 M-16 9 L0 17 L16 9"/></g></g>
+<text x="1304.8" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Reusable</text>
+<text x="1304.8" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Element</text>
+<text x="1304.8" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Library</text>
+<polygon points="1417.2,1069.0 1417.2,1081.0 1429.2,1075.0" fill="#7A8CA5"/>
+<rect x="1431.2" y="1036.0" width="158.4" height="78.0" rx="8" fill="#FFFFFF" stroke="#C9D8EA" stroke-width="1.6"/>
+<g transform="translate(1456.2 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="-15" y="-15" width="30" height="30" rx="3"/><path d="M-7 0 L-1 6 L9 -7"/></g></g>
+<text x="1479.2" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Styles and</text>
+<text x="1479.2" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Patterns</text>
+<text x="1479.2" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Catalog</text>
+<polygon points="1591.6,1069.0 1591.6,1081.0 1603.6,1075.0" fill="#7A8CA5"/>
+<rect x="1605.6" y="1036.0" width="158.4" height="78.0" rx="8" fill="#CFE6FA" stroke="#7DB5E6" stroke-width="1.6"/>
+<g transform="translate(1630.6 1075.0) scale(0.8)"><g fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse cy="-10" rx="12" ry="5"/><path d="M-12 -10 V10 A12 5 0 0 0 12 10 V-10 M-12 0 A12 5 0 0 0 12 0"/></g></g>
+<text x="1653.6" y="1062.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Consolidated</text>
+<text x="1653.6" y="1080.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Architectural</text>
+<text x="1653.6" y="1098.0" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Baseline</text>
+<rect x="36.0" y="1126.0" width="1728.0" height="46.0" rx="8" fill="#1B4F82" stroke="none" stroke-width="1.6"/>
+<text x="386.9" y="1157" font-size="23" font-weight="bold" fill="#FFFFFF">Outcome:</text>
+<text x="483.9" y="1157" font-size="23" fill="#FFFFFF" xml:space="preserve"> A hybrid classical-quantum enterprise architecture for FinNova, with traceable and reusable artifacts</text>
+</svg>

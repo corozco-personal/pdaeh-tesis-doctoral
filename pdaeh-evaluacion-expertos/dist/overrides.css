@@ -1,0 +1,350 @@
+p,.structured-list li,.protocol li,.contents-list li,td,dd{text-align:justify;hyphens:none}.research-intro{max-width:900px;margin:30px 0 38px;padding-left:24px;border-left:3px solid var(--green)}.research-intro p{font-size:1.12rem;line-height:1.8;margin:0 0 14px}figcaption,.numbered-table>h4,.template-section>h2{text-align:center}th{text-align:center!important;vertical-align:middle}.harmony-steps article{display:block}.harmony-steps article>h4{margin:0 0 16px;font-size:1.12rem}.macro-figure img{width:100%;max-height:820px;object-fit:contain}.contents-list a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:4px}.contents-list a:hover{color:var(--green)}.transversal-io{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0}.transversal-io article{background:var(--paper);border:1px solid var(--line);padding:24px}.transversal-io h4{margin:0 0 12px;color:var(--green)}.element-accordion{border-top:1px solid var(--line)}.element-accordion details{border-bottom:1px solid var(--line);background:#fff}.element-accordion summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 24px;cursor:pointer;list-style:none;font-size:1.08rem}.element-accordion summary::-webkit-details-marker{display:none}.element-accordion summary:after{content:"+";font-size:1.5rem;color:var(--green)}.element-accordion details[open] summary:after{content:"−"}.element-accordion summary small{margin-left:auto;text-align:right;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}.element-summary-body{padding:0 24px 26px}.element-summary-body h5{margin:22px 0 10px;text-transform:uppercase;color:var(--green);letter-spacing:.08em}.artifact-link{color:var(--green);text-underline-offset:3px}.role-avatar{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;letter-spacing:.03em;margin:auto}.indicators strong{color:var(--ink)}.phase-card,.artifact-card{display:grid;grid-template-columns:76px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}.phase-card>span,.artifact-card>span{font-family:Newsreader,serif;font-size:2rem;color:var(--green)}.phase-card h3,.artifact-card h3{margin:0 0 8px;font-size:1.4rem}.phase-card a,.artifact-card a{font-weight:700;color:var(--green);text-decoration:none}#artifactTemplates{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}.detail-page{max-width:1180px;margin:0 auto;padding:110px 34px 80px}.detail-hero{padding:70px 0 44px;border-bottom:1px solid var(--line)}.detail-hero>p:first-child{text-transform:uppercase;letter-spacing:.13em;color:var(--green);font-weight:700}.detail-hero h1{font-family:Newsreader,serif;font-size:clamp(3rem,7vw,5.7rem);line-height:.98;margin:16px 0 24px}.detail-hero>p:last-child{max-width:880px;font-size:1.15rem;line-height:1.75}.phase-nav,.artifact-pagination{display:flex;gap:9px;flex-wrap:wrap;margin:30px 0 50px}.phase-nav a,.artifact-pagination a{display:grid;place-items:center;min-width:46px;height:42px;padding:0 14px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}.phase-nav a.active,.artifact-pagination a.active{background:var(--navy);color:#fff;border-color:var(--navy)}.phase-overview,.element-section{padding:42px 0;border-bottom:1px solid var(--line)}.phase-overview figure,.element-section figure{margin:42px 0;text-align:center}.phase-overview img,.element-section img{max-width:100%;max-height:840px;object-fit:contain;background:#fff;border:1px solid var(--line)}.element-section>header h2{font-family:Newsreader,serif;font-size:2.4rem;margin-bottom:10px}.activity summary code{margin-right:14px;white-space:nowrap}.phase-pagination{display:flex;justify-content:space-between;padding:48px 0}.phase-pagination a{font-weight:700;color:var(--green)}.template-instructions,.template-section{padding:34px 0;border-bottom:1px solid var(--line)}.template-instructions aside{margin-top:22px;padding:18px 20px;background:var(--paper);border-left:3px solid var(--green)}.template-section table{width:100%;border-collapse:collapse;background:#fff}.template-section th,.template-section td{border:1px solid var(--line);padding:14px;vertical-align:top}.template-section th{background:#e7efeb}.template-section .fillable{color:#78827f;font-style:italic}.print-button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;font-weight:700}@media(max-width:800px){.transversal-io,#artifactTemplates{grid-template-columns:1fr}.element-accordion summary{align-items:flex-start;flex-wrap:wrap}.element-accordion summary small{width:100%;text-align:justify;margin:0}.detail-page{padding:82px 20px 50px}.phase-data,.element-data{grid-template-columns:1fr}.phase-card,.artifact-card{grid-template-columns:48px 1fr}.print-button{display:none}}@media print{.topbar,footer,.artifact-pagination,.print-button{display:none!important}.detail-page{padding:0;max-width:none}.detail-hero{padding-top:0}.template-section{break-inside:avoid}.fillable{min-width:120px;height:45px;color:transparent!important}}
+
+
+/* === Mejoras de aprovechamiento del espacio, reducción de espacios en blanco y escala tipográfica === */
+.intro h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
+  line-height: 1.1 !important;
+  max-width: 100% !important;
+  margin: 0.35rem 0 1.2rem 0 !important;
+}
+
+.intro {
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) !important;
+}
+
+.intro-inner {
+  max-width: 1600px !important;
+}
+
+.research-intro {
+  max-width: 100% !important;
+  margin: 18px 0 24px !important;
+}
+
+.research-intro p {
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 10px !important;
+}
+
+.section {
+  max-width: 1650px !important;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) !important;
+}
+
+.section-header {
+  margin-bottom: 1.8rem !important;
+  row-gap: 0.5rem !important;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  line-height: 1.15 !important;
+}
+
+.project-overview {
+  margin-top: 1.8rem !important;
+}
+
+.project-overview article {
+  padding: 1.25rem 1.5rem !important;
+}
+
+.detail-page {
+  max-width: 1550px !important;
+  padding: 85px 36px 60px !important;
+}
+
+.detail-hero {
+  padding: 35px 0 25px !important;
+}
+
+.detail-hero h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem) !important;
+  line-height: 1.1 !important;
+  margin: 10px 0 16px !important;
+}
+
+.detail-hero > p:last-child {
+  max-width: 1250px !important;
+}
+
+/* Evitar corte de palabras con guiones */
+*, p, .structured-list li, .protocol li, .contents-list li, td, dd, div, span, h1, h2, h3, h4, h5 {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+}
+
+p, .structured-list li, .protocol li, .contents-list li, td, dd {
+  text-align: justify !important;
+}
+
+/* === Barra de Migas de Pan (Breadcrumbs) === */
+.breadcrumb-bar {
+  background: #fdfdfc;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem clamp(1.2rem, 4vw, 4rem);
+  font-size: 0.85rem;
+  color: var(--muted);
+  position: sticky;
+  top: 72px;
+  z-index: 15;
+  backdrop-filter: blur(8px);
+}
+
+.breadcrumb-nav {
+  max-width: 1650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-nav a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #a0aba6;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+
+/* === Alineación y Justificación de Párrafos y Bloques de Texto === */
+p, 
+.research-intro p,
+.intro p,
+.section p,
+.subsection p,
+.element-summary-body p,
+.phase-overview p,
+.activity-detail p,
+.activity-content p,
+.template-instructions p,
+.structured-list li, 
+.protocol li, 
+.contents-list li, 
+dd {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+}
+
+figcaption, .numbered-table > h4, .template-section > h2, th {
+  text-align: center !important;
+}
+
+
+/* Ocultar cualquier etiqueta de dimensión en el resumen de los elementos */
+.element-accordion summary small {
+  display: none !important;
+}
+
+
+/* === Estructura vertical limpia para encabezados de sección === */
+.section-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  margin-bottom: 2.2rem !important;
+}
+
+.section-header .section-number {
+  margin: 0 !important;
+}
+
+.section-header h2 {
+  width: 100% !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.section-header > p:last-child,
+.section-header > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+
+/* === Unificación del formato y tamaño de títulos de secciones principales === */
+h1, .intro h1, .detail-hero h1 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+h2, .section-header h2, .section h2, .detail-page h2 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(2rem, 3.2vw, 2.9rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--ink) !important;
+}
+
+h3, .subsection h3, .section h3 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: var(--ink) !important;
+}
+
+/* === Márgenes de resguardo y padding generoso para evitar texto pegado al borde === */
+.section, .intro, .detail-page {
+  padding-left: clamp(2rem, 6vw, 6rem) !important;
+  padding-right: clamp(2rem, 6vw, 6rem) !important;
+  box-sizing: border-box !important;
+}
+
+.intro-inner, .section, .detail-page {
+  max-width: 1550px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* === Tarjetas generales apiladas verticalmente (un item debajo del anterior) === */
+.project-overview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  margin-top: 2rem !important;
+}
+
+.project-overview article {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-left: 4px solid var(--green) !important;
+  border-radius: 4px !important;
+  padding: 1.6rem 2rem !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+.project-overview article h2,
+.project-overview article h3 {
+  font-family: Newsreader, serif !important;
+  font-size: 1.45rem !important;
+  margin: 0 0 0.5rem 0 !important;
+  color: var(--green) !important;
+}
+
+.project-overview article p {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: var(--ink) !important;
+  margin: 0 !important;
+}
+
+
+/* === Ocupar el 100% del ancho útil sin recortes a la derecha === */
+.definition,
+.research-intro,
+.protocol,
+.project-overview,
+.project-overview article,
+.wide-figure,
+.model-figure,
+.macro-figure,
+.element-accordion,
+.transversal-io,
+.evidence,
+.template-instructions aside {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.definition {
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-left: 5px solid var(--green) !important;
+  border-radius: 4px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 2.5rem 0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.definition h3 {
+  font-family: Newsreader, serif !important;
+  font-size: 1.55rem !important;
+  color: var(--green) !important;
+  margin: 0 0 0.6rem 0 !important;
+}
+
+.definition p {
+  color: var(--ink) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+  text-align: justify !important;
+}
+
+/* Alineación consistente en el contenedor de sección */
+.section, .model-section, .phases-section, .reference-section {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+/* === Centrado de títulos de las dimensiones en sus tarjetas === */
+.dimensions article h3 {
+  text-align: center !important;
+  margin: 0 0 0.8rem 0 !important;
+}
+
+
+/* === Ocupar todo el ancho útil disponible a la derecha (100% del contenedor) === */
+.section-header > div,
+.section-header > p,
+.intro-inner,
+.research-intro,
+.definition,
+.protocol,
+.project-overview,
+.project-overview article,
+.wide-figure,
+.model-figure,
+.macro-figure,
+.element-accordion,
+.transversal-io,
+.evidence,
+.note-box,
+div[style*="border-left"],
+p[style*="border-left"],
+.template-instructions aside {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+/* === Centrado automático de guiones, rayas o acrónimos en celdas de tablas === */
+td:empty,
+td[data-center="true"] {
+  text-align: center !important;
+}

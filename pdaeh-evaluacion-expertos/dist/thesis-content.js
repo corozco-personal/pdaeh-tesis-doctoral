@@ -1,0 +1,2354 @@
+window.THESIS_DATA = {
+  "meta": {
+    "name": "Proceso para la Definición de Arquitecturas Empresariales Híbridas",
+    "acronym": "PDAEH",
+    "version": "versión documentada en la monografía",
+    "source": "monografia-phd.docx",
+    "generatedFromTables": "49–151"
+  },
+  "macro": {
+    "Nombre": "Proceso para la definición de arquitecturas empresariales híbridas.",
+    "Identificador": "PDAEH",
+    "Propósito": "Proveer a las organizaciones de software un mecanismo sistemático y gobernable para definir, formalizar, implementar una arquitectura empresarial híbrida clásico-cuántica, alineada con la estrategia organizacional, los objetivos de negocio y los estándares internacionales de calidad arquitectónica.",
+    "Alcance": "El proceso aplica a unidades de TI, oficinas de arquitectura empresarial y equipos de transformación tecnológica de organizaciones que buscan integrar capacidades cuánticas dentro de su ecosistema tecnológico existente. Quedan fuera del alcance de este proceso aspectos como: la implementación de algoritmos cuánticos específicos, el diseño y desarrollo de software a nivel de circuito cuántico, así como la programación directa sobre hardware cuántico.",
+    "Dimensiones involucradas": "DC: Dimensión Conceptual (E1, E2, E3, E4). DO: Dimensión Organizativa (E9, E10). DCD: Dimensión de Calidad y Diseño (E5, E6, E7, E8).",
+    "Subconjuntos estructurales de origen": "S1 (E1, E2) → F1: Definición estratégica. S2 (E3, E4) → F2: Formalización conceptual. S3 (E5, E6) → F3: Configuración estructural. S4 (E9, E10) → F4: Materialización arquitectónica. S5 (E7, E8) → F5: Sistematización del diseño.",
+    "Entradas globales": "Plan estratégico institucional vigente. Inventario del estado actual de la arquitectura (AS-IS). Catálogo de objetivos y capacidades organizacionales. Marcos de referencia aplicables (TOGAF, ISO/IEC 42010, entre otros).",
+    "Salidas globales": "Línea Base Arquitectónica (LBA): Artefacto o conjunto de artefactos que agrupa los resultados obtenidos en todas las fases del proceso.",
+    "Criterios de inicio": "Decisión formal del comité directivo o equivalente. Disponibilidad del equipo de arquitectura con los roles definidos. Acceso a documentación estratégica y tecnológica de la organización. Presupuesto y tiempo asignados al proceso.",
+    "Criterios de cierre": "Validación y aprobación formal de la LBA por el órgano de gobierno arquitectónico (OGA). Publicación oficial de la arquitectura de referencia en el repositorio corporativo. Entrega de productos de trabajo verificables por cada fase (F1–F5).",
+    "Indicadores globales": "Porcentaje (%) de elementos E1–E10 formalizados y validados. Número de artefactos generados y aprobados por el OGA. Porcentaje (%) de fases completadas con punto de control aprobado. Grado de trazabilidad desde los objetivos estratégicos hasta los componentes técnicos.",
+    "Autoridad de aprobación": "Órgano de gobierno arquitectónico (OGA) o su equivalente organizacional."
+  },
+  "research": {
+    "generalObjective": "Desarrollar una arquitectura de referencia adaptada a las necesidades emergentes de la Ingeniería de Software Cuántica, que apoye el diseño e implementación de arquitecturas de software empresariales híbridas en la industria de software.",
+    "specificObjectives": {
+      "number": 1,
+      "caption": "Tabla 1. Objetivos específicos de la investigación.",
+      "rows": [
+        [
+          "Identificador",
+          "Descripción"
+        ],
+        [
+          "OE1",
+          "Identificar las tendencias, estudios emergentes, propuestas, alcance, limitaciones y desafíos de la arquitectura de software en el contexto de la computación cuántica, a través de una Revisión Sistemática de la Literatura que delimite un estado del cocimiento extendido en torno a esta área de interés."
+        ],
+        [
+          "OE2",
+          "Diseñar una arquitectura de referencia para arquitecturas de software empresariales híbridas, que incorpore los principios de la Ingeniería de Software Cuántica y la armonización de los elementos clave identificados en el OE1."
+        ],
+        [
+          "OE3",
+          "Evaluar la arquitectura de referencia propuesta en el OE2 a través de la aplicación de la técnica de evaluación de juicio de expertos, para determinar aspectos críticos e insights significativos (información valiosa y específica) que sirvan para mejorar y depurar la propuesta."
+        ],
+        [
+          "OE4",
+          "Evaluar la arquitectura de referencia propuesta en el OE2 mediante la validación de escenarios hipotéticos como método mixto de evaluación que permita determinar su grado de aplicabilidad."
+        ]
+      ]
+    }
+  },
+  "integratedModel": {
+    "elements": {
+      "number": 40,
+      "caption": "Tabla 40. Modelo integrado que incorpora ajustes y/o extensiones.",
+      "rows": [
+        [
+          "Id",
+          "Elemento",
+          "Definición original (homogeneización)",
+          "Nueva definición integrada",
+          "Estudios que motivan el ajuste o extensión"
+        ],
+        [
+          "E1",
+          "Objetivo de la arquitectura",
+          "El objetivo de una arquitectura de referencia define la razón de ser del artefacto arquitectónico. Este propósito puede orientarse a la estandarización de prácticas dentro de un dominio, el soporte a la interoperabilidad entre sistemas heterogéneos, la guía para el diseño de soluciones específicas, la alineación organizacional, la consolidación del conocimiento arquitectónico o la reutilización sistemática. El objetivo condiciona el alcance, los mecanismos de abstracción, los estilos y estructuras permitidas, las decisiones de diseño y el nivel de formalización requerido.",
+          "El objetivo de la arquitectura de referencia incorpora explícitamente la distinción entre objetivos tecnológicos, experimentales y objetivos arquitectónicos normativos. En el contexto de arquitecturas híbridas cuántico–clásicas, el objetivo se redefine para incluir la guía sistemática al diseño de soluciones, la interoperabilidad entre componentes clásicos y cuánticos, y la reutilización arquitectónica, superando formulaciones implícitas centradas únicamente en capacidades tecnológicas.",
+          "S13, S14, S15, S16, S23"
+        ],
+        [
+          "E2",
+          "Contexto de la arquitectura",
+          "El contexto define los límites dentro de los cuales se aplica la arquitectura de referencia, incluyendo el dominio de negocio, el entorno tecnológico, los actores involucrados, restricciones organizacionales, dependencias externas, regulaciones aplicables y características operacionales. Un contexto bien definido permite que la arquitectura capture los factores que influyen en la adopción, adaptación o instanciación del modelo, y garantiza que los elementos propuestos sean pertinentes, aplicables y coherentes con la realidad del dominio.",
+          "El contexto de la arquitectura se mantiene, incorporando de forma explícita la coexistencia de entornos clásicos y cuánticos, la dependencia de proveedores de hardware cuántico y la variabilidad tecnológica propia de plataformas híbridas. La definición original se conserva, ampliando su aplicación al dominio cuántico–clásico sin modificar su estructura conceptual.",
+          "S18, S19, S20, S21, S23, S24"
+        ],
+        [
+          "E3",
+          "Nivel de abstracción",
+          "Los niveles de abstracción determinan el grado de detalle con el que se describen los elementos arquitectónicos. Una arquitectura de referencia puede ser altamente abstracta, semi-concreta o concreta. Este elemento es esencial porque permite distinguir entre visión conceptual, modelo de referencia y arquitectura de referencia, y guía la transición hacia implementaciones específicas.",
+          "El nivel de abstracción se redefine para establecer explícitamente niveles diferenciados en arquitecturas híbridas, incluyendo una capa conceptual, una capa arquitectónica de integración y una capa operativa de ejecución. Esta redefinición permite mapear de manera sistemática conceptos, estructuras y mecanismos hacia plataformas concretas y soluciones instanciadas.",
+          "S3, S7, S11, S12, S14, S15"
+        ],
+        [
+          "E4",
+          "Glosario y terminología",
+          "Un glosario formal establece un vocabulario controlado que evita ambigüedades semánticas, facilita la comunicación entre stakeholders y estandariza conceptos fundamentales. Incluye definiciones de conceptos, relaciones, restricciones y taxonomías asociadas.",
+          "El glosario y la terminología se ajustan para admitir distintos grados de formalización, permitiendo la coexistencia de vocabularios específicos de plataformas cuánticas con un núcleo común de conceptos arquitectónicos. La definición se amplía para reconocer la normalización de facto observada en la práctica industrial.",
+          "S5, S8, S9, S16, S21"
+        ],
+        [
+          "E5",
+          "Estructuras arquitectónicas",
+          "Las estructuras representan la organización del sistema o dominio en términos de vistas, capas, módulos, componentes funcionales, relaciones, dependencias y flujos de interacción. Proporcionan la base para analizar cohesión, acoplamiento y responsabilidades.",
+          "La definición original se mantiene, incorporando explícitamente estructuras de integración híbrida que combinan componentes clásicos, servicios de orquestación y recursos cuánticos. Las estructuras observadas confirman la validez del elemento sin requerir ajustes conceptuales.",
+          "S18, S19, S20, S21, S23, S24"
+        ],
+        [
+          "E6",
+          "Atributos de calidad",
+          "Los atributos de calidad establecen los criterios que determinan si un sistema cumple adecuadamente su propósito, incluyendo desempeño, escalabilidad, seguridad, disponibilidad, mantenibilidad y resiliencia.",
+          "El elemento se mantiene, integrando atributos específicos del dominio híbrido como eficiencia de ejecución híbrida, reducción de latencia cuántico–clásica y confiabilidad. Estos atributos aparecen de forma consistente como motivadores de decisiones arquitectónicas.",
+          "S18, S21, S22, S23, S24"
+        ],
+        [
+          "E7",
+          "Estilos y patrones arquitectónicos",
+          "Los estilos arquitectónicos proporcionan principios globales de organización estructural, mientras que los patrones proveen soluciones recurrentes a problemas comunes de diseño dentro del dominio.",
+          "El elemento se ajusta para reconocer que, en el dominio cuántico–clásico, los estilos arquitectónicos emergen de manera implícita a partir de prácticas recurrentes, más que como estilos formalizados. La definición se amplía para admitir estilos híbridos inferidos y en evolución.",
+          "S4, S7, S11, S17, S21, S23"
+        ],
+        [
+          "E8",
+          "Patrones de diseño",
+          "Los patrones de diseño definen plantillas reutilizables para resolver problemas específicos en el diseño de componentes e interacciones internas.",
+          "El elemento se extiende para reflejar la ausencia de patrones de diseño cuánticos formalizados. La nueva definición establece este componente como un área abierta del modelo de referencia, orientada a la sistematización futura de soluciones recurrentes en arquitecturas híbridas.",
+          "S9, S10, S19, S20"
+        ],
+        [
+          "E9",
+          "Componentes estructurales",
+          "Incluyen la definición y especificación de módulos, subsistemas, servicios, interfaces, conectores y mecanismos de integración, esenciales para la transición hacia instanciaciones concretas.",
+          "La definición se mantiene, incorporando explícitamente componentes híbridos como orquestadores, runtimes cuánticos, SDKs y mecanismos de acoplamiento clásico–cuántico. La estructura conceptual original se preserva.",
+          "S18, S19, S20, S21, S23, S24"
+        ],
+        [
+          "E10",
+          "Elementos reutilizables",
+          "Comprenden plantillas, artefactos, guías, lineamientos y modelos que pueden aplicarse de manera recurrente para promover estandarización y consistencia.",
+          "El elemento se ajusta para ampliar el concepto de reutilización, incluyendo artefactos parciales como arquitecturas de ejemplo, diagramas de integración y guías operativas, reflejando los distintos niveles de madurez observados en la práctica industrial.",
+          "S13, S14, S15, S16, S21, S23"
+        ]
+      ]
+    },
+    "dimensions": {
+      "number": 47,
+      "caption": "Tabla 47. Relación entre dimensiones y elementos.",
+      "rows": [
+        [
+          "Dimensión",
+          "Elementos asociados",
+          "Relación entre la dimensión y cada elemento"
+        ],
+        [
+          "Conceptual (DC)",
+          "E1, E2, E3, E4",
+          "E1 (Objetivo de la arquitectura): Define la razón de ser del modelo de referencia y establece el propósito normativo y conceptual que orienta el alcance del modelo integrado. A partir de los estudios analizados, este elemento fue ajustado para incorporar tanto objetivos explícitos de estandarización como objetivos implícitos de tipo tecnológico o experimental. E2 (Contexto de la arquitectura): Delimita el dominio de aplicación, los supuestos tecnológicos y las restricciones organizacionales bajo las cuales la arquitectura es válida. La evidencia empírica mostró una alta convergencia en la descripción del contexto, por lo que este elemento se mantiene sin modificaciones, consolidando un marco conceptual común para interpretar la arquitectura de referencia. E3 (Nivel de abstracción): Permite organizar la representación arquitectónica en distintos grados de detalle, desde una visión conceptual hasta descripciones cercanas a la implementación. A partir de la comparación, este elemento fue ajustado para capturar niveles de abstracción implícitos presentes en los estudios, aunque no formalizados como vistas arquitectónicas explícitas. E4 (Glosario y terminología): Proporciona la base semántica que asegura coherencia conceptual y evita ambigüedades en la interpretación del modelo. La integración amplió este elemento para admitir distintos niveles de formalización terminológica, incorporando tanto glosarios explícitos como vocabularios normalizados de facto."
+        ],
+        [
+          "Organizacional (DO)",
+          "E5, E9, E10",
+          "E5 (Estructuras arquitectónicas): Representa la organización del sistema en términos de vistas, capas, módulos y relaciones. Este elemento se mantiene sin ajustes, ya que la mayoría de los estudios describen de manera explícita estructuras arquitectónicas claras que materializan el modelo conceptual en configuraciones organizadas. E9 (Componentes estructurales): Define los elementos constructivos de la arquitectura, tales como módulos, servicios, interfaces y conectores. La evidencia mostró una alta consistencia en la identificación de componentes, por lo que este elemento se mantiene como un pilar organizacional que facilita la transición hacia instancias concretas del modelo. E10 (Elementos reutilizables): Incluye artefactos, plantillas y guías que permiten aplicar el modelo de referencia de manera sistemática. Este elemento fue ajustado para ampliar su alcance, incorporando no solo modelos formales completos, sino también artefactos parciales de reutilización observados en los estudios industriales y técnicos."
+        ],
+        [
+          "Diseño y calidad (DCD)",
+          "E6, E7, E8",
+          "E6 (Atributos de calidad): Actúa como un criterio transversal que guía y evalúa las decisiones arquitectónicas. Este elemento se mantiene sin modificaciones, dado que los atributos de calidad aparecen de forma consistente en la mayoría de los estudios. E7 (Estilos y patrones arquitectónicos): Proporciona principios estructurales globales que orientan la organización de la arquitectura. Este elemento fue ajustado para admitir distintos niveles de explicitación, incorporando tanto estilos formalmente definidos como enfoques inferidos a partir de las estructuras observadas. E8 (Patrones de diseño): Ofrece soluciones reutilizables a nivel de componentes e implementación. Dado que este elemento aparece escasamente definido en los estudios analizados, fue incorporado como una extensión explícita del modelo integrado, fortaleciendo la sistematización y reutilización del diseño interno."
+        ]
+      ]
+    }
+  },
+  "phases": [
+    {
+      "table": 81,
+      "caption": "Tabla 81. Documentación de la Fase 1.",
+      "Nombre": "Definición estratégica",
+      "Código": "F1",
+      "Subconjunto estructural asociado": "S1",
+      "Elementos incluidos": "E1: Objetivo de la arquitectura. E2: Contexto de la arquitectura.",
+      "Propósito": "Delimitar el alcance estratégico, los objetivos arquitectónicos y el contexto organizacional que justifican y enmarcan la definición de la arquitectura empresarial híbrida.",
+      "Entradas": "Plan estratégico institucional. Inventario de capacidades tecnológicas actuales (AS-IS). Catálogo de iniciativas y proyectos tecnológicos en curso. Objetivos de negocio y lineamientos de transformación digital. Marcos de referencia seleccionados por la organización.",
+      "Salidas": "LBA-F1: Línea base arquitectónica establecida para la Fase 1, que incluye: DOE: Documento de objetivos estratégicos. MTA: Matriz de trazabilidad objetivos-arquitectura. DCA: Declaración de contexto y alcance arquitectónico. MSP: Mapa de partes interesadas y preocupaciones.",
+      "Punto de control": "Revisión y aprobación de las salidas por el OGA antes de iniciar la fase F2.",
+      "Indicadores de cumplimiento": "IC-F1-01. Completitud de artefactos del elemento estratégico: Todos los artefactos del elemento de análisis estratégico están formalizados y registrados en la LBA-F1. Umbral: 100%de artefactos presentes antes de someter el paquete al OGA. IC-F1-02. Completitud de artefactos del elemento de marcos de referencia: Todos los artefactos del elemento de identificación y selección de marcos están formalizados y registrados en la LBA-F1. Umbral: 100%de artefactos presentes antes de someter el paquete al OGA. IC-F1-0 3. Pertinencia y suficiencia de los objetivos arquitectónicos: E l DOA refleja fielmente las necesidades y restricciones organizacionales identificadas en el análisis de contexto, con objetivos medibles y alineados con la dirección estratégica. Umbral: sin objetivo ambiguos o sin sustento organizacional al cierre del elemento correspondiente. IC-F1-04. Coherencia del marco teórico adoptado: El MTA justifica la selección de los marcos de referencia adoptados y demuestra su pertinencia para el contexto organizacional. Umbral: todos los marcos seleccionados cuentan con justificación documentada y validada por el SE/GPA. IC-F1-05. Completitud del análisis de contexto organizacional: E l DCA cubre las dimensiones organizacionales relevantes (estratégica, estructural, tecnológica y de procesos) con suficiente profundidad para fundamentar las decisiones arquitectónicas de las fases siguientes. Umbral: cobertura ≥ 95%de las dimensiones definidas en el alcance del proceso. IC-F1-06. Coherencia de la síntesis de marcos y principios: E l SMP integra de manera consistente los marcos de referencia adoptados y los principios arquitectónicos derivados, sin contradicciones internas ni conflictos con el DOA-v1. Umbral: sin inconsistencias entre marcos o principios al cierre de la síntesis. IC-F1-07. Aprobación del OGA: el OGA emite aprobación formal del paquete LBA-F1. Umbral: aprobación registrada sin observaciones abiertas pendientes."
+    },
+    {
+      "table": 92,
+      "caption": "Tabla 92. Documentación de la Fase 2.",
+      "Nombre": "Formalización conceptual",
+      "Código": "F2",
+      "Subconjunto estructural asociado": "S2",
+      "Elementos incluidos": "E3: Nivel de abstracción arquitectónica E4: Vocabulario arquitectónico",
+      "Propósito": "Establecer los fundamentos conceptuales que orientarán el desarrollo de la arquitectura empresarial híbrida. Esta fase define los niveles de abstracción que estructurarán la representación arquitectónica y normaliza el vocabulario que será utilizado de manera consistente por todos los actores del proceso a lo largo de las fases subsiguientes.",
+      "Entradas": "LBA-F1: Línea base arquitectónica correspondiente a la Fase 1.",
+      "Salidas": "LBA-F2: Línea base arquitectónica establecida para la Fase 2, que incluye: DPV: Documento de perspectivas y vistas arquitectónicas. DNA: Documento de niveles arquitectónicos. MTA: Marco teórico arquitectónico actualizado. ITA: Inventario de términos arquitectónicos. DVA: Diccionario de vocabulario arquitectónico.",
+      "Punto de control": "Sesión de revisión con el ó rgano de gobierno arquitectónico (OGA) para verificar la coherencia conceptual y terminológica de los fundamentos establecidos. La aprobación del OGA habilita el avance hacia la Fase 3.",
+      "Indicadores de cumplimiento": "IC-F2-01. Completitud de artefactos de E3: DPV, DNA y MTA están formalizados y registrados en la LBA-F2. Umbral: 100%de artefactos presentes antes de someter el paquete al OGA. IC-F2-02. Completitud de artefactos de E4: ITA y DVA están formalizados y registrados. Umbral: 100%de artefactos presentes antes de someter el paquete al OGA. IC-F2-03. Coherencia estructural de niveles de abstracción: la jerarquía definida en el DNA es internamente consistente, cubre todas las perspectivas requeridas y presenta trazabilidad vertical entre niveles adyacentes. Umbral: sin inconsistencias estructurales pendientes al cierre de E3. IC-F2-04. Precisión y completitud del vocabulario: las definiciones del DVA son precisas, no ambiguas y cubren la totalidad de los conceptos utilizados en el proceso. Umbral: sin términos faltantes o mal definidos al cierre de E4. IC-F2-05. Trazabilidad con artefactos de Fase 1: los fundamentos conceptuales de F2 son trazables con el DOA, el DCA y el SMP. Umbral: cobertura ≥ 95%de los objetivos del DOA, verificable en la matriz de trazabilidad del DNA. IC-F2-06. Coherencia inter-elemento E3/E4: los términos del DVA están correctamente posicionados en la estructura de niveles del DNA. Umbral: sin inconsistencias cruzadas entre artefactos de E3 y E4 al cierre de F2.E4.A3. IC-F2-07: Aprobación del OGA: el OGA emite aprobación formal del paquete LBA-F2-v1 documentad a. Umbral: aprobación registrada sin observaciones abiertas pendientes."
+    },
+    {
+      "table": 103,
+      "caption": "Tabla 103. Documentación de la Fase 3.",
+      "Nombre": "Configuración estructural",
+      "Código": "F3",
+      "Subconjunto estructural asociado": "S 3",
+      "Elementos incluidos": "E 5: Estructuras arquitectónicas. E 6: Atributos de calidad.",
+      "Propósito": "Establecer la configuración estructural de la arquitectura empresarial híbrida mediante la definición de las estructuras arquitectónicas y los atributos de calidad que guiarán el diseño, evaluación y evolución del sistema. Esta fase articula la organización del sistema con los criterios de calidad, asegurando que las decisiones estructurales respondan a los drivers definidos y permitan satisfacer las necesidades de la organización.",
+      "Entradas": "LBA-F 2: Línea base arquitectónica correspondiente a la Fase 2.",
+      "Salidas": "LBA-F 3: Línea base arquitectónica establecida para la Fase 3, que incluye: MAC: Modelo de atributos de calidad. DEA: Documento de estructuras arquitectónicas.",
+      "Punto de control": "Consolidación de artefactos realizada por el arquitecto empresarial del proceso, quien determina que los entregables de cada elemento son coherentes y consistentes con las necesidades de la organización.",
+      "Indicadores de cumplimiento": "IC-F3-01. Completitud de artefactos de F3: Los documentos entregados al final de la fase se encuentran correctamente, versionados y registrados en la LBA-F3. Umbral: 100%de artefactos presentes antes de su envío al OGA IC-F3-02. Coherencia entre estructuras y atributos de calidad: Las estructuras definidas en el DEA responden explícitamente a los atributos de calidad establecidos en el MAC. Umbral: trazabilidad completa entre atributos y decisiones estructurales, sin inconsistencias identificadas. IC-F3-03. Trazabilidad con la Fase 2: Las estructuras arquitectónicas y atributos de calidad son consistentes con los artefactos definidos en F2. Umbral: cobertura ≥ 95%de los elementos conceptuales definidos en la fase anterior. IC-F3-04. Definición de escenarios de calidad: Cada atributo de calidad del MAC cuenta con al menos un escenario de evaluación definido (estímulo, entorno, respuesta y medida). Umbral: 100%de atributos con escenarios asociados. IC-F3-05. Consistencia estructural interna: Las vistas, componentes y relaciones definidas en el DEA son coherentes entre sí, sin contradicciones en dependencias, responsabilidades o flujos. Umbral: sin inconsistencias estructurales al cierre de F3. IC-F3-06. Cobertura de integración híbrida: Las estructuras arquitectónicas consideran explícitamente la interacción entre componentes clásicos, servicios de orquestación y recursos cuánticos. Umbral: 100%de los flujos críticos del sistema contemplan integración híbrida. IC-F3-07. Aprobación del OGA: El OGA emite aprobación formal de la LBA-F3 documentada en el acta correspondiente. Umbral: aprobación registrada sin observaciones abiertas pendientes."
+    },
+    {
+      "table": 118,
+      "caption": "Tabla 118. Documentación de la Fase 4.",
+      "Nombre": "Materialización arquitectónica",
+      "Código": "F4",
+      "Subconjunto estructural asociado": "S4",
+      "Elementos incluidos": "E9: Componentes estructurales. E10: Elementos reutilizables.",
+      "Propósito": "Materializar la arquitectura empresarial híbrida mediante la definición de los componentes estructurales y los elementos reutilizables que la conforman, proporcionando los catálogos técnicos que permitan concretar el diseño arquitectónico de manera coherente, trazable y orientada a la reutilización.",
+      "Entradas": "LBA-F3: Línea base arquitectónica correspondiente a la Fase 3.",
+      "Salidas": "LBA-F 4: Línea base arquitectónica establecida para la Fase 4, que incluye: DCO: Documento de componentes estructurales. BER: Biblioteca de elementos reutilizables",
+      "Punto de control": "Consolidación de artefactos realizada por el arquitecto empresarial del proceso, quien determina que los entregables de cada elemento son coherentes y consistentes con las necesidades de la organización.",
+      "Indicadores de cumplimiento": "IC-F4-01. Completitud de artefactos de F4: Los documentos entregados al final de la fase se encuentran correctamente versionados y registrados en la LBA-F4. Umbral: 100%de artefactos presentes antes de su envío al OGA. IC-F4-02. Coherencia entre componentes y elementos reutilizables: Los componentes definidos en el DCO son consistentes con los elementos reutilizables del BER. Umbral: 0 inconsistencias detectadas durante la revisión del OGA. IC-F4-03. Trazabilidad de componentes y elementos: Cada componente y elemento reutilizable cuenta con trazabilidad establecida con los artefactos de F3. Umbral: 100%de ítems trazables documentados."
+    },
+    {
+      "table": 133,
+      "caption": "Tabla 133. Documentación de la Fase 5.",
+      "Nombre": "Sistematización del diseño",
+      "Código": "F5",
+      "Subconjunto estructural asociado": "S5",
+      "Elementos incluidos": "E7: Estilos y patrones arquitectónicos. E8: Patrones de diseño.",
+      "Propósito": "Sistematizar las decisiones de diseño de la arquitectura empresarial híbrida mediante la selección, documentación y estandarización de los estilos arquitectónicos y los patrones de diseño aplicables, estableciendo un catálogo de soluciones reutilizables que consolide el conocimiento arquitectónico y oriente la implementación coherente del sistema.",
+      "Entradas": "LBA-F3: Línea base arquitectónica correspondiente a la Fase 3. LBA-F4: Línea base arquitectónica correspondiente a la Fase 4.",
+      "Salidas": "LBA-F5: Línea base arquitectónica establecida para la Fase 4, que incluye: CEP: Catálogo de estilos y patrones arquitectónicos. CPD: Catálogo de patrones de diseño.",
+      "Punto de control": "Consolidación de artefactos realizada por el arquitecto empresarial del proceso, quien determina que los catálogos producidos en los elementos E7 y E8 son coherentes entre sí, están alineados con los artefactos de las fases anteriores y satisfacen los criterios de completitud establecidos.",
+      "Indicadores de cumplimiento": "IC-F5-01. Completitud de artefactos de F5: Los catálogos CEP y CPD están correctamente documentados, versionados y registrados en la LBA-F5. Umbral: 100%de artefactos presentes antes del envío al OGA. IC-F5-02. Cobertura de estilos y patrones: Los estilos y patrones documentados cubren los principales contextos de aplicación de la arquitectura híbrida. Umbral: cobertura validada por el OGA sin brechas significativas. IC-F5-03. Trazabilidad de decisiones de diseño: Los estilos y patrones catalogados están vinculados con los componentes y estructuras de las fases previas. Umbral: 100%de ítems con trazabilidad establecida."
+    }
+  ],
+  "elements": [
+    {
+      "table": 82,
+      "caption": "Tabla 82. Documentación del elemento E1: Objetivo de la arquitectura.",
+      "Código": "E1",
+      "F ase asociada": "F1",
+      "Categoría": "Dimensión Conceptual (DC)",
+      "Propósito del elemento": "Establecer los objetivos que justifican la definición de la arquitectura empresarial híbrida, asegurando que el proceso arquitectónico responda a necesidades organizacionales concretas",
+      "Objetivos específicos": "O1: Identificar y formalizar los objetivos de negocio que motivan la adopción de la arquitectura híbrida. O2: Establecer criterios de éxito medibles para la arquitectura. O3: Asegurar la trazabilidad entre los objetivos organizacionales y las decisiones arquitectónicas.",
+      "Productos generados": "Documento de objetivos estratégicos (DOE): Artefacto que consolida y formaliza los objetivos estratégicos de la organizació n, definiendo su alcance, prioridades y criterios de evaluació n como base para la alineació n arquitectónica. Matriz de trazabilidad objetivos-arquitectura (MTA): Artefacto que establece la relació n explícita entre los objetivos estratégicos definidos y objetivos propuestos para la arquitectura, permitiendo verificar la coherencia, cobertura y alineació n entre la estrategia organizacional y lo que se espera de la solución técnica.",
+      "Criterios de aceptación": "Los objetivos son aprobados formalmente por el OGA y las partes interesadas clave. Existe trazabilidad explícita y reproducible entre cada objetivo y al menos un componente del modelo arquitectónico.",
+      "Dependencias estructurales": "Ninguna (E1 es el nodo raíz del proceso)"
+    },
+    {
+      "table": 83,
+      "caption": "Tabla 83. Documentación del elemento E2: Contexto de la arquitectura",
+      "Código": "E2",
+      "Fase asociada": "F1",
+      "Categoría": "Dimensión Conceptual (DC)",
+      "Propósito": "Caracterizar el entorno organizacional, tecnológico y regulatorio en el que se definirá e implementará la arquitectura empresarial híbrida, estableciendo las restricciones y condiciones que condicionan las decisiones arquitectónicas.",
+      "Objetivos específicos": "O1: Documentar el estado actual de la arquitectura de la organización (AS-IS). O2: Identificar restricciones organizacionales, regulatorias y tecnológicas aplicables. O3: Mapear el ecosistema de partes interesadas y sus preocupaciones arquitectónicas.",
+      "Productos generados": "Documento de contexto arquitectónico (DCA): Artefacto que describe el entorno organizacional, tecnológico y estratégico en el cual se desarrollará la arquitectura empresarial híbrida, incluyendo el estado actual (AS-IS), las restricciones relevantes y las condiciones que influyen en la toma de decisiones arquitectónicas. Matriz de stakeholders y preocupaciones (MSP): Artefacto que identifica y caracteriza a las partes interesadas relevantes, sus intereses, expectativas y preocupaciones respecto a la arquitectura, permitiendo orientar las decisiones arquitectónicas y asegurar su alineación con las necesidades de l a organización.",
+      "Criterios de aceptación": "El contexto está documentado con un nivel de detalle suficiente para identificar las principales restricciones que influyen en las decisiones de la fase F2. Las partes interesadas han revisado y validado el documento.",
+      "Dependencias estructurales": "E1: el contexto se define en función de los objetivos arquitectónicos establecidos."
+    },
+    {
+      "table": 93,
+      "caption": "Tabla 93. Documentación del elemento E3: Grado de abstracción.",
+      "Código": "E3",
+      "Fase asociada": "F2",
+      "Categoría": "Dimensión Conceptual (DC)",
+      "Propósito del elemento": "Definir y estructurar los niveles de abstracción que organizarán la representación de la arquitectura empresarial híbrida. Este elemento establece una jerarquía coherente entre los niveles estratégico, táctico y operativo, asociando a cada uno las perspectivas y vistas arquitectónicas que le corresponden, de modo que exista una base formal para la construcción y comunicación de la arquitectura a diferentes audiencias organizacionales.",
+      "Objetivos específicos": "O1: Identificar y analizar los marcos de referencia arquitectónica que proponen estructuras de niveles de abstracción. Definir la jerarquía de niveles de abstracción aplicable al contexto del proceso. O2: Asociar cada nivel a las perspectivas y vistas arquitectónicas correspondientes. O3: Verificar la coherencia vertical entre los niveles definidos. O4: Documentar los resultados en los artefactos de salida del elemento.",
+      "Productos generados": "Documento de perspectivas y vistas arquitectónicas (DPV): Artefacto que establece el catálogo de perspectivas y vistas arquitectónicas asociadas a cada nivel de abstracción definido, especificando para cada una su propósito, audiencia objetivo, contenido representado y relaciones con otras perspectivas, constituyendo el marco de referencia para la representación de la arquitectura empresarial híbrida. Documento de niveles arquitectónicos (DNA): Artefacto que formaliza la jerarquía de niveles de abstracción adoptada por el proceso, describiendo las características de cada nivel, sus relaciones verticales y las implicaciones que tiene su estructura para la organización y navegación de los demás artefactos del proceso. Marco teórico arquitectónico actualizado (MTA): Artefacto que incorpora al marco teórico inicial (MTA) definido en la Fase 1, las decisiones conceptuales tomadas durante el Elemento E3, enriqueciendo la base de conocimiento del proceso con los criterios de selección y adaptación de los niveles de abstracción adoptados.",
+      "Criterios de aceptación": "Los niveles definidos cubren las perspectivas requeridas por la organización. Existe coherencia y trazabilidad entre niveles adyacentes de la jerarquía. El OGA valida la pertinencia y suficiencia de la estructura de niveles propuesta.",
+      "Dependencias estructurales": "E1, E2: El grado de abstracción se define con base los objetivos y el contexto."
+    },
+    {
+      "table": 94,
+      "caption": "Tabla 94. Documentación del elemento E4: Glosario de términos y definiciones.",
+      "Código": "E4",
+      "Fase asociada": "F2",
+      "Categoría": "Dimensión Conceptual (DC)",
+      "Propósito del elemento": "Normalizar y documentar el vocabulario arquitectónico que será utilizado de manera consistente a lo largo del proceso. Este elemento garantiza la comunicación unívoca entre los actores involucrados, eliminando ambigüedades terminológicas que puedan comprometer la coherencia del proceso o la calidad de los artefactos producidos en fases posteriores.",
+      "Objetivos específicos": "O1: Identificar y recopilar los términos arquitectónicos relevantes para el proceso a partir de los marcos de referencia adoptados. O2: Definir con precisión cada término, evitando ambigüedades y estableciendo su alcance en el contexto del proceso. O3: Establecer relaciones conceptuales entre los términos del vocabulario (jerarquías, equivalencias y relaciones). O4: Validar el vocabulario con las partes interesadas y los actores clave del proceso. O5: Producir el diccionario oficial de términos arquitectónicos del proceso.",
+      "Productos generados": "Inventario de términos arquitectónicos (ITA): Artefacto que recopila y clasifica por categorías conceptuales la totalidad de los términos arquitectónicos relevantes para el proceso, indicando para cada término su denominación, categoría, fuente de referencia y relaciones con otros términos del inventario. Diccionario de vocabulario arquitectónico (DVA): Artefacto que provee la definición formal y precisa de cada término incluido en el ITA, estableciendo su alcance en el contexto del proceso, sus relaciones conceptuales (jerarquías, equivalencias y relaciones parte-todo) y constituyéndose como la referencia terminológica oficial del proceso a lo largo de todas sus fases.",
+      "Criterios de aceptación": "El vocabulario cubre todos los conceptos utilizados en el proceso y sus artefactos. Las definiciones son precisas, completas y no presentan ambigüedades. Las relaciones conceptuales entre términos están correctamente establecidas. El OGA aprueba el diccionario como referencia terminológica oficial del proceso.",
+      "Dependencias estructurales": "E1, E2: El grado de abstracción se define con base los objetivos y el contexto."
+    },
+    {
+      "table": 104,
+      "caption": "Tabla 104. Documentación del elemento E6: Atributos de calidad.",
+      "Código": "E6",
+      "Fase asociada": "F3",
+      "Categoría": "Dimensión de Calidad y Diseño (DCD)",
+      "Propósito del elemento": "Definir, estructurar y formalizar los atributos de calidad que orientan la evaluación y toma de decisiones arquitectónicas, estableciendo criterios medibles que permitan determinar si la arquitectura empresarial híbrida satisface los requerimientos de desempeño, seguridad, escalabilidad, resiliencia y eficiencia en entornos clásico-cuánticos.",
+      "Objetivos específicos": "O1: Identificar los atributos de calidad relevantes para la arquitectura. O2: Definir métricas y criterios de evaluación para cada atributo. O3: Establecer escenarios de calidad que permitan evaluar la arquitectura. O4: Analizar trade-offs entre atributos de calidad en el contexto de decisiones arquitectónicas propuestas en las fases anteriores.",
+      "Productos generados": "Modelo de atributos de calidad (MAC): Artefacto que define los atributos de calidad relevantes, sus métricas, escenarios de evaluación, criterios de aceptación y relaciones de trade -off, sirviendo como base para la evaluación arquitectónica.",
+      "Criterios de aceptación": "Los atributos de calidad cubren los requerimientos críticos del sistema. Cada atributo cuenta con métricas y escenarios de evaluación definidos. Se identifican y documentan los trade-offs relevantes entre atributos. Existe trazabilidad entre atributos de calidad y decisiones estructurales. El OGA valida la pertinencia y completitud del modelo de calidad.",
+      "Dependencias estructurales": "E3, E4: Los atributos parten de la existencia de un vocabulario común."
+    },
+    {
+      "table": 105,
+      "caption": "Tabla 105. Documentación del elemento E5: Estructuras arquitectónicas.",
+      "Código": "E 5",
+      "Fase asociada": "F 3",
+      "Categoría": "Dimensión de Calidad y Diseño (DCD)",
+      "Propósito del elemento": "Definir y estructurar las estructuras arquitectónicas que organizan la arquitectura empresarial, estableciendo vistas, componentes, relaciones, dependencias, flujos de interacción y asignación de responsabilidades, de manera que se garantice una representación coherente del sistema y se soporte el análisis de cohesión, acoplamiento e integración entre componentes clásicos y cuánticos cuando se planteen las tareas asociadas con su implementación.",
+      "Objetivos específicos": "O1: Identificar y definir las vistas arquitectónicas necesarias para representar la arquitectura. O2: Establecer los componentes, módulos y capas que conforman la arquitectura. O3: Definir las relaciones, dependencias y flujos de interacción entre componentes. O4: Asignar responsabilidades a los elementos estructurales definidos. O5: Incorporar explícitamente mecanismos de integración híbrida entre componentes clásicos y cuánticos.",
+      "Productos generados": "Documento de estructuras arquitectónicas (DEA): Artefacto que describe la organización estructural de la arquitectura, incluyendo vistas, capas, componentes, relaciones, dependencias, flujos de interacción y responsabilidades, proporcionando la base para el análisis estructural del sistema.",
+      "Criterios de aceptación": "Las estructuras definidas cubren las necesidades funcionales y de integración del sistema. Existe coherencia interna entre vistas, componentes y relaciones. Las responsabilidades están claramente asignadas y no presentan ambigüedades. Las estructuras soportan explícitamente la integración híbrida. El OGA valida la consistencia y suficiencia de las estructuras definidas.",
+      "Dependencias estructurales": "E3, E4: Los atributos parten de la existencia de un vocabulario común."
+    },
+    {
+      "table": 119,
+      "caption": "Tabla 119. Documentación del elemento E9: Componentes estructurales.",
+      "Código": "E9",
+      "Fase asociada": "F4",
+      "Categoría": "Dimensión de Diseño y Operaciones (DO)",
+      "Propósito del elemento": "Definir, estructurar y formalizar los componentes estructurales que conforman la arquitectura empresarial híbrida, organizando los elementos de solución, integración, datos y seguridad en un catálogo técnico que soporte el diseño, la implementación y la operación del sistema.",
+      "Objetivos específicos": "O1: Identificar los componentes estructurales relevantes para la arquitectura. O2: Especificar las responsabilidades y capacidades de cada componente. O3: Establecer las relaciones e interdependencias entre componentes. O4: Documentar los componentes con criterios de trazabilidad respecto a los artefactos de fases anteriores. O5: Consolidar el catálogo de componentes como base para el diseño detallado.",
+      "Productos generados": "Documento de componentes estructurales (DCO): Artefacto que describe los componentes que conforman la arquitectura, sus responsabilidades, relaciones y criterios de integración, sirviendo como referencia técnica para el diseño e implementación.",
+      "Criterios de aceptación": "Los componentes definidos cubren todas las capacidades arquitectónicas identificadas en fases anteriores. Cada componente cuenta con responsabilidades claramente definidas y trazabilidad establecida. Las relaciones entre componentes son coherentes con las estructuras definidas en F3. El OGA valida que el DCO es completo, consistente y alineado con los objetivos estratégicos.",
+      "Dependencias estructurales": "E5, E6: Los componentes se derivan de las estructuras arquitectónicas y los atributos de calidad definidos en F3."
+    },
+    {
+      "table": 120,
+      "caption": "Tabla 120. Documentación del elemento E10: Elementos reutilizables.",
+      "Código": "E10",
+      "Fase asociada": "F4",
+      "Categoría": "Dimensión de Diseño y Operaciones (DO)",
+      "Propósito del elemento": "Identificar, catalogar y formalizar los elementos reutilizables de la arquitectura empresarial híbrida, estableciendo una biblioteca de componentes, patrones y servicios que puedan ser aprovechados en múltiples contextos de implementación, favoreciendo la coherencia, eficiencia y sostenibilidad del diseño arquitectónico.",
+      "Objetivos específicos": "O1: Identificar los elementos con potencial de reutilización en la arquitectura. O2: Clasificar los elementos reutilizables por tipo, dominio y nivel de aplicación. O3: Definir las interfaces y contratos de los elementos reutilizables. O4: Establecer criterios de variabilidad y configurabilidad para cada elemento. O5: Consolidar la biblioteca de elementos reutilizables como referencia para futuras implementaciones.",
+      "Productos generados": "Biblioteca de elementos reutilizables (BER): Artefacto que cataloga los elementos arquitectónicos con potencial de reutilización, sus interfaces, condiciones de uso, variabilidad y criterios de integración, constituyendo un activo de conocimiento arquitectónico.",
+      "Criterios de aceptación": "Los elementos catalogados tienen potencial real de reutilización en la arquitectura. Cada elemento cuenta con interfaces y contratos claramente definidos. Se establecen criterios de variabilidad y configurabilidad. La biblioteca es coherente con el DCO definido en E9. El OGA valida que el BER es completo y alineado con los objetivos de reutilización.",
+      "Dependencias estructurales": "E9: Los elementos reutilizables se derivan y complementan los componentes estructurales definidos en E9."
+    },
+    {
+      "table": 134,
+      "caption": "Tabla 134. Documentación del elemento E7: Estilos y patrones arquitectónicos.",
+      "Código": "E7",
+      "Fase asociada": "F5",
+      "Categoría": "Dimensión de Diseño y Calidad (DCD)",
+      "Propósito del elemento": "Identificar, seleccionar y documentar los estilos arquitectónicos y los patrones de alto nivel aplicables a la arquitectura empresarial híbrida, estableciendo un catálogo que estandarice las decisiones de organización estructural para los contextos clásico, cuántico y cuántico-clásico. La definición reconoce que, en el dominio híbrido, los estilos emergen frecuentemente de forma implícita a partir de prácticas recurrentes, por lo que el catálogo admite estilos inferidos y en evolución.",
+      "Objetivos específicos": "O1: Analizar las estructuras, los componentes y los atributos de calidad de fases previas para identificar patrones de organización recurrentes. O2: Clasificar los estilos arquitectónicos aplicables según los dominios de la arquitectura (solución, integración, datos, seguridad). O3: Documentar cada estilo con sus principios, ventajas, restricciones y criterios de aplicabilidad en contextos híbridos. O4: Establecer relaciones de trazabilidad entre los estilos catalogados y los componentes y estructuras definidos en F3 y F4. O5: Consolidar el catálogo de estilos y patrones arquitectónicos como referencia normativa para el diseño y la evolución de la arquitectura.",
+      "Productos generados": "Catálogo de estilos y patrones arquitectónicos (CEP): Artefacto que documenta los estilos arquitectónicos seleccionados para la arquitectura empresarial híbrida, incluyendo su descripción, principios de aplicación, variantes para el dominio cuántico-clásico, restricciones de uso y trazabilidad con los artefactos de fases anteriores.",
+      "Criterios de aceptación": "Los estilos documentados son coherentes con las estructuras y componentes definidos en F3 y F4. El catálogo cubre los contextos clásico, cuántico y cuántico-clásico de forma diferenciada. Cada estilo cuenta con criterios de aplicabilidad y restricciones claramente documentados. Existe trazabilidad entre los estilos y los artefactos de fases anteriores. El OGA valida que el CEP es consistente con los objetivos y las decisiones arquitectónicas previas.",
+      "Dependencias estructurales": "E5: Los estilos se derivan de las estructuras arquitectónicas definidas en F3. E6: Los estilos deben ser coherentes con los atributos de calidad establecidos en F3. E9: Los patrones de diseño se especifican sobre los componentes estructurales formalizados en F4. E10: Los patrones de diseño incorporan y extienden los elementos reutilizables identificados en F4."
+    },
+    {
+      "table": 135,
+      "caption": "Tabla 135. Documentación del elemento E8: Patrones de diseño.",
+      "Código": "E8",
+      "Fase asociada": "F5",
+      "Categoría": "Dimensión de Diseño y Calidad (DCD)",
+      "Propósito del elemento": "Identificar, seleccionar y documentar los patrones de diseño aplicables a los componentes e interacciones de la arquitectura empresarial híbrida, estableciendo un catálogo de plantillas reutilizables que sistematice las soluciones a problemas recurrentes de implementación. El elemento reconoce la ausencia de patrones de diseño cuánticos formalizados en la literatura, por lo que establece este componente como un área abierta orientada a la sistematización progresiva de soluciones en arquitecturas híbridas.",
+      "Objetivos específicos": "O1: Analizar los componentes estructurales (DCO) y la biblioteca de elementos reutilizables (BER) para identificar problemas de diseño recurrentes que admitan solución mediante patrones. O2: Clasificar los patrones de diseño identificados por tipo (creacionales, estructurales, de comportamiento) y dominio de aplicación. O3: Documentar cada patrón con su intención, estructura, aplicabilidad y consecuencias en el contexto de la arquitectura híbrida. O4: Proponer extensiones o adaptaciones de patrones clásicos para abordar los desafíos específicos de los componentes cuánticos y cuántico-clásicos. O5: Consolidar el catálogo de patrones de diseño como complemento del CEP y como activo de conocimiento para futuras implementaciones.",
+      "Productos generados": "Catálogo de patrones de diseño (CPD): Artefacto que documenta los patrones de diseño aplicables a la arquitectura empresarial híbrida, incluyendo su intención, estructura, variantes para el dominio cuántico-clásico, criterios de aplicabilidad y trazabilidad con los componentes y elementos reutilizables de F4.",
+      "Criterios de aceptación": "Los patrones documentados son aplicables a los componentes y elementos reutilizables de F4. El catálogo aborda explícitamente las particularidades del dominio cuántico-clásico. Cada patrón cuenta con criterios de aplicabilidad y consecuencias claramente documentados. El CPD es coherente con el CEP definido en E7. El OGA valida que el CPD es completo y consistente con las decisiones arquitectónicas previas.",
+      "Dependencias estructurales": "E9: Los patrones se aplican sobre los componentes estructurales definidos en F4."
+    }
+  ],
+  "activities": [
+    {
+      "table": 84,
+      "caption": "Tabla 84. Actividad F1.E1.A1. Análisis de objetivos estratégicos.",
+      "code": "F1.E1.A1",
+      "Código": "F1.E1.A1",
+      "Nombre": "Análisis de objetivos estratégicos.",
+      "Objetivo": "Identificar, analizar y estructurar los objetivos estratégicos de la organización a partir de los insumos institucionales, garantizando su claridad, coherencia interna y alineación con el contexto organizacional.",
+      "Descripción": "Se analizan el plan estratégico institucional y el catálogo de iniciativas con el fin de identificar los objetivos de negocio relevantes, comprender sus relaciones y establecer una base estructurada que permita su posterior traducción a objetivos arquitectónicos.",
+      "Entradas": "Plan estratégico institucional. Catálogo de iniciativas.",
+      "Salidas": "DOE inicial: Documento de objetivos estratégicos.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Revisión sistemática de documentos estratégicos. Sesiones colaborativas para interpretación de objetivos.",
+      "Punto de validación": "Verificación de alineación entre objetivos identificados y directrices institucionales definidas por la organización."
+    },
+    {
+      "table": 85,
+      "caption": "Tabla 85. Actividad F1.E1.A2. Validación de objetivos priorizados.",
+      "code": "F1.E1.A2",
+      "Código": "F1.E1.A2",
+      "Nombre": "Validación de objetivos priorizados.",
+      "Objetivo": "Someter el conjunto de objetivos identificados a validación por parte de los stakeholders clave, garantizando que la priorización refleje los intereses del negocio y cuente con el aval de los actores relevantes.",
+      "Descripción": "Los stakeholders estratégicos revisan el listado de objetivos estratégicos producido en la actividad anterior, evalúan su pertinencia, coherencia con los intereses organizacionales y proponen ajustes antes de que el AEP proceda a la formulación de objetivos arquitectónicos.",
+      "Entradas": "DOE: Documento de objetivos e stratégicos preliminar.",
+      "Salidas": "DOE aprobado: Documento de objetivos estratégicos aprobado por el SE/GPA.",
+      "Responsable": "SE: Stakeholder empresarial. GPA: Gestor del portafolio empresarial.",
+      "Herramientas": "Herramientas de gestión documental. Herramientas de reunión síncrona o asíncrona.",
+      "Punto de validación": "Verificación de que los objetivos priorizados cuentan con el aval explícito de los actores clave."
+    },
+    {
+      "table": 86,
+      "caption": "Tabla 86. Actividad F1.E1.A3. Formulación de objetivos arquitectónicos.",
+      "code": "F1.E1.A3",
+      "Código": "F1.E1.A3",
+      "Nombre": "Formulación de objetivos arquitectónicos.",
+      "Objetivo": "Traducir los objetivos estratégicos validados en objetivos arquitectónicos concretos, medibles y trazables, que orienten las decisiones de diseño de la arquitectura empresarial híbrida.",
+      "Descripción": "A partir del D OE aprobado, el AEP reformula los objetivos en términos arquitectónicos aplicando criterios SMART, asigna indicadores de cumplimiento, establece la trazabilidad entre objetivos de negocio y arquitectura, y documenta los supuestos que sustentan cada formulación.",
+      "Entradas": "DOE: Documento de objetivos estratégicos aprobado por el SE/GPA.",
+      "Salidas": "MTA: Matriz de trazabilidad objetivos-arquitectura.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Aplicación de criterios de especificidad, medición, alcanzabilidad, relevancia y temporalidad para reformular objetivos siguiendo el modelo SMART. Instrumento para vincular objetivos estratégicos con objetivos arquitectónicos.",
+      "Punto de validación": "Verificación de que cada objetivo estratégico tiene al menos un objetivo arquitectónico asociado y que la trazabilidad está documentada."
+    },
+    {
+      "table": 87,
+      "caption": "Tabla 87. Actividad F1.E2.A1. Levantamiento del estado actual (AS-IS).",
+      "code": "F1.E2.A1",
+      "Código": "F1.E2.A1",
+      "Nombre": "Levantamiento del estado actual (AS-IS)",
+      "Objetivo": "Documentar el estado actual de la arquitectura empresarial y tecnológica de la organización, identificando las capacidades existentes, las áreas con potencial híbrido clásico-cuántico y la deuda técnica acumulada.",
+      "Descripción": "El AEP revisa el inventario AS-IS disponible y construye una descripción estructurada de la arquitectura actual, destacando las capacidades que podrían beneficiarse de un enfoque híbrido clásico-cuántico y registrando los aspectos de deuda técnica que condicionarán las decisiones arquitectónicas futuras.",
+      "Entradas": "Inventario AS-IS (estado actual de sistemas, procesos y capacidades organizacionales).",
+      "Salidas": "DCA inicial: Documento de contexto arquitectónico.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Revisión sistemática del inventario AS-IS para identificar componentes y capacidades relevantes. Evaluación de qué capacidades actuales admiten una evolución hacia componentes cuánticos.",
+      "Punto de validación": "Verificación de que los sistemas, procesos y capacidades críticas han sido documentados y el potencial híbrido está identificado."
+    },
+    {
+      "table": 88,
+      "caption": "Tabla 88. Actividad F1.E2.A2. Análisis de restricciones y condicionantes.",
+      "code": "F1.E2.A2",
+      "Código": "F1.E2.A2",
+      "Nombre": "Análisis de restricciones y condicionantes.",
+      "Objetivo": "Identificar y clasificar las restricciones organizacionales, regulatorias y tecnológicas que condicionarán el diseño de la arquitectura empresarial híbrida, valorando su impacto sobre las decisiones arquitectónicas.",
+      "Descripción": "El AEP analiza el contexto interno y externo de la organización para identificar las restricciones que delimitan el espacio de soluciones arquitectónicas: restricciones derivadas de la cultura y capacidad organizacional, marcos normativos y regulatorios aplicables, y limitaciones tecnológicas actuales o previstas.",
+      "Entradas": "DCA inicial: Documento de contexto arquitectónico.",
+      "Salidas": "DCA refinado: Documento de contexto arquitectónico actualizado que incorpora las restricciones y condicionantes de la organización.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Evaluación de factores culturales, de gobernanza y capacidad interna que condicionan la arquitectura. Identificación de marcos normativos, cumplimiento y requisitos de auditoría aplicables. Revisión de limitaciones e incompatibilidades tecnológicas que restringen las opciones arquitectónicas.",
+      "Punto de validación": "Verificación de que cada restricción identificada ha sido clasificada según su nivel de impacto sobre el diseño arquitectónico."
+    },
+    {
+      "table": 89,
+      "caption": "Tabla 89. Actividad F1.E2.A3. Mapeo de partes interesadas y preocupaciones.",
+      "code": "F1.E2.A3",
+      "Código": "F1.E2.A3",
+      "Nombre": "Mapeo de partes interesadas y preocupaciones.",
+      "Objetivo": "Identificar a todas las partes interesadas relevantes para la arquitectura empresarial híbrida, comprender sus preocupaciones arquitectónicas y consolidar los artefactos que guiarán el diseño orientado a stakeholders.",
+      "Descripción": "El AEP identifica y caracteriza a los stakeholders con interés o influencia sobre la arquitectura, documenta sus preocupaciones arquitectónicas (necesidades, expectativas, restricciones y riesgos percibidos), y consolida esta información en el documento de contexto arquitectónico y el mapa de stakeholders y preocupaciones.",
+      "Entradas": "DCA refinado: Documento de contexto arquitectónico actualizado que incorpora las restricciones y condicionantes de la organización.",
+      "Salidas": "DCA: Documento de contexto arquitectónico actualizado con la sección de stakeholders. MSP: Mapa de stakeholders y preocupaciones.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Identificación y caracterización de los actores internos y externos con interés en la arquitectura. Técnica para asociar a cada stakeholder sus necesidades, expectativas, restricciones y riesgos percibidos.",
+      "Punto de validación": "Verificación de que todos los stakeholders clave han sido identificados y sus preocupaciones documentadas y asociadas a los objetivos arquitectónicos."
+    },
+    {
+      "table": 90,
+      "caption": "Tabla 90. Actividad F1.E1.A4 {E2}. Preparación y envío de artefactos al OGA.",
+      "code": "F1.E1.A4{E2}",
+      "Código": "F1.E1.A4 {E2}",
+      "Nombre": "Preparación y envío al OGA.",
+      "Objetivo": "Compilar, estructurar y remitir formalmente al órgano de gobierno arquitectónico (OGA) el paquete completo de artefactos producidos en la Fase 1, a fin de iniciar el proceso de revisión y aprobación.",
+      "Descripción": "El AEP reúne los artefactos generados durante la fase, elabora una presentación ejecutiva que contextualiza el proceso seguido y los resultados obtenidos, y los envía formalmente al OGA para que inicie su proceso de revisión institucional.",
+      "Entradas": "DOA: Documento de objetivos arquitectónicos. MTA: Matriz de t razabilidad arquitectónica. DCA: Documento de c ontexto arquitectónico. SMP: Mapa de s takeholders y p reocupaciones.",
+      "Salidas": "LBA-F1 inicial: Paquete de artefactos de la fase enviado formalmente al OGA.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Verificación de integridad y consistencia de los artefactos antes del envío para revisión. Documento de síntesis para contextualizar al OGA sobre los resultados obtenidos durante la ejecución de la fase.",
+      "Punto de validación": "Confirmación de que todos los artefactos requeridos están incluidos y son coherentes entre sí antes del envío formal."
+    },
+    {
+      "table": 91,
+      "caption": "Tabla 91. Actividad F1.E1.A5 {E2}. Ajustar artefactos según observaciones del OGA.",
+      "code": "F1.E1.A5{E2}",
+      "Código": "F1.E1.A5 {E2}",
+      "Nombre": "Ajustar artefactos según observaciones del OGA.",
+      "Objetivo": "Incorporar las observaciones y correcciones emitidas por el OGA en los artefactos de la Fase 1, y reenviar el paquete ajustado para su nueva revisión o aprobación definitiva.",
+      "Descripción": "Cuando el OGA emite observaciones sin aprobar el paquete, el AEP analiza cada observación, realiza los ajustes correspondientes en los artefactos afectados, documenta los cambios realizados y reenvía el paquete corregido para reiniciar el ciclo de revisión.",
+      "Entradas": "LBA-F1 actualizado: Paquete de artefactos de la fase remitido por el OGA.",
+      "Salidas": "LBA-F1: Paquete de artefactos de la fase actualizado con observaciones o concepto de aprobado por el OGA.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Registro y seguimiento de cada observación y su estado de resolución. Actualización controlada de artefactos con trazabilidad de cambios.",
+      "Punto de validación": "Verificación de que cada observación del OGA fue atendida y documentada antes del reenvío."
+    },
+    {
+      "table": 95,
+      "caption": "Tabla 95. Actividad F2.E3.A1. Definición de perspectivas y vistas arquitectónicas.",
+      "code": "F2.E3.A1",
+      "Código": "F2.E3.A1",
+      "Nombre": "Definición de perspectivas y vistas arquitectónicas.",
+      "Objetivo": "Revisar y analizar los marcos de referencia arquitectónica adoptados en la Fase 1 para identificar las estructuras de niveles de abstracción que sean pertinentes para el contexto del proceso.",
+      "Descripción": "El AEP realiza una revisión sistemática del MTA y del DOA, identificando en los marcos de referencia adoptados (TOGAF, Zachman, ArchiMate u otros) las estructuras de niveles de abstracción que proponen. Se analiza la pertinencia de cada estructura en función del contexto organizacional y los objetivos arquitectónicos establecidos, documentando los hallazgos en una bitácora de análisis. El resultado de esta actividad es una propuesta inicial de jerarquía de niveles de abstracción justificada en los marcos analizados.",
+      "Entradas": "DOA: Documento de objetivos arquitectónicos. MTA: Marco teórico arquitectónico inicial.",
+      "Salidas": "DPV inicial: Propuesta de objetivos estratégicos y niveles de abstracción.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Marcos de referencia arquitectónica (TOGAF, Zachman, ArchiMate, FEAF u otros adoptados en F1). Herramientas de gestión documental.",
+      "Punto de validación": "Coherencia de la propuesta con los marcos analizados y con los objetivos del DOA inicial."
+    },
+    {
+      "table": 96,
+      "caption": "Tabla 96. Actividad F2.E3.A2. Validación perspectivas niveles de abstracción.",
+      "code": "F2.E3.A2",
+      "Código": "F 2.E 3.A2",
+      "Nombre": "Validación perspectivas nivel es de abstracción.",
+      "Objetivo": "Someter el conjunto de objetivos identificados a validación por parte de los stakeholders clave, garantizando que la priorización refleje los intereses del negocio y cuente con el aval de los actores relevantes.",
+      "Descripción": "Los stakeholders estratégicos (SE/GPA) revisan el listado de objetivos estratégicos (DOE-v1) producido en la actividad anterior, evalúan su pertinencia, coherencia con los intereses organizacionales y proponen ajustes antes de que el AEP proceda a la formulación de objetivos arquitectónicos.",
+      "Entradas": "DPV inicial: Propuesta inicial de niveles de abstracción.",
+      "Salidas": "DPV actualizado: Propuesta de objetivos e stratégicos y niveles de abstracción actualizada.",
+      "Responsable": "SE: Stakeholder empresarial. GPA: Gestor del portafolio empresarial.",
+      "Herramientas": "Análisis del DPV por parte de cada stakeholder. Reunión formal o asíncrona para discutir y aprobar la priorización de objetivos.",
+      "Punto de validación": "Verificación de que los objetivos priorizados cuentan con el aval explícito de los actores clave."
+    },
+    {
+      "table": 97,
+      "caption": "Tabla 97. Actividad F2.E3.A3. Formalización del modelo de abstracción arquitectónica.",
+      "code": "F2.E3.A3",
+      "Código": "F2.E3.A3",
+      "Nombre": "Formalización del modelo de abstracción arquitectónica.",
+      "Objetivo": "Integrar los resultados del análisis de marcos y la definición de perspectivas en el d ocumento de n iveles Arquitectónicos (DNA) y actualizar el m arco t eórico arquitectónico (MTA), verificando la coherencia del conjunto de artefactos producidos por el Elemento E3.",
+      "Descripción": "El AEP integra los resultados de las actividades anteriores, que formaliza la jerarquía completa de niveles de abstracción con sus perspectivas y vistas asociadas, sus relaciones verticales y las implicaciones para la representación arquitectónica del PDAEH. Adicionalmente, el AEP actualiza el MTA incorporando las decisiones conceptuales tomadas durante el Elemento E3, generando el MTA-v2. El SE/GPA realiza la revisión final del conjunto de artefactos de E3 verificando su coherencia interna y con los artefactos de la Fase 1.",
+      "Entradas": "DPV: Documento de perspectivas y vistas arquitectónicas. MTA actualizado: Marco teórico arquitectónico actualizado.",
+      "Salidas": "DNA: Documento de niveles arquitectónicos. MTA actualizado: Marco teórico arquitectónico actualizado.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental Herramientas de trazabilidad arquitectónica",
+      "Punto de validación": "Consistencia del MTA con las decisiones tomadas en E 2. Trazabilidad con el DPV y los artefactos de la obtenidos en la Fase 1."
+    },
+    {
+      "table": 98,
+      "caption": "Tabla 98. Actividad F2.E4.A1 Recopilación de análisis terminológico.",
+      "code": "F2.E4.A1",
+      "Código": "F2.E4.A1",
+      "Nombre": "Recopilación de análisis terminológico",
+      "Objetivo": "Identificar y recopilar de manera sistemática los términos arquitectónicos relevantes para el proceso a partir de los marcos de referencia adoptados y del contexto organizacional, construyendo el inventario base del vocabulario.",
+      "Descripción": "El AEP realiza una revisión exhaustiva del DCA y el DOA para identificar los términos arquitectónicos que emergen de los marcos de referencia adoptados y del contexto organizacional. Se aplica un proceso de inventariado sistemático que incluye la identificación de términos en los marcos teóricos, el análisis del lenguaje utilizado en el DOA y el DCA, y la consulta con actores clave del proceso. El resultado es un inventario preliminar de términos estructurado por categorías conceptuales.",
+      "Entradas": "DCA: Documento de contexto arquitectónico. DOA: Documento de objetivos arquitectónicos.",
+      "Salidas": "IT A: Inventario preliminar de términos arquitectónicos.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Marcos de referencia arquitectónica (TOGAF, ArchiMate, Zachman u otros adoptados en F1). Herramientas de gestión terminológica. Herramientas de gestión documental.",
+      "Punto de validación": "Completitud del inventario preliminar respecto a los marcos de referencia y al contexto organizacional."
+    },
+    {
+      "table": 99,
+      "caption": "Tabla 99. Actividad F2.E4.A2. Construcción del vocabulario arquitectónico unificado.",
+      "code": "F2.E4.A2",
+      "Código": "F 2.E 4.A 2",
+      "Nombre": "Construcción del vocabulario arquitectónico unificado",
+      "Objetivo": "Elaborar las definiciones precisas de los términos arquitectónicos identificados, establecer las relaciones conceptuales entre ellos y normalizar el vocabulario para su uso consistente en el PDAEH.",
+      "Descripción": "A partir del inventario preliminar generado en la actividad anterior, el AEP elabora la definición formal de cada término, especificando su denominación, definición, categoría, fuente de referencia, términos relacionados y alcance en el contexto del proceso. Se establecen las relaciones conceptuales entre términos (jerarquías, equivalencias, relaciones parte-todo) y se construye el borrador del DVA. El SE/GPA revisa la precisión de las definiciones, la coherencia de las relaciones conceptuales y la ausencia de ambigüedades, emitiendo observaciones que el AEP incorpora hasta alcanzar un resultado satisfactorio.",
+      "Entradas": "ITA: Inventario preliminar de términos arquitectónicos.",
+      "Salidas": "DVA inicial: Diccionario de vocabulario arquitectónico inicial.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión terminológica. Herramientas de gestión documental. Plantillas de definición de términos arquitectónicos.",
+      "Punto de validación": "Las definiciones son claras y reflejan correctamente su significado en el contexto del proceso. No existen redundancias, contradicciones ni definiciones solapadas entre términos. Las relaciones establecidas entre los términos (jerarquías, equivalencias y relaciones parte-todo) son como es lógico consistentes y están correctamente representadas. El DVA inicial cubre la totalidad de los términos identificados en el ITA sin omisiones relevantes."
+    },
+    {
+      "table": 100,
+      "caption": "Tabla 100. Actividad F2.E4.A3. Validación del vocabulario arquitectónico.",
+      "code": "F2.E4.A3",
+      "Código": "F 2.E 4.A 3",
+      "Nombre": "Validación del vocabulario arquitectónico.",
+      "Objetivo": "Someter el vocabulario normalizado a revisión por parte de los actores clave del proceso para verificar su pertinencia, comprensibilidad y aceptación antes de su formalización definitiva.",
+      "Descripción": "El AEP convoca una sesión de validación con las partes interesadas, presentando el borrador del DVA para su revisión. Los participantes evalúan la claridad y pertinencia de las definiciones desde sus perspectivas funcionales y técnicas, identificando términos faltantes, definiciones imprecisas o conflictos con el lenguaje organizacional establecido. El AEP consolida los hallazgos, prioriza los ajustes requeridos y actualiza el vocabulario antes de someterlo a la revisión final del SE/GPA.",
+      "Entradas": "DVA inicial: Diccionario de vocabulario arquitectónico inicial.",
+      "Salidas": "DVA: Diccionario de vocabulario arquitectónico aprobado.",
+      "Responsable": "SE: Stakeholder empresarial. GPA: Gestor del portafolio empresarial.",
+      "Herramientas": "Sesiones de validación colaborativa (talleres o revisiones estructuradas. Herramientas de gestión documental y de comentarios.",
+      "Punto de validación": "Acta de sesión de validación con registro de observaciones atendidas y aprobación de los participantes convocados."
+    },
+    {
+      "table": 101,
+      "caption": "Tabla 101. F2.E4.A4 {E3}. Preparación y envío de artefactos al OGA.",
+      "code": "F2.E4.A4{E3}",
+      "Código": "F2.E4.A4 {E3}",
+      "Nombre": "Preparación y envío de artefactos al OGA",
+      "Objetivo": "Consolidar todos los artefactos producidos por la Fase 2) y remitirlos formalmente al OGA para su revisión y aprobación.",
+      "Descripción": "Una vez cerrados los Elementos E3 y E4, el AEP integra el conjunto completo de artefactos de la fase, verificando su completitud e integridad. Se prepara el paquete de entrega formal incluyendo los actas de cierre de cada elemento y los registros de validación del SE/GPA. El paquete es enviado al OGA mediante el mecanismo de comunicación formal establecido, dando inicio al proceso de revisión institucional de la fase.",
+      "Entradas": "DNA: Documento de niveles arquitectónicos. MTA actualizado: Marco teórico arquitectónico actualizado. DVA: Diccionario de vocabulario arquitectónico aprobado.",
+      "Salidas": "LBA-F2 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 2.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental Plantilla de lista base de artefactos Canal formal de comunicación con el OGA",
+      "Punto de validación": "Confirmación de recepción de los artefactos correspondientes por parte del OGA y registro de inicio del proceso de revisión."
+    },
+    {
+      "table": 102,
+      "caption": "Tabla 102. Actividad F2.E4.A5 {E3}. Ajustar artefactos según observaciones del OGA.",
+      "code": "F2.E4.A5{E3}",
+      "Código": "F 2.E 4.A 5 {E3}",
+      "Nombre": "Ajuste de artefactos según observaciones del OGA.",
+      "Objetivo": "Atender las observaciones emitidas por el OGA tras la revisión de la Fase 2, incorporando los ajustes requeridos en los artefactos afectados para obtener la aprobación definitiva.",
+      "Descripción": "Cuando el OGA emite observaciones sobre los artefactos de la Fase 2, el AEP analiza cada observación, identifica los artefactos afectados y planifica los ajustes necesarios. Los cambios se realizan de manera controlada, manteniendo la trazabilidad entre versiones y verificando que las modificaciones no introduzcan nuevas inconsistencias entre los artefactos de los elementos. Una vez incorporados los ajustes, el AEP actualiza los artefactos y la somete nuevamente al OGA para aprobación. Si los artefactos son aprobados, se considera que el flujo finaliza correctamente.",
+      "Entradas": "LBA-F2 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 2 con aprobado o con observaciones realizadas por el OGA.",
+      "Salidas": "LBA-F2 probado: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 2 aprobados o listos para su envío al OGA para una nueva revisión.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones Matriz de trazabilidad de observaciones",
+      "Punto de validación": "Verificación del AEP de que todas las observaciones del OGA han sido atendidas antes del reenvío del paquete."
+    },
+    {
+      "table": 106,
+      "caption": "Tabla 106. Actividad F3.E6.A1. Especificación de drivers de arquitectura.",
+      "code": "F3.E6.A1",
+      "Código": "F3.E6.A1",
+      "Nombre": "Especificación de drivers de arquitectura.",
+      "Objetivo": "Identificar, analizar y formalizar los drivers de arquitectura que orientan la toma de decisiones en la solución, estableciendo una base explícita de atributos de calidad priorizados, restricciones, riesgos y condiciones del contexto organizacional y tecnológico, que permitan guiar de forma trazable la definición posterior de atributos y estructuras.",
+      "Descripción": "El AEP realiza un análisis sistemático de los artefactos provenientes de la Fase 2 (DOA, DCA, MNA, DVA), con el propósito de identificar todos los factores que influyen en la arquitectura. Este análisis se desarrolla en tres niveles: (1) extracción de objetivos y restricciones explícitas, (2) identificación de preocupaciones implícitas derivadas del contexto organizacional y tecnológico, y (3) identificación de condiciones propias del entorno híbrido (interacción clásico-cuántica, dependencia de infraestructura especializada, etc.). A partir de estos insumos, se construye un catálogo de drivers, clasificándolos en categorías (negocio, técnico, regulatorio, operativo, integración híbrida). Posteriormente, cada driver se descompone en atributos de calidad preliminares, se analiza su impacto arquitectónico, se identifican dependencias entre drivers y se priorizan utilizando criterios explícitos (impacto, urgencia, riesgo). El resultado se documenta en una estructura que permita trazabilidad bidireccional con los artefactos de F2.",
+      "Entradas": "LBA-F2: Línea base de artefactos definidos en la Fase 2.",
+      "Salidas": "Especificación de drivers de arquitectura (EDA): Artefacto que define los drivers arquitectónicos, incluyendo atributos de calidad priorizados, motivaciones, restricciones y contexto de aplicación.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Plantillas de identificación de drivers (drivers → atributos → impacto). Matrices de priorización (MoSCoW, impacto vs. esfuerzo). Herramientas de modelado (ArchiMate, UML). Herramientas de gestión documental. Fuentes de referencia (ISO/IEC 25010, literatura de atributos de calidad).",
+      "Punto de validación": "Los drivers identificados cubren objetivos, restricciones y preocupaciones relevantes. Cada driver tiene al menos un atributo de calidad asociado. Existe trazabilidad con DOA y DCA. La priorización es consistente y justificable. No existen drivers redundantes o contradictorios."
+    },
+    {
+      "table": 107,
+      "caption": "Tabla 107. Actividad F3.E6.A2. Especificación de atributos transversales en la solución.",
+      "code": "F3.E6.A2",
+      "Código": "F 3.E 6.A2",
+      "Nombre": "Especificación de atributos transversales en la solución.",
+      "Objetivo": "Definir de manera formal los atributos de calidad transversales que aplican a toda la arquitectura, estableciendo métricas cuantificables, escenarios de evaluación y criterios de aceptación que permitan medir el cumplimiento de los drivers definidos.",
+      "Descripción": "El ASP toma como base la EDA y transforma los drivers en atributos de calidad explícitos. Para cada atributo se construyen escenarios de calidad siguiendo una estructura formal (estímulo, entorno, artefacto afectado, respuesta esperada, medida). Se definen métricas cuantificables, por ejemplo: latencia en ms, disponibilidad en%, throughput, entre otros, se establecen umbrales de aceptación y se identifican relaciones de dependencia o conflicto entre atributos.",
+      "Entradas": "EDA: Especificación de drivers de arquitectura.",
+      "Salidas": "Especificación de atributos transversales (EAT): Artefacto que define atributos de calidad globales, métricas y escenarios de evaluación.",
+      "Responsable": "ASP: Arquitecto de software del proceso.",
+      "Herramientas": "Plantillas de escenarios de calidad (SEI/ATAM). Catálogos de atributos (ISO/IEC 25010). Herramientas de modelado. Hojas de cálculo para métricas.",
+      "Punto de validación": "Cada driver tiene al menos un atributo asociado. Todos los atributos tienen métricas claras. Existen escenarios definidos para cada atributo. No hay ambigüedad en las definiciones. Se identifican conflictos entre atributos."
+    },
+    {
+      "table": 108,
+      "caption": "Tabla 108. Actividad F3.E6.A3. Especificación de atributos de integración clásicos y cuánticos.",
+      "code": "F3.E6.A4",
+      "Código": "F 3.E 6.A 4",
+      "Nombre": "Especificación de atributos de integración clásicos y cuánticos",
+      "Objetivo": "Definir atributos de calidad específicos para la integración híbrida, considerando interoperabilidad, latencia, sincronización y eficiencia entre componentes clásicos y cuánticos.",
+      "Descripción": "Los roles responsables analizan los puntos de integración identificados en la arquitectura (o inferidos desde el contexto), identificando flujos de datos, dependencias de ejecución y mecanismos de comunicación entre sistemas clásicos y recursos cuánticos. A partir de este análisis se definen atributos como latencia de integración, consistencia de resultados, tolerancia a fallos, sincronización y eficiencia de ejecución híbrida. Se construyen escenarios específicos de integración y se definen métricas y umbrales para cada uno.",
+      "Entradas": "EDA: Especificación de drivers de arquitectura.",
+      "Salidas": "Especificación de atributos de integración (EAI): Artefacto que define atributos de calidad específicos para la integración híbrida.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Documentación técnica de integración. Modelos de referencia híbridos. Herramientas de análisis de rendimiento. Simulación de flujos.",
+      "Punto de validación": "Se consideran todos los puntos de integración relevantes. Los atributos son medibles. Existe coherencia con atributos transversales. Se contemplan escenarios de fallo."
+    },
+    {
+      "table": 109,
+      "caption": "Tabla 109. Actividad F2.E6.A4. Especificación de atributos de seguridad clásicos y cuánticos.",
+      "code": "F3.E6.A4",
+      "Código": "F2.E6.A4",
+      "Nombre": "Especificación de atributos de seguridad clásicos y cuánticos",
+      "Objetivo": "Definir atributos de seguridad que garanticen la protección del sistema híbrido frente a amenazas clásicas y cuánticas, estableciendo mecanismos evaluables de mitigación de riesgos.",
+      "Descripción": "Los roles designados identifican activos críticos, vectores de ataque y vulnerabilidades en el sistema híbrido. Se definen atributos como confidencialidad, integridad, disponibilidad, resiliencia y resistencia a ataques cuánticos. Se construyen escenarios de ataque, se definen métricas de seguridad y se establecen mecanismos de mitigación.",
+      "Entradas": "EDA: Especificación de drivers de arquitectura.",
+      "Salidas": "Especificación de atributos de seguridad (EAS): Artefacto que define atributos de seguridad y sus criterios de evaluación.",
+      "Responsable": "AsecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "NIST / ISO 27001. Modelado de amenazas (STRIDE). Análisis de riesgos. Referencias de criptografía post-cuántica.",
+      "Punto de validación": "Se cubren todos los activos críticos. Existen escenarios de ataque definidos. Las métricas son verificables. Los controles son aplicables."
+    },
+    {
+      "table": 110,
+      "caption": "Tabla 110. Actividad F2.E6.A5. Consolidación de atributos identificados en la solución.",
+      "code": "F3.E6.A5",
+      "Código": "F2.E6.A5",
+      "Nombre": "Consolidación de atributos identificados en la solución.",
+      "Objetivo": "Integrar y consolidar los atributos de calidad definidos en un modelo unificado que soporte la evaluación arquitectónica.",
+      "Descripción": "Se consolidan los atributos transversales, de integración y de seguridad en un único modelo coherente (MAC), verificando su consistencia interna, eliminando redundancias y asegurando la trazabilidad con los drivers definidos. Como resultado de este proceso, se actualiza el marco teórico arquitectónico (MTA) incorporando los criterios, definiciones y decisiones asociadas a los atributos de calidad establecidos, de manera que el conocimiento generado en esta fase quede formalmente integrado a la base conceptual del proceso y sirva como referencia para las fases subsiguientes.",
+      "Entradas": "EDA: Especificación de drivers de arquitectura. EAT: Especificación de atributos transversales, EAI: Especificación de a tributos de integración. EAS: Especificación de a tributos de seguridad.",
+      "Salidas": "MAC: Modelo de atributos de calidad. MTA actualizado: Matriz de trazabilidad actualizad a.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de modelado. Plantillas de consolidación. Herramientas documentales.",
+      "Punto de validación": "No existen inconsistencias entre atributos. Existe trazabilidad completa con drivers. El modelo es coherente y completo."
+    },
+    {
+      "table": 111,
+      "caption": "Tabla 111. Actividad F2.E5.A1. Definición del marco de estructuras arquitectónicas.",
+      "code": "F3.E5.A1",
+      "Código": "F2.E 5.A 1",
+      "Nombre": "Definición del marco de estructuras arquitectónicas",
+      "Objetivo": "Definir la estructura arquitectónica de la solución mediante la organización coherente de vistas, componentes, relaciones, flujos de interacción y asignación de responsabilidades, asegurando una representación integral del sistema que permita analizar su comportamiento, comprender su organización interna y soportar la evaluación de decisiones arquitectónicas en el contexto de arquitecturas híbridas.",
+      "Descripción": "A partir de la línea base conceptual generada en la Fase 2, y los atributos de calidad, el AEP construye la representación estructural de la arquitectura definiendo las vistas necesarias para describir el sistema desde distintas perspectivas (lógica, integración, despliegue, datos, seguridad, entre otras). Sobre estas vistas, identifica y organiza los componentes arquitectónicos, estableciendo su agrupación en módulos, capas o dominios según corresponda. Posteriormente, define las relaciones y dependencias entre componentes, especificando flujos de interacción, intercambio de datos y mecanismos de comunicación, incluyendo de manera explícita la integración entre componentes clásicos y recursos cuánticos. Finalmente, asigna responsabilidades a cada componente, asegurando claridad funcional, evitando solapamientos y garantizando coherencia estructural. Durante todo el proceso se evalúan criterios de cohesión, acoplamiento y alineación con los atributos de calidad definidos en E6.",
+      "Entradas": "LBA-F2: Línea base de artefactos definidos en la Fase 2 MAC: Modelo de atributos de calidad.",
+      "Salidas": "Documento de estructuras arquitectónicas (DEA): Artefacto que establece los lineamientos, tipos de estructuras, vistas arquitectónicas y criterios de modelado que servirán como base para la definición detallada de las estructuras en las actividades siguientes.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Lenguajes de modelado arquitectónico (ArchiMate, UML, C4 Model). Marcos de referencia (ISO/IEC/IEEE 42010). Herramientas de modelado (Sparx EA, Archi, etc.) Repositorio de arquitectura empresarial Plantillas de documentación estructural Técnicas de análisis de cohesión y acoplamiento.",
+      "Punto de validación": "Las vistas definidas cubren todas las perspectivas necesarias del sistema. Todos los componentes están claramente identificados y organizados. No existen solapamientos de responsabilidades entre componentes. Las relaciones y flujos están completamente definidos y son coherentes. Se representan explícitamente las interacciones híbridas. La estructura permite analizar atributos de calidad. Existe coherencia con los niveles de abstracción definidos en F2"
+    },
+    {
+      "table": 112,
+      "caption": "Tabla 112. Actividad F2.E5.A2. Especificación de estructuras transversales en la solución.",
+      "code": "F3.E5.A2",
+      "Código": "F2.E5.A 2",
+      "Nombre": "Especificación de estructuras transversales en la solución.",
+      "Objetivo": "Definir las estructuras arquitectónicas transversales que soportan capacidades comunes de la solución, estableciendo componentes, responsabilidades y relaciones que atraviesan múltiples dominios del sistema.",
+      "Descripción": "A partir del DEA como insumo base, el AEP identifica las capacidades transversales de la arquitectura, entendidas como aquellas que impactan múltiples componentes, capas o dominios, por ejemplo: orquestación, monitoreo, gestión de datos compartidos. Se analizan las responsabilidades funcionales necesarias, se agrupan en componentes arquitectónicos coherentes y se definen sus relaciones estructurales. Se evalúa la cohesión y el acoplamiento de los componentes propuestos, asegurando que cada uno tenga una responsabilidad clara y bien delimitada. Asimismo, se valida que estas estructuras respondan a los drivers arquitectónicos definidos previamente y que no generen redundancias con otras estructuras del sistema.",
+      "Entradas": "DEA: Documento de estructuras arquitectónicas.",
+      "Salidas": "Especificación de estructuras arquitectónicas transversales (EETS): Artefacto que describe los componentes transversales de la solución, sus responsabilidades, relaciones estructurales y su rol dentro de la arquitectura global.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Lenguajes de modelado arquitectónico (ArchiMate, UML). Diagramas de componentes. Herramientas de documentación arquitectónica.",
+      "Punto de validación": "Las estructuras transversales cubren capacidades comunes del sistema. No existen duplicidades funcionales. Los componentes definidos tienen responsabilidades claras. Existe coherencia con el DEA."
+    },
+    {
+      "table": 113,
+      "caption": "Tabla 113. Actividad F2.E5.A3. Especificación de estructuras de integración y datos.",
+      "code": "F3.E5.A3",
+      "Código": "F2.E5.A3",
+      "Nombre": "Especificación de estructuras de integración y datos",
+      "Objetivo": "Definir las estructuras arquitectónicas transversales que soportan capacidades comunes de la solución, estableciendo componentes, responsabilidades y relaciones que atraviesan múltiples dominios del sistema.",
+      "Descripción": "Los roles designados mode lan las interacciones entre componentes, enfocándose en los mecanismos de integración y los flujos de datos. Se identifican las interfaces necesarias, los puntos de intercambio de información y las dependencias entre componentes. Se presta especial atención a la integración entre elementos clásicos y cuánticos, considerando restricciones como latencia, sincronización y disponibilidad de recursos. Se definen flujos de datos de extremo a extremo, asegurando que cada interacción esté claramente especificada y que no existan inconsistencias o ambigüedades en la comunicación entre componentes.",
+      "Entradas": "DEA: Documento de estructuras arquitectónicas.",
+      "Salidas": "Especificación de estructuras de integración y datos (EEIA): Artefacto que describe los mecanismos de integración, las interfaces, los flujos de datos y las relaciones de intercambio entre componentes de la solución.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Diagramas de secuencia. Diagramas de flujo de datos. Herramientas de modelado arquitectónico.",
+      "Punto de validación": "Los flujos de datos están definidos de extremo a extremo. Se identifican claramente las interfaces. No existen inconsistencias en las interacciones. Se consideran las particularidades del entorno híbrido."
+    },
+    {
+      "table": 114,
+      "caption": "Tabla 114. Actividad F2.E5.A4. Especificación de estructuras de seguridad.",
+      "code": "F3.E5.A4",
+      "Código": "F2.E5.A4",
+      "Nombre": "Especificación de estructuras de seguridad.",
+      "Objetivo": "Definir las estructuras arquitectónicas de seguridad que protegen la solución, estableciendo mecanismos, componentes y relaciones que aseguren la confidencialidad, integridad y disponibilidad.",
+      "Descripción": "Los roles designados identifican los riesgos y necesidades de seguridad del sistema. Se definen los componentes de seguridad necesarios (control de acceso, cifrado, monitoreo, protección de datos), así como su ubicación dentro de la arquitectura y sus relaciones con otros componentes. Se modelan los mecanismos de protección aplicables tanto a componentes clásicos como a recursos cuánticos, considerando amenazas específicas del entorno híbrido. Se asegura que las estructuras de seguridad estén integradas de manera transversal en la arquitectura y no como elementos aislados.",
+      "Entradas": "DEA: Documento de estructuras arquitectónicas.",
+      "Salidas": "Especificación de estructuras de seguridad (EESec): Artefacto que describe los mecanismos de seguridad, los componentes asociados y su integración dentro de la arquitectura.",
+      "Responsable": "AsecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Estándares de seguridad (ISO 27001, NIST). Modelos de amenazas. Herramientas de análisis de riesgos.",
+      "Punto de validación": "Se cubren los requisitos de seguridad del sistema. Los mecanismos están correctamente integrados en la arquitectura. Se consideran riesgos del entorno híbrido. No existen vacíos de seguridad identificables."
+    },
+    {
+      "table": 115,
+      "caption": "Tabla 115. Actividad F3.E5.A5. Consolidación de estructuras arquitectónicas.",
+      "code": "F3.E5.A5",
+      "Código": "F3.E5.A5",
+      "Nombre": "Consolidación de estructuras arquitectónicas.",
+      "Objetivo": "Integrar las estructuras arquitectónicas transversales, de integración y de seguridad en un único modelo coherente, consistente y trazable, asegurando alineación con los atributos de calidad, los drivers arquitectónicos y los artefactos conceptuales definidos en fases anteriores.",
+      "Descripción": "El AEP realiza la integración sistemática de los artefactos generados en las actividades previas (EETS, EEIA, EESec), consolidándolos en una única representación estructural de la arquitectura. Este proceso implica la unificación de componentes, la validación de relaciones entre estructuras, la eliminación de redundancias y la resolución de inconsistencias entre vistas. Se verifica que los flujos definidos en EEIA sean coherentes con los componentes definidos en EETS y que los mecanismos de seguridad definidos en EESec estén correctamente integrados en todos los niveles de la arquitectura. Asimismo, se asegura la trazabilidad entre las estructuras y los atributos de calidad definidos en el MAC, validando que cada decisión estructural responda a un driver arquitectónico identificado. Como resultado de esta consolidación, se actualiza el DEA como artefacto integral de estructuras arquitectónicas y se actualiza el MTA incorporando las decisiones estructurales adoptadas, sus justificaciones y su relación con los fundamentos conceptuales definidos en fases anteriores.",
+      "Entradas": "EDA: Especificación de drivers de arquitectura. EETS: Especificación de estructuras arquitectónicas transversales. EEIA: Especificación de estructuras de integración y datos. EESec: Especificación de estructuras de seguridad.",
+      "Salidas": "DEA: Documento de estructuras arquitectónicas.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de modelado arquitectónico (ArchiMate, UML). Repositorios de arquitectura. Herramientas de gestión documental. Matrices de trazabilidad (drivers ↔ estructuras ↔ atributos de calidad).",
+      "Punto de validación": "El DEA consolidado es consistente y libre de redundancias. Existe coherencia entre componentes, flujos y mecanismos de seguridad. Todas las estructuras están alineadas con el modelo de atributos de calidad (MAC). Existe trazabilidad completa con los drivers arquitectónicos."
+    },
+    {
+      "table": 116,
+      "caption": "Tabla 116. F3.E6.A6 {E5}. Preparación y envío de artefactos al OGA.",
+      "code": "F3.E6.A6{E5}",
+      "Código": "F3.E6.A6 {E5}",
+      "Nombre": "Preparación y envío de artefactos al OGA",
+      "Objetivo": "Consolidar todos los artefactos producidos por la Fase 3 y remitirlos formalmente al OGA para su revisión y aprobación.",
+      "Descripción": "Una vez cerrados los Elementos E 6 y E 6, el AEP integra el conjunto completo de artefactos de la fase, verificando su completitud e integridad. Se prepara el paquete de entrega formal incluyendo los actas de cierre de cada elemento y los registros de validación del SE/GPA. El paquete es enviado al OGA mediante el mecanismo de comunicación formal establecido, dando inicio al proceso de revisión institucional de la fase.",
+      "Entradas": "DEA: Documento de estructuras arquitectónicas. MAC: Modelo de atributos de calidad.",
+      "Salidas": "LBA-F 3 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 3.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental Plantilla de lista base de artefactos Canal formal de comunicación con el OGA",
+      "Punto de validación": "Confirmación de recepción de los artefactos correspondientes por parte del OGA y registro de inicio del proceso de revisión."
+    },
+    {
+      "table": 117,
+      "caption": "Tabla 117. Actividad F3.E6.A7 {E6}. Ajuste de artefactos según observaciones del OGA.",
+      "code": "F3.E6.A7{E6}",
+      "Código": "F 3.E 6.A 7 {E6}",
+      "Nombre": "Mapeo de partes interesadas y preocupaciones.",
+      "Objetivo": "Atender las observaciones emitidas por el OGA tras la revisión de la Fase 3, incorporando los ajustes requeridos en los artefactos afectados para obtener la aprobación definitiva.",
+      "Descripción": "Cuando el OGA emite observaciones sobre los artefactos de la Fase 3, el AEP analiza cada observación, identifica los artefactos afectados y planifica los ajustes necesarios. Los cambios se realizan de manera controlada, manteniendo la trazabilidad entre versiones y verificando que las modificaciones no introduzcan nuevas inconsistencias entre los artefactos de los elementos. Una vez incorporados los ajustes, el AEP actualiza los artefactos y la somete nuevamente al OGA para aprobación. Si los artefactos son aprobados, se considera que el flujo finaliza correctamente.",
+      "Entradas": "LBA-F 3 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 3 con aprobado o con observaciones realizadas por el OGA.",
+      "Salidas": "LBA-F 3 probado: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 3 aprobados o listos para su envío al OGA para una nueva revisión.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones Matriz de trazabilidad de observaciones",
+      "Punto de validación": "Verificación del AEP de que todas las observaciones del OGA han sido atendidas antes del reenvío del paquete."
+    },
+    {
+      "table": 121,
+      "caption": "Tabla 121. Actividad F4.E9.A1. Definición del marco de componentes estructurales.",
+      "code": "F4.E9.A1",
+      "Código": "F4.E9.A1",
+      "Nombre": "Definición del marco de componentes estructurales.",
+      "Objetivo": "Establecer el marco conceptual y metodológico para la identificación, clasificación y documentación de los componentes estructurales de la arquitectura empresarial híbrida, partiendo de las estructuras y atributos definidos en F3.",
+      "Descripción": "El AEP analiza los artefactos de la Fase 3 con el propósito de establecer los criterios de identificación y clasificación de componentes. Se definen las categorías de componentes (clásicos, cuánticos, híbridos, de integración, de datos y de seguridad), los criterios de granularidad, las convenciones de nomenclatura y la plantilla de documentación que se utilizará durante todo el elemento E9. Este marco garantiza la coherencia del catálogo resultante.",
+      "Entradas": "LBA-F3: Línea base de artefactos de la Fase 3",
+      "Salidas": "Marco de referencia de componentes (MRC): Artefacto que establece las categorías, criterios de clasificación, convenciones de nomenclatura y plantillas para la documentación de componentes estructurales.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de modelado arquitectónico (ArchiMate, C4 Model). Marcos de referencia (TOGAF, ISO/IEC/IEEE 42010). Plantillas de documentación de componentes. Herramientas de gestión documental.",
+      "Punto de validación": "El marco cubre todas las categorías de componentes necesarias para la arquitectura híbrida. Los criterios de clasificación son claros, no ambiguos y aplicables de forma consistente. Existe alineación con los artefactos de F3 y con los objetivos estratégicos de la organización."
+    },
+    {
+      "table": 122,
+      "caption": "Tabla 122. Actividad F4.E9.A2. Especificación de componentes transversales de la solución.",
+      "code": "F4.E9.A2",
+      "Código": "F4.E9.A2",
+      "Nombre": "Especificación de componentes transversales de la solución.",
+      "Objetivo": "Definir y documentar los componentes estructurales de carácter transversal que aplican a toda la solución, estableciendo sus responsabilidades, interfaces, dependencias y criterios de integración.",
+      "Descripción": "El ASP, a partir del MRC y los artefactos de F3, identifica y especifica los componentes que tienen impacto transversal en la solución. Para cada componente se documenta: propósito, responsabilidades, interfaces expuestas y consumidas, dependencias con otros componentes, tecnologías aplicables, restricciones de implementación y criterios de integración. Se prioriza la cobertura de los casos de uso arquitectónicos más críticos y se garantiza la coherencia con las estructuras definidas en F3.",
+      "Entradas": "MRC: Marco de referencia de componentes.",
+      "Salidas": "Catálogo de componentes transversales de la solución (CCTS): Artefacto que describe los componentes con responsabilidades transversales, sus interfaces y criterios de integración.",
+      "Responsable": "ASP: Arquitecto de software del proceso.",
+      "Herramientas": "Herramientas de modelado arquitectónico (ArchiMate, UML, C4 Model). Repositorio de arquitectura empresarial. Plantillas de documentación de componentes. Marcos de referencia (TOGAF, SAFe).",
+      "Punto de validación": "Los componentes cubren las responsabilidades transversales identificadas en F3. Cada componente tiene interfaces y dependencias claramente definidas. No existen solapamientos de responsabilidades entre componentes. Los componentes son coherentes con las estructuras arquitectónicas de F3."
+    },
+    {
+      "table": 123,
+      "caption": "Tabla 123. Actividad F4.E9.A3. Especificación de componentes de integración y datos.",
+      "code": "F4.E9.A3",
+      "Código": "F4.E9.A3",
+      "Nombre": "Especificación de componentes de integración y datos.",
+      "Objetivo": "Definir y documentar los componentes estructurales responsables de la integración entre sistemas y la gestión de datos, abordando tanto las capacidades clásicas como las interacciones propias de la arquitectura híbrida.",
+      "Descripción": "El AIP y el ADP especifican, en colaboración, los componentes de integración y de datos de la arquitectura. Para los componentes de integración se documentan los mecanismos de comunicación (APIs, colas de mensajes, buses de eventos, interfaces cuántico-clásicas), los protocolos, los patrones de integración y los criterios de orquestación. Para los componentes de datos se especifican los modelos de datos, los repositorios, las políticas de acceso y los flujos de transformación. Se atiende de manera especial a los desafíos de interoperabilidad entre componentes clásicos y cuánticos, incluyendo aspectos como la codificación de información y las restricciones de latencia.",
+      "Entradas": "MRC: Marco de referencia de componentes.",
+      "Salidas": "Catálogo de componentes de integración y datos (CCID): Artefacto que describe los componentes de integración y gestión de datos, sus mecanismos, protocolos y criterios de interoperabilidad híbrida.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso.",
+      "Herramientas": "Herramientas de modelado de integración (ArchiMate, UML). Catálogos de patrones de integración (EIP, API Gateway). Herramientas de modelado de datos (ERD, BPMN). Especificaciones de interfaces cuántico-clásicas. Herramientas de gestión documental.",
+      "Punto de validación": "Los componentes de integración cubren todos los mecanismos de comunicación necesarios para la arquitectura híbrida. Los componentes de datos aseguran la coherencia, disponibilidad y trazabilidad de la información. Existe consistencia entre los componentes de integración y datos con los transversales del CCTS. Se documentan explícitamente las restricciones de interoperabilidad híbrida."
+    },
+    {
+      "table": 124,
+      "caption": "Tabla 124. Actividad F4.E6.E4. Especificación de componentes de seguridad clásicos y cuánticos.",
+      "code": "F4.E9.A4",
+      "Nombre": "Especificación de componentes de seguridad clásicos y cuánticos.",
+      "Objetivo": "Definir y documentar los componentes estructurales responsables de la seguridad de la arquitectura empresarial híbrida, considerando tanto los mecanismos clásicos como las implicaciones del cómputo cuántico en la criptografía y la protección de la información.",
+      "Descripción": "El ASecP y el ETC especifican los componentes de seguridad de la arquitectura. Para los componentes clásicos se documentan los mecanismos de autenticación, autorización, cifrado, auditoría y control de acceso. Para los componentes cuánticos o postcuánticos se abordan los algoritmos de criptografía resistentes a ataques cuánticos (NIST PQC), los mecanismos de distribución cuántica de claves (QKD) cuando aplique, y las estrategias de transición criptográfica. Se identifican además los componentes responsables de la gestión de identidades en contextos híbridos y los mecanismos de monitoreo de seguridad adaptados al entorno.",
+      "Entradas": "MRC: Marco de referencia de componentes.",
+      "Salidas": "Catálogo de componentes de seguridad clásicos y cuánticos (CCSE): Artefacto que describe los componentes de seguridad, sus mecanismos, algoritmos, políticas y criterios de protección en el contexto híbrido.",
+      "Responsable": "ASecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántic o.",
+      "Herramientas": "Marcos de seguridad (ISO/IEC 27001, NIST Cybersecurity Framework). Catálogos de algoritmos postcuánticos (NIST PQC). Especificaciones de QKD y criptografía híbrida. Herramientas de modelado de amenazas (STRIDE, LINDDUN). Plantillas de documentación de componentes de seguridad.",
+      "Punto de validación": "Los componentes cubren todos los mecanismos de seguridad necesarios para el entorno híbrido. Se documentan explícitamente las estrategias de transición criptográfica. Los componentes de seguridad son coherentes con los atributos de calidad de seguridad definidos en F3. El ASecP y el ETC validan conjuntamente la completitud y viabilidad técnica del CCSE."
+    },
+    {
+      "table": 125,
+      "caption": "Tabla 125. Actividad F4.E9.A5. Consolidación del catálogo de componentes.",
+      "code": "F4.E9.A5",
+      "Código": "F4.E9.A5",
+      "Nombre": "Consolidación del catálogo de componentes estructurales.",
+      "Objetivo": "Integrar y consolidar todos los catálogos de componentes producidos durante el elemento E9 en un documento unificado (DCO), verificando la coherencia interna, eliminando redundancias y estableciendo la trazabilidad completa.",
+      "Descripción": "El AEP revisa y consolida los catálogos CCTS, CCID y CCSE producidos en las actividades anteriores, integrándolos en el documento de componentes estructurales (DCO). Durante la consolidación se verifica la coherencia entre los componentes de distintas categorías, se eliminan solapamientos y redundancias, se establecen las relaciones cruzadas entre componentes. El DCO constituye el artefacto principal de salida del elemento E9.",
+      "Entradas": "CCTS: Catálogo de componentes transversales de la solución. CCID: Catálogo de componentes de integración y datos. CCSE: Catálogo de componentes de seguridad clásicos y cuánticos.",
+      "Salidas": "DCO: Documento de componentes estructurales consolidado",
+      "Responsable": "AEP: Arquitecto empresarial de la solución.",
+      "Herramientas": "Herramientas de modelado arquitectónico. Plantillas de consolidación. Herramientas de gestión documental. Matriz de trazabilidad arquitectónica.",
+      "Punto de validación": "No existen inconsistencias ni solapamientos entre los catálogos de componentes. Existe trazabilidad completa entre componentes y los artefactos de F3. El DCO es coherente, completo y está correctamente versionado."
+    },
+    {
+      "table": 126,
+      "caption": "Tabla 126. Actividad F4.E10.A1. Definición del marco de elementos reutilizables.",
+      "code": "F4.E10.A1",
+      "Objetivo": "Establecer el marco conceptual y metodológico para la identificación, clasificación y documentación de los elementos reutilizables de la arquitectura empresarial híbrida, a partir del DCO y los artefactos previos.",
+      "Descripción": "El AEP analiza el DCO y los artefactos de F3 con el propósito de identificar los criterios que determinan el potencial de reutilización de un elemento arquitectónico. Se definen las categorías de elementos reutilizables (patrones, servicios, módulos, frameworks, componentes de integración cuántico-clásica, entre otros), los criterios de granularidad, las convenciones de nomenclatura y la plantilla de documentación. Se establece además la política de variabilidad y configurabilidad que regirá la biblioteca resultante.",
+      "Entradas": "DCO: Documento de componentes estructurales.",
+      "Salidas": "Marco de referencia de elementos reutilizables (MRR): Artefacto que establece las categorías, criterios de clasificación, convenciones de nomenclatura y plantillas para la documentación de elementos reutilizables.",
+      "Responsable": "AEP: Arquitecto empresarial de la solución.",
+      "Herramientas": "Herramientas de modelado arquitectónico (ArchiMate, C4 Model). Catálogos de patrones arquitectónicos (POSA, GoF, EIP). Plantillas de documentación de elementos reutilizables. Marcos de referencia de reutilización (TOGAF, SAFe).",
+      "Punto de validación": "El marco cubre todas las categorías de elementos reutilizables pertinentes para la arquitectura híbrida. Los criterios de reutilización son claros y aplicables de forma consistente. Existe coherencia con el DCO y con los objetivos estratégicos de la organización."
+    },
+    {
+      "table": 127,
+      "caption": "Tabla 127. Actividad F4.E10.A2. Especificación de elementos reutilizables de la solución.",
+      "code": "F4.E10.A2",
+      "Código": "F4.E10.A2",
+      "Nombre": "Especificación de elementos reutilizables de la solución.",
+      "Objetivo": "Identificar y documentar los elementos reutilizables de carácter transversal derivados de los componentes de solución, especificando sus interfaces, condiciones de uso, variabilidad y criterios de integración.",
+      "Descripción": "El ASP identifica los elementos de los componentes transversales de la solución que presentan potencial de reutilización. Para cada elemento se documenta: propósito, interfaces expuestas, parámetros de configuración, condiciones y restricciones de uso, variantes de implementación y ejemplos de aplicación. Se busca maximizar la cobertura de casos de uso recurrentes en la organización, reduciendo la duplicación de esfuerzos en futuras implementaciones.",
+      "Entradas": "MRR: Marco de referencia de elementos reutilizables. CCTS: Catálogo de componentes transversales de la solución.",
+      "Salidas": "Elementos reutilizables de la solución (ERTS): Catálogo de elementos reutilizables derivados de los componentes de solución, con sus interfaces, condiciones de uso y parámetros de variabilidad.",
+      "Responsable": "ASP: Arquitecto de solución del proceso.",
+      "Herramientas": "Herramientas de modelado arquitectónico (ArchiMate, UML). Catálogos de patrones arquitectónicos. Repositorio de arquitectura empresarial. Plantillas de documentación de elementos reutilizables.",
+      "Punto de validación": "Los elementos catalogados representan capacidades con potencial real de reutilización. Cada elemento cuenta con interfaces y condiciones de uso claramente definidas. Se documentan las variantes de implementación relevantes. Los elementos son coherentes con los componentes del CCTS."
+    },
+    {
+      "table": 128,
+      "caption": "Tabla 128. Actividad F4.E10.A3. Especificación de elementos reutilizables de integración y datos.",
+      "code": "F4.E10.A3",
+      "Código": "F4.E10.A3",
+      "Nombre": "Especificación de elementos reutilizables de integración y datos.",
+      "Objetivo": "Identificar y documentar los elementos reutilizables derivados de los componentes de integración y datos, con especial atención a los patrones y mecanismos aplicables en contextos de arquitectura híbrida.",
+      "Descripción": "El AIP y el ADP identifican los elementos de los componentes de integración y datos que presentan potencial de reutilización. Se documentan patrones de integración reutilizables (adaptadores, conectores, transformadores), servicios de datos comunes (repositorios de referencia, servicios de consulta, transformaciones de datos) y los mecanismos de comunicación cuántico-clásica susceptibles de ser encapsulados como elementos reutilizables. Para cada elemento se especifican sus interfaces, protocolos, restricciones de interoperabilidad y criterios de aplicabilidad.",
+      "Entradas": "MRR: Marco de referencia de elementos reutilizables. CCID: Catálogo de componentes de integración y datos.",
+      "Salidas": "Elementos reutilizables de integración y datos (ERID): Catálogo de elementos reutilizables derivados de los componentes de integración y datos, con sus patrones, interfaces y criterios de aplicabilidad híbrida.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso.",
+      "Herramientas": "Catálogos de patrones de integración empresarial (EIP). Herramientas de modelado de integración (ArchiMate, UML). Especificaciones de interfaces cuántico-clásicas. Plantillas de documentación de elementos reutilizables.",
+      "Punto de validación": "Los elementos cubren los patrones de integración y datos más frecuentes en la arquitectura híbrida. Se documentan explícitamente los elementos reutilizables para la integración cuántico-clásica. Cada elemento tiene interfaces y restricciones de interoperabilidad claramente definidas. Los elementos son coherentes con el CCID y el ERTS."
+    },
+    {
+      "table": 129,
+      "caption": "Tabla 129. Actividad F4.E10.A4. Especificación de elementos reutilizables de seguridad.",
+      "code": "F4.E10.A4",
+      "Código": "F4.E10.A4",
+      "Nombre": "Especificación de elementos reutilizables de seguridad.",
+      "Objetivo": "Identificar y documentar los elementos reutilizables derivados de los componentes de seguridad, abordando tanto los mecanismos clásicos como los controles adaptados al contexto de la computación cuántica.",
+      "Descripción": "El ASecP y el ETC los elementos de los componentes de seguridad que presentan potencial de reutilización. Se documentan módulos de autenticación y autorización reutilizables, políticas de cifrado encapsuladas, bibliotecas de algoritmos postcuánticos, mecanismos de auditoría y monitoreo, y componentes de gestión de identidades adaptables a distintos contextos de la organización. Para cada elemento se especifican las condiciones de uso, las dependencias criptográficas, las políticas de actualización y los criterios de validación.",
+      "Entradas": "MRR: Marco de referencia de elementos reutilizables. CCSE: Catálogo de componentes de seguridad clásicos y cuánticos.",
+      "Salidas": "Elementos reutilizables de seguridad (ERSE): Catálogo de elementos reutilizables derivados de los componentes de seguridad, con sus interfaces, políticas y criterios de aplicación en contextos híbridos.",
+      "Responsable": "ASecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Marcos de seguridad (ISO/IEC 27001, NIST PQC). Catálogos de controles de seguridad reutilizables. Bibliotecas de algoritmos postcuánticos. Plantillas de documentación de elementos de seguridad.",
+      "Punto de validación": "Los elementos cubren los mecanismos de seguridad más relevantes para la arquitectura híbrida. Se documentan explícitamente las dependencias criptográficas y las condiciones de actualización. Los elementos son coherentes con el CCSE y los atributos de seguridad de F3. El ASecP y el ETC validan conjuntamente la completitud y aplicabilidad del ERSE."
+    },
+    {
+      "table": 130,
+      "caption": "Tabla 130. Actividad F4.E10.A5. Consolidación de la biblioteca de elementos reutilizables.",
+      "code": "F4.E10.A5",
+      "Código": "F4.E10.A5",
+      "Nombre": "Consolidación de la biblioteca de elementos reutilizables.",
+      "Objetivo": "Integrar y consolidar todos los catálogos de elementos reutilizables producidos durante el elemento E10 en la Biblioteca de elementos reutilizables (BER), verificando la coherencia interna, estableciendo la trazabilidad con el DCO.",
+      "Descripción": "El AEP revisa y consolida los catálogos ERTS, ERID y ERSE, integrándolos en la biblioteca de elementos reutilizables (BER). Durante la consolidación se verifica la coherencia entre los elementos de distintas categorías, se eliminan duplicidades, se establecen las relaciones cruzadas entre elementos y su correspondencia con los componentes del DCO.",
+      "Entradas": "ERTS: Elementos reutilizables de la solución. ERID: Elementos reutilizables de integración y datos. ERSE: Elementos reutilizables de seguridad. DCO: Documento de componentes estructurales.",
+      "Salidas": "BER: Biblioteca de elementos reutilizables consolidada.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de modelado arquitectónico. Plantillas de consolidación de bibliotecas. Herramientas de gestión documental. Matriz de trazabilidad arquitectónica.",
+      "Punto de validación": "No existen inconsistencias ni duplicidades entre los catálogos de elementos reutilizables. Existe trazabilidad completa entre elementos reutilizables y los componentes del DCO. El BER es coherente, completo y correctamente versionado."
+    },
+    {
+      "table": 131,
+      "caption": "Tabla 131. Actividad F4.E9.A6 {E10}. Preparación y envío de artefactos al OGA.",
+      "code": "F4.E9.A6{E10}",
+      "Código": "F4.E9.A6 {E10}",
+      "Nombre": "Preparación y envío de artefactos al OGA.",
+      "Objetivo": "Consolidar todos los artefactos producidos por la Fase 4 y remitirlos formalmente al OGA para su revisión y aprobación.",
+      "Descripción": "Una vez cerrados los elementos E9 y E10, el AEP integra el conjunto completo de artefactos de la fase, verificando su completitud e integridad. Se prepara el paquete de entrega formal incluyendo el DCO y el BER, junto con los registros de validación interna. El paquete es revisado por el AEP antes de su envío al OGA, asegurando que todos los artefactos estén correctamente versionados y documentados. Se notifica formalmente al OGA el inicio del proceso de revisión de la Fase 4.",
+      "Entradas": "DCO: Documento de componentes estructurales. BER: Biblioteca de elementos reutilizables.",
+      "Salidas": "LBA-F4 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 4.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental. Plantilla de lista base de artefactos. Canal formal de comunicación con el OGA.",
+      "Punto de validación": "Confirmación de recepción de los artefactos correspondientes por parte del OGA y registro de inicio del proceso de revisión."
+    },
+    {
+      "table": 132,
+      "caption": "Tabla 132. Actividad F4.E9.A7 {E10}. Ajuste de artefactos según observaciones del OGA.",
+      "code": "F4.E9.A7{E10}",
+      "Código": "F4.E9.A7 {E10}",
+      "Nombre": "Ajuste de artefactos según observaciones del OGA.",
+      "Objetivo": "Atender las observaciones emitidas por el OGA tras la revisión de la Fase 4, incorporando los ajustes requeridos en los artefactos afectados para obtener la aprobación definitiva.",
+      "Descripción": "Cuando el OGA emite observaciones sobre los artefactos de la Fase 4, el AEP analiza cada observación, identifica los artefactos afectados y planifica los ajustes necesarios. Los cambios se realizan de manera controlada, manteniendo la trazabilidad entre versiones y verificando que las modificaciones sean consistentes con el resto de la arquitectura. Una vez realizados los ajustes, los artefactos son revisados internamente antes de ser reenviados al OGA para una nueva revisión. El proceso puede iterarse hasta obtener la aprobación definitiva.",
+      "Entradas": "LBA-F4 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 4 con la revisión del OGA.",
+      "Salidas": "LBA-F4 aprobada: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 4 aprobados o listos para su envío al OGA para una nueva revisión.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones. Matriz de trazabilidad de observaciones.",
+      "Punto de validación": "Verificación del AEP de que todas las observaciones del OGA han sido atendidas antes del reenvío del paquete."
+    },
+    {
+      "table": 136,
+      "caption": "Tabla 136. Actividad F5.E7.A1. Definición del marco de estilos arquitectónicos.",
+      "code": "F5.E7.A1",
+      "Código": "F5.E7.A1",
+      "Nombre": "Definición del marco de estilos arquitectónicos",
+      "Objetivo": "Establecer el marco conceptual y metodológico para la identificación, clasificación y documentación de los estilos arquitectónicos aplicables a la arquitectura empresarial híbrida cuántico-clásica, partiendo de las estructuras y componentes definidos en F3 y F4.",
+      "Descripción": "El AEP analiza los artefactos de las fases previas (MAQ-v1, DEA-v1, DCO-v1, BER-v1) para identificar los patrones de organización estructural recurrentes. Define el catálogo de estilos aplicables: clásicos (capas, microservicios, orientado a eventos, pipes-and- filters) e híbridos (orquestación clásico-cuántica, circuito- backend). Establece el esquema de documentación de cada estilo: descripción, principios, variantes, restricciones y criterios de aplicabilidad. El resultado es un marco que garantiza la coherencia del catálogo resultante.",
+      "Entradas": "LBA-F3: Línea base arquitectónica de la Fase 3. LBA-F4: Línea base arquitectónica de la Fase 4.",
+      "Salidas": "Definición del marco de estilos arquitectónicos",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Catálogos de estilos arquitectónicos de referencia. Herramientas de modelado arquitectónico (ArchiMate, C4 Model). Marcos de referencia (TOGAF, ISO/IEC/IEEE 42010). Herramientas de gestión documental.",
+      "Punto de validación": "El marco cubre los contextos clásico, cuántico y cuántico-clásico. Los criterios de clasificación son claros y aplicables de forma consistente. Existe alineación con las estructuras y componentes de F3 y F4."
+    },
+    {
+      "table": 137,
+      "caption": "Tabla 137. Actividad F5.E7.A2. Especificación de estilos transversales de la solución.",
+      "code": "F5.E7.A2",
+      "Código": "F5.E7.A2",
+      "Nombre": "Especificación de estilos transversales de la solución",
+      "Objetivo": "Identificar y documentar los estilos arquitectónicos que gobiernan la organización global de la solución híbrida, cubriendo los dominios clásico y cuántico-clásico.",
+      "Descripción": "El ASP identifica y documenta los estilos arquitectónicos que gobiernan la organización global de la solución, tanto en el dominio clásico como en el dominio híbrido cuántico-clásico. Incluye estilos como: arquitectura en capas, microservicios, orientado a eventos, serverless y variantes híbridas de orquestación de circuitos cuánticos. Para cada estilo documenta: descripción, principios de composición, ventajas, restricciones de uso y trazabilidad con estructuras de F3 y componentes de F4.",
+      "Entradas": "MAQ: Modelo de atributos y estructuras de calidad. DCO-v1: Documento de componentes organizacionales.",
+      "Salidas": "ESTA: Estilos transversales de solución y qrquitectura, que documentan los estilos aplicables a la solución clásica e híbrida.",
+      "Responsable": "ASP: Arquitecto de solución del proceso.",
+      "Herramientas": "Catálogos de estilos de referencia (microservicios, orientado a eventos, serverless). Herramientas de modelado arquitectónico. Herramientas de gestión documental.",
+      "Punto de validación": "Todos los estilos transversales identificados están documentados. Existe trazabilidad con estructuras de F3 y componentes de F4. Los estilos cubren los dominios clásico y cuántico-clásico."
+    },
+    {
+      "table": 138,
+      "caption": "Tabla 138. Actividad F5.E7.A3. Especificación de estilos de integración.",
+      "code": "F5.E7.A3",
+      "Código": "F5.E7.A3",
+      "Nombre": "Especificación de estilos de integración cuántico-clásicos",
+      "Objetivo": "Identificar y documentar los estilos arquitectónicos que rigen la integración entre componentes clásicos y cuánticos, y la gestión de datos en contextos híbridos.",
+      "Descripción": "El AIP y el ADP identifican y documentan los estilos que rigen la integración entre componentes clásicos y cuánticos, y la gestión de datos en contextos híbridos. Incluye estilos como: API Gateway cuántico, mediador clásico-cuántico, pub/sub híbrido, pipeline de datos clásico-cuántico. Para cada estilo documenta: mecanismo de integración, restricciones de latencia y coherencia, y trazabilidad con estructuras de integración de F3 y componentes de integración de F4.",
+      "Entradas": "MEP: Marco de Estilos y Patrones generado en A1. MAQ: Estructuras de integración y datos de la Fase 3. DCO: Componentes de integración y datos de la Fase 4.",
+      "Salidas": "ECIA: Estilos de integración y datos híbridos documentados con mecanismos, restricciones y trazabilidad.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso.",
+      "Herramientas": "Catálogos de estilos de integración y middleware híbrido. Frameworks de integración cuántico-clásica. Herramientas de modelado arquitectónico.",
+      "Punto de validación": "Los estilos cubren los principales mecanismos de integración cuántico-clásica. Restricciones de latencia y coherencia están documentadas para cada estilo. Existe trazabilidad con artefactos de integración de F3 y F4."
+    },
+    {
+      "table": 139,
+      "caption": "Tabla 139. Actividad F5.E7.A4. Especificación de estilos de seguridad clasicos y poscuanticos.",
+      "code": "F5.E7.A4",
+      "Código": "F5.E7.A4",
+      "Nombre": "Especificación de estilos de seguridad clásicos y poscuánticos",
+      "Objetivo": "Identificar y documentar los estilos arquitectónicos que gobiernan la seguridad en sistemas híbridos, con énfasis en los requisitos de criptografía poscuántica y protección de canales cuánticos.",
+      "Descripción": "El ASecP y el ETC identifican y documentan los estilos arquitectónicos que gobiernan la seguridad en sistemas híbridos, con énfasis en los requisitos de criptografía poscuántica y protección de canales cuánticos. Incluye estilos como: Zero-Trust híbrido, cifrado poscuántico por capas, autenticación cuántica, aislamiento de backends cuánticos. Para cada estilo documenta: mecanismo de seguridad, amenazas mitigadas, restricciones de aplicabilidad y trazabilidad con atributos de seguridad de F3 y componentes de seguridad de F4.",
+      "Entradas": "MEP: Marco de Estilos y Patrones generado en A1. MAQ: Atributos y estructuras de seguridad de la Fase 3. DCO: Componentes de seguridad de la Fase 4.",
+      "Salidas": "ESPA: Estilos de s eguridad c lásicos y p oscuánticos documentados con mecanismos, amenazas mitigadas y criterios de aplicabilidad.",
+      "Responsable": "ASecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Estándares de seguridad poscuántica (NIST PQC). Catálogos de patrones de seguridad arquitectónica. Herramientas de análisis de amenazas.",
+      "Punto de validación": "Los estilos de seguridad cubren los dominios clásico y poscuántico. Amenazas mitigadas y restricciones están documentadas para cada estilo. Existe trazabilidad con atributos de seguridad de F3 y componentes de F4."
+    },
+    {
+      "table": 140,
+      "caption": "Tabla 140. Actividad F5.E7.A5. Consolidación del catálogo de estilos y patrones arquitectónicos.",
+      "code": "F5.E7.A5",
+      "Código": "F5.E7.A5",
+      "Nombre": "Consolidación del catálogo de estilos arquitectónicos.",
+      "Objetivo": "Integrar y versionar el catálogo de estilos y oatrones arquitectónicos como referencia normativa de la arquitectura híbrida, verificando la coherencia entre estilos y actualizando la MTA.",
+      "Descripción": "El AEP integra los estilos especificados por todos los roles (ESTA, ECIA, ESPA) en el catálogo de estilos y Patrones arquitectónicos (CEP). Verifica la coherencia entre estilos, elimina redundancias y establece relaciones de trazabilidad con los artefactos de F3 y F4.",
+      "Entradas": "ESTA: Estilos transversales de solución y arquitectura. ECIA: Estilos de integración y datos híbridos ESPA: Estilos de seguridad clásicos y poscuánticos.",
+      "Salidas": "CEP: Catálogo de estilos y patrones arquitectónicos consolidado, versionado y con trazabilidad completa.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones. Herramientas de trazabilidad arquitectónica.",
+      "Punto de validación": "El CEP cubre los dominios clásico, cuántico y cuántico-clásico sin redundancias. El 100%de los estilos tienen trazabilidad con artefactos de F3 y F4. El catálogo está versionado."
+    },
+    {
+      "table": 141,
+      "caption": "Tabla 141. Actividad F5.E8.A1. Definición del marco de patrones de diseño.",
+      "code": "F5.E8.A1",
+      "Código": "F5.E8.A1",
+      "Nombre": "Definición del marco de patrones de diseño",
+      "Objetivo": "Establecer el marco conceptual y metodológico para la identificación, clasificación y documentación de los patrones de diseño aplicables a la arquitectura empresarial híbrida, partiendo de los componentes de F4 y del CEP generado en E7.",
+      "Descripción": "El AEP analiza los componentes identificados en de la Fase 4 para identificar problemas de diseño recurrentes susceptibles de sistematización. Establece el esquema de clasificación de patrones: creacionales, estructurales y de comportamiento; diferenciando entre patrones clásicos (GoF y similares), patrones híbridos (clásico-cuántico) y patrones emergentes cuánticos, y define el esquema de documentación: intención, estructura, participantes, aplicabilidad, consecuencias y trazabilidad con CEP y F4.",
+      "Entradas": "CEP-v1: Catálogo de Estilos y Patrones arquitectónicos generado en E7. DCO-v1: Documento de Componentes Organizacionales de la Fase 4.",
+      "Salidas": "MPD: Marco de Patrones de Diseño que establece la clasificación, criterios y esquema de documentación.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Catálogos de patrones de diseño (GoF, POSA, P-EAA). Catálogos emergentes de patrones cuánticos. Herramientas de modelado y gestión documental.",
+      "Punto de validación": "El marco cubre los tipos creacionales, estructurales y de comportamiento en contextos clásico, cuántico e híbrido. El esquema de documentación es completo y aplicable. Existe alineación con el CEP y los artefactos de F4."
+    },
+    {
+      "table": 142,
+      "caption": "Tabla 142. Actividad F5.E8.A2. Especificación de patrones de diseño transversales de la solución.",
+      "code": "F5.E8.A2",
+      "Código": "F5.E8.A2",
+      "Nombre": "Especificación de patrones de diseño transversales de la solución",
+      "Objetivo": "Identificar y documentar los patrones de diseño transversales aplicables a los componentes clásicos y a los puntos de integración de alto nivel con el backend cuántico.",
+      "Descripción": "El ASP identifica y documenta los patrones de diseño aplicables a los componentes clásicos y a los puntos de integración de alto nivel con el backend cuántico. Incluye patrones como: Factory Method (para creación de circuitos cuánticos), Facade (para simplificar la interfaz del backend cuántico), Strategy (para selección dinámica de algoritmos clásicos vs. cuánticos), Observer (para monitorización de resultados cuánticos). Para cada patrón documenta: intención, estructura, participantes, aplicabilidad, consecuencias y trazabilidad con DCO y CEP.",
+      "Entradas": "CEP: Catálogo de e stilos y p atrones arquitectónicos. DCO: Componentes transversales de la Fase 4.",
+      "Salidas": "PDTS: Patrones de d iseño t ransversales de s olución documentados con intención, estructura y trazabilidad.",
+      "Responsable": "ASP: Arquitecto de solución del proceso.",
+      "Herramientas": "Catálogos de patrones GoF y POSA. Herramientas de modelado UML. Herramientas de gestión documental.",
+      "Punto de validación": "Todos los patrones transversales están documentados conforme al esquema del MPD. Existe trazabilidad con DCO y CEP. Los patrones abordan explícitamente el contexto híbrido."
+    },
+    {
+      "table": 143,
+      "caption": "Tabla 143. Actividad F5.E7.A3. Especificación de patrones de integración y datos clásico-cuánticos",
+      "code": "F5.E8.A3",
+      "Código": "F5.E8.A3",
+      "Nombre": "Especificación de patrones de integración y datos clásico-cuánticos",
+      "Objetivo": "Identificar y documentar los patrones de diseño que resuelven los problemas recurrentes de integración entre sistemas clásicos y backends cuánticos, y de gestión de datos en entornos híbridos.",
+      "Descripción": "El AIP y el ADP identifican y documentan los patrones que abordan los problemas recurrentes en la integración entre sistemas clásicos y backends cuánticos, y en la gestión de datos híbridos. Incluye patrones como: Adapter (para homogenizar interfaces de proveedores cuánticos), Mediator (para orquestación de llamadas híbridas), Retry with Backoff (para gestión de errores probabilísticos cuánticos), Data Mapper (para transformar representaciones clásicas en formatos procesables por circuitos cuánticos). Para cada patrón documenta: intención, estructura, aplicabilidad, consecuencias y trazabilidad con DCO-v1 y BER-v1.",
+      "Entradas": "CEP: Catálogo de estilos y patrones arquitectónicos. DCO: Componentes de integración de la Fase 4.",
+      "Salidas": "PDID: Patrones de diseño de integración y datos documentados con mecanismos y trazabilidad.",
+      "Responsable": "AIP: Arquitecto de integración del proceso. ADP: Arquitecto de datos del proceso.",
+      "Herramientas": "Catálogos de patrones de integración (Enterprise Integration Patterns). Frameworks de middleware cuántico. Herramientas de modelado arquitectónico.",
+      "Punto de validación": "Los patrones cubren los principales problemas de integración clásico-cuántica. Los patrones abordan los desafíos de latencia y coherencia del dominio cuántico."
+    },
+    {
+      "table": 144,
+      "caption": "Tabla 144. Actividad F5.E7.A4. Especificación de patrones de diseño de seguridad clásicos y cuánticos.",
+      "code": "F5.E8.A4",
+      "Código": "F5.E8.A4",
+      "Nombre": "Especificación de patrones de diseño de seguridad clásicos y cuánticos",
+      "Objetivo": "Identificar y documentar los patrones de diseño que resuelven los problemas de seguridad recurrentes en la arquitectura híbrida, con énfasis en los requisitos de criptografía poscuántica.",
+      "Descripción": "El ASecP y el ETC identifican y documentan los patrones que abordan los problemas de seguridad recurrentes, con énfasis en los requisitos poscuánticos. Incluye patrones como: Secure Channel (para comunicación segura entre nodo clásico y QPU), Key Manager (para gestión de claves poscuánticas), Circuit Validator (para validación de integridad de circuitos cuánticos antes de ejecución), Noise-Aware Decorator (para aplicación transparente de corrección de errores cuánticos). Para cada patrón documenta: intención, estructura, amenazas mitigadas, consecuencias y trazabilidad con DCO-v1 y CEP-v1.",
+      "Entradas": "CEP-v1: Estilos de seguridad del Catálogo de Estilos y Patrones. DCO: Componentes de seguridad de la Fase 4.",
+      "Salidas": "PDSC: Patrones de diseño de seguridad clásicos y cuánticos documentados con amenazas mitigadas y criterios de aplicabilidad.",
+      "Responsable": "ASecP: Arquitecto de seguridad del proceso. ETC: Especialista tecnológico cuántico.",
+      "Herramientas": "Estándares NIST PQC y catálogos de seguridad. Herramientas de análisis y modelado de amenazas.",
+      "Punto de validación": "Los patrones abordan amenazas del dominio clásico y poscuántico. Trazabilidad con DCO y CEP está establecida para cada patrón. Las amenazas mitigadas están claramente documentadas."
+    },
+    {
+      "table": 145,
+      "caption": "Tabla 145. Actividad F5.E7.A5. Consolidación del catálogo de patrones de diseño.",
+      "code": "F5.E8.A5",
+      "Código": "F5.E8.A5",
+      "Nombre": "Consolidación del catálogo de patrones de diseño",
+      "Objetivo": "Integrar y versionar el catálogo de patrones de diseño como complemento del CEP y cierre del proceso.",
+      "Descripción": "El AEP integra los patrones especificados por todos los roles (PDTS, PDID, PDSC) en el catálogo de patrones de Diseño (CPD), complemento del CEP generado en E7. Verifica la coherencia entre patrones y entre el CPD y el CEP, elimina redundancias, establece relaciones de trazabilidad con los artefactos de F4 (DCO, BER).",
+      "Entradas": "PDTS: Patrones de diseño transversales de solución. PDID: Patrones de diseño de integración y datos. PDSC: Patrones de siseño de seguridad clásicos y cuánticos. CEP: Catálogo de estilos y patrones arquitectónicos.",
+      "Salidas": "CPD: Catálogo de patrones de diseño consolidado, versionado y con trazabilidad completa.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones. Herramientas de trazabilidad arquitectónica.",
+      "Punto de validación": "El CPD cubre los tres tipos de patrones y las variantes híbridas y cuánticas. El 100%de los patrones tienen trazabilidad con artefactos de F4."
+    },
+    {
+      "table": 146,
+      "caption": "Tabla 146. Actividad F5.E7.A6 {E8}. Preparación y envío de artefactos al OGA.",
+      "code": "F5.E7.A6{E8}",
+      "Código": "F5.E7.A6 {E8}",
+      "Nombre": "Preparación y envío de artefactos al OGA",
+      "Objetivo": "Consolidar los artefactos de F5 en la LBA-F5 y remitirlos formalmente al OGA para su revisión y aprobación.",
+      "Descripción": "El AEP consolida los artefactos generados en los elementos E7 y E8 en la línea base arquitectónica de la fase 5 y los envía al OGA para revisión formal. El envío incluye: (1) el paquete de artefactos LBA-F5, (2) la solicitud formal de revisión y (3) el resumen ejecutivo de las decisiones adoptadas en F5. El OGA acusa recibo e inicia el proceso de revisión definido en el flujo transversal del proceso.",
+      "Entradas": "CEP: Catálogo de estilos y patrones arquitectónicos. CPD: Catálogo de patrones de siseño.",
+      "Salidas": "LBA-F5 (inicial): Paquete de artefactos de la Fase 5 enviado al OGA para revisión formal.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Sistema de gestión de artefactos arquitectónicos. Plantillas de solicitud de revisión del OGA. Herramientas de gestión documental.",
+      "Punto de validación": "El paquete de envío está completo y el OGA acusa recibo."
+    },
+    {
+      "table": 147,
+      "caption": "Tabla 147. Actividad F5.E7.A7 {E8}. Ajuste de artefactos según observaciones del OGA.",
+      "code": "F5.E7.A7{E8}",
+      "Código": "F 5.E 7.A7 {E 8 }",
+      "Nombre": "Ajuste de artefactos según observaciones del OGA.",
+      "Objetivo": "Atender las observaciones emitidas por el OGA tras la revisión de la Fase 5, incorporando los ajustes requeridos en los artefactos afectados para obtener la aprobación definitiva.",
+      "Descripción": "Cuando el OGA emite observaciones sobre los artefactos de la Fase 7, el AEP analiza cada observación, identifica los artefactos afectados y planifica los ajustes necesarios. Los cambios se realizan de manera controlada, manteniendo la trazabilidad entre versiones y verificando que las modificaciones sean consistentes con el resto de la arquitectura. Una vez realizados los ajustes, los artefactos son revisados internamente antes de ser reenviados al OGA para una nueva revisión. El proceso puede iterarse hasta obtener la aprobación definitiva.",
+      "Entradas": "LBA-F 5 inicial: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 5 con la revisión del OGA.",
+      "Salidas": "LBA-F 5 aprobada: Conjunto de artefactos que conforman la línea base arquitectónica de la Fase 5 aprobados o listos para su envío al OGA para una nueva revisión.",
+      "Responsable": "AEP: Arquitecto empresarial del proceso.",
+      "Herramientas": "Herramientas de gestión documental y control de versiones. Matriz de trazabilidad de observaciones.",
+      "Punto de validación": "Verificación del AEP de que todas las observaciones del OGA han sido atendidas antes del reenvío del paquete."
+    }
+  ],
+  "dependencies": [
+    {
+      "number": 49,
+      "caption": "Tabla 49. Tipos de dependencias definidos en DSM.",
+      "rows": [
+        [
+          "Tipo de dependencia",
+          "Descripción"
+        ],
+        [
+          "Semántica",
+          "Cuando la definición conceptual de presupone la existencia de."
+        ],
+        [
+          "Estructural",
+          "Cuando la configuración de utiliza artefactos definidos en."
+        ],
+        [
+          "Normativa",
+          "Cuando impone restricciones de diseño sobre."
+        ]
+      ]
+    },
+    {
+      "number": 50,
+      "caption": "Tabla 50. Dependencias identificadas entre elementos y dimensiones.",
+      "rows": [
+        [
+          "Relación",
+          "Dimensión origen → dimensión destino",
+          "Tipo de dependencia",
+          "Descripción y fundamento conceptual"
+        ],
+        [
+          "E1 → E2",
+          "DC → DC",
+          "Semántica",
+          "El Objetivo de la arquitectura define el marco normativo bajo el cual se delimita el Contexto de la arquitectura, estableciendo los límites y propósito del sistema arquitectónico."
+        ],
+        [
+          "E2 → E3",
+          "DC → DC",
+          "Semántica–estructural",
+          "El Nivel de abstracción se determina conforme al Contexto de la arquitectura, ya que el alcance y complejidad del entorno condicionan el grado de formalización requerido."
+        ],
+        [
+          "E3 → E4",
+          "DC → DC",
+          "Semántica",
+          "El Glosario y terminología formaliza los conceptos definidos en el Nivel de abstracción, garantizando coherencia semántica dentro del modelo arquitectónico."
+        ],
+        [
+          "E3 → E5",
+          "DC → DO",
+          "Estructural",
+          "Las Estructuras arquitectónicas se modelan en función del Nivel de abstracción, dado que el grado de formalización conceptual determina su representación organizacional y técnica."
+        ],
+        [
+          "E6 → E5",
+          "DCD → DO",
+          "Normativa",
+          "Los Atributos de calidad imponen restricciones que condicionan la configuración de las Estructuras arquitectónicas, orientando decisiones estructurales hacia criterios de desempeño y calidad."
+        ],
+        [
+          "E5 → E9",
+          "DO → DO",
+          "Estructural",
+          "Los Componentes estructurales materializan las Estructuras arquitectónicas, concretando su definición conceptual en unidades configurables dentro de la arquitectura."
+        ],
+        [
+          "E9 → E10",
+          "DO → DO",
+          "Estructural",
+          "Los Elementos reutilizables se identifican a partir de configuraciones consolidadas de Componentes estructurales, permitiendo su estandarización y reutilización en distintos contextos."
+        ],
+        [
+          "E6 → E7",
+          "DCD → DCD",
+          "Normativa",
+          "Los Estilos y patrones arquitectónicos deben satisfacer los Atributos de calidad, asegurando que las decisiones de diseño se alineen con los requisitos de desempeño establecidos."
+        ],
+        [
+          "E5 → E7",
+          "DO → DCD",
+          "Estructural",
+          "Los Estilos y patrones arquitectónicos organizan la configuración de las Estructuras arquitectónicas, definiendo principios de composición y relación entre componentes."
+        ],
+        [
+          "E9 → E8",
+          "DO → DCD",
+          "Estructural",
+          "Los Patrones de diseño operan sobre los Componentes estructurales, proporcionando soluciones recurrentes aplicables a configuraciones específicas dentro de la arquitectura."
+        ]
+      ]
+    },
+    {
+      "number": 51,
+      "caption": "Tabla 51. Cantidad de dependencias identificadas por elemento.",
+      "rows": [
+        [
+          "Elemento",
+          "Cantidad de dependencias",
+          "Dependencias entrantes"
+        ],
+        [
+          "E1",
+          "0",
+          "-"
+        ],
+        [
+          "E2",
+          "1",
+          "E1"
+        ],
+        [
+          "E3",
+          "1",
+          "E2"
+        ],
+        [
+          "E4",
+          "1",
+          "E3"
+        ],
+        [
+          "E5",
+          "2",
+          "E3, E6"
+        ],
+        [
+          "E6",
+          "0",
+          "-"
+        ],
+        [
+          "E7",
+          "2",
+          "E5, E6"
+        ],
+        [
+          "E8",
+          "1",
+          "E9"
+        ],
+        [
+          "E9",
+          "1",
+          "E5"
+        ],
+        [
+          "E10",
+          "1",
+          "E9"
+        ]
+      ]
+    },
+    {
+      "number": 52,
+      "caption": "Tabla 52. Reordenamiento de elementos.",
+      "rows": [
+        [
+          "Iteración",
+          "Nodo seleccionado",
+          "Aristas eliminadas",
+          "Nodos liberados",
+          "Secuencia parcial acumulada"
+        ],
+        [
+          "1",
+          "E1",
+          "E1 → E2",
+          "E2",
+          "E1"
+        ],
+        [
+          "2",
+          "E2",
+          "E2 → E3",
+          "E3",
+          "E1, E2"
+        ],
+        [
+          "3",
+          "E3",
+          "E3 → E4; E3 → E5",
+          "E4",
+          "E1, E2, E3"
+        ],
+        [
+          "4",
+          "E4",
+          "—",
+          "—",
+          "E1, E2, E3, E4"
+        ],
+        [
+          "5",
+          "E6",
+          "E6 → E5; E6 → E7",
+          "E5",
+          "E1, E2, E3, E4, E6"
+        ],
+        [
+          "6",
+          "E5",
+          "E5 → E9; E5 → E7",
+          "E9, E7",
+          "E1, E2, E3, E4, E6, E5"
+        ],
+        [
+          "7",
+          "E9",
+          "E9 → E10; E9 → E8",
+          "E10, E8",
+          "E1, E2, E3, E4, E6, E5, E9"
+        ],
+        [
+          "8",
+          "E10",
+          "—",
+          "—",
+          "E1, E2, E3, E4, E6, E5, E9, E10"
+        ],
+        [
+          "9",
+          "E7",
+          "—",
+          "—",
+          "E1, E2, E3, E4, E6, E5, E9, E10, E7"
+        ],
+        [
+          "10",
+          "E8",
+          "—",
+          "—",
+          "E1, E2, E3, E4, E6, E5, E9, E10, E7, E8"
+        ]
+      ]
+    },
+    {
+      "number": 53,
+      "caption": "Tabla 53. Matriz de precedencias.",
+      "rows": [
+        [
+          "",
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E6",
+          "E5",
+          "E9",
+          "E10",
+          "E7",
+          "E8"
+        ],
+        [
+          "E1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E2",
+          "X",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E3",
+          "",
+          "X",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E4",
+          "",
+          "",
+          "X",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E6",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E5",
+          "",
+          "",
+          "X",
+          "",
+          "X",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E9",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "X",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E10",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "X",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E7",
+          "",
+          "",
+          "",
+          "",
+          "X",
+          "X",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "E8",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "X",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "number": 54,
+      "caption": "Tabla 54. Análisis de correspondencias consecutivas.",
+      "rows": [
+        [
+          "Subconjunto",
+          "Elementos",
+          "Dependencias",
+          "Dependencias hacia elementos anteriores",
+          "¿Preserva la triangularidad?",
+          "Justificación estructural"
+        ],
+        [
+          "S1",
+          "{E1, E2}",
+          "E2 → E1",
+          "–",
+          "Sí",
+          "Dependencia contenida dentro del bloque; no hay relaciones hacia elementos posteriores."
+        ],
+        [
+          "S2",
+          "{E3, E4}",
+          "E4 → E3",
+          "E3 → E2",
+          "Sí",
+          "Dependencia interna clara; dependencia externa dirigida solo hacia elementos previos."
+        ],
+        [
+          "S3",
+          "{E6, E5}",
+          "E5 → E6",
+          "E5 → E3",
+          "Sí",
+          "E5 depende de E6 (interno) y de E3 (anterior); no existen dependencias hacia elementos posteriores."
+        ],
+        [
+          "S4",
+          "{E9, E10}",
+          "E10 → E9",
+          "E9 → E5",
+          "Sí",
+          "E10 depende de E9; E9 depende de elemento anterior; bloque estructuralmente estable."
+        ],
+        [
+          "S5",
+          "{E7, E8}",
+          "–",
+          "E7 → E6, E7 → E5; E8 → E9",
+          "Sí",
+          "No existen dependencias internas; todas las dependencias apuntan a elementos anteriores."
+        ]
+      ]
+    },
+    {
+      "number": 55,
+      "caption": "Tabla 55. Criterios de agregación.",
+      "rows": [
+        [
+          "Código",
+          "Criterio",
+          "Definición operativa",
+          "Fundamento"
+        ],
+        [
+          "C A 1",
+          "Preservación de precedencia estructural",
+          "La consolidación no debe generar dependencias hacia elementos posteriores en la secuencia topológica validada.",
+          "Propiedad de triangularidad de la DSM"
+        ],
+        [
+          "C A 2",
+          "Coherencia funcional",
+          "Los elementos agrupados deben compartir una misma lógica conceptual dentro del modelo.",
+          "Diferenciación entre DC, DO y DCD"
+        ],
+        [
+          "C A 3",
+          "Habilitación progresiva",
+          "El subconjunto debe producir una condición estructural suficiente para iniciar el siguiente sin redefiniciones.",
+          "Progresión secuencial del orden topológico"
+        ],
+        [
+          "C A 4",
+          "Estabilidad interna",
+          "Las dependencias entre elementos del subconjunto deben resolverse internamente o dirigirse únicamente hacia subconjuntos anteriores.",
+          "Inspección estructural de la DSM"
+        ]
+      ]
+    },
+    {
+      "number": 56,
+      "caption": "Tabla 56. Aplicación de criterios por subconjunto.",
+      "rows": [
+        [
+          "Subconjunto",
+          "Criterio"
+        ],
+        [
+          "",
+          "C A 1",
+          "C A 2",
+          "C A 3",
+          "C A 4"
+        ],
+        [
+          "S1",
+          "No existen dependencias hacia elementos posteriores; E2 depende solo de E1.",
+          "Ambos pertenecen al dominio directivo (DC).",
+          "La definición del objetivo y contexto habilita la formalización conceptual posterior.",
+          "Dependencia E2→E1 contenida dentro del bloque."
+        ],
+        [
+          "S2",
+          "No hay dependencias hacia elementos posteriores; E4 depende solo de E3.",
+          "Ambos formalizan el marco conceptual (DC).",
+          "El nivel de abstracción y su formalización habilitan la modelación estructural.",
+          "Dependencia E4→E3 contenida dentro del bloque."
+        ],
+        [
+          "S3",
+          "E5 no depende de elementos posteriores; solo de E3 y E6.",
+          "Ambos regulan la configuración estructural (DO/DCD).",
+          "La definición de atributos y estructuras habilita la materialización en componentes.",
+          "E5→E6 interno; E5→E3 dirigido a bloque anterior."
+        ],
+        [
+          "S4",
+          "E10 no depende de elementos posteriores; E9 depende solo de E5.",
+          "Ambos pertenecen al dominio estructural (DO).",
+          "La consolidación de componentes permite identificar elementos reutilizables.",
+          "E10→E9 interno; E9→E5 dirigido a bloque anterior."
+        ],
+        [
+          "S5",
+          "No existen dependencias hacia elementos posteriores.",
+          "Ambos pertenecen al dominio de diseño (DCD).",
+          "La definición de estilos y patrones consolida la organización del diseño.",
+          "Dependencias dirigidas únicamente hacia bloques anteriores."
+        ]
+      ]
+    },
+    {
+      "number": 58,
+      "caption": "Tabla 58. Identificación del propósito dominante.",
+      "rows": [
+        [
+          "Subconjunto",
+          "Elementos",
+          "Dimensión predominante",
+          "Tipo de decisión consolidada",
+          "Propósito dominante identificado"
+        ],
+        [
+          "S1",
+          "Objetivo de la arquitectura, Contexto de la arquitectura",
+          "DC",
+          "Definición estratégica",
+          "Delimitar alcance y propósito"
+        ],
+        [
+          "S2",
+          "Nivel de abstracción, Glosario y terminología",
+          "DC",
+          "Formalización conceptual",
+          "Establecer marco semántico"
+        ],
+        [
+          "S3",
+          "Atributos de calidad, Estructuras arquitectónicas",
+          "DCD / DO",
+          "Configuración normativa-estructural",
+          "Integrar restricciones y modelado"
+        ],
+        [
+          "S4",
+          "Componentes estructurales, Elementos reutilizables",
+          "DO",
+          "Materialización técnica",
+          "Consolidar implementación estructural"
+        ],
+        [
+          "S5",
+          "Estilos y patrones arquitectónicos, Patrones de diseño",
+          "DCD",
+          "Sistematización de soluciones",
+          "Organizar y estandarizar diseño"
+        ]
+      ]
+    },
+    {
+      "number": 59,
+      "caption": "Tabla 59. Correspondencia con marcos de referencia.",
+      "rows": [
+        [
+          "Subconjunto",
+          "Propósito dominante",
+          "TOGAF",
+          "BPMN",
+          "PMBOK"
+        ],
+        [
+          "S1",
+          "Definición estratégica",
+          "Architecture Vision",
+          "Inicio",
+          "Initiating"
+        ],
+        [
+          "S2",
+          "Formalización conceptual",
+          "Business / IS Architecture",
+          "Modelado",
+          "Planning"
+        ],
+        [
+          "S3",
+          "Configuración normativa-estructural",
+          "Architecture Definition",
+          "Diseño de proceso",
+          "Planning / Design"
+        ],
+        [
+          "S4",
+          "Materialización técnica",
+          "Technology Architecture",
+          "Ejecución",
+          "Executing"
+        ],
+        [
+          "S5",
+          "Sistematización de soluciones",
+          "Implementation Governance",
+          "Optimización",
+          "Monitoring & Controlling"
+        ]
+      ]
+    },
+    {
+      "number": 60,
+      "caption": "Tabla 60. Evaluación de progresión arquitectónica.",
+      "rows": [
+        [
+          "Transición",
+          "Nivel de abstracción anterior",
+          "Nivel posterior",
+          "Incremento identificado"
+        ],
+        [
+          "S1 → S2",
+          "Definición estratégica",
+          "Formalización conceptual",
+          "De intención a formalización"
+        ],
+        [
+          "S2 → S3",
+          "Marco conceptual",
+          "Configuración estructural",
+          "De definición a modelado"
+        ],
+        [
+          "S3 → S4",
+          "Modelado estructural",
+          "Materialización",
+          "De estructura a implementación"
+        ],
+        [
+          "S4 → S5",
+          "Implementación estructural",
+          "Sistematización del diseño",
+          "De materialización a optimización"
+        ]
+      ]
+    }
+  ],
+  "templates": [
+    {
+      "number": 63,
+      "caption": "Tabla 63. Plantilla para documentar el proceso a nivel macro.",
+      "rows": [
+        [
+          "Campo",
+          "Descripción",
+          "Ejemplo ilustrativo"
+        ],
+        [
+          "Nombre",
+          "Denominación oficial del proceso arquitectónico.",
+          "Definición de Arquitectura de Referencia Híbrida para la empresa X."
+        ],
+        [
+          "Identificador",
+          "Código único del proceso.",
+          "DARH"
+        ],
+        [
+          "Propósito",
+          "Resultado organizacional medible que se espera lograr.",
+          "Establecer una arquitectura empresarial híbrida validada y trazable."
+        ],
+        [
+          "Alcance",
+          "Contexto organizacional y técnico donde aplica.",
+          "Unidades de TI y planeación estratégica."
+        ],
+        [
+          "Dimensiones involucradas",
+          "DC, DO, DCD.",
+          "Conceptual, Organizativa, Calidad y Diseño"
+        ],
+        [
+          "Subconjuntos estructurales de origen",
+          "Subconjuntos derivados del análisis topológico.",
+          "S1, S2, S3, S4"
+        ],
+        [
+          "Entradas globales",
+          "Insumos requeridos para iniciar el proceso.",
+          "Plan estratégico institucional, modelo actual AS-IS, objetivos organizacionales."
+        ],
+        [
+          "Salidas globales",
+          "Productos consolidados generados.",
+          "Línea Base Arquitectónica versión 1.0"
+        ],
+        [
+          "Criterios de inicio",
+          "Condiciones necesarias para activar el proceso.",
+          "Aprobación formal del comité directivo"
+        ],
+        [
+          "Criterios de cierre",
+          "Condiciones que determinan su finalización.",
+          "Validación ARB y publicación oficial"
+        ],
+        [
+          "Indicadores globales",
+          "Métricas de desempeño del proceso.",
+          "%cobertura de elementos E1–E10"
+        ],
+        [
+          "Autoridad de aprobación",
+          "Instancia que valida el proceso.",
+          "Architecture Review Board"
+        ]
+      ]
+    },
+    {
+      "number": 64,
+      "caption": "Tabla 64. Plantilla para documentar cada fase.",
+      "rows": [
+        [
+          "Campo",
+          "Descripción",
+          "Ejemplo ilustrativo"
+        ],
+        [
+          "Nombre",
+          "Denominación metodológica.",
+          "Formalización conceptual"
+        ],
+        [
+          "Código",
+          "Identificador de fase.",
+          "F1"
+        ],
+        [
+          "Subconjunto estructural asociado",
+          "Subconjunto de origen.",
+          "S1"
+        ],
+        [
+          "Elementos incluidos",
+          "Elementos estructurales asociados.",
+          "E1, E2"
+        ],
+        [
+          "Propósito",
+          "Condición habilitante generada.",
+          "Definir principios arquitectónicos"
+        ],
+        [
+          "Entradas",
+          "Productos previos requeridos.",
+          "Plan estratégico"
+        ],
+        [
+          "Salidas",
+          "Artefactos producidos.",
+          "Documento de principios"
+        ],
+        [
+          "Punto de control",
+          "Validación requerida para avanzar.",
+          "Revisión ARB"
+        ],
+        [
+          "Indicadores de cumplimiento",
+          "Métricas de evaluación.",
+          "Aprobación formal obtenida"
+        ]
+      ]
+    },
+    {
+      "number": 65,
+      "caption": "Tabla 65. Plantilla para documentar cada elemento",
+      "rows": [
+        [
+          "Campo",
+          "Descripción",
+          "Ejemplo ilustrativo"
+        ],
+        [
+          "Código",
+          ", donde",
+          "E1"
+        ],
+        [
+          "Fase asociada",
+          "Código de su f ase correspondiente.",
+          "F1"
+        ],
+        [
+          "Categoría",
+          "Dominio arquitectónico.",
+          "Principios"
+        ],
+        [
+          "Propósito",
+          "Resultado específico esperado.",
+          "Establecer principios rectores"
+        ],
+        [
+          "Objetivos específicos",
+          "O1, O2, …, On",
+          "O1: Definir principios arquitectónicos."
+        ],
+        [
+          "Productos generados",
+          "Artefactos verificables.",
+          "Glosario de términos."
+        ],
+        [
+          "Criterios de aceptación",
+          "Condiciones de validación.",
+          "Aprobación formal."
+        ],
+        [
+          "Dependencias estructurales",
+          "Elementos previos requeridos.",
+          "Ninguna"
+        ]
+      ]
+    },
+    {
+      "number": 66,
+      "caption": "Tabla 66. Plantilla para la definición del actividades.",
+      "rows": [
+        [
+          "Campo",
+          "Descripción",
+          "Ejemplo ilustrativo"
+        ],
+        [
+          "Código",
+          "Fase.Elemento.Actividad",
+          "F1.E1.A1"
+        ],
+        [
+          "Nombre",
+          "Acción principal",
+          "Identificación de principios"
+        ],
+        [
+          "Objetivo",
+          "Resultado inmediato esperado",
+          "Formular principios alineados"
+        ],
+        [
+          "Descripción",
+          "Descripción de lo que hace la actividad",
+          "Validar documento de objetivos"
+        ],
+        [
+          "Entradas",
+          "Artefactos requeridos",
+          "Plan estratégico"
+        ],
+        [
+          "Salidas",
+          "Producto generado",
+          "Borrador de principios"
+        ],
+        [
+          "Responsable",
+          "Rol ejecutor",
+          "AE"
+        ],
+        [
+          "Herramientas",
+          "Métodos utilizados",
+          "Taller colaborativo"
+        ],
+        [
+          "Punto de validación",
+          "Instancia de revisión",
+          "ARB"
+        ],
+        [
+          "Tareas"
+        ],
+        [
+          "En esta sección se anexa el flujo de tareas que dan conformidad a la actividad"
+        ]
+      ]
+    },
+    {
+      "number": 67,
+      "caption": "Tabla 67. Plantilla para la definición de actividades de realizadas por el OGA.",
+      "rows": [
+        [
+          "Actividad",
+          "Nombre",
+          "Descripción",
+          "Ejemplo"
+        ],
+        [
+          "",
+          "Nombre designado para la actividad.",
+          "Descripción general de la actividad, sus entradas y salidas asociadas.",
+          ""
+        ]
+      ]
+    }
+  ],
+  "glossaries": [
+    {
+      "number": 68,
+      "caption": "Tabla 68. Términos genéricos asociados a la definición de procesos",
+      "rows": [
+        [
+          "Término",
+          "Descripción",
+          "Fuente"
+        ],
+        [
+          "Proceso",
+          "Conjunto estructurado de políticas, estructuras organizativas, tecnologías, procedimientos, objetivos y productos de trabajo necesarios para diseñar, desarrollar, implementar y mantener un sistema o producto de software.",
+          "[97], [118]"
+        ],
+        [
+          "Actividad",
+          "Conjunto de acciones coordinadas que transforman entradas en salidas dentro del marco de un proceso. Incluye procedimientos, estándares y objetivos que permiten producir o modificar productos de trabajo.",
+          "[97]"
+        ],
+        [
+          "Tarea",
+          "Unidad específica de trabajo ejecutada por uno o más roles, asociada a entradas y salidas claramente definidas."
+        ],
+        [
+          "Subtarea",
+          "Descomposición de una tarea cuando su complejidad requiere un mayor nivel de detalle operativo.",
+          "Adaptado de [118]"
+        ],
+        [
+          "Rol",
+          "Conjunto definido de responsabilidades, competencias y autoridad necesarias para ejecutar actividades dentro del proceso.",
+          "[97]"
+        ],
+        [
+          "Recurso",
+          "Activo requerido para ejecutar el proceso, incluyendo talento humano, infraestructura tecnológica y herramientas especializadas.",
+          "[119]"
+        ],
+        [
+          "Herramienta",
+          "Instrumento o aplicación que automatiza o apoya la ejecución de actividades del proceso."
+        ],
+        [
+          "Producto de trabajo",
+          "Artefacto verificable generado como resultado de la ejecución de actividades dentro del proceso."
+        ]
+      ]
+    },
+    {
+      "number": 69,
+      "caption": "Tabla 69. Términos específicos del dominio metodológico propuesto.",
+      "rows": [
+        [
+          "Término",
+          "Descripción"
+        ],
+        [
+          "Fase",
+          "Agrupación operativa de elementos estructurales derivada de un subconjunto consolidado del análisis topológico. Representa una unidad de habilitación progresiva dentro del proceso arquitectónico."
+        ],
+        [
+          "Elemento",
+          "Componente estructural identificado en el modelo conceptual (E1–E10), que constituye una unidad metodológica verificable dentro de una dimensión específica."
+        ],
+        [
+          "Dimensión",
+          "Categoría estructural que agrupa elementos según su naturaleza metodológica. En este modelo: Conceptual (DC), Organizativa (DO) y Calidad y Diseño (DCD)."
+        ],
+        [
+          "Subconjunto estructural",
+          "Conjunto de elementos relacionados entre sí mediante dependencias identificadas en el análisis estructural, cuya consolidación da origen a una fase del proceso."
+        ],
+        [
+          "Punto de control",
+          "Instancia formal de validación que determina el cumplimiento de criterios definidos antes de avanzar a la siguiente fase."
+        ],
+        [
+          "Línea Base Arquitectónica (LBA)",
+          "Conjunto consolidado y versionado de productos arquitectónicos que formaliza el estado validado de la arquitectura híbrida."
+        ]
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "number": 74,
+      "caption": "Tabla 74. Descripción de roles definidos en el proceso.",
+      "rows": [
+        [
+          "Rol Consolidado",
+          "Acrónimo",
+          "Dominios de origen",
+          "Nivel de Intervención",
+          "Justificación",
+          "Tipo"
+        ],
+        [
+          "Arquitecto(a) Empresarial del Proceso",
+          "AEP",
+          "EA / QEA / AEH",
+          "Estratégico",
+          "Rol que d efine lineamientos, asegura alineación con estrategia organizacional y gobierna la evolución arquitectónica.",
+          "Fundamental"
+        ],
+        [
+          "Arquitecto(a) de Solución del Proceso",
+          "ASP",
+          "AA / QSA / ASH",
+          "Táctico",
+          "Diseña soluciones alineadas con la arquitectura integrando componentes clásicos y cuánticos.",
+          ""
+        ],
+        [
+          "Arquitecto(a) de Integración del Proceso",
+          "AIP",
+          "TA / QIA / AIH",
+          "Táctico",
+          "Garantiza interoperabilidad, y orquestación híbrida y coherencia tecnológica.",
+          ""
+        ],
+        [
+          "Arquitecto(a) de Datos del Proceso",
+          "ADP",
+          "DA / QDA / DIO",
+          "Táctico",
+          "Asegura gobierno, calidad y trazabilidad de datos en entornos híbridos.",
+          ""
+        ],
+        [
+          "Arquitecto(a) de Seguridad del Proceso",
+          "ASecP",
+          "SecA / QSecA / SecAH",
+          "Transversal",
+          "Gestiona riesgos clásicos y poscuánticos dentro del marco corporativo.",
+          ""
+        ],
+        [
+          "Órgano de Gobierno Arquitectónico",
+          "OGA",
+          "ARB / QGov / ARB Híbrido",
+          "Gobierno",
+          "Supervisa conformidad arquitectónica, excepciones y evolución de la línea base.",
+          ""
+        ],
+        [
+          "Gestor(a) de Portafolio Arquitectónico",
+          "GPA",
+          "PM / PMH",
+          "Estratégico",
+          "Prioriza iniciativas y asegura coherencia entre inversiones y hoja de ruta arquitectónica. Puede integrarse con dirección de TI.",
+          "Complementario"
+        ],
+        [
+          "Especialista Tecnológico Cuántico",
+          "ETC",
+          "EQ",
+          "Operativo",
+          "Proporciona conocimiento técnico avanzado en hardware, SDKs y algoritmos cuánticos. Puede ser interno o contratado bajo demanda.",
+          "Externo"
+        ],
+        [
+          "Stakeholder Empresarial",
+          "SE",
+          "IN",
+          "Estratégico",
+          "Representa intereses de negocio, regulatorios o de mercado.",
+          ""
+        ]
+      ]
+    },
+    {
+      "number": 76,
+      "caption": "Tabla 76. Roles aplicables en una microempresa/startup.",
+      "rows": [
+        [
+          "Nombre del Rol",
+          "Acrónimo",
+          "Roles fusionados / absorbidos",
+          "Observación funcional"
+        ],
+        [
+          "Arquitecto(a) empresariales del p roceso i ntegrado",
+          "AEP",
+          "ASP, AIP, OGA ASecP y GPA",
+          "Figura central que asume dirección estratégica, diseño, integración y coordinación básica. En una empresa con poca o nula capacidad de contratar perfiles especializados, el OGA no existe como comité, y sus tareas recaen sobre el AEP."
+        ],
+        [
+          "Arquitecto(a) de d atos del Proceso",
+          "ADP",
+          "—",
+          "Puede ser compartido o externo"
+        ],
+        [
+          "Especialista t ecnológico c uántico",
+          "ETC",
+          "—",
+          "Rol externo bajo demanda."
+        ]
+      ]
+    },
+    {
+      "number": 77,
+      "caption": "Tabla 77. Roles aplicables en una pequeña y mediana empresa.",
+      "rows": [
+        [
+          "Nombre del rol",
+          "Acrónimo",
+          "Roles fusionados / absorbidos",
+          "Observación funcional"
+        ],
+        [
+          "Arquitecto(a) empresariales del p roceso",
+          "AEP",
+          "Puede absorber al A DP",
+          "Responsable formal de alineación estratégica y coherencia arquitectónica transversal. Diseña soluciones alineadas con la arquitectura de referencia y necesidades del negocio."
+        ],
+        [
+          "Arquitecto(a) de i ntegración del p roceso",
+          "AIP",
+          "Puede absorber al ASecP y al ADP",
+          "Gestiona interoperabilidad y coordinación técnica entre componentes clásicos y cuánticos."
+        ],
+        [
+          "Gestor(a) de p ortafolio arquitectónico",
+          "GPA",
+          "—",
+          "Coordina iniciativas y prioriza inversiones alineadas con la hoja de ruta arquitectónica."
+        ],
+        [
+          "Órgano de gobierno arquitectónico (simplificado)",
+          "OGA",
+          "—",
+          "Opera como comité técnico periódico o mecanismo formal de revisión arquitectónica."
+        ],
+        [
+          "Especialista t ecnológico c uántico",
+          "ETC",
+          "—",
+          "Consultor recurrente o especialista a tiempo parcial según necesidad."
+        ],
+        [
+          "Stakeholder empresariales",
+          "SE",
+          "—",
+          "Participa en decisiones estratégicas y validación de impacto organizacional."
+        ]
+      ]
+    },
+    {
+      "number": 78,
+      "caption": "Tabla 78. Roles aplicables en una empresa grande (corporación).",
+      "rows": [
+        [
+          "Nombre del Rol",
+          "Acrónimo",
+          "Observación funcional"
+        ],
+        [
+          "Arquitecto(a) empresarial del proceso",
+          "AEP",
+          "Autoridad estratégica transversal responsable del marco completo de arquitectura híbrida corporativa."
+        ],
+        [
+          "Arquitecto(a) de solución del proceso",
+          "ASP",
+          "Especialistas por dominio, línea de negocio o programa estratégico."
+        ],
+        [
+          "Arquitecto(a) de integración del proceso",
+          "AIP",
+          "Equipo dedicado a interoperabilidad, orquestación híbrida y coherencia tecnológica multi-plataforma."
+        ],
+        [
+          "Arquitecto(a) de datos del proceso",
+          "ADP",
+          "Unidad formal de gobierno de datos, analítica e IA corporativa."
+        ],
+        [
+          "Arquitecto(a) de seguridad del proceso",
+          "ASecP",
+          "Gestión especializada de riesgos clásicos y transición hacia esquemas postcuánticos."
+        ],
+        [
+          "Órgano de gobierno arquitectónico",
+          "OGA",
+          "Comité formal encargado de validar conformidad, excepciones y evolución de la línea base arquitectónica."
+        ],
+        [
+          "Gestor(a) de portafolio arquitectónico",
+          "GPA",
+          "Gestiona inversiones estratégicas y prioriza iniciativas híbridas a nivel corporativo."
+        ],
+        [
+          "Especialista tecnológico cuántico",
+          "ETC",
+          "Equipo interno especializado o alianza estratégica permanente con proveedores tecnológicos."
+        ],
+        [
+          "Stakeholder empresarial",
+          "SE",
+          "Participación institucional en decisiones estratégicas, cumplimiento regulatorio y supervisión ejecutiva."
+        ]
+      ]
+    }
+  ],
+  "governance": {
+    "number": 80,
+    "caption": "Tabla 80. Actividades de verificación realizadas por el OGA en cada fase.",
+    "rows": [
+      [
+        "Actividad",
+        "Nombre",
+        "Descripción"
+      ],
+      [
+        "Fx.OGA.A1",
+        "Recepción y registro de artefactos",
+        "Actividad en la cual el OGA recibe el paquete de artefactos generados en la fase correspondiente."
+      ],
+      [
+        "Fx.OGA.A2",
+        "Convocatoria y agenda de sesión de revisión",
+        "Actividad orientada a coordinar la sesión de evaluación, definiendo fecha, participantes, alcance y criterios a considerar durante el análisis de los artefactos."
+      ],
+      [
+        "Fx.OGA.A3",
+        "Revisión individual de artefactos por miembros",
+        "Actividad en la que cada miembro del OGA analiza los artefactos de manera independiente, evaluando su coherencia, alineación con los objetivos estratégicos y cumplimiento de criterios arquitectónicos definidos."
+      ],
+      [
+        "Fx.OGA.A4",
+        "Sesión formal de deliberación y votación",
+        "Actividad colaborativa en la que los miembros del OGA discuten los hallazgos identificados, contrastan criterios y emiten una decisión conjunta respecto a la aprobación o rechazo de los artefactos."
+      ],
+      [
+        "Fx.OGA.A5",
+        "Emisión del acta de aprobación y notificación al AEP",
+        "Actividad que formaliza la decisión de aprobación, documentando los resultados de la evaluación y notificando al AEP para continuar con el flujo del proceso."
+      ],
+      [
+        "Fx.OGA.A6",
+        "Documentación de observaciones y envío al AEP",
+        "Actividad orientada a consolidar las observaciones, recomendaciones o ajustes requeridos en caso de no aprobación, las cuales son comunicadas al Arquitecto Empresarial del Proceso para su incorporación en el flujo principal."
+      ],
+      [
+        "Fx.OGA.A7",
+        "Consolidación de resultados",
+        "Actividad final en la que se integran los resultados del proceso de evaluación, asegurando la trazabilidad entre los artefactos revisados, la decisión tomada y las acciones derivadas."
+      ]
+    ]
+  }
+};

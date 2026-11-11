@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 652" width="3800" height="1304" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+  <rect x="0.0" y="0.0" width="1900.0" height="652.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.8" />
+  <rect x="24.0" y="24.0" width="220.0" height="510.0" rx="0" fill="#EEF1F6" stroke="none" stroke-width="1.8" />
+  <path d="M24.0,120.0 V38.0 Q24.0,24.0 38.0,24.0 H230.0 Q244.0,24.0 244.0,38.0 V120.0 Z" fill="#DDE3EC" />
+  <rect x="24.0" y="24.0" width="220.0" height="510.0" rx="14" fill="none" stroke="#B3BFD2" stroke-width="1.8" />
+  <text x="134.0" y="65.6" font-size="24" font-weight="bold" fill="#1B2B48" text-anchor="middle">Necesidad</text>
+  <text x="134.0" y="94.4" font-size="24" font-weight="bold" fill="#1B2B48" text-anchor="middle">de Negocio</text>
+  <g transform="translate(134.0 182.0) scale(2.0)">
+    <g fill="#1B2B48">
+      <rect x="-19" y="6" width="8" height="12" rx="1.5" />
+      <rect x="-7" y="-2" width="8" height="20" rx="1.5" />
+      <rect x="5" y="-10" width="8" height="28" rx="1.5" />
+      <rect x="17" y="-20" width="8" height="38" rx="1.5" transform="translate(-4 0)" />
+    </g>
+  </g>
+  <text x="134.0" y="249.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Explorar la</text>
+  <text x="134.0" y="274.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">optimización de</text>
+  <text x="134.0" y="299.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">portafolios asistida</text>
+  <text x="134.0" y="324.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">por computación</text>
+  <text x="134.0" y="349.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">cuántica.</text>
+  <rect x="284.0" y="24.0" width="216.4" height="510.0" rx="0" fill="#EAF4FD" stroke="none" stroke-width="1.8" />
+  <path d="M284.0,120.0 V38.0 Q284.0,24.0 298.0,24.0 H486.4 Q500.4,24.0 500.4,38.0 V120.0 Z" fill="#CDE4FA" />
+  <rect x="284.0" y="24.0" width="216.4" height="510.0" rx="14" fill="none" stroke="#97C6EE" stroke-width="1.8" />
+  <text x="392.2" y="58.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle">F1</text>
+  <text x="392.2" y="86.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Definición</text>
+  <text x="392.2" y="111.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Estratégica</text>
+  <g transform="translate(392.2 182.0) scale(2.0)">
+    <g fill="none" stroke="#1B3A70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="16" />
+      <circle r="9" />
+      <path d="M2 -2 L18 -18 M12 -20 V-12 H20" />
+    </g>
+    <circle r="3.6" fill="#1B3A70" />
+  </g>
+  <text x="392.2" y="262.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Propósito y contexto</text>
+  <text x="392.2" y="287.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">arquitectónicos.</text>
+  <line x1="306.0" y1="348" x2="478.4" y2="348" stroke="#97C6EE" stroke-width="1.6" />
+  <text x="306.0" y="382.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">Definir objetivos,</text>
+  <text x="306.0" y="407.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">alcance, stakeholders</text>
+  <text x="306.0" y="432.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">y restricciones.</text>
+  <rect x="540.4" y="24.0" width="216.4" height="510.0" rx="0" fill="#EDF8EF" stroke="none" stroke-width="1.8" />
+  <path d="M540.4,120.0 V38.0 Q540.4,24.0 554.4,24.0 H742.8 Q756.8,24.0 756.8,38.0 V120.0 Z" fill="#CDEAD4" />
+  <rect x="540.4" y="24.0" width="216.4" height="510.0" rx="14" fill="none" stroke="#8FCDA2" stroke-width="1.8" />
+  <text x="648.6" y="58.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle">F2</text>
+  <text x="648.6" y="86.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Formalización</text>
+  <text x="648.6" y="111.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Conceptual</text>
+  <g transform="translate(648.6 182.0) scale(2.0)">
+    <g fill="none" stroke="#1F5C35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-13 -19 H4 L14 -9 V19 H-13 Z" />
+      <path d="M4 -19 V-9 H14" />
+      <path d="M-6 0 H7 M-6 7 H7 M-6 14 H1" />
+    </g>
+  </g>
+  <text x="648.6" y="249.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Conceptos y</text>
+  <text x="648.6" y="274.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">terminología</text>
+  <text x="648.6" y="299.5" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">compartidos.</text>
+  <line x1="562.4" y1="348" x2="734.8" y2="348" stroke="#8FCDA2" stroke-width="1.6" />
+  <text x="562.4" y="382.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">Establecer niveles de</text>
+  <text x="562.4" y="407.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">abstracción y un</text>
+  <text x="562.4" y="432.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">glosario común.</text>
+  <rect x="796.8" y="24.0" width="216.4" height="510.0" rx="0" fill="#FEF7E6" stroke="none" stroke-width="1.8" />
+  <path d="M796.8,120.0 V38.0 Q796.8,24.0 810.8,24.0 H999.2 Q1013.2,24.0 1013.2,38.0 V120.0 Z" fill="#FBE5AE" />
+  <rect x="796.8" y="24.0" width="216.4" height="510.0" rx="14" fill="none" stroke="#EBC76A" stroke-width="1.8" />
+  <text x="905.0" y="58.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle">F3</text>
+  <text x="905.0" y="86.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Configuración</text>
+  <text x="905.0" y="111.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Estructural</text>
+  <g transform="translate(905.0 182.0) scale(2.0)">
+    <g fill="none" stroke="#7A5C10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 -8 V0 M-14 0 H14 M-14 0 V7 M14 0 V7 M0 0 V7" />
+      <rect x="-7" y="-19" width="14" height="11" rx="1.5" />
+      <rect x="-21" y="7" width="13" height="11" rx="1.5" />
+      <rect x="-6.5" y="7" width="13" height="11" rx="1.5" />
+      <rect x="8" y="7" width="13" height="11" rx="1.5" />
+    </g>
+  </g>
+  <text x="905.0" y="262.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Atributos de calidad</text>
+  <text x="905.0" y="287.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">y estructura</text>
+  <text x="905.0" y="312.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">arquitectónica.</text>
+  <line x1="818.8" y1="348" x2="991.2" y2="348" stroke="#EBC76A" stroke-width="1.6" />
+  <text x="818.8" y="369.5" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">Definir atributos de</text>
+  <text x="818.8" y="394.5" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">calidad y la</text>
+  <text x="818.8" y="419.5" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">arquitectura de</text>
+  <text x="818.8" y="444.5" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">alto nivel.</text>
+  <rect x="1053.2" y="24.0" width="216.4" height="510.0" rx="0" fill="#FEF0F1" stroke="none" stroke-width="1.8" />
+  <path d="M1053.2,120.0 V38.0 Q1053.2,24.0 1067.2,24.0 H1255.6 Q1269.6,24.0 1269.6,38.0 V120.0 Z" fill="#FAD0D5" />
+  <rect x="1053.2" y="24.0" width="216.4" height="510.0" rx="14" fill="none" stroke="#EE9AA2" stroke-width="1.8" />
+  <text x="1161.4" y="58.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle">F4</text>
+  <text x="1161.4" y="86.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Materialización</text>
+  <text x="1161.4" y="111.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Arquitectónica</text>
+  <g transform="translate(1161.4 182.0) scale(2.0)">
+    <g transform="translate(0 -11) scale(0.58)">
+      <path d="M0 -17 L15 -9 V8 L0 17 L-15 8 V-9 Z M-15 -9 L0 0 L15 -9 M0 0 V17" fill="none" stroke="#8E1B1B" stroke-width="5" stroke-linejoin="round" />
+    </g>
+    <g transform="translate(-11 8) scale(0.58)">
+      <path d="M0 -17 L15 -9 V8 L0 17 L-15 8 V-9 Z M-15 -9 L0 0 L15 -9 M0 0 V17" fill="none" stroke="#8E1B1B" stroke-width="5" stroke-linejoin="round" />
+    </g>
+    <g transform="translate(11 8) scale(0.58)">
+      <path d="M0 -17 L15 -9 V8 L0 17 L-15 8 V-9 Z M-15 -9 L0 0 L15 -9 M0 0 V17" fill="none" stroke="#8E1B1B" stroke-width="5" stroke-linejoin="round" />
+    </g>
+  </g>
+  <text x="1161.4" y="262.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Componentes y</text>
+  <text x="1161.4" y="287.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">elementos reutilizables.</text>
+  <line x1="1075.2" y1="348" x2="1247.6" y2="348" stroke="#EE9AA2" stroke-width="1.6" />
+  <text x="1075.2" y="382.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">Definir el marco de</text>
+  <text x="1075.2" y="407.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">componentes e</text>
+  <text x="1075.2" y="432.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">identificar elementos</text>
+  <text x="1075.2" y="457.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">reutilizables.</text>
+  <rect x="1309.6" y="24.0" width="216.4" height="510.0" rx="0" fill="#F5F0FD" stroke="none" stroke-width="1.8" />
+  <path d="M1309.6,120.0 V38.0 Q1309.6,24.0 1323.6,24.0 H1512.0 Q1526.0,24.0 1526.0,38.0 V120.0 Z" fill="#E0D4F6" />
+  <rect x="1309.6" y="24.0" width="216.4" height="510.0" rx="14" fill="none" stroke="#BBA8E6" stroke-width="1.8" />
+  <text x="1417.8" y="58.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle">F5</text>
+  <text x="1417.8" y="86.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">Sistematización</text>
+  <text x="1417.8" y="111.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="middle">del Diseño</text>
+  <g transform="translate(1417.8 182.0) scale(2.0)">
+    <circle r="15.5" fill="none" stroke="#4B2E91" stroke-width="6" stroke-dasharray="4.05 4.05" />
+    <circle r="12" fill="#FFFFFF" stroke="#4B2E91" stroke-width="3" />
+    <circle r="5" fill="none" stroke="#4B2E91" stroke-width="3" />
+  </g>
+  <text x="1417.8" y="262.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">Estilos arquitectónicos</text>
+  <text x="1417.8" y="287.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle">y patrones de diseño.</text>
+  <line x1="1331.6" y1="348" x2="1504.0" y2="348" stroke="#BBA8E6" stroke-width="1.6" />
+  <text x="1331.6" y="382.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">Definir y catalogar</text>
+  <text x="1331.6" y="407.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">estilos y patrones,</text>
+  <text x="1331.6" y="432.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">y establecer la línea</text>
+  <text x="1331.6" y="457.0" font-size="19" font-weight="normal" fill="#34405A" text-anchor="start">base arquitectónica.</text>
+  <rect x="1566.0" y="24.0" width="310.0" height="510.0" rx="0" fill="#EAF5FD" stroke="none" stroke-width="1.8" />
+  <path d="M1566.0,120.0 V38.0 Q1566.0,24.0 1580.0,24.0 H1862.0 Q1876.0,24.0 1876.0,38.0 V120.0 Z" fill="#CDE4F8" />
+  <rect x="1566.0" y="24.0" width="310.0" height="510.0" rx="14" fill="none" stroke="#8FC1EC" stroke-width="1.8" />
+  <text x="1721.0" y="66.0" font-size="24" font-weight="bold" fill="#1B2B48" text-anchor="middle">Línea Base Arquitectónica</text>
+  <text x="1721.0" y="94.0" font-size="24" font-weight="bold" fill="#1B2B48" text-anchor="middle">Consolidada</text>
+  <g transform="translate(1721.0 182.0) scale(2.0)">
+    <g fill="#1B2B48">
+      <ellipse cy="-14" rx="18" ry="6.5" />
+      <path d="M-18 -12 V13 A18 6.5 0 0 0 18 13 V-12 A18 6.5 0 0 1 -18 -12 Z" />
+    </g>
+    <g fill="none" stroke="#FFFFFF" stroke-width="2.6">
+      <path d="M-18 -2 A18 6.5 0 0 0 18 -2" />
+      <path d="M-18 8 A18 6.5 0 0 0 18 8" />
+    </g>
+  </g>
+  <circle cx="1596.0" cy="254" r="3.2" fill="#1B2B48" />
+  <text x="1612.0" y="260.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">Decisiones arquitectónicas</text>
+  <text x="1612.0" y="283.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">trazables</text>
+  <circle cx="1596.0" cy="308" r="3.2" fill="#1B2B48" />
+  <text x="1612.0" y="314.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">Estructura híbrida</text>
+  <text x="1612.0" y="337.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">clásico–cuántica</text>
+  <circle cx="1596.0" cy="362" r="3.2" fill="#1B2B48" />
+  <text x="1612.0" y="368.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">Componentes</text>
+  <text x="1612.0" y="391.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">arquitectónicos definidos</text>
+  <circle cx="1596.0" cy="416" r="3.2" fill="#1B2B48" />
+  <text x="1612.0" y="422.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">Elementos arquitectónicos</text>
+  <text x="1612.0" y="445.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">reutilizables</text>
+  <circle cx="1596.0" cy="470" r="3.2" fill="#1B2B48" />
+  <text x="1612.0" y="476.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">Conocimiento de diseño</text>
+  <text x="1612.0" y="499.0" font-size="19.5" font-weight="normal" fill="#1B2B48" text-anchor="start">sistematizado</text>
+  <polygon points="248.0,170.0 261.0,170.0 261.0,161.0 280.0,182.0 261.0,203.0 261.0,194.0 248.0,194.0" fill="#5E6B7E" />
+  <polygon points="504.4,170.0 517.4,170.0 517.4,161.0 536.4,182.0 517.4,203.0 517.4,194.0 504.4,194.0" fill="#5E6B7E" />
+  <polygon points="760.8,170.0 773.8,170.0 773.8,161.0 792.8,182.0 773.8,203.0 773.8,194.0 760.8,194.0" fill="#5E6B7E" />
+  <polygon points="1017.2,170.0 1030.2,170.0 1030.2,161.0 1049.2,182.0 1030.2,203.0 1030.2,194.0 1017.2,194.0" fill="#5E6B7E" />
+  <polygon points="1273.6,170.0 1286.6,170.0 1286.6,161.0 1305.6,182.0 1286.6,203.0 1286.6,194.0 1273.6,194.0" fill="#5E6B7E" />
+  <polygon points="1530.0,170.0 1543.0,170.0 1543.0,161.0 1562.0,182.0 1543.0,203.0 1543.0,194.0 1530.0,194.0" fill="#5E6B7E" />
+  <path d="M1721.0 550 V590 H134.0 V550" fill="none" stroke="#4F6070" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="123.0,554.0 145.0,554.0 134.0,538.0" fill="#4F6070" />
+  <polygon points="1710.0,554.0 1732.0,554.0 1721.0,538.0" fill="#4F6070" />
+  <rect x="729.5" y="565.0" width="441.0" height="50.0" rx="14" fill="#4A5A72" stroke="none" stroke-width="1.8" />
+  <text x="950.0" y="598.0" font-size="24" font-weight="normal" fill="#FFFFFF" text-anchor="middle">Trazabilidad y refinamiento continuo</text>
+</svg>

@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1130" width="3600" height="2260" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+  <rect x="0.0" y="0.0" width="1800.0" height="1130.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.6" />
+  <text x="900.0" y="64.0" font-size="44" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Roles del PDAEH según el Tamaño de la Empresa</text>
+  <text x="900.0" y="102.0" font-size="22" font-weight="normal" fill="#3F4B66" text-anchor="middle" font-style="normal">La consolidación de roles disminuye a medida que aumentan el tamaño y la madurez de la organización.</text>
+  <rect x="36.0" y="124.0" width="560.0" height="884.0" rx="0" fill="#EAF3FD" stroke="none" stroke-width="1.6" />
+  <path d="M36.0,244.0 V142.0 Q36.0,124.0 54.0,124.0 H578.0 Q596.0,124.0 596.0,142.0 V244.0 Z" fill="#DDEBFA" />
+  <rect x="36.0" y="124.0" width="560.0" height="884.0" rx="18" fill="none" stroke="#9CC3EE" stroke-width="2" />
+  <g transform="translate(102 186) scale(1.35)">
+    <path d="M-26 -8 L-21 -26 H21 L26 -8 Z" fill="#1F3A5F" />
+    <rect x="-22" y="-8" width="44" height="32" fill="#1F3A5F" />
+    <rect x="-14" y="-1" width="11" height="9" fill="#FFFFFF" />
+    <rect x="3" y="-1" width="11" height="9" fill="#FFFFFF" />
+    <rect x="-14" y="12" width="28" height="12" fill="#FFFFFF" opacity="0.0" />
+    <rect x="-6" y="12" width="12" height="12" fill="#FFFFFF" />
+    <path d="M-26 -8 H26" stroke="#FFFFFF" stroke-width="2" />
+  </g>
+  <text x="166.0" y="190.0" font-size="33.25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Entidad Muy Pequeña (VSE)</text>
+  <text x="166.0" y="226.0" font-size="25" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Roles consolidados</text>
+  <rect x="60.0" y="258.0" width="512.0" height="96.0" rx="12" fill="#D6E6F8" stroke="none" stroke-width="1.6" />
+  <text x="316.0" y="288.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Los recursos limitados exigen fusionar roles.</text>
+  <text x="316.0" y="315.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Una sola persona (o un equipo muy pequeño) asume</text>
+  <text x="316.0" y="342.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">múltiples responsabilidades.</text>
+  <rect x="620.0" y="124.0" width="560.0" height="884.0" rx="0" fill="#FEF6E3" stroke="none" stroke-width="1.6" />
+  <path d="M620.0,244.0 V142.0 Q620.0,124.0 638.0,124.0 H1162.0 Q1180.0,124.0 1180.0,142.0 V244.0 Z" fill="#FBEBC4" />
+  <rect x="620.0" y="124.0" width="560.0" height="884.0" rx="18" fill="none" stroke="#F0CC85" stroke-width="2" />
+  <g transform="translate(686 186) scale(1.35)">
+    <rect x="-4" y="-28" width="26" height="56" fill="#1B2430" />
+    <rect x="-26" y="-4" width="24" height="32" fill="#1B2430" />
+    <rect x="-30" y="26" width="56" height="4" fill="#1B2430" />
+    <rect x="1.0" y="-23.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="1.0" y="-15.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="1.0" y="-8.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="1.0" y="-0.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="1.0" y="6.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="1.0" y="14.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="-23.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="-15.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="-8.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="-0.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="6.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="8.4" y="14.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="-23.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="-15.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="-8.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="-0.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="6.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="15.8" y="14.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-22.0" y="1.0" width="5" height="5" fill="#FFFFFF" />
+    <rect x="-22.0" y="9.5" width="5" height="5" fill="#FFFFFF" />
+    <rect x="-22.0" y="18.0" width="5" height="5" fill="#FFFFFF" />
+    <rect x="-13.5" y="1.0" width="5" height="5" fill="#FFFFFF" />
+    <rect x="-13.5" y="9.5" width="5" height="5" fill="#FFFFFF" />
+    <rect x="-13.5" y="18.0" width="5" height="5" fill="#FFFFFF" />
+  </g>
+  <text x="750.0" y="190.0" font-size="35" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">PYME</text>
+  <text x="750.0" y="226.0" font-size="25" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Roles parcialmente diferenciados</text>
+  <rect x="644.0" y="258.0" width="512.0" height="96.0" rx="12" fill="#FBEBC6" stroke="none" stroke-width="1.6" />
+  <text x="900.0" y="288.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Las responsabilidades comienzan a diferenciarse,</text>
+  <text x="900.0" y="315.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">aunque algunos roles aún pueden combinarse</text>
+  <text x="900.0" y="342.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">según el talento disponible y la madurez.</text>
+  <rect x="1204.0" y="124.0" width="560.0" height="884.0" rx="0" fill="#E9F6EE" stroke="none" stroke-width="1.6" />
+  <path d="M1204.0,244.0 V142.0 Q1204.0,124.0 1222.0,124.0 H1746.0 Q1764.0,124.0 1764.0,142.0 V244.0 Z" fill="#D8EEDF" />
+  <rect x="1204.0" y="124.0" width="560.0" height="884.0" rx="18" fill="none" stroke="#93CBA9" stroke-width="2" />
+  <g transform="translate(1270 186) scale(1.35)">
+    <rect x="-10" y="-30" width="24" height="60" fill="#1F5C45" />
+    <rect x="-30" y="-12" width="19" height="42" fill="#1F5C45" />
+    <rect x="15" y="-16" width="15" height="46" fill="#1F5C45" />
+    <rect x="-32" y="28" width="64" height="3" fill="#1F5C45" />
+    <rect x="-6.0" y="-25.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="-18.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="-11.4" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="-4.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="2.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="9.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-6.0" y="15.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="-25.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="-18.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="-11.4" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="-4.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="2.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="9.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="0.8" y="15.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="-25.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="-18.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="-11.4" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="-4.6" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="2.2" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="9.0" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="7.6" y="15.8" width="4.2" height="4.2" fill="#FFFFFF" />
+    <rect x="-27.0" y="-7.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-27.0" y="-0.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-27.0" y="6.6" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-27.0" y="13.4" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-27.0" y="20.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-27.0" y="27.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="-7.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="-0.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="6.6" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="13.4" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="20.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="-20.2" y="27.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="-11.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="-4.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="2.6" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="9.4" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="16.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="18.0" y="23.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="-11.0" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="-4.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="2.6" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="9.4" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="16.2" width="4.4" height="4.4" fill="#FFFFFF" />
+    <rect x="24.8" y="23.0" width="4.4" height="4.4" fill="#FFFFFF" />
+  </g>
+  <text x="1334.0" y="190.0" font-size="35" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Gran Empresa</text>
+  <text x="1334.0" y="226.0" font-size="25" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Roles totalmente especializados</text>
+  <rect x="1228.0" y="258.0" width="512.0" height="96.0" rx="12" fill="#D3EBDB" stroke="none" stroke-width="1.6" />
+  <text x="1484.0" y="288.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Los roles operan como funciones distintas e</text>
+  <text x="1484.0" y="315.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">institucionalizadas, con responsabilidades claras</text>
+  <text x="1484.0" y="342.0" font-size="20.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">y estructuras de gobierno.</text>
+  <rect x="90.0" y="364.0" width="452.0" height="458.0" rx="14" fill="#CFE3F8" stroke="#6FA3E0" stroke-width="2" />
+  <g transform="translate(316.0 408.0) scale(1.7)" fill="#10285A">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="316.0" y="478.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto Empresarial</text>
+  <text x="316.0" y="506.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de Proceso (AEP)</text>
+  <text x="316.0" y="532.0" font-size="19" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(múltiples roles)</text>
+  <rect x="106.0" y="548.0" width="420.0" height="262.0" rx="12" fill="#EAF3FD" stroke="#2F6DB5" stroke-width="1.8" stroke-dasharray="6 5" />
+  <text x="316.0" y="574.0" font-size="18" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Roles absorbidos:</text>
+  <rect x="124.0" y="586.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="217.0" y="613.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto de Solución</text>
+  <text x="217.0" y="635.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(ASP)</text>
+  <rect x="322.0" y="586.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="415.0" y="613.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto de Datos</text>
+  <text x="415.0" y="635.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(ADP)</text>
+  <rect x="124.0" y="660.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="217.0" y="687.0" font-size="16.47" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto de Integración</text>
+  <text x="217.0" y="709.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(AIP)</text>
+  <rect x="322.0" y="660.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="415.0" y="687.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Gestor de Portafolio</text>
+  <text x="415.0" y="709.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(GPA)</text>
+  <rect x="124.0" y="734.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="217.0" y="761.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto de Seguridad</text>
+  <text x="217.0" y="783.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(ASecP)</text>
+  <rect x="322.0" y="734.0" width="186.0" height="64.0" rx="10" fill="#E3EEFB" stroke="#9FC3EE" stroke-width="1.6" />
+  <text x="415.0" y="761.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Funciones de Gobierno</text>
+  <text x="415.0" y="783.0" font-size="17.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">(OGA)</text>
+  <line x1="316.0" y1="822.0" x2="316.0" y2="848.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="183.0" y1="848.0" x2="449.0" y2="848.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="183.0" y1="848.0" x2="183.0" y2="876.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="449.0" y1="848.0" x2="449.0" y2="876.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <rect x="60.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(92.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="9" cy="-11" r="7" />
+    <path d="M-1 12 Q0 -1 10 -1 Q21 -1 21 12 Z" />
+    <circle cx="-6" cy="-8" r="8.5" stroke="#FFFFFF" stroke-width="1.6" />
+    <path d="M-22 17 Q-22 4 -6 4 Q10 4 10 17 Z" stroke="#FFFFFF" stroke-width="1.6" />
+  </g>
+  <text x="124.0" y="903.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Especialista en</text>
+  <text x="124.0" y="924.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Tecnología</text>
+  <text x="124.0" y="945.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Cuántica (ETC)</text>
+  <text x="124.0" y="966.5" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(bajo demanda)</text>
+  <rect x="326.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(358.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="9" cy="-11" r="7" />
+    <path d="M-1 12 Q0 -1 10 -1 Q21 -1 21 12 Z" />
+    <circle cx="-6" cy="-8" r="8.5" stroke="#FFFFFF" stroke-width="1.6" />
+    <path d="M-22 17 Q-22 4 -6 4 Q10 4 10 17 Z" stroke="#FFFFFF" stroke-width="1.6" />
+  </g>
+  <text x="390.0" y="913.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Stakeholder</text>
+  <text x="390.0" y="935.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Empresarial (SE)</text>
+  <text x="390.0" y="957.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(aporte informal)</text>
+  <rect x="708.0" y="364.0" width="384.0" height="88.0" rx="12" fill="#D4E6FA" stroke="#7FAEE3" stroke-width="1.8" />
+  <g transform="translate(750.0 408.0) scale(1.5)" fill="#1B3A70">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="796.0" y="402.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitecto Empresarial</text>
+  <text x="796.0" y="426.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">de Proceso (AEP)</text>
+  <text x="796.0" y="446.0" font-size="16.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(alineación estratégica)</text>
+  <line x1="900.0" y1="452.0" x2="900.0" y2="700.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="767.0" y1="474.0" x2="1033.0" y2="474.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="767.0" y1="474.0" x2="767.0" y2="500.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1033.0" y1="474.0" x2="1033.0" y2="500.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="767.0" y1="700.0" x2="1033.0" y2="700.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="767.0" y1="700.0" x2="767.0" y2="728.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1033.0" y1="700.0" x2="1033.0" y2="728.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <rect x="644.0" y="500.0" width="246.0" height="120.0" rx="10" fill="#D7F0DE" stroke="#7FC49A" stroke-width="1.8" />
+  <g transform="translate(678.0 560.0) scale(1.25)" fill="#1F5C45">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="712.0" y="543.5" font-size="17.41" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitecto de Solución</text>
+  <text x="712.0" y="565.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">(ASP)</text>
+  <text x="712.0" y="586.5" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(diseño táctico)</text>
+  <rect x="910.0" y="500.0" width="246.0" height="176.0" rx="10" fill="#FBD9DC" stroke="#EB8A94" stroke-width="1.8" />
+  <g transform="translate(944.0 550.0) scale(1.25)" fill="#8E1B2B">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="978.0" y="540.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitecto de</text>
+  <text x="978.0" y="561.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Integración (AIP)</text>
+  <text x="978.0" y="583.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(coordinación técnica)</text>
+  <rect x="924.0" y="604.0" width="218.0" height="62.0" rx="8" fill="#FDE9EA" stroke="#E37A86" stroke-width="1.5" stroke-dasharray="5 4" />
+  <text x="1033.0" y="624.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">Puede incluir también</text>
+  <text x="1033.0" y="642.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">funciones de Seguridad</text>
+  <text x="1033.0" y="660.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">y/o de Datos</text>
+  <rect x="644.0" y="728.0" width="246.0" height="108.0" rx="10" fill="#E4DCF8" stroke="#B1A0E6" stroke-width="1.8" />
+  <g transform="translate(678.0 782.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="712.0" y="765.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitecto de Datos</text>
+  <text x="712.0" y="787.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">(ADP)</text>
+  <text x="712.0" y="808.5" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(compartido o combinado)</text>
+  <rect x="910.0" y="728.0" width="246.0" height="108.0" rx="10" fill="#CFEFE6" stroke="#7CCDB6" stroke-width="1.8" />
+  <g transform="translate(944.0 782.0) scale(1.25)" fill="#14594A">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="978.0" y="765.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Gestor de Portafolio</text>
+  <text x="978.0" y="787.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">(GPA)</text>
+  <text x="978.0" y="808.5" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(alineación de inversión)</text>
+  <rect x="644.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(676.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="9" cy="-11" r="7" />
+    <path d="M-1 12 Q0 -1 10 -1 Q21 -1 21 12 Z" />
+    <circle cx="-6" cy="-8" r="8.5" stroke="#FFFFFF" stroke-width="1.6" />
+    <path d="M-22 17 Q-22 4 -6 4 Q10 4 10 17 Z" stroke="#FFFFFF" stroke-width="1.6" />
+  </g>
+  <text x="708.0" y="903.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Especialista en</text>
+  <text x="708.0" y="924.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Tecnología</text>
+  <text x="708.0" y="945.5" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Cuántica (ETC)</text>
+  <text x="708.0" y="966.5" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(parcial / recurrente)</text>
+  <rect x="910.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(942.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="974.0" y="913.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Stakeholder</text>
+  <text x="974.0" y="935.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Empresarial (SE)</text>
+  <text x="974.0" y="957.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(aporte estratégico)</text>
+  <rect x="1314.0" y="364.0" width="340.0" height="92.0" rx="12" fill="#D4E6FA" stroke="#7FAEE3" stroke-width="1.8" />
+  <g transform="translate(1362.0 410.0) scale(1.5)" fill="#1B3A70">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1410.0" y="402.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitecto Empresarial</text>
+  <text x="1410.0" y="426.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">de Proceso (AEP)</text>
+  <text x="1410.0" y="446.0" font-size="16.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(dirección estratégica)</text>
+  <line x1="1484.0" y1="456.0" x2="1484.0" y2="482.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1310.0" y1="482.0" x2="1658.0" y2="482.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1310.0" y1="482.0" x2="1310.0" y2="506.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1484.0" y1="482.0" x2="1484.0" y2="506.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <line x1="1658.0" y1="482.0" x2="1658.0" y2="506.0" stroke="#2B3A5C" stroke-width="2.8" stroke-linecap="square" />
+  <rect x="1228.0" y="506.0" width="164.0" height="162.0" rx="10" fill="#D7F0DE" stroke="#7FC49A" stroke-width="1.8" />
+  <g transform="translate(1310.0 538.0) scale(1.25)" fill="#1F5C45">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1310.0" y="576.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto</text>
+  <text x="1310.0" y="597.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de Solución</text>
+  <text x="1310.0" y="619.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(ASP)</text>
+  <text x="1310.0" y="640.5" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(diseño de solución)</text>
+  <rect x="1402.0" y="506.0" width="164.0" height="162.0" rx="10" fill="#FBD9DC" stroke="#EB8A94" stroke-width="1.8" />
+  <g transform="translate(1484.0 538.0) scale(1.25)" fill="#8E1B2B">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1484.0" y="576.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto de</text>
+  <text x="1484.0" y="597.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Integración (AIP)</text>
+  <text x="1484.0" y="619.0" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(integración técnica)</text>
+  <rect x="1576.0" y="506.0" width="164.0" height="162.0" rx="10" fill="#E4DCF8" stroke="#B1A0E6" stroke-width="1.8" />
+  <g transform="translate(1658.0 538.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1658.0" y="576.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto</text>
+  <text x="1658.0" y="597.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de Datos</text>
+  <text x="1658.0" y="619.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(ADP)</text>
+  <text x="1658.0" y="640.5" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(gobierno de datos)</text>
+  <rect x="1228.0" y="680.0" width="164.0" height="162.0" rx="10" fill="#FCE8B0" stroke="#E5BE52" stroke-width="1.8" />
+  <g transform="translate(1310.0 712.0) scale(1.25)" fill="#8A5A14">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1310.0" y="750.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Arquitecto</text>
+  <text x="1310.0" y="771.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de Seguridad</text>
+  <text x="1310.0" y="793.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(ASecP)</text>
+  <text x="1310.0" y="814.5" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(gestión de seguridad)</text>
+  <rect x="1402.0" y="680.0" width="164.0" height="162.0" rx="10" fill="#CFEFE6" stroke="#7CCDB6" stroke-width="1.8" />
+  <g transform="translate(1484.0 712.0) scale(1.25)" fill="#14594A">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1484.0" y="750.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Gestor de</text>
+  <text x="1484.0" y="771.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Portafolio</text>
+  <text x="1484.0" y="793.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(GPA)</text>
+  <text x="1484.0" y="814.5" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(alineación de inversión)</text>
+  <rect x="1576.0" y="680.0" width="164.0" height="162.0" rx="10" fill="#D8E7FB" stroke="#8FB4E3" stroke-width="1.8" />
+  <g transform="translate(1658.0 712.0) scale(1.25)" fill="#1B3A70">
+    <circle cx="0" cy="-9" r="9" />
+    <path d="M-17 17 Q-17 3 0 3 Q17 3 17 17 Z" />
+  </g>
+  <text x="1658.0" y="750.0" font-size="16.88" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Órgano de Gobierno</text>
+  <text x="1658.0" y="771.5" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de Arquitectura</text>
+  <text x="1658.0" y="793.0" font-size="18.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(OGA)</text>
+  <text x="1658.0" y="814.5" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">(gobierno y</text>
+  <text x="1658.0" y="836.0" font-size="14.5" font-weight="normal" fill="#3A4560" text-anchor="middle" font-style="normal">supervisión)</text>
+  <rect x="1228.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(1260.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="9" cy="-11" r="7" />
+    <path d="M-1 12 Q0 -1 10 -1 Q21 -1 21 12 Z" />
+    <circle cx="-6" cy="-8" r="8.5" stroke="#FFFFFF" stroke-width="1.6" />
+    <path d="M-22 17 Q-22 4 -6 4 Q10 4 10 17 Z" stroke="#FFFFFF" stroke-width="1.6" />
+  </g>
+  <text x="1292.0" y="896" font-size="16.56" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Especialista en</text>
+  <text x="1292.0" y="915.5" font-size="16.56" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Tecnología</text>
+  <text x="1292.0" y="935" font-size="16.56" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Cuántica (ETC)</text>
+  <text x="1292.0" y="954.5" font-size="14.26" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(equipo interno o</text>
+  <text x="1292.0" y="974" font-size="14.26" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">alianza estratégica)</text>
+  <rect x="1494.0" y="876.0" width="246.0" height="108.0" rx="10" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <g transform="translate(1526.0 930.0) scale(1.25)" fill="#4B2E91">
+    <circle cx="9" cy="-11" r="7" />
+    <path d="M-1 12 Q0 -1 10 -1 Q21 -1 21 12 Z" />
+    <circle cx="-6" cy="-8" r="8.5" stroke="#FFFFFF" stroke-width="1.6" />
+    <path d="M-22 17 Q-22 4 -6 4 Q10 4 10 17 Z" stroke="#FFFFFF" stroke-width="1.6" />
+  </g>
+  <text x="1558.0" y="902.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Stakeholder</text>
+  <text x="1558.0" y="924.0" font-size="18" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Empresarial (SE)</text>
+  <text x="1558.0" y="946.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">(representación</text>
+  <text x="1558.0" y="968.0" font-size="15.5" font-weight="normal" fill="#3A4560" text-anchor="start" font-style="normal">institucionalizada)</text>
+  <rect x="36.0" y="1030.0" width="1728.0" height="76.0" rx="14" fill="#FFFFFF" stroke="#7F9BC4" stroke-width="2" />
+  <rect x="56.0" y="1049.0" width="46.0" height="38.0" rx="7" fill="#CFE3F8" stroke="#6FA3E0" stroke-width="1.8" />
+  <text x="116.0" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Estratégico / Gobierno</text>
+  <rect x="317.4" y="1049.0" width="46.0" height="38.0" rx="7" fill="#D7F0DE" stroke="#7FC49A" stroke-width="1.8" />
+  <text x="377.4" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitectura de Soluciones</text>
+  <rect x="615.5" y="1049.0" width="46.0" height="38.0" rx="7" fill="#FBD9DC" stroke="#EB8A94" stroke-width="1.8" />
+  <text x="675.5" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitectura de Integración</text>
+  <rect x="916.9" y="1049.0" width="46.0" height="38.0" rx="7" fill="#E4DCF8" stroke="#B1A0E6" stroke-width="1.8" />
+  <text x="976.9" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Arquitectura de Datos</text>
+  <rect x="1173.9" y="1049.0" width="46.0" height="38.0" rx="7" fill="#FCE8B0" stroke="#E5BE52" stroke-width="1.8" />
+  <text x="1233.9" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Seguridad</text>
+  <rect x="1335.3" y="1049.0" width="46.0" height="38.0" rx="7" fill="#CFEFE6" stroke="#7CCDB6" stroke-width="1.8" />
+  <text x="1395.3" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Gestión de Portafolio</text>
+  <rect x="1586.8" y="1049.0" width="46.0" height="38.0" rx="7" fill="#F1ECFB" stroke="#A894DC" stroke-width="1.8" stroke-dasharray="6 5" />
+  <text x="1646.8" y="1076.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Rol Externo</text>
+</svg>

@@ -1,0 +1,242 @@
+const data=window.THESIS_DATA,$=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=(v="")=>String(v).replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const field=(o,names)=>names.map(n=>o[n]).find(Boolean)||"";
+const phaseNames=["Definición estratégica","Formalización conceptual","Configuración estructural","Materialización arquitectónica","Sistematización del diseño"];
+const elementNames={E1:"Objetivo de la arquitectura",E2:"Contexto de la arquitectura",E3:"Grado de abstracción",E4:"Glosario de términos y definiciones",E5:"Estructuras arquitectónicas",E6:"Atributos de calidad",E7:"Estilos y patrones arquitectónicos",E8:"Patrones de diseño",E9:"Componentes estructurales",E10:"Elementos reutilizables"};
+const dimensionByElement={E1:"Dimensión conceptual",E2:"Dimensión conceptual",E3:"Dimensión conceptual",E4:"Dimensión conceptual",E5:"Dimensión organizativa",E9:"Dimensión organizativa",E10:"Dimensión organizativa",E6:"Dimensión de Calidad y Diseño",E7:"Dimensión de Calidad y Diseño",E8:"Dimensión de Calidad y Diseño"};
+const artifactCodes=["LBA","DOE","MTA","DCA","MSP","DPV","DNA","ITA","DVA","MAC","DEA","DCO","BER","CEP","CPD"];
+const artifactNames={LBA:"Línea Base Arquitectónica",DOE:"Documento de objetivos estratégicos",MTA:"Matriz de trazabilidad objetivos-arquitectura",DCA:"Documento de contexto arquitectónico",MSP:"Mapa de stakeholders y preocupaciones",DPV:"Documento de perspectivas y vistas arquitectónicas",DNA:"Documento de niveles arquitectónicos",ITA:"Inventario de términos arquitectónicos",DVA:"Diccionario de vocabulario arquitectónico",MAC:"Modelo de atributos de calidad",DEA:"Documento de estructuras arquitectónicas",DCO:"Documento de componentes estructurales",BER:"Biblioteca de elementos reutilizables",CEP:"Catálogo de estilos y patrones arquitectónicos",CPD:"Catálogo de patrones de diseño"};
+
+function cleanText(value=""){
+  let s=String(value).replace(/\s+/g," ").trim();
+  artifactCodes.concat(["OGA","AEP","ASP","AIP","ADP","ASecP","GPA","ETC"]).forEach(code=>{s=s.replace(new RegExp(`\\b${code.split("").join("\\s+")}\\b`,"gi"),code)});
+  const fixes={"ó rgano":"órgano","g obierno":"gobierno","a rquitectónico":"arquitectónico","o bjetivos":"objetivos","organizació n":"organización","relació n":"relación","evaluació n":"evaluación","alineació n":"alineación","definició n":"definición","documentad a":"documentada","cuántic o":"cuántico","T odos":"Todos","E l":"El","A rtefacto":"Artefacto","d efine":"define","d efinición":"definición","a rquitectura":"arquitectura","a rquitecturas":"arquitecturas","e mpresariales":"empresariales","h íbridas":"híbridas","necesidades de l a organización":"necesidades de la organización","nivel es":"niveles","objetivo ambiguos":"objetivos ambiguos"};
+  Object.entries(fixes).forEach(([a,b])=>s=s.replaceAll(a,b));
+  return s.replace(/IC-F(\d+)-0\s+(\d+)/g,"IC-F$1-0$2").replace(/\s+([,.;:])/g,"$1").replace(/:\s*/g,": ").replace(/\s{2,}/g," ").trim();
+}
+function elementCode(e){return (cleanText(field(e,["Código"])).replace(/\s/g,"").match(/E\d+/)||e.caption.match(/E\d+/)||[])[0]}
+function splitItems(value="",mode="general"){
+  const s=cleanText(value); if(!s)return[];
+  if(mode==="indicators"){const parts=s.includes("IC-F")?s.split(/(?=IC-F\d+-\d+)/):s.split(/\.\s+(?=[A-ZÁÉÍÓÚÑ])/);return parts.map(cleanText).filter(Boolean)}
+  const codePattern=`(?:LBA-F\\d+|${artifactCodes.filter(x=>x!=="LBA").join("|")}|E\\d+)`;
+  const coded=s.split(new RegExp(`(?=${codePattern}\\s*:)`)).map(cleanText).filter(Boolean);
+  if(coded.length>1)return coded;
+  return s.split(/\.\s+(?=[A-ZÁÉÍÓÚÑ])/).map(x=>cleanText(x).replace(/\.$/,"")).filter(Boolean);
+}
+function artifactCodeFrom(text=""){const m=cleanText(text).match(/\b(?:LBA(?:-F\d+)?|DOE|MTA|DCA|MSP|DPV|DNA|ITA|DVA|MAC|DEA|DCO|BER|CEP|CPD)\b/);return m?m[0].split("-")[0]:null}
+function artifactLink(code,label=code){return `<a class="artifact-link" href="plantilla.html?id=${code}">${esc(label)}</a>`}
+function richArtifactItem(text){const s=cleanText(text),code=artifactCodeFrom(s);if(!code)return esc(s);const colon=s.indexOf(":");if(colon<0)return artifactLink(code,s);const title=s.slice(0,colon),desc=s.slice(colon+1).trim();return `<strong>${artifactLink(code,title)}:</strong> ${esc(desc)}`}
+function list(value,mode="general",artifacts=false){return `<ul class="structured-list">${splitItems(value,mode).map(x=>`<li>${artifacts?richArtifactItem(x):esc(x)}</li>`).join("")}</ul>`}
+function indicatorList(value){return `<ul class="structured-list indicators">${splitItems(value,"indicators").map(x=>{const i=x.indexOf(":");return `<li>${i>0?`<strong>${esc(x.slice(0,i))}:</strong> ${esc(x.slice(i+1).trim())}`:`<strong>${esc(x)}</strong>`}</li>`}).join("")}</ul>`}
+
+function renderResearch(){
+  $("#generalObjective").textContent=cleanText(data.research.generalObjective);
+  const dims=[["Dimensión conceptual (DC)","Define el propósito, el contexto, el grado de abstracción y el vocabulario común del modelo.",["E1","E2","E3","E4"]],["Dimensión organizativa (DO)","Materializa la estructura del modelo mediante estructuras, componentes y mecanismos de reutilización.",["E5","E9","E10"]],["Dimensión de Calidad y Diseño (DCD)","Orienta las decisiones sobre atributos de calidad, estilos arquitectónicos y patrones de diseño.",["E6","E7","E8"]]];
+  $("#dimensions").innerHTML=dims.map(([name,desc,codes])=>`<article><h3>${name}</h3><p>${desc}</p><ul>${codes.map(c=>`<li><b>${c}</b> ${elementNames[c]}</li>`).join("")}</ul></article>`).join("");
+  const ordered=["E1","E2","E3","E4","E5","E6","E7","E8","E9","E10"];
+  
+  // Mapa de definiciones exactas e integradas de la tesis (Tabla 40 y tablas de documentación E1-E10)
+  const fullElementDetails = {};
+  if (data.integratedModel && data.integratedModel.elements && data.integratedModel.elements.rows) {
+    data.integratedModel.elements.rows.slice(1).forEach(r => {
+      const code = cleanText(r[0]);
+      fullElementDetails[code] = {
+        name: cleanText(r[1]),
+        defOriginal: cleanText(r[2]),
+        defIntegrada: cleanText(r[3]),
+        estudios: cleanText(r[4])
+      };
+    });
+  }
+
+  $("#elementsExplained").innerHTML = `<h3>Elementos de la arquitectura de referencia</h3>
+    <p style="margin-bottom:1.5rem;color:var(--ink);line-height:1.7;">A continuación se presenta la caracterización completa y exhaustiva de cada uno de los diez elementos arquitectónicos derivados de la armonización, conservando la literalidad y detalle de su definición original, su definición integrada para el dominio híbrido clásico-cuántico, sus productos de trabajo asociados y los criterios de aceptación documentados en la tesis doctoral:</p>
+    <div class="element-accordion">${ordered.map(code => {
+      const e = data.elements.find(x => elementCode(x) === code);
+      const meta = fullElementDetails[code] || {};
+      const propositoTesis = esc(cleanText(field(e, ["Propósito", "Propósito del elemento"])));
+      const defOriginal = meta.defOriginal ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición conceptual original:</strong><p style="margin-top:0.3rem;">${esc(meta.defOriginal)}</p></div>` : "";
+      const defIntegrada = meta.defIntegrada ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Definición integrada (dominio híbrido):</strong><p style="margin-top:0.3rem;">${esc(meta.defIntegrada)}</p></div>` : "";
+      const estudios = meta.estudios ? `<p style="margin-bottom:1.2rem;font-size:0.9rem;color:var(--muted);"><strong>Estudios que motivan el elemento en la literatura e industria:</strong> ${esc(meta.estudios)}</p>` : "";
+      const objEsp = field(e, ["Objetivos específicos"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Objetivos específicos del elemento:</strong>${list(field(e, ["Objetivos específicos"]), "general", false)}</div>` : "";
+      const productos = field(e, ["Productos generados"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Productos generados / Artefactos:</strong>${list(field(e, ["Productos generados"]), "general", true)}</div>` : "";
+      const criterios = field(e, ["Criterios de aceptación"]) ? `<div style="margin-bottom:0.8rem;"><strong style="color:var(--green);">Criterios de aceptación:</strong><p style="margin-top:0.3rem;">${esc(cleanText(field(e, ["Criterios de aceptación"])))}</p></div>` : "";
+
+      return `<details>
+        <summary><span><b>${code}:</b> ${elementNames[code]}</span></summary>
+        <div class="element-summary-body" style="padding-top:1.2rem;">
+          <div style="margin-bottom:1.2rem;">
+            <strong style="color:var(--green);">Propósito formal en el proceso (Tesis Doctoral):</strong>
+            <p style="margin-top:0.3rem;">${propositoTesis}</p>
+          </div>
+          ${defIntegrada}
+          ${defOriginal}
+          ${estudios}
+          ${objEsp}
+          ${productos}
+          ${criterios}
+        </div>
+      </details>`;
+    }).join("")}</div>`;
+}
+
+function renderMacro(){const order=["Nombre","Identificador","Propósito","Alcance","Dimensiones involucradas","Subconjuntos estructurales de origen","Entradas globales","Salidas globales","Criterios de inicio","Criterios de cierre","Indicadores globales","Autoridad de aprobación"];$("#macroGrid").innerHTML=order.filter(k=>data.macro[k]).map(k=>`<div><dt>${k}</dt><dd>${["Nombre","Identificador","Propósito","Alcance","Autoridad de aprobación"].includes(k)?esc(cleanText(data.macro[k])):k.includes("Indicadores")?indicatorList(data.macro[k]):list(data.macro[k],"general",k.includes("Salidas"))}</dd></div>`).join("")}
+
+let tableNumber=0;
+function table(title,headers,rows){const n=++tableNumber;return `<section class="numbered-table"><h4>Tabla ${n}. ${esc(title)}</h4><div class="table-shell"><table><thead><tr>${headers.map(h=>`<th>${esc(cleanText(h))}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div></section>`}
+function initials(name){return cleanText(name).split(/\s+/).filter(x=>!/[()]/.test(x)).slice(0,2).map(x=>x[0]).join("").toUpperCase()}
+function renderRoles(index=0){
+  const labels=["Roles definidos en el proceso","Microempresa o startup","Pequeña y mediana empresa","Gran empresa o corporación"], t=data.roles[index];
+  $("#roleTabs").innerHTML=labels.map((x,i)=>`<button class="${i===index?"active":""}" data-i="${i}">${x}</button>`).join("");
+  const rawHeaders = t.rows[0];
+  const headers = ["Perfil"].concat(rawHeaders);
+
+  const isShortOrDash = (str) => {
+    const val = cleanText(str).trim();
+    if (!val || val === "—" || val === "-" || val === "–" || val === "N/A" || val === "n/a") return true;
+    // Check if it's an acronym or list of acronyms like 'AEP', 'ASP, AIP, OGA ASecP y GPA'
+    const words = val.split(/[\s,y\/]+/);
+    const allUpper = words.every(w => w.length <= 6 && (w === w.toUpperCase() || w === "y" || w === "/"));
+    return allUpper && val.length <= 35;
+  };
+
+  let rowsHtml = [];
+  if (index === 0) {
+    const rawRows = t.rows.slice(1);
+    const tipoIdx = rawHeaders.findIndex(h => cleanText(h).toLowerCase() === "tipo");
+    const spans = {};
+    let curCount = 0, startIdx = 0;
+    rawRows.forEach((r, idx) => {
+      const val = cleanText(r[tipoIdx] || "");
+      if (val !== "") {
+        if (curCount > 0) spans[startIdx] = curCount;
+        curCount = 1;
+        startIdx = idx;
+      } else {
+        curCount++;
+      }
+    });
+    if (curCount > 0) spans[startIdx] = curCount;
+
+    rowsHtml = rawRows.map((r, idx) => {
+      let cells = `<td><span class="role-avatar" aria-hidden="true">${initials(r[0])}</span></td>`;
+      r.forEach((c, cIdx) => {
+        const cleaned = esc(cleanText(c));
+        const centerStyle = isShortOrDash(c) ? ' style="text-align:center !important;"' : '';
+        if (cIdx === tipoIdx) {
+          if (spans[idx]) {
+            cells += `<td rowspan="${spans[idx]}" style="vertical-align:middle;font-weight:700;background:#f8faf9;text-align:center !important;">${cleaned}</td>`;
+          }
+        } else {
+          cells += `<td${centerStyle}>${cleaned}</td>`;
+        }
+      });
+      return `<tr>${cells}</tr>`;
+    });
+  } else {
+    rowsHtml = t.rows.slice(1).map(r => {
+      let cells = `<td><span class="role-avatar" aria-hidden="true">${initials(r[0])}</span></td>`;
+      r.forEach(c => {
+        const cleaned = esc(cleanText(c));
+        const centerStyle = isShortOrDash(c) ? ' style="text-align:center !important;"' : '';
+        cells += `<td${centerStyle}>${cleaned}</td>`;
+      });
+      return `<tr>${cells}</tr>`;
+    });
+  }
+  tableNumber = 0;
+  $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml);
+  $$("#roleTabs button").forEach(b => b.onclick = () => renderRoles(+b.dataset.i));
+}
+function renderGovernance(){$("#ogaSteps").innerHTML=data.governance.rows.slice(1).map((r,i)=>`<article><b>${i+1}</b><div><h4>${esc(cleanText(r[1]||r[0]))}</h4><p>${esc(cleanText(r[2]||""))}</p></div></article>`).join("")}
+function renderPhases(){$("#phasePanel").innerHTML=data.phases.map((p,i)=>`<article class="phase-card"><span>F${i+1}</span><div><h3>F${i+1} - ${phaseNames[i]}</h3><p>${esc(cleanText(field(p,["Propósito"])))}</p><a href="fase.html?id=${i+1}">Consultar la fase completa <span aria-hidden="true">→</span></a></div></article>`).join("")}
+
+const artifactInfo = {
+  LBA: {
+    queEs: "Línea Base Arquitectónica integral.",
+    paraQueSirve: "Consolida formalmente el estado aprobado de los elementos arquitectónicos tras la verificación del Órgano de Gobierno Arquitectónico (OGA), asegurando trazabilidad y evolución controlada."
+  },
+  DOE: {
+    queEs: "Documento de Objetivos Estratégicos.",
+    paraQueSirve: "Formaliza los objetivos de negocio y directrices corporativas que justifican la adopción cuántica, guiando todas las decisiones técnicas posteriores."
+  },
+  MTA: {
+    queEs: "Matriz de Trazabilidad Objetivos-Arquitectura.",
+    paraQueSirve: "Garantiza la correspondencia biunívoca entre las metas estratégicas de la empresa y los componentes o decisiones arquitectónicas implementadas."
+  },
+  DCA: {
+    queEs: "Documento de Contexto Arquitectónico.",
+    paraQueSirve: "Caracteriza el entorno organizacional, operativo y normativo, evaluando la arquitectura actual (AS-IS) y delimitando el potencial híbrido institucional."
+  },
+  MSP: {
+    queEs: "Mapa de Stakeholders y Preocupaciones.",
+    paraQueSirve: "Identifica a todas las partes interesadas, clasifica su influencia e interés, y mapea sus expectativas técnicas y de negocio para orientar el diseño."
+  },
+  DPV: {
+    queEs: "Documento de Perspectivas y Vistas Arquitectónicas.",
+    paraQueSirve: "Define los puntos de vista y representaciones multidimensionales requeridos para comunicar y validar la arquitectura ante audiencias diversas."
+  },
+  DNA: {
+    queEs: "Documento de Niveles Arquitectónicos.",
+    paraQueSirve: "Establece la jerarquía de abstracción y granularidad del sistema, conectando la visión de negocio con las capas lógicas y técnicas."
+  },
+  ITA: {
+    queEs: "Inventario de Términos Arquitectónicos.",
+    paraQueSirve: "Recopila y clasifica el léxico clave de computación cuántica y arquitectura clásica para homologar el entendimiento entre equipos interdisciplinarios."
+  },
+  DVA: {
+    queEs: "Diccionario de Vocabulario Arquitectónico.",
+    paraQueSirve: "Provee definiciones semánticas formales y consensuadas para resolver ambigüedades operativas y técnicas en la organización."
+  },
+  MAC: {
+    queEs: "Modelo de Atributos de Calidad.",
+    paraQueSirve: "Especifica escenarios verificables para atributos críticos (rendimiento, seguridad, interoperabilidad, latencia) y pondera los compromisos de diseño (trade-offs)."
+  },
+  DEA: {
+    queEs: "Documento de Estructuras Arquitectónicas.",
+    paraQueSirve: "Describe la organización de módulos, esquemas de descomposición y mecanismos de orquestación e interacción entre el software clásico y los recursos cuánticos."
+  },
+  DCO: {
+    queEs: "Documento de Componentes Estructurales.",
+    paraQueSirve: "Detalla la especificación técnica de contratos, interfaces, dependencias y datos gestionados por cada componente de la solución híbrida."
+  },
+  BER: {
+    queEs: "Biblioteca de Elementos Reutilizables.",
+    paraQueSirve: "Cataloga patrones, módulos conectores, adaptadores y algoritmos verificados para optimizar costos y acelerar futuras implementaciones."
+  },
+  CEP: {
+    queEs: "Catálogo de Estilos y Patrones Arquitectónicos.",
+    paraQueSirve: "Documenta los estilos estructurales adoptados (microservicios, pipeline híbrido, acelerador cuántico) y justifica su pertinencia frente a los atributos de calidad."
+  },
+  CPD: {
+    queEs: "Catálogo de Patrones de Diseño.",
+    paraQueSirve: "Estandariza soluciones recurrentes para problemas específicos de interacción híbrida (gestión de circuitos, mitigación de errores, procesamiento por lotes)."
+  }
+};
+
+function renderArtifacts() {
+  const container = $("#artifactTemplates");
+  if (!container) return;
+  container.innerHTML = artifactCodes.map((code, i) => {
+    const info = artifactInfo[code] || { queEs: artifactNames[code], paraQueSirve: "Plantilla estandarizada del proceso." };
+    return `<article class="artifact-card">
+      <span>${String(i + 1).padStart(2, "0")}</span>
+      <div>
+        <h3>${code} - ${artifactNames[code]}</h3>
+        <p style="margin-bottom:0.4rem;text-align:justify;"><strong>¿Qué es?</strong> ${info.queEs}</p>
+        <p style="margin-bottom:0.7rem;color:var(--ink-light);text-align:justify;"><strong>¿Para qué sirve e importancia?</strong> ${info.paraQueSirve}</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:0.5rem;">
+          <a href="plantilla.html?id=${code}" style="font-weight:700;">Consultar plantilla <span aria-hidden="true">→</span></a>
+          <span style="color:var(--line);">|</span>
+          <a href="assets/descargas/docx/Plantilla_${code}.docx" download style="font-size:0.86rem;color:var(--muted);text-decoration:none;">📄 DOCX</a>
+          <a href="assets/descargas/latex/Plantilla_${code}.tex" download style="font-size:0.86rem;color:var(--muted);text-decoration:none;">📝 LaTeX</a>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+function renderGlossary(){if(!data.glossaries?.length)return;const target=$("#glossaryTables");target.innerHTML=data.glossaries.map(g=>{const keep=g.rows[0].map((h,i)=>({h,i})).filter(x=>!cleanText(x.h).toLocaleLowerCase().includes("fuente"));return table(cleanText(g.caption.replace(/^Tabla\s+\d+\.\s*/,"")),keep.map(x=>x.h),g.rows.slice(1).map(r=>`<tr>${keep.map(x=>`<td>${esc(cleanText(r[x.i]||""))}</td>`).join("")}</tr>`))}).join("")}
+function setupSearch(){const dialog=$("#searchDialog"),input=$("#searchInput"),results=$("#searchResults");$("#searchTrigger").onclick=()=>{dialog.showModal();input.focus()};input.oninput=()=>{const q=input.value.toLocaleLowerCase().trim();if(q.length<2){results.innerHTML="";return}const hits=[...Object.entries(elementNames).map(([code,name])=>({code,name,url:"#modelo"})),...phaseNames.map((name,i)=>({code:`F${i+1}`,name,url:`fase.html?id=${i+1}`})),...artifactCodes.map(code=>({code,name:artifactNames[code],url:`plantilla.html?id=${code}`}))].filter(x=>(x.code+x.name).toLocaleLowerCase().includes(q));results.innerHTML=hits.map(h=>`<a href="${h.url}"><b>${h.code}</b><span>${h.name}</span></a>`).join("")}}
+
+renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderArtifacts();renderGlossary();setupSearch();
+window.PDAEH={data,cleanText,splitItems,list,indicatorList,artifactLink,richArtifactItem,elementCode,elementNames,phaseNames,artifactCodes,artifactNames,field,esc};

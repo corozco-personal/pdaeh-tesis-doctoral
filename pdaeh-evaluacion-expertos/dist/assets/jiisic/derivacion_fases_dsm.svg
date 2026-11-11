@@ -1,0 +1,536 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1760 1096" width="3520" height="2192" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+  <rect x="0" y="0" width="1760" height="1096" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.2" />
+  <text x="880.0" y="50" font-size="33" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Derivación de fases mediante la Matriz de Estructura de Diseño (DSM)</text>
+  <text x="880.0" y="84" font-size="19" font-weight="normal" fill="#3F4B66" text-anchor="middle" font-style="italic">De los elementos armonizados (E1–E10) a cinco fases con fundamento metodológico</text>
+  <rect x="36" y="112" width="330" height="480" rx="14" fill="#EAF2FC" stroke="#A9C6E8" stroke-width="1.6" />
+  <circle cx="76" cy="156" r="24" fill="#4A7FB8" stroke="none" stroke-width="1.5" />
+  <text x="76" y="165" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1</text>
+  <rect x="422" y="112" width="370" height="480" rx="14" fill="#EAF6EE" stroke="#9AD0AE" stroke-width="1.6" />
+  <circle cx="462" cy="156" r="24" fill="#2F8F55" stroke="none" stroke-width="1.5" />
+  <text x="462" y="165" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">2</text>
+  <rect x="848" y="112" width="370" height="480" rx="14" fill="#FDF3E1" stroke="#EBC983" stroke-width="1.6" />
+  <circle cx="888" cy="156" r="24" fill="#D9971F" stroke="none" stroke-width="1.5" />
+  <text x="888" y="165" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">3</text>
+  <rect x="1274" y="112" width="450" height="480" rx="14" fill="#F0EBFA" stroke="#BBA9E3" stroke-width="1.6" />
+  <circle cx="1314" cy="156" r="24" fill="#5B3FA6" stroke="none" stroke-width="1.5" />
+  <text x="1314" y="165" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">4</text>
+  <line x1="374" y1="352" x2="400" y2="352" stroke="#1F3A5F" stroke-width="4" />
+  <polygon points="398.0,342.0 398.0,362.0 414.0,352.0" fill="#1F3A5F" />
+  <line x1="800" y1="352" x2="826" y2="352" stroke="#1F3A5F" stroke-width="4" />
+  <polygon points="824.0,342.0 824.0,362.0 840.0,352.0" fill="#1F3A5F" />
+  <line x1="1226" y1="352" x2="1252" y2="352" stroke="#1F3A5F" stroke-width="4" />
+  <polygon points="1250.0,342.0 1250.0,362.0 1266.0,352.0" fill="#1F3A5F" />
+  <text x="116" y="150" font-size="19.17" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Definir el conjunto de estudio</text>
+  <text x="116" y="174" font-size="20.37" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">y el criterio de dependencia</text>
+  <rect x="52" y="184" width="298" height="192" rx="10" fill="#F7FAFE" stroke="#B9CFEA" stroke-width="1.2" />
+  <text x="66" y="208" font-size="16.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Conjunto de estudio</text>
+  <text x="66" y="232" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Diez elementos arquitectónicos</text>
+  <text x="66" y="252" font-size="15.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">armonizados (E1–E10)</text>
+  <rect x="60" y="268" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="85" y="293" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E1</text>
+  <rect x="118" y="268" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="143" y="293" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E2</text>
+  <rect x="176" y="268" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="201" y="293" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E3</text>
+  <rect x="234" y="268" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="259" y="293" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E4</text>
+  <rect x="292" y="268" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="317" y="293" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E5</text>
+  <rect x="60" y="314" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="85" y="339" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E6</text>
+  <rect x="118" y="314" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="143" y="339" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E7</text>
+  <rect x="176" y="314" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="201" y="339" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E8</text>
+  <rect x="234" y="314" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="259" y="339" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E9</text>
+  <rect x="292" y="314" width="50" height="38" rx="6" fill="#243B5E" stroke="none" stroke-width="1.2" />
+  <text x="317" y="339" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="52" y="388" width="298" height="188" rx="10" fill="#F7FAFE" stroke="#B9CFEA" stroke-width="1.2" />
+  <text x="66" y="414" font-size="16.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Criterio de dependencia</text>
+  <text x="66" y="448" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">El elemento Ei depende de Ej si Ei</text>
+  <text x="66" y="476" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">requiere el producto, la definición</text>
+  <text x="66" y="504" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">o la decisión de Ej para ser definido</text>
+  <text x="66" y="532" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">o implementado correctamente.</text>
+  <text x="502" y="163" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Construir y analizar la DSM</text>
+  <rect x="438" y="184" width="338" height="392" rx="10" fill="#F7FBF8" stroke="#A9D6BA" stroke-width="1.2" />
+  <text x="607.0" y="208" font-size="16" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Matriz de dependencias inicial (10 × 10)</text>
+  <rect x="485" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="499.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E1</text>
+  <rect x="513" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="527.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E2</text>
+  <rect x="541" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="555.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E3</text>
+  <rect x="569" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="583.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E4</text>
+  <rect x="597" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="611.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E5</text>
+  <rect x="625" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="639.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E6</text>
+  <rect x="653" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="667.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E7</text>
+  <rect x="681" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="695.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E8</text>
+  <rect x="709" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="723.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E9</text>
+  <rect x="737" y="222" width="28" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="751.0" y="238.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="449" y="246" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="264.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E1</text>
+  <rect x="485" y="246" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="246" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="274" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="292.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E2</text>
+  <rect x="485" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="274" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="274" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="274" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="302" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="320.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E3</text>
+  <rect x="485" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="302" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="302" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="330" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="348.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E4</text>
+  <rect x="485" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="330" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="330" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="330" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="358" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="376.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E5</text>
+  <rect x="485" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="358" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="358" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="358" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="386" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="404.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E6</text>
+  <rect x="485" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="386" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="386" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="414" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="432.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E7</text>
+  <rect x="485" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="414" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="414" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="442" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="460.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E8</text>
+  <rect x="485" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="442" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="442" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="442" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="470" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="488.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E9</text>
+  <rect x="485" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="470" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="470" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="470" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="449" y="498" width="36" height="28" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="467.0" y="516.0" font-size="11.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="485" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="513" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="541" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="569" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="597" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="625" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="653" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="681" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="709" y="498" width="28" height="28" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="737" y="498" width="28" height="28" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="464" y="545" width="16" height="16" rx="2" fill="#566A86" stroke="none" stroke-width="1.2" />
+  <text x="488" y="558" font-size="13.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Dependencia (1)</text>
+  <rect x="610" y="545" width="16" height="16" rx="2" fill="#EEF2F6" stroke="#BCC5D1" stroke-width="1.2" />
+  <text x="634" y="558" font-size="13.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Sin dependencia (0)</text>
+  <text x="928" y="150" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Reordenar y realizar el</text>
+  <text x="928" y="174" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">análisis estructural</text>
+  <rect x="864" y="184" width="338" height="318" rx="10" fill="#FFFCF5" stroke="#EBCF98" stroke-width="1.2" />
+  <text x="1033.0" y="208" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Matriz reordenada (tras el análisis estructural)</text>
+  <rect x="930" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="942.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E1</text>
+  <rect x="954" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="966.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E2</text>
+  <rect x="978" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="990.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E3</text>
+  <rect x="1002" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1014.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E5</text>
+  <rect x="1026" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1038.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E6</text>
+  <rect x="1050" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1062.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E4</text>
+  <rect x="1074" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1086.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E7</text>
+  <rect x="1098" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1110.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E8</text>
+  <rect x="1122" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1134.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E9</text>
+  <rect x="1146" y="222" width="24" height="22" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="1158.0" y="237.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="896" y="244" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="260.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E1</text>
+  <rect x="930" y="244" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="244" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="268" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="284.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E2</text>
+  <rect x="930" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="268" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="268" width="24" height="24" rx="0" fill="#7F90A8" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="268" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="292" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="308.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E3</text>
+  <rect x="930" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="292" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="292" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="316" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="332.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E5</text>
+  <rect x="930" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="316" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="316" width="24" height="24" rx="0" fill="#7F90A8" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="316" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="340" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="356.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E6</text>
+  <rect x="930" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="340" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="340" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="364" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="380.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E4</text>
+  <rect x="930" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="364" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="364" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="388" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="404.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E7</text>
+  <rect x="930" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="388" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="388" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="412" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="428.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E8</text>
+  <rect x="930" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="412" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="412" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="436" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="452.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E9</text>
+  <rect x="930" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="436" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="436" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="896" y="460" width="34" height="24" rx="0" fill="#FFFFFF" stroke="#C5CDD8" stroke-width="0.9" />
+  <text x="913.0" y="476.0" font-size="11" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="930" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="954" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="978" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1002" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1026" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1050" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1074" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1098" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1122" y="460" width="24" height="24" rx="0" fill="#EEF2F6" stroke="#D3DAE3" stroke-width="0.9" />
+  <rect x="1146" y="460" width="24" height="24" rx="0" fill="#566A86" stroke="#D3DAE3" stroke-width="0.9" />
+  <text x="882" y="534" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">•</text>
+  <text x="900" y="534" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Identificar elemento(s) raíz</text>
+  <text x="882" y="558" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">•</text>
+  <text x="900" y="558" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Aplicar ordenamiento topológico</text>
+  <text x="882" y="582" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">•</text>
+  <text x="900" y="582" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Eliminar dependencias progresivamente</text>
+  <text x="1354" y="163" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Agrupar elementos y definir fases</text>
+  <rect x="1290" y="184" width="190" height="392" rx="10" fill="#F7F4FD" stroke="#C7B9E8" stroke-width="1.2" />
+  <text x="1385.0" y="198.5" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Grafo de dependencias</text>
+  <text x="1385.0" y="213.5" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">(simplificado)</text>
+  <line x1="1374.8" y1="264.8" x2="1360.9" y2="285.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1355.2,293.2 1357.2,282.4 1364.6,287.5" fill="#1B2B48" />
+  <line x1="1395.2" y1="264.8" x2="1409.1" y2="285.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1414.8,293.2 1405.4,287.5 1412.8,282.4" fill="#1B2B48" />
+  <line x1="1355.2" y1="322.8" x2="1369.1" y2="343.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1374.8,351.2 1365.4,345.5 1372.8,340.4" fill="#1B2B48" />
+  <line x1="1414.8" y1="322.8" x2="1400.9" y2="343.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1395.2,351.2 1397.2,340.4 1404.6,345.5" fill="#1B2B48" />
+  <line x1="1374.8" y1="380.8" x2="1360.9" y2="401.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1355.2,409.2 1357.2,398.4 1364.6,403.5" fill="#1B2B48" />
+  <line x1="1395.2" y1="380.8" x2="1409.1" y2="401.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1414.8,409.2 1405.4,403.5 1412.8,398.4" fill="#1B2B48" />
+  <line x1="1345.0" y1="442.0" x2="1345.0" y2="454.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1345.0,464.0 1340.5,454.0 1349.5,454.0" fill="#1B2B48" />
+  <line x1="1425.0" y1="442.0" x2="1425.0" y2="454.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1425.0,464.0 1420.5,454.0 1429.5,454.0" fill="#1B2B48" />
+  <line x1="1345.0" y1="500.0" x2="1345.0" y2="512.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1345.0,522.0 1340.5,512.0 1349.5,512.0" fill="#1B2B48" />
+  <line x1="1425.0" y1="500.0" x2="1425.0" y2="512.0" stroke="#1B2B48" stroke-width="2.2" />
+  <polygon points="1425.0,522.0 1420.5,512.0 1429.5,512.0" fill="#1B2B48" />
+  <circle cx="1385.0" cy="250" r="18" fill="#BBDAF8" stroke="#5B9BDB" stroke-width="2" />
+  <text x="1385.0" y="255" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E1</text>
+  <circle cx="1345.0" cy="308" r="18" fill="#BBDAF8" stroke="#5B9BDB" stroke-width="2" />
+  <text x="1345.0" y="313" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E2</text>
+  <circle cx="1425.0" cy="308" r="18" fill="#BBDAF8" stroke="#5B9BDB" stroke-width="2" />
+  <text x="1425.0" y="313" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E3</text>
+  <circle cx="1385.0" cy="366" r="18" fill="#DDD3F5" stroke="#8E77D0" stroke-width="2" />
+  <text x="1385.0" y="371" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E4</text>
+  <circle cx="1345.0" cy="424" r="18" fill="#C8EBD3" stroke="#5DB37A" stroke-width="2" />
+  <text x="1345.0" y="429" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E5</text>
+  <circle cx="1425.0" cy="424" r="18" fill="#C8EBD3" stroke="#5DB37A" stroke-width="2" />
+  <text x="1425.0" y="429" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E6</text>
+  <circle cx="1345.0" cy="482" r="18" fill="#DDD3F5" stroke="#8E77D0" stroke-width="2" />
+  <text x="1345.0" y="487" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E7</text>
+  <circle cx="1425.0" cy="482" r="18" fill="#DDD3F5" stroke="#8E77D0" stroke-width="2" />
+  <text x="1425.0" y="487" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E8</text>
+  <circle cx="1345.0" cy="540" r="18" fill="#F9C8CC" stroke="#E06A75" stroke-width="2" />
+  <text x="1345.0" y="545" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E9</text>
+  <circle cx="1425.0" cy="540" r="18" fill="#F9C8CC" stroke="#E06A75" stroke-width="2" />
+  <text x="1425.0" y="545" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">E10</text>
+  <rect x="1492" y="184" width="216" height="392" rx="10" fill="#F7F4FD" stroke="#C7B9E8" stroke-width="1.2" />
+  <text x="1506" y="208" font-size="14.58" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Criterios de definición de fases</text>
+  <circle cx="1520" cy="264" r="13" fill="#5B3FA6" stroke="none" stroke-width="1.5" />
+  <text x="1520" y="269" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1</text>
+  <text x="1542" y="259" font-size="14.55" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Grupos compatibles con el</text>
+  <text x="1542" y="279" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">orden topológico</text>
+  <circle cx="1520" cy="356" r="13" fill="#5B3FA6" stroke="none" stroke-width="1.5" />
+  <text x="1520" y="361" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">2</text>
+  <text x="1542" y="351" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Propósito dominante de</text>
+  <text x="1542" y="371" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">cada subconjunto</text>
+  <circle cx="1520" cy="450" r="13" fill="#5B3FA6" stroke="none" stroke-width="1.5" />
+  <text x="1520" y="455" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">3</text>
+  <text x="1542" y="435" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Correspondencia con</text>
+  <text x="1542" y="455" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">marcos establecidos</text>
+  <text x="1542" y="475" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(p. ej., TOGAF, BPMN, PMBOK)</text>
+  <circle cx="1520" cy="540" r="13" fill="#5B3FA6" stroke="none" stroke-width="1.5" />
+  <text x="1520" y="545" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">4</text>
+  <text x="1542" y="535" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Progresión incremental</text>
+  <text x="1542" y="555" font-size="15" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">coherente</text>
+  <polyline points="1499,600 1499,628 678,628 678,644" fill="none" stroke="#1F3A5F" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="664.0,642.0 692.0,642.0 678.0,658.0" fill="#1F3A5F" />
+  <rect x="36" y="664" width="1284" height="392" rx="0" fill="#F6F9FD" stroke="none" stroke-width="1.2" />
+  <path d="M36,720 V678 Q36,664 50,664 H1306 Q1320,664 1320,678 V720 Z" fill="#DCEAF8" />
+  <rect x="36" y="664" width="1284" height="392" rx="14" fill="none" stroke="#B3CDEA" stroke-width="1.6" />
+  <text x="60" y="700" font-size="23" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Resultado: cinco fases derivadas de la DSM</text>
+  <polygon points="52,732 294,732 312,768.0 294,804 52,804" fill="#BFDDF8" stroke="#6FA8DC" stroke-width="1.6" stroke-linejoin="round" />
+  <text x="173.0" y="762" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Fase 1</text>
+  <text x="173.0" y="786" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Definición Estratégica</text>
+  <rect x="62" y="818" width="236" height="106" rx="10" fill="#EBF4FD" stroke="#B4D2F0" stroke-width="1.3" />
+  <text x="76" y="842" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos</text>
+  <text x="76" y="872" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E1</text>
+  <text x="116" y="872" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Objetivo de la arquitectura</text>
+  <text x="76" y="900" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E2</text>
+  <text x="116" y="900" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Contexto de la arquitectura</text>
+  <polygon points="300,732 542,732 560,768.0 542,804 300,804 318,768.0" fill="#FAD3B4" stroke="#EE9B5E" stroke-width="1.6" stroke-linejoin="round" />
+  <text x="430.0" y="762" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Fase 2</text>
+  <text x="430.0" y="786" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Formalización Conceptual</text>
+  <rect x="310" y="818" width="236" height="106" rx="10" fill="#FDF0E4" stroke="#F3C7A0" stroke-width="1.3" />
+  <text x="324" y="842" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos</text>
+  <text x="324" y="872" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E3</text>
+  <text x="364" y="872" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Grado de abstracción</text>
+  <text x="324" y="900" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E4</text>
+  <text x="364" y="900" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Glosario de términos</text>
+  <polygon points="548,732 790,732 808,768.0 790,804 548,804 566,768.0" fill="#CBEBD5" stroke="#6DBB88" stroke-width="1.6" stroke-linejoin="round" />
+  <text x="678.0" y="762" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Fase 3</text>
+  <text x="678.0" y="786" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Configuración Estructural</text>
+  <rect x="558" y="818" width="236" height="106" rx="10" fill="#EBF7EF" stroke="#B3DFC1" stroke-width="1.3" />
+  <text x="572" y="842" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos</text>
+  <text x="572" y="872" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E5</text>
+  <text x="612" y="872" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Estructuras arquitectónicas</text>
+  <text x="572" y="900" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E6</text>
+  <text x="612" y="900" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Atributos de calidad</text>
+  <polygon points="796,732 1038,732 1056,768.0 1038,804 796,804 814,768.0" fill="#DDD3F3" stroke="#9A85D3" stroke-width="1.6" stroke-linejoin="round" />
+  <text x="926.0" y="762" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Fase 4</text>
+  <text x="926.0" y="786" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Materialización Arquitectónica</text>
+  <rect x="806" y="818" width="236" height="106" rx="10" fill="#F1EDFB" stroke="#CBBDEC" stroke-width="1.3" />
+  <text x="820" y="842" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos</text>
+  <text x="820" y="872" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E7</text>
+  <text x="860" y="872" font-size="13.64" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Estilos/patrones arquitectónicos</text>
+  <text x="820" y="900" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E8</text>
+  <text x="860" y="900" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Patrones de diseño</text>
+  <polygon points="1044,732 1286,732 1304,768.0 1286,804 1044,804 1062,768.0" fill="#F9B8BC" stroke="#E3636E" stroke-width="1.6" stroke-linejoin="round" />
+  <text x="1174.0" y="762" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Fase 5</text>
+  <text x="1174.0" y="786" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Sistematización del Diseño</text>
+  <rect x="1054" y="818" width="236" height="106" rx="10" fill="#FDECED" stroke="#F2B8BD" stroke-width="1.3" />
+  <text x="1068" y="842" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos</text>
+  <text x="1068" y="872" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E9</text>
+  <text x="1108" y="872" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Componentes estructurales</text>
+  <text x="1068" y="900" font-size="15" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">E10</text>
+  <text x="1108" y="900" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos reutilizables</text>
+  <rect x="52" y="934" width="1252" height="112" rx="10" fill="#F9FBFE" stroke="#D3DFEE" stroke-width="1.3" />
+  <text x="66" y="956" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Relación con las dimensiones arquitectónicas</text>
+  <text x="417.6" y="956" font-size="12.5" font-weight="normal" fill="#6B7A90" text-anchor="middle" font-style="normal">Fase 1</text>
+  <line x1="320.0" y1="966" x2="320.0" y2="1038" stroke="#B8C4D6" stroke-width="1.4" stroke-dasharray="4 4" />
+  <text x="612.8000000000001" y="956" font-size="12.5" font-weight="normal" fill="#6B7A90" text-anchor="middle" font-style="normal">Fase 2</text>
+  <line x1="515.2" y1="966" x2="515.2" y2="1038" stroke="#B8C4D6" stroke-width="1.4" stroke-dasharray="4 4" />
+  <text x="808.0" y="956" font-size="12.5" font-weight="normal" fill="#6B7A90" text-anchor="middle" font-style="normal">Fase 3</text>
+  <line x1="710.4" y1="966" x2="710.4" y2="1038" stroke="#B8C4D6" stroke-width="1.4" stroke-dasharray="4 4" />
+  <text x="1003.1999999999999" y="956" font-size="12.5" font-weight="normal" fill="#6B7A90" text-anchor="middle" font-style="normal">Fase 4</text>
+  <line x1="905.6" y1="966" x2="905.6" y2="1038" stroke="#B8C4D6" stroke-width="1.4" stroke-dasharray="4 4" />
+  <text x="1198.3999999999999" y="956" font-size="12.5" font-weight="normal" fill="#6B7A90" text-anchor="middle" font-style="normal">Fase 5</text>
+  <line x1="1100.8" y1="966" x2="1100.8" y2="1038" stroke="#B8C4D6" stroke-width="1.4" stroke-dasharray="4 4" />
+  <rect x="60" y="971" width="246" height="22" rx="4" fill="#E8F1FB" stroke="none" stroke-width="1.2" />
+  <text x="68" y="987" font-size="14.5" font-weight="normal" fill="#2F6DB5" text-anchor="start" font-style="normal">Dimensión Conceptual (DC)</text>
+  <line x1="326.0" y1="982" x2="702.4" y2="982" stroke="#7FB0E3" stroke-width="5" stroke-linecap="round" />
+  <circle cx="326.0" cy="982" r="6" fill="#3F82CC" stroke="none" stroke-width="1.5" />
+  <circle cx="702.4" cy="982" r="6" fill="#3F82CC" stroke="none" stroke-width="1.5" />
+  <rect x="60" y="995" width="246" height="22" rx="4" fill="#F0ECFA" stroke="none" stroke-width="1.2" />
+  <text x="68" y="1011" font-size="14.5" font-weight="normal" fill="#5B3FA6" text-anchor="start" font-style="normal">Dimensión de Calidad y Diseño (DCD)</text>
+  <line x1="718.4" y1="1006" x2="1290.0" y2="1006" stroke="#A58FDA" stroke-width="5" stroke-linecap="round" />
+  <circle cx="718.4" cy="1006" r="6" fill="#7A5FC5" stroke="none" stroke-width="1.5" />
+  <circle cx="1290.0" cy="1006" r="6" fill="#7A5FC5" stroke="none" stroke-width="1.5" />
+  <rect x="60" y="1019" width="246" height="22" rx="4" fill="#E8F6EC" stroke="none" stroke-width="1.2" />
+  <text x="68" y="1035" font-size="14.5" font-weight="normal" fill="#2E8B57" text-anchor="start" font-style="normal">Dimensión Organizacional (DO)</text>
+  <line x1="718.4" y1="1030" x2="1290.0" y2="1030" stroke="#6CC089" stroke-width="5" stroke-linecap="round" />
+  <circle cx="718.4" cy="1030" r="6" fill="#3C9E5E" stroke="none" stroke-width="1.5" />
+  <circle cx="1290.0" cy="1030" r="6" fill="#3C9E5E" stroke="none" stroke-width="1.5" />
+  <rect x="1344" y="664" width="380" height="392" rx="0" fill="#F6F9FD" stroke="none" stroke-width="1.2" />
+  <path d="M1344,720 V678 Q1344,664 1358,664 H1710 Q1724,664 1724,678 V720 Z" fill="#DCEAF8" />
+  <rect x="1344" y="664" width="380" height="392" rx="14" fill="none" stroke="#B3CDEA" stroke-width="1.6" />
+  <text x="1366" y="700" font-size="23" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Resultados clave</text>
+  <rect x="1364" y="740" width="56" height="56" rx="10" fill="#FFFFFF" stroke="#C5D3E6" stroke-width="1.4" />
+  <g transform="translate(1392 768)" fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-6" y="-19" width="12" height="9" rx="1.5" />
+    <rect x="-18" y="8" width="12" height="9" rx="1.5" />
+    <rect x="6" y="8" width="12" height="9" rx="1.5" />
+    <path d="M0 -10 V-1 M-12 8 V-1 H12 V8" />
+  </g>
+  <text x="1440" y="753" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Cinco fases derivadas del</text>
+  <text x="1440" y="773" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">análisis de dependencias</text>
+  <text x="1440" y="793" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">(no solo del juicio experto)</text>
+  <rect x="1364" y="820" width="56" height="56" rx="10" fill="#FFFFFF" stroke="#C5D3E6" stroke-width="1.4" />
+  <g transform="translate(1392 848)" fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-17" y="-19" width="34" height="38" rx="5" />
+    <path d="M-7 -8 H10 M-7 0 H10 M-7 8 H10" />
+    <circle cx="-11" cy="-8" r="0.8" />
+    <circle cx="-11" cy="0" r="0.8" />
+    <circle cx="-11" cy="8" r="0.8" />
+  </g>
+  <text x="1440" y="833" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Cada fase tiene un propósito</text>
+  <text x="1440" y="853" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">metodológico claro y</text>
+  <text x="1440" y="873" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">elementos asociados</text>
+  <rect x="1364" y="900" width="56" height="56" rx="10" fill="#FFFFFF" stroke="#C5D3E6" stroke-width="1.4" />
+  <g transform="translate(1392 928)" fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(-45)">
+      <rect x="-22" y="-13" width="24" height="13" rx="6.5" transform="translate(-4 -1)" />
+      <rect x="-2" y="0" width="24" height="13" rx="6.5" transform="translate(4 1)" />
+    </g>
+  </g>
+  <text x="1440" y="913" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Trazabilidad desde la literatura</text>
+  <text x="1440" y="933" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">y la evidencia industrial</text>
+  <text x="1440" y="953" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">hacia los elementos y las fases</text>
+  <rect x="1364" y="980" width="56" height="56" rx="10" fill="#FFFFFF" stroke="#C5D3E6" stroke-width="1.4" />
+  <g transform="translate(1392 1008)" fill="none" stroke="#1B2B48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle r="16" stroke-width="6" stroke-dasharray="6.28 6.28" stroke="#1B2B48" />
+    <circle r="11" fill="#1B2B48" stroke="none" />
+    <circle r="4.5" fill="#FFFFFF" stroke="none" />
+  </g>
+  <text x="1440" y="1003" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Base para la documentación del</text>
+  <text x="1440" y="1023" font-size="16" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">proceso y su gobierno (PDAEH)</text>
+</svg>
