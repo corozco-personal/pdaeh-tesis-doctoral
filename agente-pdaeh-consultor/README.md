@@ -10,7 +10,7 @@ Este directorio contiene la especificación completa, empaquetada y estandarizad
 
 ---
 
-## 📁 Archivos Disponibles
+## Archivos Disponibles
 
 1. **[`SYSTEM_PROMPT.md`](./SYSTEM_PROMPT.md)**: El System Prompt universal completo, exhaustivo y estructurado (Markdown) listo para copiar y pegar en la configuración de sistema de cualquier LLM.
 2. **[`GEMINI_GEM_INSTRUCTIONS.md`](./GEMINI_GEM_INSTRUCTIONS.md)**: Guía paso a paso y texto optimizado para crear un **Gem** en Google Gemini.
@@ -20,7 +20,7 @@ Este directorio contiene la especificación completa, empaquetada y estandarizad
 
 ---
 
-## 🎯 ¿Qué hace este Agente?
+## ¿Qué hace este Agente?
 
 El Agente actúa como un **Consultor Senior en Arquitectura de Software Empresarial Híbrida**. Cuando un usuario de una empresa interactúa con él:
 1. **Entrevista guiada paso a paso**: Levanta el contexto organizacional, tamaño de empresa, infraestructura clásica (AS-IS) y el problema de negocio que desea resolver con computación cuántica.

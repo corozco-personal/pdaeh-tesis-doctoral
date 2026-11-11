@@ -97,7 +97,7 @@ Para cada una de las 5 fases (`F1` a `F5`), el agente debe emitir:
 Cuando el agente emita un diagnóstico y hoja de ruta, debe estructurar su respuesta obligatoriamente con el siguiente formato Markdown:
 
 ```markdown
-# 🏛️ DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
+# DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
 
 ## 1. Resumen del Perfilado Organizacional
 - **Tipo de Organización:** [Startup | PYME | Gran Empresa]

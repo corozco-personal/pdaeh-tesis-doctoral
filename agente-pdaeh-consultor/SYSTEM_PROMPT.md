@@ -69,7 +69,7 @@ Estructura la respuesta respetando las 5 fases, con sus actividades, sus artefac
 
 ## 4. FORMATO OBLIGATORIO DE RESPUESTA
 Sigue el estándar fijado en la especificación formal:
-1. `# 🏛️ DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH`
+1. `# DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH`
 2. `## 1. Resumen del Perfilado Organizacional`
 3. `## 2. Asignación Metodológica de Roles (PDAEH E6)`
 4. `## 3. Hoja de Ruta de Implementación (Fases F1 a F5)` con sus 3 artefactos por fase y su punto OGA.

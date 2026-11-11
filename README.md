@@ -4,7 +4,7 @@ Repositorio oficial del **Proceso para la Definición de Arquitecturas Empresari
 
 ---
 
-## 🌐 Portal de Validación por Expertos
+## Portal de Validación por Expertos
 
 El portal web oficial de evaluación, consulta interactiva y descarga de plantillas normativas se encuentra disponible para su acceso público:
 
@@ -13,14 +13,14 @@ El portal web oficial de evaluación, consulta interactiva y descarga de plantil
     <img src="diagramas/qr-portal-pdaeh.png" alt="Código QR Portal PDAEH" width="220" />
   </a>
   <p>
-    👉 <a href="https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site" target="_blank"><strong>Enlace directo</strong></a>
+    <a href="https://pdaeh-evaluacion-expertos.carlos940807.chatgpt.site" target="_blank"><strong>Enlace directo</strong></a>
   </p>
   <p><em>Escanea el código QR o utiliza el enlace directo para ingresar al portal web.</em></p>
 </div>
 
 ---
 
-## 🏛️ Marco Metodológico PDAEH
+## Marco Metodológico PDAEH
 
 ### 1. Dimensiones y 10 Elementos Armonizados (E1 - E10)
 
@@ -130,7 +130,7 @@ flowchart LR
 
 ---
 
-## 🤖 Agente Consultor PDAEH (Spec-Driven AI Agent)
+## Agente Consultor PDAEH (Spec-Driven AI Agent)
 
 El agente **PDAEH-Advisor** permite a cualquier empresa u organización interactuar con un consultor virtual especializado que:
 1. Diagnostica su situación técnica y de negocio (*As-Is*).
@@ -159,7 +159,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ Instrucciones de Instalación del Agente
+## Instrucciones de Instalación del Agente
 
 El agente está diseñado para instalarse en cualquier cliente LLM moderno utilizando los archivos de la carpeta [`agente-pdaeh-consultor/`](./agente-pdaeh-consultor/):
 
@@ -185,7 +185,7 @@ El agente está diseñado para instalarse en cualquier cliente LLM moderno utili
 
 ---
 
-## 💡 Ejemplo Práctico de Uso
+## Ejemplo Práctico de Uso
 
 ### Mensaje Inicial del Usuario:
 > *"Hola, somos una PYME de logística con 16 desarrolladores. Operamos con microservicios en AWS. Queremos resolver el ruteo de 400 vehículos de última milla con restricciones de ventanas horarias, ya que el algoritmo genético clásico tarda más de 3 horas en converger. ¿Cómo nos diagnostica PDAEH y cuál es nuestro plan de acción?"*
@@ -193,7 +193,7 @@ El agente está diseñado para instalarse en cualquier cliente LLM moderno utili
 ### Respuesta Generada por el Agente (Estructura Determinista):
 
 ```markdown
-# 🏛️ DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
+# DIAGNÓSTICO Y HOJA DE RUTA METODOLÓGICA PDAEH
 
 ## 1. Resumen del Perfilado Organizacional
 - **Tipo de Organización:** PYME (16 ingenieros).
@@ -243,7 +243,7 @@ Descargue la plantilla oficial de la Fase 1: **Documento de Objetivos Empresaria
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
 ├── pdaeh-evaluacion-expertos/     # Portal web interactivo de evaluación y consulta
@@ -269,13 +269,13 @@ Descargue la plantilla oficial de la Fase 1: **Documento de Objetivos Empresaria
 
 ---
 
-## 🔒 Seguridad y Gobernanza
+## Seguridad y Gobernanza
 
 Consulta [SECURITY.md](./SECURITY.md) para conocer las políticas de reporte de vulnerabilidades, protección de credenciales de QPUs y lineamientos de ciberseguridad post-cuántica (PQC).
 
 ---
 
-## 📜 Publicaciones Científicas Vinculadas
+## Publicaciones Científicas Vinculadas
 
 1. **Revisión Sistemática de Literatura (RSL):**
    * SciELO / Ingenierías USBMed: [doi.org/10.21500/20275846.6433](https://doi.org/10.21500/20275846.6433)
