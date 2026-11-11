@@ -2,17 +2,17 @@
 <html lang="es">
 <head> <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="description" content="Proceso para la Definición de Arquitecturas Empresariales Híbridas PDAEH"> <title>Proceso para la Definición de Arquitecturas Empresariales Híbridas</title> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="overrides.css"><link rel="stylesheet" href="rsl.css"><link rel="stylesheet" href="vector-figures.css">
 </head>
-<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
+<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
 
   <nav class="breadcrumb-bar" aria-label="Miga de pan">
     <div class="breadcrumb-nav">
       <a href="#informacion-general">🏠 Inicio</a>
       <span class="breadcrumb-separator">/</span>
-      <a href="#revision">RSL y Exploratorio</a><span class="breadcrumb-separator">/</span><a href="#sintesis">Síntesis</a>
+      <a href="#revision">RSL y exploratorio</a><span class="breadcrumb-separator">/</span><a href="#sintesis">Síntesis</a>
       <span class="breadcrumb-separator">/</span>
       <a href="#armonizacion">Armonización</a>
       <span class="breadcrumb-separator">/</span>
-      <a href="#modelo">Modelo Integrado</a>
+      <a href="#modelo">Modelo integrado</a>
       <span class="breadcrumb-separator">/</span>
       <a href="#proceso">Proceso PDAEH</a>
       <span class="breadcrumb-separator">/</span>
@@ -22,13 +22,13 @@
       <span class="breadcrumb-separator">/</span>
       <a href="#artefactos">Artefactos</a>
       <span class="breadcrumb-separator">/</span>
-      <a href="#glosario">Glosario</a><span class="breadcrumb-separator">/</span><a href="#referencias">Referencias</a><span class="breadcrumb-separator">/</span><a href="declaracion-ia.html">Declaración IA</a>
+      <a href="#glosario">Glosario</a><span class="breadcrumb-separator">/</span><a href="#referencias">Referencias</a><span class="breadcrumb-separator">/</span><a href="declaracion-ia.html">Declaración de IA</a>
     </div>
   </nav>
  <main id="contenido"> <section class="intro" id="informacion-general"><div class="intro-inner"> <p class="section-number">Información general del proyecto</p><h1>Arquitectura de referencia para arquitecturas de software empresariales híbridas</h1> <div class="research-intro"><p>El estudio de la computación cuántica ha abierto oportunidades para abordar problemas de optimización, simulación y análisis que resultan difíciles para los sistemas convencionales. Esto ha llevado a que las empresas comiencen, de manera gradual, a explorar capacidades cuánticas dentro de sus ecosistemas tecnológicos.</p><p>Como resultado, la industria ha empezado a considerar arquitecturas híbridas clásico-cuánticas que articulan servicios, datos y componentes convencionales con recursos cuánticos especializados. Sin embargo, los estudios existentes se concentran principalmente en aspectos técnicos y operativos, dejando en segundo plano la definición integral de la arquitectura empresarial, su alineación estratégica, su gobierno y su incorporación en organizaciones reales.</p></div> <div class="project-overview"><article><h2>Situación que aborda</h2><p>Las propuestas disponibles son heterogéneas y no articulan de forma sistemática la estrategia, la organización, el gobierno y las decisiones tecnológicas. Esto dificulta comprenderlas, compararlas y aplicarlas de manera consistente.</p></article><article><h2>Objetivo de la investigación</h2><p id="generalObjective"></p></article><article><h2>Propuesta</h2><p>Una arquitectura de referencia que integra conocimiento académico e industrial, acompañada de un proceso sistemático y gobernable para definir arquitecturas empresariales híbridas.</p></article><article><h2>Alcance como tesis doctoral</h2><p>La investigación identifica el estado del conocimiento, armoniza propuestas, caracteriza una arquitectura de referencia y define el proceso PDAEH. Se centra en la arquitectura empresarial; no incluye la programación de algoritmos o circuitos cuánticos ni la implementación directa sobre hardware cuántico.</p></article></div> </div></section> <section class="section" id="revision">
   <header class="section-header">
     <p class="section-number">Origen de la propuesta</p>
-    <h2>Revisión Sistemática de la Literatura y Estudio Exploratorio</h2>
+    <h2>Revisión sistemática de la literatura y estudio exploratorio</h2>
     <div>
       <p>
         Para fundamentar rigurosamente la propuesta doctoral y delimitar el estado del conocimiento, se llevó a cabo una <strong>Revisión Sistemática de la Literatura (RSL)</strong> complementada con un <strong>Estudio Exploratorio de la Industria</strong>. La RSL siguió los lineamientos metodológicos formales establecidos por <strong>Kitchenham et al. (2007)</strong> para la ingeniería de software, permitiendo identificar de forma sistemática y reproducible las tendencias, modelos, directrices de diseño, atributos de calidad, desafíos y líneas futuras en torno a la arquitectura de software aplicada a la computación cuántica.
@@ -37,10 +37,10 @@
   </header>
 
   <!-- Fases de la RSL -->
-  <h3 style="margin:1.8rem 0 1rem;font-size:1.6rem;color:var(--ink);">Fases de la Revisión Sistemática de la Literatura</h3>
+  <h3 style="margin:1.8rem 0 1rem;font-size:1.6rem;color:var(--ink);">Fases de la revisión sistemática de la literatura</h3>
   <div class="element-accordion" style="margin-bottom:2.5rem;">
     <details>
-      <summary><span><b>Fase 1. Planeación de la RSL</b>: Propósito, objetivos, preguntas y criterios</span></summary>
+      <summary><span><b>Fase 1. Planeación de la RSL</b>: propósito, objetivos, preguntas y criterios</span></summary>
       <div class="element-summary-body" style="padding-top:1.2rem;">
         <p>Establece el alcance y la rigurosidad científica de la revisión. Incluye la formulación de objetivos y preguntas de investigación, diseño de la cadena de búsqueda adaptada por motor, delimitación de literatura gris y establecimiento de criterios explícitos de inclusión, exclusión y evaluación de pertinencia.</p>
         <figure class="wide-figure vector-figure" style="margin-top:1rem;">
@@ -51,7 +51,7 @@
     </details>
 
     <details>
-      <summary><span><b>Fase 2. Ejecución de la RSL</b>: Búsqueda, filtrado y extracción de datos</span></summary>
+      <summary><span><b>Fase 2. Ejecución de la RSL</b>: búsqueda, filtrado y extracción de datos</span></summary>
       <div class="element-summary-body" style="padding-top:1.2rem;">
         <p>Aplica la cadena de búsqueda en los motores seleccionados, depura duplicados, aplica los criterios de inclusión/exclusión y evalúa la pertinencia de las publicaciones para conformar el corpus de estudios primarios a partir del cual se extrae la información arquitectónica estructurada.</p>
         <figure class="wide-figure vector-figure" style="margin-top:1rem;">
@@ -62,7 +62,7 @@
     </details>
 
     <details>
-      <summary><span><b>Fase 3. Análisis y Reporte de Resultados</b>: Síntesis de evidencia y brechas</span></summary>
+      <summary><span><b>Fase 3. Análisis y reporte de resultados</b>: síntesis de evidencia y brechas</span></summary>
       <div class="element-summary-body" style="padding-top:1.2rem;">
         <p>Organiza cuantitativa y cualitativamente los hallazgos para responder a cada pregunta de investigación, categorizar las propuestas arquitectónicas (puramente cuánticas vs. híbridas) y sintetizar los desafíos no resueltos en la literatura que orientan la propuesta doctoral.</p>
         <figure class="wide-figure vector-figure" style="margin-top:1rem;">
@@ -74,14 +74,14 @@
   </div>
 
   <!-- Estudio Exploratorio -->
-  <h3 style="margin:2.5rem 0 1rem;font-size:1.6rem;color:var(--ink);">Estudio Exploratorio en la Industria</h3>
+  <h3 style="margin:2.5rem 0 1rem;font-size:1.6rem;color:var(--ink);">Estudio exploratorio en la industria</h3>
   <p style="margin-bottom:1.2rem;line-height:1.7;">
     Con el fin de evitar sesgos puramente teóricos y contrastar los hallazgos académicos con el estado real de la práctica tecnológica, se incorporó un estudio exploratorio enfocado en reportes técnicos, plataformas operativas y arquitecturas híbridas piloto desarrolladas por organizaciones líderes de la industria (IBM, Microsoft, Google, Quantinuum).
   </p>
 
   <div class="element-accordion" style="margin-bottom:2.5rem;">
     <details>
-      <summary><span><b>Fases y protocolo del estudio exploratorio</b>: Consulta de reportes y casos piloto</span></summary>
+      <summary><span><b>Fases y protocolo del estudio exploratorio</b>: consulta de reportes y casos piloto</span></summary>
       <div class="element-summary-body" style="padding-top:1.2rem;">
         <div class="protocol" style="margin-bottom:1.5rem;">
           <ol>
@@ -111,7 +111,7 @@
 <section class="section" id="sintesis">
   <header class="section-header">
     <p class="section-number">Consolidación de evidencia</p>
-    <h2>Síntesis de la Evidencia Identificada</h2>
+    <h2>Síntesis de la evidencia identificada</h2>
     <div>
       <p style="line-height:1.7;">
         Como resultado de la ejecución rigurosa de este proceso, se consolidó un cuerpo base conformado por un total de <strong>17 estudios primarios académicos (S1–S17)</strong> y <strong>7 casos y reportes técnicos de la industria (S18–S24)</strong>, los cuales describen las tendencias, modelos preliminares, patrones estructurales y desafíos arquitectónicos emergentes, acotados rigurosamente a la fecha de corte y ejecución de la Revisión Sistemática de la Literatura.
