@@ -460,6 +460,12 @@ function setupAgentDemo() {
   const runEvaluation = () => {
     if (streamInterval) clearInterval(streamInterval);
 
+    // Restablecer estilos de contenedor para renderizado del roadmap
+    outContainer.style.display = "block";
+    outContainer.style.border = "none";
+    outContainer.style.background = "transparent";
+    outContainer.style.padding = "0";
+
     const size = selectSize.value;
     const useCase = txtUseCase.value.trim();
     const stack = txtStack.value.trim();
@@ -600,7 +606,7 @@ function setupAgentDemo() {
   };
 
   btn.onclick = runEvaluation;
-  runEvaluation();
+  // No ejecutar automáticamente al cargar para mantener el panel limpio hasta que el usuario lo solicite
 }
 
 function setupDynamicBreadcrumbs() {
