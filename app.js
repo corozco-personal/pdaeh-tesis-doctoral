@@ -461,6 +461,7 @@ function setupAgentDemo() {
     const size = selectSize.value;
     const useCase = (txtUseCase.value || "").trim();
     const stack = (txtStack.value || "").trim();
+    const currentLang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : "es";
 
     if (!useCase) {
       alert("Por favor ingrese o seleccione una descripción del problema o caso de uso.");
@@ -1126,6 +1127,27 @@ function setupAgentDemo() {
   };
 
   btn.onclick = runEvaluation;
+
+  window.addEventListener('pdaeh:languageChanged', (e) => {
+    const lang = e.detail.lang;
+    const p = presets[selectSize.value];
+    if (p) {
+      if (lang === 'en') {
+        if (selectSize.value === 'pyme') {
+          txtUseCase.value = "FinNova Case (JIISIC 2026 Paper): Mid-sized financial-services firm (SME) specializing in investment management and portfolio analysis. The firm seeks to complement its platform with quantum-assisted optimization for complex portfolio rebalancing and multiobjective combinatorics, retaining classical control over financial data, business rules, regulatory compliance, and risk calculations.";
+          txtStack.value = "Established classical analytics platform (As-Is): Market Data Services, Portfolio Services, Risk & Analytics Services, Compliance Services, and Reporting Services, deployed on microservices over a private cloud cluster with relational and time-series databases.";
+        }
+      } else if (lang === 'fr') {
+        if (selectSize.value === 'pyme') {
+          txtUseCase.value = "Cas FinNova (Article JIISIC 2026): Entreprise moyenne de services financiers (PME) spécialisée dans la gestion de placements et l'analyse de portefeuille. L'entreprise cherche à intégrer une capacité d'optimisation quantique assistée pour le rééquilibrage dynamique de portefeuille sous contraintes de risque, en conservant le contrôle classique intégral sur les données financières, les règles métier, la conformité réglementaire et les calculs de risque.";
+          txtStack.value = "Plateforme analytique classique établie (As-Is): Services de données de marché, services de portefeuille, moteur de risque et d'analyse financière, services de conformité et de génération de rapports, déployés en microservices sur un cluster cloud privé avec bases relationnelles et temporelles.";
+        }
+      } else {
+        txtUseCase.value = p.useCase;
+        txtStack.value = p.stack;
+      }
+    }
+  });
   // No ejecutar automáticamente al cargar para mantener el panel limpio hasta que el usuario lo solicite
 }
 
