@@ -139,7 +139,21 @@ function renderResearch(){
     }).join("")}</div>`;
 }
 
-function renderMacro(){const order=["Nombre","Identificador","Propósito","Alcance","Dimensiones involucradas","Subconjuntos estructurales de origen","Entradas globales","Salidas globales","Criterios de inicio","Criterios de cierre","Indicadores globales","Autoridad de aprobación"];$("#macroGrid").innerHTML=order.filter(k=>data.macro[k]).map(k=>`<div><dt>${k}</dt><dd>${["Nombre","Identificador","Propósito","Alcance","Autoridad de aprobación"].includes(k)?esc(cleanText(data.macro[k])):k.includes("Indicadores")?list(data.macro[k],"indicators"):list(data.macro[k],"general",k.includes("Salidas"))}</dd></div>`).join("")}
+function renderMacro(){
+  const order=["Nombre","Identificador","Propósito","Alcance","Artefactos y plantillas definidos","Dimensiones involucradas","Subconjuntos estructurales de origen","Entradas globales","Salidas globales","Criterios de inicio","Criterios de cierre","Indicadores globales","Autoridad de aprobación"];
+  const lang=(window.PDAEH_I18N&&window.PDAEH_I18N.getLang)?window.PDAEH_I18N.getLang():(localStorage.getItem("pdaeh_user_lang")||"es");
+  const artifactSummary={
+    es:{label:"Artefactos y plantillas definidos",value:"15 artefactos documentales; la solución proporciona una plantilla normalizada para cada artefacto."},
+    en:{label:"Defined artifacts and templates",value:"15 documentary artifacts; the solution provides one standardized template for each artifact."},
+    fr:{label:"Artefacts et modèles définis",value:"15 artefacts documentaires ; la solution fournit un modèle normalisé pour chaque artefact."}
+  }[lang]||null;
+  $("#macroGrid").innerHTML=order.map(k=>{
+    if(k==="Artefactos y plantillas definidos") return `<div><dt>${artifactSummary.label}</dt><dd>${artifactSummary.value}</dd></div>`;
+    if(!data.macro[k]) return "";
+    const value=["Nombre","Identificador","Propósito","Alcance","Autoridad de aprobación"].includes(k)?esc(cleanText(data.macro[k])):k.includes("Indicadores")?list(data.macro[k],"indicators"):list(data.macro[k],"general",k.includes("Salidas"));
+    return `<div><dt>${k}</dt><dd>${value}</dd></div>`;
+  }).join("");
+}
 
 let tableNumber = 2; // Inicia en 2 porque Tabla 1 y Tabla 2 son las tablas estáticas de la RSL y exploratorio
 function table(title, headers, rows) {
