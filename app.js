@@ -643,6 +643,53 @@ function setupAgentDemo() {
 
   let streamInterval = null;
 
+  const stopStreaming = () => {
+    if (streamInterval) clearInterval(streamInterval);
+    streamInterval = null;
+  };
+
+  const streamHtmlResponse = (html, { interval = 320, onComplete } = {}) => {
+    stopStreaming();
+    const template = document.createElement('template');
+    template.innerHTML = html.trim();
+    const sourceRoot = template.content.firstElementChild;
+    if (!sourceRoot) {
+      outContainer.innerHTML = html;
+      if (onComplete) onComplete();
+      return;
+    }
+
+    const targetRoot = sourceRoot.cloneNode(false);
+    const chunks = [...sourceRoot.childNodes].filter((node) => (
+      node.nodeType === Node.ELEMENT_NODE || (node.nodeType === Node.TEXT_NODE && node.textContent.trim())
+    ));
+    const cursor = document.createElement('span');
+    cursor.className = 'advisor-generation-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    outContainer.replaceChildren(targetRoot);
+    targetRoot.appendChild(cursor);
+
+    let index = 0;
+    const revealNextChunk = () => {
+      cursor.remove();
+      if (index >= chunks.length) {
+        stopStreaming();
+        if (onComplete) onComplete();
+        return;
+      }
+
+      const chunk = chunks[index].cloneNode(true);
+      index += 1;
+      if (chunk.nodeType === Node.ELEMENT_NODE) chunk.classList.add('advisor-stream-chunk');
+      targetRoot.appendChild(chunk);
+      targetRoot.appendChild(cursor);
+      if (window.PDAEH_I18N && window.PDAEH_I18N.refresh) window.PDAEH_I18N.refresh(chunk);
+    };
+
+    revealNextChunk();
+    streamInterval = setInterval(revealNextChunk, interval);
+  };
+
   const runEvaluation = () => {
     const size = selectSize.value;
     const lang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : (localStorage.getItem("pdaeh_user_lang") || "es");
@@ -677,7 +724,7 @@ function setupAgentDemo() {
       return;
     }
 
-    if (streamInterval) clearInterval(streamInterval);
+    stopStreaming();
 
     btn.disabled = true;
     btn.style.opacity = "0.6";
@@ -723,21 +770,17 @@ function setupAgentDemo() {
         </div>
       `;
 
-      let currentLen = 0;
-      streamInterval = setInterval(() => {
-        currentLen += 40;
-        if (currentLen >= discardHtml.length) {
-          clearInterval(streamInterval);
-          outContainer.innerHTML = discardHtml;
+      statusTag.textContent = agentUi.processing;
+      streamHtmlResponse(discardHtml, {
+        interval: 380,
+        onComplete: () => {
           statusTag.textContent = "Evaluación Finalizada (No Apto)";
           statusTag.style.background = "#fed7d7";
           statusTag.style.color = "#9b2c2c";
           btn.disabled = false;
           btn.style.opacity = "1";
-        } else {
-          outContainer.innerHTML = discardHtml.slice(0, currentLen) + ' <span style="display:inline-block;width:8px;height:14px;background:#c53030;animation:blink 0.8s infinite;"></span>';
         }
-      }, 12);
+      });
       return;
     }
 
@@ -1529,17 +1572,18 @@ function setupAgentDemo() {
       </div>
     `;
 
-    outContainer.innerHTML = `<span class="typing-cursor" style="color:var(--green);font-weight:700;">${agentUi.processing}</span>`;
-
-    streamInterval = setTimeout(() => {
-      outContainer.innerHTML = fullHtml;
-      if (window.PDAEH_I18N && window.PDAEH_I18N.refresh) window.PDAEH_I18N.refresh(outContainer);
-      statusTag.textContent = agentUi.complete;
-      statusTag.style.background = "#eaf1fb";
-      statusTag.style.color = "#1f2a44";
-      btn.disabled = false;
-      btn.style.opacity = "1";
-    }, 350);
+    statusTag.textContent = agentUi.processing;
+    streamHtmlResponse(fullHtml, {
+      interval: 360,
+      onComplete: () => {
+        if (window.PDAEH_I18N && window.PDAEH_I18N.refresh) window.PDAEH_I18N.refresh(outContainer);
+        statusTag.textContent = agentUi.complete;
+        statusTag.style.background = "#eaf1fb";
+        statusTag.style.color = "#1f2a44";
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
+    });
   };
 
   btn.onclick = runEvaluation;
