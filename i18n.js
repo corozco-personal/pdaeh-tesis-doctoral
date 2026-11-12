@@ -137,7 +137,7 @@
     const style = document.createElement('style');
     style.id = 'pdaeh-language-styles';
     style.textContent = `
-      .pdaeh-language-switcher { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
+      .pdaeh-language-switcher { display: flex; align-items: center; gap: .25rem; margin-left: auto; margin-right: .85rem; }
       .pdaeh-language-button { border: 1px solid transparent; border-radius: 999px; background: transparent; cursor: pointer; font: inherit; line-height: 1; padding: .38rem .46rem; }
       .pdaeh-language-button:hover, .pdaeh-language-button:focus-visible { background: rgba(16, 112, 105, .1); outline: none; }
       .pdaeh-language-button.is-active { border-color: currentColor; background: rgba(16, 112, 105, .12); }
@@ -171,7 +171,9 @@
       button.addEventListener('click', () => setLanguage(code));
       switcher.appendChild(button);
     });
-    topbar.appendChild(switcher);
+    const searchTrigger = topbar.querySelector('.search-trigger');
+    if (searchTrigger) topbar.insertBefore(switcher, searchTrigger);
+    else topbar.appendChild(switcher);
     updateSwitcher(activeLanguage);
   }
 
