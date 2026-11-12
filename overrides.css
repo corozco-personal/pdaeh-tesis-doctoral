@@ -355,18 +355,33 @@ td[data-center="true"],
   display: block !important;
   width: 100% !important;
   max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-#artifactTemplates section.numbered-table,
-#artifactTemplates .table-shell,
-#artifactTemplates table {
+#artifactTemplates section.numbered-table {
+  display: block !important;
   width: 100% !important;
   max-width: 100% !important;
-  display: table !important;
+  margin: 1.5rem 0 2rem 0 !important;
+  box-sizing: border-box !important;
 }
 
 #artifactTemplates .table-shell {
   display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+}
+
+#artifactTemplates table {
+  display: table !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+  box-sizing: border-box !important;
 }
 
 /* === Eliminar restricciones de ancho (max-width) en todos los parrafos y bloques de texto === */

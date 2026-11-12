@@ -141,8 +141,11 @@ function renderResearch(){
 
 function renderMacro(){const order=["Nombre","Identificador","Propósito","Alcance","Dimensiones involucradas","Subconjuntos estructurales de origen","Entradas globales","Salidas globales","Criterios de inicio","Criterios de cierre","Indicadores globales","Autoridad de aprobación"];$("#macroGrid").innerHTML=order.filter(k=>data.macro[k]).map(k=>`<div><dt>${k}</dt><dd>${["Nombre","Identificador","Propósito","Alcance","Autoridad de aprobación"].includes(k)?esc(cleanText(data.macro[k])):k.includes("Indicadores")?list(data.macro[k],"indicators"):list(data.macro[k],"general",k.includes("Salidas"))}</dd></div>`).join("")}
 
-let tableNumber=0;
-function table(title,headers,rows){const n=++tableNumber;return `<section class="numbered-table"><h4>Tabla ${n}. ${esc(title)}</h4><div class="table-shell"><table><thead><tr>${headers.map(h=>`<th>${esc(cleanText(h))}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div></section>`}
+let tableNumber = 2; // Inicia en 2 porque Tabla 1 y Tabla 2 son las tablas estáticas de la RSL y exploratorio
+function table(title, headers, rows) {
+  const n = ++tableNumber;
+  return `<section class="numbered-table"><h4>Tabla ${n}. ${esc(title)}</h4><div class="table-shell"><table><thead><tr>${headers.map(h=>`<th>${esc(cleanText(h))}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div></section>`;
+}
 function initials(name){return cleanText(name).split(/\s+/).filter(x=>!/[()]/.test(x)).slice(0,2).map(x=>x[0]).join("").toUpperCase()}
 function renderRoles(index=0){
   const labels=["Roles definidos en el proceso","Microempresa o startup","Pequeña y mediana empresa","Gran empresa o corporación"], t=data.roles[index];
@@ -205,7 +208,7 @@ function renderRoles(index=0){
       return `<tr>${cells}</tr>`;
     });
   }
-  tableNumber = 0;
+  tableNumber = 2; // Mantener la secuencia global: las pestañas de roles actualizan la Tabla 3
   $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml);
   $$("#roleTabs button").forEach(b => b.onclick = () => renderRoles(+b.dataset.i));
 }
@@ -297,7 +300,7 @@ function renderArtifacts() {
   }).join("");
 
   container.innerHTML = `<section class="numbered-table" style="margin-top:1.5rem;">
-    <h4 style="font-family:Newsreader,serif;font-size:1.35rem;font-weight:600;margin:0 0 1rem;text-align:center;color:var(--ink);">Catálogo de plantillas normalizadas de artefactos arquitectónicos</h4>
+    <h4 style="font-family:Newsreader,serif;font-size:1.35rem;font-weight:600;margin:0 0 1rem;text-align:center;color:var(--ink);">Tabla 5. Catálogo de plantillas normalizadas de artefactos arquitectónicos</h4>
     <div class="table-shell">
       <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
         <thead>
@@ -315,7 +318,15 @@ function renderArtifacts() {
     </div>
   </section>`;
 }
-function renderGlossary(){if(!data.glossaries?.length)return;const target=$("#glossaryTables");target.innerHTML=data.glossaries.map(g=>{const keep=g.rows[0].map((h,i)=>({h,i})).filter(x=>!cleanText(x.h).toLocaleLowerCase().includes("fuente"));return table(cleanText(g.caption.replace(/^Tabla\s+\d+\.\s*/,"")),keep.map(x=>x.h),g.rows.slice(1).map(r=>`<tr>${keep.map(x=>`<td>${esc(cleanText(r[x.i]||""))}</td>`).join("")}</tr>`))}).join("")}
+function renderGlossary() {
+  if (!data.glossaries?.length) return;
+  const target = $("#glossaryTables");
+  tableNumber = 5; // Tabla 5 es el catálogo de artefactos; las tablas del glosario continuarán en Tabla 6 y Tabla 7
+  target.innerHTML = data.glossaries.map(g => {
+    const keep = g.rows[0].map((h, i) => ({h, i})).filter(x => !cleanText(x.h).toLocaleLowerCase().includes("fuente"));
+    return table(cleanText(g.caption.replace(/^Tabla\s+\d+\.\s*/, "")), keep.map(x => x.h), g.rows.slice(1).map(r => `<tr>${keep.map(x => `<td>${esc(cleanText(r[x.i] || ""))}` + `</td>`).join("")}</tr>`));
+  }).join("");
+}
 function setupSearch(){const dialog=$("#searchDialog"),input=$("#searchInput"),results=$("#searchResults");$("#searchTrigger").onclick=()=>{dialog.showModal();input.focus()};input.oninput=()=>{const q=input.value.toLocaleLowerCase().trim();if(q.length<2){results.innerHTML="";return}const hits=[...Object.entries(elementNames).map(([code,name])=>({code,name,url:"#modelo"})),...phaseNames.map((name,i)=>({code:`F${i+1}`,name,url:`fase.html?id=${i+1}`})),...artifactCodes.map(code=>({code,name:artifactNames[code],url:`plantilla.html?id=${code}`}))].filter(x=>(x.code+x.name).toLocaleLowerCase().includes(q));results.innerHTML=hits.map(h=>`<a href="${h.url}"><b>${h.code}</b><span>${h.name}</span></a>`).join("")}}
 
 function renderTraceabilityMatrix() {
@@ -384,23 +395,26 @@ function renderTraceabilityMatrix() {
   `).join("");
 
   container.innerHTML = `
-    <div class="table-shell" style="margin-top:1.2rem;">
-      <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
-        <thead>
-          <tr style="background:#eaf1fb;color:#1f2a44;">
-            <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Fase del proceso</th>
-            <th style="padding:10px;border:1px solid var(--line);width:22%;text-align:left;">Elementos cubiertos</th>
-            <th style="padding:10px;border:1px solid var(--line);width:15%;text-align:center;">Artefactos vinculados</th>
-            <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Asignación de roles</th>
-            <th style="padding:10px;border:1px solid var(--line);width:90px;text-align:center;">Compuerta OGA</th>
-            <th style="padding:10px;border:1px solid var(--line);text-align:left;">Criterio de aprobación</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows}
-        </tbody>
-      </table>
-    </div>
+    <section class="numbered-table" style="margin-top:1.5rem;">
+      <h4 style="font-family:Newsreader,serif;font-size:1.35rem;font-weight:600;margin:0 0 1rem;text-align:center;color:var(--ink);">Tabla 4. Matriz de trazabilidad cruzada del proceso PDAEH</h4>
+      <div class="table-shell" style="margin-top:0.5rem;">
+        <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
+          <thead>
+            <tr style="background:#eaf1fb;color:#1f2a44;">
+              <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Fase del proceso</th>
+              <th style="padding:10px;border:1px solid var(--line);width:22%;text-align:left;">Elementos cubiertos</th>
+              <th style="padding:10px;border:1px solid var(--line);width:15%;text-align:center;">Artefactos vinculados</th>
+              <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Asignación de roles</th>
+              <th style="padding:10px;border:1px solid var(--line);width:90px;text-align:center;">Compuerta OGA</th>
+              <th style="padding:10px;border:1px solid var(--line);text-align:left;">Criterio de aprobación</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
+      </div>
+    </section>
   `;
 }
 
