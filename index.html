@@ -525,6 +525,17 @@
       <h3 style="margin:0 0 1.2rem;font-size:1.35rem;font-family:Newsreader,serif;color:var(--ink);">Entradas del caso organizacional (Variables As-Is)</h3>
       
       <div style="display:grid;grid-template-columns:1fr;gap:1.4rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:#f8fafc;padding:10px 14px;border:1px solid var(--line);border-radius:4px;flex-wrap:wrap;gap:0.8rem;">
+          <div>
+            <label for="demoAgentLang" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.1rem;color:var(--navy);">Idioma de respuesta del agente / Agent Language / Langue de l'agent:</label>
+            <small style="color:var(--muted);font-size:0.82rem;">Seleccione el idioma en el que desea que el agente formule el dictamen y los artefactos.</small>
+          </div>
+          <select id="demoAgentLang" style="padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:#ffffff;font-family:inherit;font-size:0.92rem;font-weight:700;color:var(--ink);cursor:pointer;">
+            <option value="es" selected>🇪🇸 Español (Original)</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
         <div>
           <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño de la empresa:</label>
           <select id="demoOrgSize" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;">
@@ -704,9 +715,8 @@
   </div>
 </dialog>
 
-<script src="thesis-content.js?v=1.0.6"></script>
-<script src="app.js?v=1.0.7"></script>
-  <script src="i18n.js?v=1.0.2"></script>
+<script src="thesis-content.js?v=1.0.8"></script>
+<script src="app.js?v=1.0.8"></script>
 </body>
 </html>
 
