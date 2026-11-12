@@ -187,12 +187,53 @@
       .pdaeh-language-button:hover, .pdaeh-language-button:focus-visible { background: rgba(16, 112, 105, .1); outline: none; }
       .pdaeh-language-button.is-active { border-color: currentColor; background: rgba(16, 112, 105, .12); }
       .pdaeh-language-button span { font-size: 1.15rem; }
-      .goog-te-banner-frame, .goog-te-banner-frame.skiptranslate { display: none !important; }
-      body { top: 0 !important; }
+      .goog-te-banner-frame,
+      .goog-te-banner-frame.skiptranslate,
+      .VIpgJd-ZVi9od-ORHb-OEVmcd,
+      iframe.skiptranslate { display: none !important; visibility: hidden !important; }
+      html, body { top: 0 !important; margin-top: 0 !important; }
       #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
       .goog-text-highlight { background: inherit !important; box-shadow: none !important; }
     `;
     document.head.appendChild(style);
+  }
+
+  function suppressGoogleBanner() {
+    const hideBanner = function () {
+      document.querySelectorAll(
+        '.goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, iframe.skiptranslate'
+      ).forEach((element) => {
+        if (element.id !== WIDGET_ID && !element.closest(`#${WIDGET_ID}`)) {
+          if (element.style.getPropertyValue('display') !== 'none') {
+            element.style.setProperty('display', 'none', 'important');
+          }
+          if (element.style.getPropertyValue('visibility') !== 'hidden') {
+            element.style.setProperty('visibility', 'hidden', 'important');
+          }
+        }
+      });
+      if (document.documentElement.style.getPropertyValue('top') !== '0px') {
+        document.documentElement.style.setProperty('top', '0px', 'important');
+      }
+      if (document.body.style.getPropertyValue('top') !== '0px') {
+        document.body.style.setProperty('top', '0px', 'important');
+      }
+      if (document.body.style.getPropertyValue('margin-top') !== '0px') {
+        document.body.style.setProperty('margin-top', '0px', 'important');
+      }
+    };
+
+    hideBanner();
+    const insertionObserver = new MutationObserver(hideBanner);
+    insertionObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+    const bodyStyleObserver = new MutationObserver(hideBanner);
+    bodyStyleObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
   }
 
   function renderLanguageSwitcher() {
@@ -223,6 +264,7 @@
     installStyles();
     ensureWidgetContainer();
     renderLanguageSwitcher();
+    suppressGoogleBanner();
     if (language === SOURCE_LANGUAGE) clearTranslationCookie();
     else setTranslationCookie(language);
     loadGoogleTranslate();
