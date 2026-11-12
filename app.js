@@ -500,15 +500,11 @@ function setupAgentDemo() {
   };
 
   const updateInputsForLangAndSize = () => {
-    // Current language can come from topbar switcher or agent selectLang
-    const lang = (selectLang && selectLang.value) ? selectLang.value : (localStorage.getItem('pdaeh_user_lang') || 'es');
-    if (selectLang && selectLang.value !== lang) {
-      selectLang.value = lang;
-    }
+    const lang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : (localStorage.getItem("pdaeh_user_lang") || "es");
     const size = selectSize.value;
     const cat = multiPresets[size];
     if (cat) {
-      const data = cat[lang] || cat['es'];
+      const data = cat[lang] || cat["es"];
       txtUseCase.value = data.useCase;
       txtStack.value = data.stack;
     }
@@ -532,7 +528,7 @@ function setupAgentDemo() {
 
   const runEvaluation = () => {
     const size = selectSize.value;
-    const lang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : (localStorage.getItem(pdaeh_user_lang) || es);
+    const lang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : (localStorage.getItem("pdaeh_user_lang") || "es");
     const useCase = (txtUseCase.value || "").trim();
     const stack = (txtStack.value || "").trim();
 
