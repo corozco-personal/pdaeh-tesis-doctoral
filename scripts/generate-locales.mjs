@@ -26,10 +26,10 @@ const decodeHtml = (value) => value
 const normalize = (value) => decodeHtml(String(value)).replace(/\s+/g, ' ').trim();
 const candidates = new Set();
 
-function add(value) {
+function add(value, force = false) {
   const text = normalize(value);
   const isKnownUiWord = SPANISH_UI_WORDS.has(text.toLocaleLowerCase('es'));
-  if (!text || text.length > 3500 || (!spanishPattern.test(text) && !isKnownUiWord)) return;
+  if (!text || text.length > 3500 || (!force && !spanishPattern.test(text) && !isKnownUiWord)) return;
   if (/^(?:https?:|assets\/|[.#][\w-]+$)/i.test(text)) return;
   candidates.add(text);
 }
@@ -86,6 +86,17 @@ for (const file of JS_FILES) {
     add(match[1].replace(/\$\{[^}]+\}/g, ''));
   }
 }
+
+[
+  '🏠 Inicio', 'Descargar paquete completo (.ZIP)', '5 fases consecutivas (F1–F5)',
+  '9 roles', 'OGA-1 a OGA-5', '15 plantillas normalizadas', 'Id', 'Referencia',
+  'Ver referencia', 'Consolidar diez elementos comparables.', 'diez elementos estructurales (E1–E10)',
+  'cinco fases consecutivas', 'cinco fases operativas', 'Fases 1 a 5', '5 fases consecutivas',
+  '10 elementos estructurales integrados', '15 artefactos normalizados',
+  'agente consultor complementario e inteligente (PDAEH Advisor)', 'Entradas requeridas:',
+  'Salida esperada:', 'Microempresa o startup', 'Soporte documental', 'Contenido principal',
+  'Buscar elementos, fases o artefactos...', 'Imprimir / guardar PDF'
+].forEach((text) => add(text, true));
 
 const sourceTexts = [...candidates].sort((a, b) => a.localeCompare(b, 'es'));
 const dictionaries = { en: {}, fr: {} };
