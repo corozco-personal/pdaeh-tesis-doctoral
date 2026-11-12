@@ -374,11 +374,11 @@ function renderTraceabilityMatrix() {
     <tr>
       <td style="vertical-align:middle;font-weight:700;color:var(--green);">${item.fase}</td>
       <td style="vertical-align:middle;">${item.elementos}</td>
-      <td style="vertical-align:middle;text-align:center;">
+      <td style="vertical-align:middle;text-align:center;text-align:-webkit-center;">
         ${item.artefactos.map(code => `<a href="plantilla.html?id=${code}" class="artifact-link" style="font-weight:700;margin:0 3px;">${code}</a>`).join(" · ")}
       </td>
       <td style="vertical-align:middle;"><small><b>Resp:</b> ${item.rolesResp}<br><b>Cons:</b> ${item.rolesConsult}</small></td>
-      <td style="vertical-align:middle;text-align:center;font-weight:700;background:#f9fbfa;"><span style="color:var(--navy);">${item.puntoOGA}</span></td>
+      <td style="vertical-align:middle;text-align:center;text-align:-webkit-center;font-weight:700;background:#f9fbfa;"><span style="color:var(--navy);">${item.puntoOGA}</span></td>
       <td style="vertical-align:middle;font-size:0.88rem;line-height:1.5;">${item.criterioOGA}</td>
     </tr>
   `).join("");
