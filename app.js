@@ -421,7 +421,6 @@ function renderTraceabilityMatrix() {
 function setupAgentDemo() {
   const btn = $("#btnRunDemo");
   const selectSize = $("#demoOrgSize");
-  const selectLang = $("#demoAgentLang");
   const txtUseCase = $("#demoUseCase");
   const txtStack = $("#demoStack");
   const outContainer = $("#demoOutputContainer");
@@ -515,15 +514,7 @@ function setupAgentDemo() {
     }
   };
 
-  if (selectLang) {
-    selectLang.onchange = () => {
-      // also notify global app
-      if (window.PDAEH_SET_LANG) {
-        window.PDAEH_SET_LANG(selectLang.value);
-      }
-      updateInputsForLangAndSize();
-    };
-  }
+
 
   selectSize.onchange = () => {
     updateInputsForLangAndSize();
@@ -531,7 +522,6 @@ function setupAgentDemo() {
 
   // Listen to global topbar language changes
   window.addEventListener('pdaeh:languageChanged', (e) => {
-    if (selectLang) selectLang.value = e.detail.lang;
     updateInputsForLangAndSize();
   });
 
@@ -542,7 +532,7 @@ function setupAgentDemo() {
 
   const runEvaluation = () => {
     const size = selectSize.value;
-    const lang = selectLang ? selectLang.value : "es";
+    const lang = (window.PDAEH_I18N && window.PDAEH_I18N.getLang) ? window.PDAEH_I18N.getLang() : (localStorage.getItem(pdaeh_user_lang) || es);
     const useCase = (txtUseCase.value || "").trim();
     const stack = (txtStack.value || "").trim();
 
