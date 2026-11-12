@@ -638,47 +638,107 @@ function setupAgentDemo() {
 
       immediateAction = `Convocar a los fundadores técnicos y redactar inmediatamente la plantilla del <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a>, estableciendo la métrica de precisión y latencia contra la cual se medirá el éxito de la integración híbrida frente al modelo clásico actual.`;
 
-      diagramSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+      diagramSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.03);">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 8 5 L 0 9 z" fill="#18796e" />
             </marker>
+            <marker id="arrow-gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#ca8a04" />
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb" />
+            </marker>
           </defs>
-          <rect x="25" y="20" width="810" height="60" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
-          <text x="45" y="45" font-size="13" font-weight="700" fill="#123b43">CAPA 1: ESTRATEGIA Y GOBERNANZA LIGERA (Fases 1 y 2 · OGA-1 / OGA-2)</text>
-          <text x="45" y="64" font-size="11" fill="#5c7074">Roles fusionados: AEP (CTO / Lead) + OGA Simplificado · Artefactos: DOE (Objetivos) y DCA (Restricciones presupuestales)</text>
+
+          <!-- ENCABEZADO SUPERIOR DEL DIAGRAMA -->
+          <rect x="20" y="15" width="880" height="34" rx="4" fill="#0f2e2b" />
+          <text x="35" y="37" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ARQUITECTURA EMPRESARIAL HÍBRIDA PRELIMINAR (PDAEH) · MICROEMPRESA / STARTUP: SCORING Y QML EN CLOUD SERVERLESS</text>
+
+          <!-- NIVEL 1: GOBERNANZA, ESTRATEGIA Y CONCEPTUALIZACIÓN (FASE 1 Y FASE 2) -->
+          <rect x="20" y="58" width="880" height="92" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
+          <rect x="30" y="66" width="310" height="22" rx="3" fill="#18796e" />
+          <text x="38" y="81" font-size="11" font-weight="700" fill="#ffffff">CAPA 1: GOBIERNO, ESTRATEGIA & CONCEPTUALIZACIÓN</text>
+          <text x="350" y="81" font-size="10.5" font-weight="600" fill="#123b43">Roles: AEP (Rol Central Multifuncional: CTO / Lead Architect) · Revisión colegiada con Dirección</text>
           
-          <rect x="25" y="105" width="385" height="155" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
-          <text x="40" y="130" font-size="12" font-weight="700" fill="#0f172a">CAPA CLÁSICA ACTUAL (As-Is)</text>
-          <rect x="40" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="165" font-size="11" font-weight="600" fill="#334155">Servicios Backend / APIs Serverless</text>
-          <text x="50" y="178" font-size="10" fill="#64748b">Ingestión de datos, validación de negocio y auth</text>
-          <rect x="40" y="198" width="355" height="45" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="218" font-size="11" font-weight="600" fill="#334155">Pipeline de Extracción y Preprocesamiento de Datos</text>
-          <text x="50" y="232" font-size="10" fill="#64748b">Limpieza clásica y normalización de vectores de entrada</text>
+          <!-- Elementos E1, E2, E3, E4 -->
+          <rect x="30" y="93" width="415" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 1: Elementos E1 (Objetivo) & E2 (Contexto)</text>
+          <text x="40" y="126" font-size="9.5" fill="#475569">DOE-v1 (Objetivos y Precisión Scoring) | DCA-v1 (Presupuesto Cloud y Cuotas API)</text>
+          
+          <rect x="455" y="93" width="435" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="465" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 2: Elementos E3 (Abstracción) & E4 (Glosario)</text>
+          <text x="465" y="126" font-size="9.5" fill="#475569">DPV-v1 (Vistas: Funcional Clásica / Kernel Cuántico) | DNA-v1 (Abstracción) | GDA-v1</text>
 
-          <rect x="450" y="105" width="385" height="155" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
-          <text x="465" y="130" font-size="12" font-weight="700" fill="#713f12">INTEGRACIÓN HÍBRIDA PDAEH (Fases 3 y 4 · DCO / DEA)</text>
-          <rect x="465" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="165" font-size="11" font-weight="600" fill="#854d0e">Gestor de Inferencia y Encolamiento Asíncrono</text>
-          <text x="475" y="178" font-size="10" fill="#a16207">Patrón Broker de trabajos y fallback clásico por timeout</text>
-          <rect x="465" y="198" width="355" height="45" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="218" font-size="11" font-weight="600" fill="#854d0e">Codificador de Kernel Cuántico (QSVM Embedding)</text>
-          <text x="475" y="232" font-size="10" fill="#a16207">Mapeo de características clásicas a espacio de Hilbert</text>
+          <!-- LÍNEA DE FLUJO DE GOBIERNO A EJECUCIÓN -->
+          <line x1="460" y1="150" x2="460" y2="168" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
 
-          <line x1="410" y1="180" x2="445" y2="180" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
+          <!-- NIVEL 2: ECOSISTEMA EMPRESARIAL CLÁSICO AS-IS (ESTRUCTURA E5 BASE) -->
+          <rect x="20" y="172" width="415" height="150" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+          <rect x="30" y="180" width="260" height="20" rx="3" fill="#475569" />
+          <text x="38" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 2: ECOSISTEMA CLÁSICO EXISTENTE (As-Is)</text>
 
-          <rect x="25" y="285" width="810" height="75" rx="5" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.5" />
-          <text x="45" y="310" font-size="12" font-weight="700" fill="#111827">ACELERACIÓN COMPUTACIONAL CUÁNTICA (Era NISQ)</text>
-          <rect x="45" y="322" width="355" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="55" y="342" font-size="11" fill="#374151">1. Simulación Clásica Local con Ruido (PennyLane / Qiskit Aer)</text>
-          <rect x="445" y="322" width="375" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="455" y="342" font-size="11" fill="#374151">2. Procesador Cuántico Físico en Nube (QPU Cloud - Acceso API)</text>
+          <rect x="30" y="206" width="395" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="224" font-size="10.5" font-weight="600" fill="#1e293b">Capa Clásica: Ingesta Serverless & APIs (As-Is)</text>
+          <text x="40" y="240" font-size="9.5" fill="#64748b">FastAPI en Cloud Run · Autenticación JWT · Validación de solicitudes</text>
 
-          <line x1="642" y1="260" x2="642" y2="280" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
-        </svg>
-      `;
+          <rect x="30" y="260" width="395" height="52" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="278" font-size="10.5" font-weight="600" fill="#1e293b">Pipeline ETL y Normalización Clásica</text>
+          <text x="40" y="296" font-size="9.5" fill="#64748b">Limpieza de datos, escalado MinMax a [0, 2pi], reducción PCA previa</text>
+
+          <!-- CONEXIÓN CLÁSICO A CONECTOR HÍBRIDO -->
+          <line x1="435" y1="247" x2="465" y2="247" stroke="#ca8a04" stroke-width="2" marker-end="url(#arrow-gold)" />
+
+          <!-- NIVEL 3: CAPA DE INTEGRACIÓN HÍBRIDA & DESACOPLAMIENTO PDAEH -->
+          <rect x="475" y="172" width="425" height="150" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
+          <rect x="485" y="180" width="320" height="20" rx="3" fill="#ca8a04" />
+          <text x="493" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 3: INTEGRACIÓN HÍBRIDA (Fases 3 y 4 · DCO / DEA)</text>
+
+          <rect x="485" y="206" width="405" height="48" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="224" font-size="10.5" font-weight="700" fill="#854d0e">Conector Híbrido Asíncrono (DEA / DCO / CEP)</text>
+          <text x="495" y="240" font-size="9.5" fill="#a16207">Cola Celery / Redis Broker · Fallback automático a XGBoost clásico por timeout</text>
+
+          <rect x="485" y="260" width="405" height="52" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="278" font-size="10.5" font-weight="700" fill="#854d0e">Codificador de Características Cuánticas (QML)</text>
+          <text x="495" y="296" font-size="9.5" fill="#a16207">Transformador a Feature Map ZZ (Espacio de Hilbert de alta dimensionalidad)</text>
+
+          <!-- NIVEL TRANSVERSAL INTERMEDIO: ATRIBUTOS DE CALIDAD (E6), PATRONES (E7/E8), COMPONENTES (E9) Y REUTILIZACIÓN (E10) -->
+          <rect x="20" y="332" width="880" height="90" rx="5" fill="#f0f7ff" stroke="#2563eb" stroke-width="1.5" />
+          <rect x="30" y="340" width="360" height="20" rx="3" fill="#2563eb" />
+          <text x="38" y="354" font-size="10.5" font-weight="700" fill="#ffffff">CAPA TRANSVERSAL: DIMENSIÓN DE CALIDAD & SISTEMATIZACIÓN</text>
+
+          <!-- Caja E6, E7, E8 -->
+          <rect x="30" y="366" width="415" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="40" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Dimensión DCD (Fase 3 & Fase 5): Atributos y Patrones</text>
+          <text x="40" y="400" font-size="9.5" fill="#1e40af">E6: MAC (Fidelidad, Costo por llamada, Latencia) · E7/E8: CEP (Broker, Strategy, Adapter)</text>
+
+          <!-- Caja E9, E10 -->
+          <rect x="455" y="366" width="435" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="465" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Fase 4: Catálogo y Reutilización (DEA / DCO / BER)</text>
+          <text x="465" y="400" font-size="9.5" fill="#1e40af">E9: Contratos OpenAPI/gRPC para inferencia · E10: Conectores SDK reutilizables en BER</text>
+
+          <!-- CONEXIÓN CONECTOR A INFRAESTRUCTURA CUÁNTICA -->
+          <line x1="685" y1="322" x2="685" y2="430" stroke="#18796e" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow)" />
+
+          <!-- NIVEL 4: CAPA DE ACELERACIÓN CUÁNTICA NISQ (FÍSICA & SIMULADA) -->
+          <rect x="20" y="432" width="880" height="98" rx="5" fill="#f9fafb" stroke="#374151" stroke-width="1.5" />
+          <rect x="30" y="440" width="290" height="20" rx="3" fill="#374151" />
+          <text x="38" y="454" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 4: ACELERACIÓN CUÁNTICA (Era NISQ · E5 / E9)</text>
+
+          <rect x="30" y="466" width="415" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="40" y="485" font-size="10.5" font-weight="700" fill="#111827">1. Simulación Local NISQ con Ruido (90% cargas)</text>
+          <text x="40" y="503" font-size="9.5" fill="#4b5563">PennyLane / Qiskit Aer con emulación de ruido térmico y lectura</text>
+
+          <rect x="455" y="466" width="435" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="465" y="485" font-size="10.5" font-weight="700" fill="#111827">2. Coprocesador Físico QPU Cloud (Validación)</text>
+          <text x="465" y="503" font-size="9.5" fill="#4b5563">IBM Quantum / AWS Braket · Lotes reducidos para cómputo de kernel cuántico</text>
+
+          <!-- NIVEL INFERIOR: GOBERNANZA TRANSVERSAL Y COMPUERTAS OGA (F1 a F5) -->
+          <rect x="20" y="540" width="880" height="65" rx="5" fill="#fcf8f2" stroke="#854d0e" stroke-width="1.2" />
+          <text x="35" y="560" font-size="10.5" font-weight="700" fill="#854d0e">GOBERNANZA TRANSVERSAL DE LA ARQUITECTURA (Órgano de Gobierno Arquitectónico - OGA)</text>
+          <text x="35" y="579" font-size="9.8" fill="#713f12">Compuertas de Control del Gobierno Arquitectónico: OGA-1 (Estratégico) -> OGA-2 (Conceptual) -> OGA-3 (Estructural) -> OGA-4 (Materialización) -> OGA-5 (Sistematización y Cierre)</text>
+          <text x="35" y="595" font-size="9" fill="#a16207">Trazabilidad Total: Matriz MTA (Fase 1) -> Modelo MAQ (Fase 3) -> Catálogo CEP y Biblioteca BER (Fase 5) garantizan evolución normada.</text>
+        </svg>`;
 
     } else if (size === "corporacion") {
       scaleLabel = "Gran Empresa o Corporación (> 200 colaboradores)";
@@ -779,47 +839,107 @@ function setupAgentDemo() {
 
       immediateAction = `Iniciar formalmente los talleres de trabajo interdisciplinario para completar el <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a> y presentar ante el comité OGA-1 las restricciones de seguridad y licenciamiento de la infraestructura cuántica.`;
 
-      diagramSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 390" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+      diagramSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.03);">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 8 5 L 0 9 z" fill="#18796e" />
             </marker>
+            <marker id="arrow-gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#ca8a04" />
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb" />
+            </marker>
           </defs>
-          <rect x="25" y="20" width="810" height="60" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
-          <text x="45" y="45" font-size="13" font-weight="700" fill="#123b43">CAPA 1: GOBIERNO CORPORATIVO Y ARB (Fases 1 y 2 · OGA-1 / OGA-2)</text>
-          <text x="45" y="64" font-size="11" fill="#5c7074">Estructura segregada: AEP + ASP + OGA Institucional (Architecture Review Board) · Artefactos: DOE, DCA y MSP</text>
+
+          <!-- ENCABEZADO SUPERIOR DEL DIAGRAMA -->
+          <rect x="20" y="15" width="880" height="34" rx="4" fill="#0f2e2b" />
+          <text x="35" y="37" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ARQUITECTURA EMPRESARIAL HÍBRIDA PRELIMINAR (PDAEH) · GRAN EMPRESA / CORPORACIÓN: QUÍMICA CUÁNTICA & HPC HÍBRIDO CO-DISEÑADO</text>
+
+          <!-- NIVEL 1: GOBERNANZA, ESTRATEGIA Y CONCEPTUALIZACIÓN (FASE 1 Y FASE 2) -->
+          <rect x="20" y="58" width="880" height="92" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
+          <rect x="30" y="66" width="310" height="22" rx="3" fill="#18796e" />
+          <text x="38" y="81" font-size="11" font-weight="700" fill="#ffffff">CAPA 1: GOBIERNO, ESTRATEGIA & CONCEPTUALIZACIÓN</text>
+          <text x="350" y="81" font-size="10.5" font-weight="600" fill="#123b43">Roles: AEP + ASP + AIP + ADP + ASecP + GPA + SE dedicados · ARB (Architecture Review Board formal)</text>
           
-          <rect x="25" y="105" width="385" height="160" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
-          <text x="40" y="130" font-size="12" font-weight="700" fill="#0f172a">CLÚSTER HPC CORPORATIVO (As-Is)</text>
-          <rect x="40" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="165" font-size="11" font-weight="600" fill="#334155">Gestor de Cargas de Trabajo (Slurm / PBS Pro)</text>
-          <text x="50" y="178" font-size="10" fill="#64748b">Planificación masiva de jobs paralelos y memoria compartida</text>
-          <rect x="40" y="198" width="355" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="218" font-size="11" font-weight="600" fill="#334155">Optimizador Clásico de Parámetros Variacionales</text>
-          <text x="50" y="233" font-size="10" fill="#64748b">Algoritmos de gradiente (COBYLA / SPSA / L-BFGS-B)</text>
+          <!-- Elementos E1, E2, E3, E4 -->
+          <rect x="30" y="93" width="415" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 1: Elementos E1 (Objetivo) & E2 (Contexto)</text>
+          <text x="40" y="126" font-size="9.5" fill="#475569">DOE-v1 (Afinidad Molecular y ROI) | DCA-v1 (Soberanía y Compliance) | MSP-v1</text>
+          
+          <rect x="455" y="93" width="435" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="465" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 2: Elementos E3 (Abstracción) & E4 (Glosario)</text>
+          <text x="465" y="126" font-size="9.5" fill="#475569">DPV-v1 (Vistas HPC/QPU) | DNA-v1 (Abstracción en capas) | GDA-v1 (Léxico Cuántico)</text>
 
-          <rect x="450" y="105" width="385" height="160" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
-          <text x="465" y="130" font-size="12" font-weight="700" fill="#713f12">PLATAFORMA DE ORQUESTACIÓN HÍBRIDA (Fases 3 y 4 · DEA / DCO)</text>
-          <rect x="465" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="165" font-size="11" font-weight="600" fill="#854d0e">Bus de Integración de Alta Velocidad (MPI / gRPC)</text>
-          <text x="475" y="178" font-size="10" fill="#a16207">Canales seguros con cifrado de estado cuántico intermedio</text>
-          <rect x="465" y="198" width="355" height="48" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="218" font-size="11" font-weight="600" fill="#854d0e">Módulo de Mitigación de Ruido y Compilación VQE</text>
-          <text x="475" y="233" font-size="10" fill="#a16207">Zero-Noise Extrapolation (ZNE) y descomposición de Pauli</text>
+          <!-- LÍNEA DE FLUJO DE GOBIERNO A EJECUCIÓN -->
+          <line x1="460" y1="150" x2="460" y2="168" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
 
-          <line x1="410" y1="185" x2="445" y2="185" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
+          <!-- NIVEL 2: ECOSISTEMA EMPRESARIAL CLÁSICO AS-IS (ESTRUCTURA E5 BASE) -->
+          <rect x="20" y="172" width="415" height="150" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+          <rect x="30" y="180" width="260" height="20" rx="3" fill="#475569" />
+          <text x="38" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 2: ECOSISTEMA CLÁSICO EXISTENTE (As-Is)</text>
 
-          <rect x="25" y="290" width="810" height="75" rx="5" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.5" />
-          <text x="45" y="315" font-size="12" font-weight="700" fill="#111827">INFRAESTRUCTURA CUÁNTICA DE ALTO RENDIMIENTO (QPU NISQ)</text>
-          <rect x="45" y="327" width="385" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="55" y="347" font-size="11" fill="#374151">Evaluador de Circuitos Cuánticos de Estado Fundamental</text>
-          <rect x="450" y="327" width="370" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="460" y="347" font-size="11" fill="#374151">Conexión dedicada QPU Superconductora / Iones Atrapados</text>
+          <rect x="30" y="206" width="395" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="224" font-size="10.5" font-weight="600" fill="#1e293b">Clúster HPC Corporativo: Gestor Slurm & MPI (As-Is)</text>
+          <text x="40" y="240" font-size="9.5" fill="#64748b">Jobs paralelos de memoria compartida · Orquestación masiva distribuida</text>
 
-          <line x1="642" y1="265" x2="642" y2="285" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
-        </svg>
-      `;
+          <rect x="30" y="260" width="395" height="52" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="278" font-size="10.5" font-weight="600" fill="#1e293b">Optimizador Clásico de Gradientes Químicos</text>
+          <text x="40" y="296" font-size="9.5" fill="#64748b">Algoritmos COBYLA / SPSA / L-BFGS-B ejecutados en nodos de alta frecuencia</text>
+
+          <!-- CONEXIÓN CLÁSICO A CONECTOR HÍBRIDO -->
+          <line x1="435" y1="247" x2="465" y2="247" stroke="#ca8a04" stroke-width="2" marker-end="url(#arrow-gold)" />
+
+          <!-- NIVEL 3: CAPA DE INTEGRACIÓN HÍBRIDA & DESACOPLAMIENTO PDAEH -->
+          <rect x="475" y="172" width="425" height="150" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
+          <rect x="485" y="180" width="320" height="20" rx="3" fill="#ca8a04" />
+          <text x="493" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 3: INTEGRACIÓN HÍBRIDA (Fases 3 y 4 · DCO / DEA)</text>
+
+          <rect x="485" y="206" width="405" height="48" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="224" font-size="10.5" font-weight="700" fill="#854d0e">Bus de Integración Híbrida HPC-QPU (DEA / DCO)</text>
+          <text x="495" y="240" font-size="9.5" fill="#a16207">Canales de latencia sub-microsegundo (CUDA-Q / MPI) con cifrado poscuántico ML-KEM</text>
+
+          <rect x="485" y="260" width="405" height="52" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="278" font-size="10.5" font-weight="700" fill="#854d0e">Compilador VQE y Mitigador de Ruido Activo</text>
+          <text x="495" y="296" font-size="9.5" fill="#a16207">Mapeo fermiónico Bravyi-Kitaev · Zero-Noise Extrapolation (ZNE / Mitiq)</text>
+
+          <!-- NIVEL TRANSVERSAL INTERMEDIO: ATRIBUTOS DE CALIDAD (E6), PATRONES (E7/E8), COMPONENTES (E9) Y REUTILIZACIÓN (E10) -->
+          <rect x="20" y="332" width="880" height="90" rx="5" fill="#f0f7ff" stroke="#2563eb" stroke-width="1.5" />
+          <rect x="30" y="340" width="360" height="20" rx="3" fill="#2563eb" />
+          <text x="38" y="354" font-size="10.5" font-weight="700" fill="#ffffff">CAPA TRANSVERSAL: DIMENSIÓN DE CALIDAD & SISTEMATIZACIÓN</text>
+
+          <!-- Caja E6, E7, E8 -->
+          <rect x="30" y="366" width="415" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="40" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Dimensión DCD (Fase 3 & Fase 5): Atributos y Patrones</text>
+          <text x="40" y="400" font-size="9.5" fill="#1e40af">E6: MAC (Fidelidad ZNE, Latencia RDMA, PQC) · E7/E8: CEP (Co-Procesador, Pipe & Filter)</text>
+
+          <!-- Caja E9, E10 -->
+          <rect x="455" y="366" width="435" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="465" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Fase 4: Catálogo y Reutilización (DEA / DCO / BER)</text>
+          <text x="465" y="400" font-size="9.5" fill="#1e40af">E9: Componentes estructurales de simulación molecular · E10: Microservicios en BER corporativa</text>
+
+          <!-- CONEXIÓN CONECTOR A INFRAESTRUCTURA CUÁNTICA -->
+          <line x1="685" y1="322" x2="685" y2="430" stroke="#18796e" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow)" />
+
+          <!-- NIVEL 4: CAPA DE ACELERACIÓN CUÁNTICA NISQ (FÍSICA & SIMULADA) -->
+          <rect x="20" y="432" width="880" height="98" rx="5" fill="#f9fafb" stroke="#374151" stroke-width="1.5" />
+          <rect x="30" y="440" width="290" height="20" rx="3" fill="#374151" />
+          <text x="38" y="454" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 4: ACELERACIÓN CUÁNTICA (Era NISQ · E5 / E9)</text>
+
+          <rect x="30" y="466" width="415" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="40" y="485" font-size="10.5" font-weight="700" fill="#111827">1. Simulador Cuántico GPU Masivo (CUDA-Q)</text>
+          <text x="40" y="503" font-size="9.5" fill="#4b5563">Validación de circuitos hamiltonianos de hasta 40 cúbits con emulación sin pérdidas</text>
+
+          <rect x="455" y="466" width="435" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="465" y="485" font-size="10.5" font-weight="700" fill="#111827">2. QPU Física Dedicada (Superconductora / Trampas de Iones)</text>
+          <text x="465" y="503" font-size="9.5" fill="#4b5563">Hardware cuántico comercial (IBM Quantum / Quantinuum / Google Quantum AI)</text>
+
+          <!-- NIVEL INFERIOR: GOBERNANZA TRANSVERSAL Y COMPUERTAS OGA (F1 a F5) -->
+          <rect x="20" y="540" width="880" height="65" rx="5" fill="#fcf8f2" stroke="#854d0e" stroke-width="1.2" />
+          <text x="35" y="560" font-size="10.5" font-weight="700" fill="#854d0e">GOBERNANZA TRANSVERSAL DE LA ARQUITECTURA (Órgano de Gobierno Arquitectónico - OGA)</text>
+          <text x="35" y="579" font-size="9.8" fill="#713f12">Compuertas Colegiadas Vinculantes: OGA-1 (Aprobación Estratégica) -> OGA-2 (Aval Conceptual) -> OGA-3 (Aval Estructural) -> OGA-4 (Línea Base Materializada) -> OGA-5 (Certificación y Cierre)</text>
+          <text x="35" y="595" font-size="9" fill="#a16207">Trazabilidad Total: Matriz MTA (Fase 1) -> Modelo MAQ (Fase 3) -> Catálogo CEP y Biblioteca BER (Fase 5) garantizan evolución normada.</text>
+        </svg>`;
 
     } else {
       scaleLabel = "Pequeña y Mediana Empresa (PYME)";
@@ -919,47 +1039,107 @@ function setupAgentDemo() {
 
       immediateAction = `Formalizar el <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a> definiendo el porcentaje meta de reducción de costo por kilómetro y el tiempo máximo de espera admisible en la cola de inferencia para someterlo a aprobación en la Compuerta OGA-1.`;
 
-      diagramSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+      diagramSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="auto" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;font-family:system-ui,-apple-system,sans-serif;margin:1rem 0;box-shadow:0 1px 3px rgba(0,0,0,0.03);">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 8 5 L 0 9 z" fill="#18796e" />
             </marker>
+            <marker id="arrow-gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#ca8a04" />
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb" />
+            </marker>
           </defs>
-          <rect x="25" y="20" width="810" height="60" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
-          <text x="45" y="45" font-size="13" font-weight="700" fill="#123b43">CAPA 1: GOBERNANZA OPERATIVA Y COMITÉ TÉCNICO (Fases 1 y 2 · OGA-1 / OGA-2)</text>
-          <text x="45" y="64" font-size="11" fill="#5c7074">Estructura equilibrada: AEP (CTO) + ASP (Dev Lead) + OGA Simplificado · Artefactos: DOE (Ahorro/Ventanas) y DCA</text>
+
+          <!-- ENCABEZADO SUPERIOR DEL DIAGRAMA -->
+          <rect x="20" y="15" width="880" height="34" rx="4" fill="#0f2e2b" />
+          <text x="35" y="37" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.05em">ARQUITECTURA EMPRESARIAL HÍBRIDA PRELIMINAR (PDAEH) · PEQUEÑA Y MEDIANA EMPRESA (PYME): OPTIMIZACIÓN COMBINATORIA Y RUTEO DINÁMICO</text>
+
+          <!-- NIVEL 1: GOBERNANZA, ESTRATEGIA Y CONCEPTUALIZACIÓN (FASE 1 Y FASE 2) -->
+          <rect x="20" y="58" width="880" height="92" rx="5" fill="#f2f7f4" stroke="#18796e" stroke-width="1.5" />
+          <rect x="30" y="66" width="310" height="22" rx="3" fill="#18796e" />
+          <text x="38" y="81" font-size="11" font-weight="700" fill="#ffffff">CAPA 1: GOBIERNO, ESTRATEGIA & CONCEPTUALIZACIÓN</text>
+          <text x="350" y="81" font-size="10.5" font-weight="600" fill="#123b43">Roles: Estructura Equilibrada: AEP (CTO) + ASP (Dev Lead) + AIP/ASecP (DevOps) · OGA Semiformal</text>
           
-          <rect x="25" y="105" width="385" height="155" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
-          <text x="40" y="130" font-size="12" font-weight="700" fill="#0f172a">ECOSISTEMA EMPRESARIAL CLÁSICO (As-Is)</text>
-          <rect x="40" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="165" font-size="11" font-weight="600" fill="#334155">Microservicios de Logística / Ruteo y APIs</text>
-          <text x="50" y="178" font-size="10" fill="#64748b">Ingestión de pedidos, clientes y gestión de flota vehicular</text>
-          <rect x="40" y="198" width="355" height="45" rx="4" fill="#ffffff" stroke="#cbd5e1" />
-          <text x="50" y="218" font-size="11" font-weight="600" fill="#334155">Solver Heurístico Clásico (Pre-Clustering)</text>
-          <text x="50" y="232" font-size="10" fill="#64748b">Segmentación geográfica y resolución de casos rutinarios</text>
+          <!-- Elementos E1, E2, E3, E4 -->
+          <rect x="30" y="93" width="415" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 1: Elementos E1 (Objetivo) & E2 (Contexto)</text>
+          <text x="40" y="126" font-size="9.5" fill="#475569">DOE-v1 (Reducción Km/Combustible) | DCA-v1 (SLA Ventanas y Presupuesto Nube)</text>
+          
+          <rect x="455" y="93" width="435" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="465" y="110" font-size="10.5" font-weight="700" fill="#0f172a">Fase 2: Elementos E3 (Abstracción) & E4 (Glosario)</text>
+          <text x="465" y="126" font-size="9.5" fill="#475569">DPV-v1 (Flujo Datos TMS/QUBO) | DNA-v1 (Partición) | GDA-v1 (Glosario)</text>
 
-          <rect x="450" y="105" width="385" height="155" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
-          <text x="465" y="130" font-size="12" font-weight="700" fill="#713f12">CONECTOR HÍBRIDO PDAEH (Fases 3 y 4 · DCO / DEA)</text>
-          <rect x="465" y="145" width="355" height="42" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="165" font-size="11" font-weight="600" fill="#854d0e">Orquestador de Bucle Cerrado y Fallback Clásico</text>
-          <text x="475" y="178" font-size="10" fill="#a16207">Conmutador automático a solver clásico si QPU se satura</text>
-          <rect x="465" y="198" width="355" height="45" rx="4" fill="#ffffff" stroke="#fde047" />
-          <text x="475" y="218" font-size="11" font-weight="600" fill="#854d0e">Traductor Matemático QUBO / Ising</text>
-          <text x="475" y="232" font-size="10" fill="#a16207">Transformación de restricciones de carga y ruta en grafo binario</text>
+          <!-- LÍNEA DE FLUJO DE GOBIERNO A EJECUCIÓN -->
+          <line x1="460" y1="150" x2="460" y2="168" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
 
-          <line x1="410" y1="180" x2="445" y2="180" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
+          <!-- NIVEL 2: ECOSISTEMA EMPRESARIAL CLÁSICO AS-IS (ESTRUCTURA E5 BASE) -->
+          <rect x="20" y="172" width="415" height="150" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+          <rect x="30" y="180" width="260" height="20" rx="3" fill="#475569" />
+          <text x="38" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 2: ECOSISTEMA CLÁSICO EXISTENTE (As-Is)</text>
 
-          <rect x="25" y="285" width="810" height="75" rx="5" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.5" />
-          <text x="45" y="310" font-size="12" font-weight="700" fill="#111827">CAPA DE OPTIMIZACIÓN CUÁNTICA (Era NISQ)</text>
-          <rect x="45" y="322" width="375" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="55" y="342" font-size="11" fill="#374151">QAOA en Simulador Cuántico / QPU basada en Compuertas</text>
-          <rect x="445" y="322" width="375" height="30" rx="4" fill="#ffffff" stroke="#9ca3af" />
-          <text x="455" y="342" font-size="11" fill="#374151">Quantum Annealing / Recocido Cuántico en la Nube</text>
+          <rect x="30" y="206" width="395" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="224" font-size="10.5" font-weight="600" fill="#1e293b">Ecosistema Clásico: Microservicios TMS & Ruteo (As-Is)</text>
+          <text x="40" y="240" font-size="9.5" fill="#64748b">Despliegue en Kubernetes (EKS) · Ingesta de pedidos, flotas y clientes en PostgreSQL</text>
 
-          <line x1="642" y1="260" x2="642" y2="280" stroke="#18796e" stroke-width="2" marker-end="url(#arrow)" />
-        </svg>
-      `;
+          <rect x="30" y="260" width="395" height="52" rx="4" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="40" y="278" font-size="10.5" font-weight="600" fill="#1e293b">Solver Heurístico Clásico (Pre-Clustering & Rutas Base)</text>
+          <text x="40" y="296" font-size="9.5" fill="#64748b">Google OR-Tools / Heurística Tabu Search para filtrado topológico inicial</text>
+
+          <!-- CONEXIÓN CLÁSICO A CONECTOR HÍBRIDO -->
+          <line x1="435" y1="247" x2="465" y2="247" stroke="#ca8a04" stroke-width="2" marker-end="url(#arrow-gold)" />
+
+          <!-- NIVEL 3: CAPA DE INTEGRACIÓN HÍBRIDA & DESACOPLAMIENTO PDAEH -->
+          <rect x="475" y="172" width="425" height="150" rx="5" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" />
+          <rect x="485" y="180" width="320" height="20" rx="3" fill="#ca8a04" />
+          <text x="493" y="194" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 3: INTEGRACIÓN HÍBRIDA (Fases 3 y 4 · DCO / DEA)</text>
+
+          <rect x="485" y="206" width="405" height="48" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="224" font-size="10.5" font-weight="700" fill="#854d0e">Orquestador de Bucle Cerrado & Fallback (DEA / DCO)</text>
+          <text x="495" y="240" font-size="9.5" fill="#a16207">Conector desacoplado Kafka/RabbitMQ con conmutador automático a solver clásico si la QPU satura</text>
+
+          <rect x="485" y="260" width="405" height="52" rx="4" fill="#ffffff" stroke="#fde047" />
+          <text x="495" y="278" font-size="10.5" font-weight="700" fill="#854d0e">Traductor Matemático QUBO / Hamiltoniano Ising</text>
+          <text x="495" y="296" font-size="9.5" fill="#a16207">Transformación de restricciones de ventanas horarias y carga dinámica a variables binarias</text>
+
+          <!-- NIVEL TRANSVERSAL INTERMEDIO: ATRIBUTOS DE CALIDAD (E6), PATRONES (E7/E8), COMPONENTES (E9) Y REUTILIZACIÓN (E10) -->
+          <rect x="20" y="332" width="880" height="90" rx="5" fill="#f0f7ff" stroke="#2563eb" stroke-width="1.5" />
+          <rect x="30" y="340" width="360" height="20" rx="3" fill="#2563eb" />
+          <text x="38" y="354" font-size="10.5" font-weight="700" fill="#ffffff">CAPA TRANSVERSAL: DIMENSIÓN DE CALIDAD & SISTEMATIZACIÓN</text>
+
+          <!-- Caja E6, E7, E8 -->
+          <rect x="30" y="366" width="415" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="40" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Dimensión DCD (Fase 3 & Fase 5): Atributos y Patrones</text>
+          <text x="40" y="400" font-size="9.5" fill="#1e40af">E6: MAC (Ratio Aproximación, Resiliencia Fallback, Mantenibilidad) · E7/E8: CEP (Mediador, Circuit Breaker)</text>
+
+          <!-- Caja E9, E10 -->
+          <rect x="455" y="366" width="435" height="48" rx="4" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="465" y="383" font-size="10.5" font-weight="700" fill="#1e3a8a">Fase 4: Catálogo y Reutilización (DEA / DCO / BER)</text>
+          <text x="465" y="400" font-size="9.5" fill="#1e40af">E9: Módulos de orquestación y contratos JSON/Protobuf · E10: Conectores multi-backend en BER</text>
+
+          <!-- CONEXIÓN CONECTOR A INFRAESTRUCTURA CUÁNTICA -->
+          <line x1="685" y1="322" x2="685" y2="430" stroke="#18796e" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow)" />
+
+          <!-- NIVEL 4: CAPA DE ACELERACIÓN CUÁNTICA NISQ (FÍSICA & SIMULADA) -->
+          <rect x="20" y="432" width="880" height="98" rx="5" fill="#f9fafb" stroke="#374151" stroke-width="1.5" />
+          <rect x="30" y="440" width="290" height="20" rx="3" fill="#374151" />
+          <text x="38" y="454" font-size="10.5" font-weight="700" fill="#ffffff">CAPA 4: ACELERACIÓN CUÁNTICA (Era NISQ · E5 / E9)</text>
+
+          <rect x="30" y="466" width="415" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="40" y="485" font-size="10.5" font-weight="700" fill="#111827">1. Emulador Clásico de Recocido Cuántico / QAOA</text>
+          <text x="40" y="503" font-size="9.5" fill="#4b5563">Simulación matricial preliminar para verificación de convergencia del grafo QUBO</text>
+
+          <rect x="455" y="466" width="435" height="54" rx="4" fill="#ffffff" stroke="#d1d5db" />
+          <text x="465" y="485" font-size="10.5" font-weight="700" fill="#111827">2. Procesador Cuántico en Nube (Quantum Annealer / Gate-QPU)</text>
+          <text x="465" y="503" font-size="9.5" fill="#4b5563">D-Wave Advantage / AWS Braket · Aceleración de grafos altamente restringidos</text>
+
+          <!-- NIVEL INFERIOR: GOBERNANZA TRANSVERSAL Y COMPUERTAS OGA (F1 a F5) -->
+          <rect x="20" y="540" width="880" height="65" rx="5" fill="#fcf8f2" stroke="#854d0e" stroke-width="1.2" />
+          <text x="35" y="560" font-size="10.5" font-weight="700" fill="#854d0e">GOBERNANZA TRANSVERSAL DE LA ARQUITECTURA (Órgano de Gobierno Arquitectónico - OGA)</text>
+          <text x="35" y="579" font-size="9.8" fill="#713f12">Compuertas de Decisión OGA: OGA-1 (Alineación Operativa) -> OGA-2 (Modelo Conceptual) -> OGA-3 (Atributos de Calidad) -> OGA-4 (Materialización) -> OGA-5 (Catálogos y Cierre)</text>
+          <text x="35" y="595" font-size="9" fill="#a16207">Trazabilidad Total: Matriz MTA (Fase 1) -> Modelo MAQ (Fase 3) -> Catálogo CEP y Biblioteca BER (Fase 5) garantizan evolución normada.</text>
+        </svg>`;
     }
 
     const fullHtml = `
