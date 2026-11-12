@@ -109,12 +109,12 @@ function renderResearch(){
   }
 
   $("#elementsExplained").innerHTML = `<h3>Elementos de la arquitectura de referencia</h3>
-    <p style="margin-bottom:1.5rem;color:var(--ink);line-height:1.7;">A continuación se presenta la caracterización de cada uno de los diez elementos arquitectónicos del proceso PDAEH, mostrando la definición formal consolidada tras el proceso de armonización de la literatura y el estudio exploratorio, junto con su propósito, objetivos, productos generados y criterios de aceptación:</p>
+    <p style="margin-bottom:1.5rem;color:var(--ink);line-height:1.7;">A continuación se presenta la caracterización de cada uno de los diez elementos arquitectónicos del proceso PDAEH, mostrando su propósito y su descripción final consolidada, junto con sus objetivos, productos generados y criterios de aceptación:</p>
     <div class="element-accordion">${ordered.map(code => {
       const e = data.elements.find(x => elementCode(x) === code);
       const meta = fullElementDetails[code] || {};
-      const propositoTesis = esc(cleanNoAcronyms(field(e, ["Propósito", "Propósito del elemento"])));
-      const defArmonizada = meta.defIntegrada ? `<div style="margin-bottom:1.2rem;"><strong style="color:var(--green);">Definición resultante de la armonización:</strong><p style="margin-top:0.3rem;">${esc(cleanNoAcronyms(meta.defIntegrada))}</p></div>` : "";
+      const proposito = esc(cleanNoAcronyms(field(e, ["Propósito", "Propósito del elemento"])));
+      const descripcion = meta.defIntegrada ? `<div style="margin-bottom:1.2rem;"><strong style="color:var(--green);">Descripción:</strong><p style="margin-top:0.3rem;">${esc(cleanNoAcronyms(meta.defIntegrada))}</p></div>` : "";
       const objEsp = field(e, ["Objetivos específicos"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Objetivos específicos del elemento:</strong>${list(cleanNoAcronyms(field(e, ["Objetivos específicos"])), "general", false)}</div>` : "";
       const productos = field(e, ["Productos generados"]) ? `<div style="margin-bottom:1rem;"><strong style="color:var(--green);">Productos generados / Artefactos:</strong><ul class="structured-list">${splitItems(cleanNoAcronyms(field(e, ["Productos generados"]))).map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>` : "";
       
@@ -127,10 +127,10 @@ function renderResearch(){
         <summary><span><b>${code}:</b> ${elementNames[code]}</span></summary>
         <div class="element-summary-body" style="padding-top:1.2rem;">
           <div style="margin-bottom:1.2rem;">
-            <strong style="color:var(--green);">Propósito formal en el proceso (Tesis Doctoral):</strong>
-            <p style="margin-top:0.3rem;">${propositoTesis}</p>
+            <strong style="color:var(--green);">Propósito:</strong>
+            <p style="margin-top:0.3rem;">${proposito}</p>
           </div>
-          ${defArmonizada}
+          ${descripcion}
           ${objEsp}
           ${productos}
           ${criterios}
