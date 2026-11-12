@@ -1,5 +1,6 @@
-// i18n.js - Comprehensive Multilingual Controller for PDAEH Portal and Agent Simulator
-// Provides persistent, instant language switching (ES, EN, FR) without infinite reload loops.
+// i18n.js - Robust Client-Side Dynamic Translation for PDAEH (ES, EN, FR)
+// Integrates seamless Google Translate engine with custom persistent topbar flags.
+// Completely eliminates reload loops by using google's translation API directly.
 
 (function() {
   const supportedLangs = [
@@ -16,18 +17,7 @@
     localStorage.setItem('pdaeh_user_lang', lang);
   }
 
-  window.PDAEH_I18N = {
-    getLang: getSavedLang,
-    setLang: function(lang) {
-      setSavedLang(lang);
-      updateActiveBtn(lang);
-      window.dispatchEvent(new CustomEvent('pdaeh:languageChanged', { detail: { lang: lang } }));
-      applyStaticTranslations(lang);
-    }
-  };
-
-  window.PDAEH_SET_LANG = window.PDAEH_I18N.setLang;
-
+  // Update active styling on the flag buttons
   function updateActiveBtn(activeCode) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
       const code = btn.getAttribute('data-lang');
@@ -45,120 +35,104 @@
     });
   }
 
-  // Dictionary of UI elements to translate directly in DOM without external iframes
-  const dict = {
-    es: {
-      "Entradas del caso organizacional (Variables As-Is)": "Entradas del caso organizacional (Variables As-Is)",
-      "Organizational case inputs (As-Is variables)": "Entradas del caso organizacional (Variables As-Is)",
-      "Tamaño de la empresa:": "Tamaño de la empresa:",
-      "Company size:": "Tamaño de la empresa:",
-      "Taille de l'entreprise :": "Tamaño de la empresa:",
-      "Descripción detallada del caso de uso / Problema de negocio:": "Descripción detallada del caso de uso / Problema de negocio:",
-      "Detailed description of the use case / business problem:": "Descripción detallada del caso de uso / Problema de negocio:",
-      "Arquitectura clásica actual detallada (Stack As-Is e infraestructura):": "Arquitectura clásica actual detallada (Stack As-Is e infraestructura):",
-      "Detailed current classical architecture (As-Is Stack and infrastructure):": "Arquitectura clásica actual detallada (Stack As-Is e infraestructura):",
-      "Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.": "Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.",
-      "Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.": "Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.",
-      "Ejecutar diagnóstico": "Ejecutar diagnóstico",
-      "Run diagnosis": "Ejecutar diagnóstico",
-      "Exécuter le diagnostic": "Ejecutar diagnóstico",
-      "Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)": "Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)",
-      "Generación incremental en tiempo real": "Generación incremental en tiempo real",
-      "Salida estructurada del Agente Consultor PDAEH": "Salida estructurada del Agente Consultor PDAEH",
-      "En espera de ejecución": "En espera de ejecución",
-      "Buscar": "Buscar"
-    },
-    en: {
-      "Entradas del caso organizacional (Variables As-Is)": "Organizational case inputs (As-Is variables)",
-      "Organizational case inputs (As-Is variables)": "Organizational case inputs (As-Is variables)",
-      "Tamaño de la empresa:": "Company size:",
-      "Company size:": "Company size:",
-      "Taille de l'entreprise :": "Company size:",
-      "Descripción detallada del caso de uso / Problema de negocio:": "Detailed description of the use case / business problem:",
-      "Detailed description of the use case / business problem:": "Detailed description of the use case / business problem:",
-      "Arquitectura clásica actual detallada (Stack As-Is e infraestructura):": "Detailed current classical architecture (As-Is Stack and infrastructure):",
-      "Detailed current classical architecture (As-Is Stack and infrastructure):": "Detailed current classical architecture (As-Is Stack and infrastructure):",
-      "Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.": "Allows you to enter extensive descriptions of the business problem to assess quantum relevance.",
-      "Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.": "Specify the current technology environment, cloud, services, or existing on-premise schemes.",
-      "Ejecutar diagnóstico": "Run diagnosis",
-      "Run diagnosis": "Run diagnosis",
-      "Exécuter le diagnostic": "Run diagnosis",
-      "Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)": "Governed by the formal PDAEH process specification (v1.0.0-PROD)",
-      "Generación incremental en tiempo real": "Incremental real-time generation",
-      "Salida estructurada del Agente Consultor PDAEH": "Structured output of the PDAEH Consultant Agent",
-      "En espera de ejecución": "Awaiting execution",
-      "Buscar": "Search"
-    },
-    fr: {
-      "Entradas del caso organizacional (Variables As-Is)": "Entrées du cas organisationnel (variables As-Is)",
-      "Organizational case inputs (As-Is variables)": "Entrées du cas organisationnel (variables As-Is)",
-      "Tamaño de la empresa:": "Taille de l'entreprise :",
-      "Company size:": "Taille de l'entreprise :",
-      "Taille de l'entreprise :": "Taille de l'entreprise :",
-      "Descripción detallada del caso de uso / Problema de negocio:": "Description détaillée du cas d'usage / problème métier :",
-      "Detailed description of the use case / business problem:": "Description détaillée du cas d'usage / problème métier :",
-      "Arquitectura clásica actual detallada (Stack As-Is e infraestructura):": "Architecture classique actuelle détaillée (Stack As-Is et infrastructure) :",
-      "Detailed current classical architecture (As-Is Stack and infrastructure):": "Architecture classique actuelle détaillée (Stack As-Is et infrastructure) :",
-      "Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.": "Permet de saisir des descriptions détaillées pour évaluer la pertinence quantique.",
-      "Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.": "Spécifiez l'environnement technologique actuel, le cloud ou les services sur site existants.",
-      "Ejecutar diagnóstico": "Exécuter le diagnostic",
-      "Run diagnosis": "Exécuter le diagnostic",
-      "Exécuter le diagnostic": "Exécuter le diagnostic",
-      "Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)": "Régie par la spécification formelle du processus PDAEH (v1.0.0-PROD)",
-      "Generación incremental en tiempo real": "Génération incrémentale en temps réel",
-      "Salida estructurada del Agente Consultor PDAEH": "Sortie structurée de l'agent consultant PDAEH",
-      "En espera de ejecución": "En attente d'exécution",
-      "Buscar": "Rechercher"
+  // Core translation execution using google's select combo
+  function doTranslate(targetLang) {
+    // 1. Notify listeners (such as the PDAEH Agent Simulator in app.js)
+    window.dispatchEvent(new CustomEvent('pdaeh:languageChanged', { detail: { lang: targetLang } }));
+
+    // 2. Set google translation cookies for persistence across pages
+    const domain = location.hostname;
+    if (targetLang === 'es') {
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain;
+    } else {
+      document.cookie = "googtrans=/es/" + targetLang + "; path=/;";
+      document.cookie = "googtrans=/es/" + targetLang + "; path=/; domain=" + domain;
     }
-  };
 
-  function applyStaticTranslations(lang) {
-    const d = dict[lang];
-    if (!d) return;
-
-    document.querySelectorAll('label, h3, button span, small').forEach(el => {
-      const txt = el.textContent.trim();
-      for (const [k, v] of Object.entries(d)) {
-        if (txt === k || (txt.length > 5 && txt.includes(k))) {
-          el.textContent = v;
-          break;
+    // 3. Find Google Translate element combo box
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+      if (combo.value !== targetLang) {
+        combo.value = targetLang;
+        combo.dispatchEvent(new Event('change'));
+      }
+    } else {
+      // If combo not yet loaded, retry shortly
+      setTimeout(() => {
+        const retryCombo = document.querySelector('.goog-te-combo');
+        if (retryCombo && retryCombo.value !== targetLang) {
+          retryCombo.value = targetLang;
+          retryCombo.dispatchEvent(new Event('change'));
         }
-      }
-    });
-
-    // Also update options of #demoOrgSize
-    const selectSize = document.getElementById('demoOrgSize');
-    if (selectSize) {
-      const optMap = {
-        es: [
-          "Pequeña y mediana empresa (PYME) · Caso FinNova (JIISIC 2026)",
-          "Microempresa o startup (< 20 colaboradores)",
-          "Gran empresa o corporación (> 200 colaboradores)",
-          "Caso Inadecuado / Fuera de alcance"
-        ],
-        en: [
-          "Small and medium-sized enterprises (SMEs) · FinNova case (JIISIC 2026)",
-          "Micro-enterprise or startup (< 20 employees)",
-          "Large enterprise or corporation (> 200 employees)",
-          "Inappropriate case / Outside quantum scope"
-        ],
-        fr: [
-          "Petites et moyennes entreprises (PME) · Cas FinNova (JIISIC 2026)",
-          "Micro-entreprise ou startup (< 20 employés)",
-          "Grande entreprise ou corporation (> 200 employés)",
-          "Cas inapproprié / Hors de portée quantique"
-        ]
-      };
-      const texts = optMap[lang] || optMap.es;
-      for (let i = 0; i < selectSize.options.length; i++) {
-        if (texts[i]) selectSize.options[i].text = texts[i];
-      }
+      }, 600);
     }
   }
 
+  window.PDAEH_I18N = {
+    getLang: getSavedLang,
+    setLang: function(lang) {
+      setSavedLang(lang);
+      updateActiveBtn(lang);
+      doTranslate(lang);
+    }
+  };
+
+  // Google Translate callback initialization
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'es,en,fr',
+      autoDisplay: false,
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+
+    const saved = getSavedLang();
+    if (saved && saved !== 'es') {
+      // Trigger translation once widget is mounted
+      let attempts = 0;
+      const checkInterval = setInterval(() => {
+        attempts++;
+        const combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+          clearInterval(checkInterval);
+          combo.value = saved;
+          combo.dispatchEvent(new Event('change'));
+          window.dispatchEvent(new CustomEvent('pdaeh:languageChanged', { detail: { lang: saved } }));
+        }
+        if (attempts > 20) clearInterval(checkInterval);
+      }, 200);
+    }
+  };
+
+  function loadGoogleTranslate() {
+    if (document.getElementById('google-translate-script')) return;
+    const s = document.createElement('script');
+    s.id = 'google-translate-script';
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+
   function renderLanguageSwitcher() {
+    if (!document.getElementById('google_translate_element')) {
+      const gtDiv = document.createElement('div');
+      gtDiv.id = 'google_translate_element';
+      gtDiv.style.display = 'none';
+      document.body.appendChild(gtDiv);
+    }
+
     const style = document.createElement('style');
     style.innerHTML = `
+      .goog-te-banner-frame.skiptranslate,
+      .goog-te-banner-frame,
+      #goog-gt-tt,
+      .goog-te-balloon-frame { display: none !important; }
+      body { top: 0px !important; }
+      .goog-tooltip { display: none !important; }
+      .goog-tooltip:hover { display: none !important; }
+      .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+      
       .lang-switcher-container {
         display: inline-flex;
         align-items: center;
@@ -223,12 +197,16 @@
     }
 
     updateActiveBtn(currentSaved);
-    applyStaticTranslations(currentSaved);
   }
 
+  // Load widget and UI
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderLanguageSwitcher);
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLanguageSwitcher();
+      loadGoogleTranslate();
+    });
   } else {
     renderLanguageSwitcher();
+    loadGoogleTranslate();
   }
 })();
