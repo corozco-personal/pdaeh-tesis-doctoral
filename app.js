@@ -1440,6 +1440,10 @@ function setupAgentDemo() {
     }
 
     diagramSvg = buildDetailedAgentArchitectureDiagram({ lang, size, useCase, stack });
+    architecturalSynthesis = architecturalSynthesis.replace(
+      /<div style="margin:1\.4rem 0(?:;[^"]*)?">/g,
+      '<div class="advisor-section-card">'
+    );
     const diagramBlock = `
         <div style="margin:1.6rem 0;background:#ffffff;border:1px solid var(--line);padding:1.4rem;border-radius:6px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem;">
@@ -1493,7 +1497,7 @@ function setupAgentDemo() {
         </div>
 
         <!-- Hoja de ruta secuencial con compuertas OGA -->
-        <div style="margin:1.4rem 0;">
+        <div class="advisor-section-card">
           <h5 style="margin:0 0 0.6rem;font-size:1rem;color:var(--navy);font-weight:700;">Hoja de ruta metodológica y compuertas del Órgano de Gobierno (OGA)</h5>
           ${roadmapNarrative}
         </div>

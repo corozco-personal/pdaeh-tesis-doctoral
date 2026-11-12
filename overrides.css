@@ -405,3 +405,23 @@ p,
   width: 100% !important;
   box-sizing: border-box !important;
 }
+
+/* Consistent visual hierarchy for every numbered Advisor section. */
+.advisor-section-card {
+  margin: 1.4rem 0;
+  padding: 1.2rem 1.3rem;
+  background: #f9fbfa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.advisor-section-card > h5 {
+  margin: 0 0 .65rem !important;
+  color: var(--navy) !important;
+}
+
+.advisor-section-card > ul,
+.advisor-section-card > ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
