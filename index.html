@@ -480,15 +480,41 @@
     <h2>Simulador interactivo del agente consultor PDAEH Advisor</h2>
     <div style="line-height:1.75;font-size:1.02rem;color:var(--ink);">
       <p style="margin-bottom:0.9rem;">
-        El proceso metodológico cuenta con un <strong>agente consultor complementario e inteligente (PDAEH Advisor)</strong>, diseñado para asistir a las organizaciones en el diagnóstico, la estructuración y la adopción progresiva de arquitecturas híbridas clásico-cuánticas. <strong>Este agente extiende el alcance de la propuesta doctoral original y no hace parte de la evaluación del modelo arquitectónico por los expertos</strong>, pero sirve para ofrecer una visión general y permitir al evaluador o usuario observar la propuesta metodológica en ejecución dentro de un entorno controlado, práctico y reproducible.
+        El proceso metodológico cuenta con un <strong>agente consultor complementario e inteligente (PDAEH Advisor)</strong>, diseñado para asistir a las organizaciones en el diagnóstico, la estructuración y la adopción progresiva de arquitecturas híbridas clásico-cuánticas. <strong>Este agente extiende el alcance de la propuesta original y no hace parte de la evaluación del modelo arquitectónico</strong>, pero sirve para dar una visión general a un usuario o evaluador y permitirle ver la propuesta metodológica en ejecución dentro de un entorno controlado, práctico y reproducible.
       </p>
       <p style="margin-bottom:0.9rem;">
-        El agente toma como <strong>base de conocimiento formal</strong> las especificaciones anti-alucinación de la tesis (<code>PDAEH_SPECIFICATION_V1.json</code> y <code>knowledge_base_pdaeh.json</code>), las cuales codifican axiomáticamente las 5 fases consecutivas (F1–F5), los 10 elementos armonizados (E1–E10), los 15 artefactos estandarizados, las reglas deterministas de asignación de roles (E6) y las compuertas obligatorias del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
+        El agente toma como <strong>base del conocimiento</strong> todo el conocimiento obtenido durante el desarrollo de la tesis doctoral y los artefactos resultantes, integrando axiomáticamente las 5 fases del proceso (F1–F5), los 10 elementos estructurales armonizados (E1–E10), las 15 plantillas normalizadas de artefactos, la distribución determinista de roles organizacionales (E6) y las compuertas de control del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
       </p>
-      <p style="margin-bottom:0;">
-        <strong>Entradas requeridas:</strong> (1) <em>Escala de la organización</em> (Startup, PYME o Gran Empresa), (2) <em>Descripción del caso de uso</em> (problema funcional, volumen de datos o familias como QAOA, VQE, QML o PQC), y (3) <em>Arquitectura clásica actual As-Is</em> (stack tecnológico, infraestructura cloud u on-premise).<br>
-        <strong>Salida esperada:</strong> Evaluación de idoneidad y viabilidad algorítmica bajo la era NISQ, matriz RACI determinista adaptada al tamaño corporativo, hoja de ruta cronológica de adopción fase por fase con artefactos requeridos y puntos de control OGA, y la directriz sobre el siguiente paso inmediato de redacción técnica.
-      </p>
+      
+      <div style="margin:1rem 0;background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:1.2rem 1.5rem;">
+        <h4 style="margin:0 0 0.5rem;font-size:1rem;color:var(--navy);font-weight:700;">Variables de interacción del agente</h4>
+        <ul style="margin:0;padding-left:1.3rem;line-height:1.7;">
+          <li style="margin-bottom:0.4rem;">
+            <strong>Entradas requeridas:</strong>
+            <ul style="margin:0.2rem 0 0.4rem;padding-left:1.2rem;">
+              <li><strong>Tamaño de la organización:</strong> Selección del tipo o escala empresarial (Microempresa o Startup, Pequeña y Mediana Empresa, o Gran Empresa).</li>
+              <li><strong>Descripción del problema de negocio:</strong> Naturaleza del reto computacional, objetivos funcionales y características operativas del caso.</li>
+              <li><strong>Arquitectura clásica actual (Stack As-Is):</strong> Infraestructura tecnológica existente, servicios de nube, bases de datos o esquemas de despliegue sobre los cuales se integrará el componente cuántico.</li>
+            </ul>
+          </li>
+          <li style="margin-top:0.6rem;">
+            <strong>Salida esperada:</strong>
+            <ul style="margin:0.2rem 0 0;padding-left:1.2rem;">
+              <li><strong>Diagnóstico de pertinencia:</strong> Evaluación sobre la idoneidad algorítmica para determinar si el problema califica para una solución híbrida cuántico-clásica o debe permanecer clásico.</li>
+              <li><strong>Asignación adaptada de roles:</strong> Mapeo determinista de responsabilidades (E6) adaptado al tamaño de la organización.</li>
+              <li><strong>Hoja de ruta secuencial:</strong> Ruta metodológica fase por fase especificando los artefactos a generar y las compuertas de decisión OGA correspondientes.</li>
+              <li><strong>Directriz de acción inmediata:</strong> Orientación concreta sobre el primer artefacto a formalizar.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div style="background:#fefbf3;border-left:4px solid #d4a017;padding:1rem 1.3rem;border-radius:4px;margin-top:1.2rem;">
+        <h4 style="margin:0 0 0.35rem;font-size:0.95rem;color:#7f5a00;font-weight:700;">Instrucciones para la ejecución del simulador</h4>
+        <p style="margin:0;font-size:0.95rem;line-height:1.65;color:var(--ink);">
+          La descripción de cada uno de los campos debe ser <strong>lo más detallada posible</strong> para que el agente sea capaz de capturar el contexto real del problema que se busca abordar. Este ejercicio implica conocer claramente las restricciones del dominio de negocio, las dependencias de datos y la capacidad técnica actual de la organización. Si se proporcionan descripciones parciales o ambiguas, las sugerencias generadas pueden ser limitadas, genéricas o sesgadas.
+        </p>
+      </div>
     </div>
   </header>
 
@@ -499,12 +525,12 @@
       
       <div style="display:grid;grid-template-columns:1fr;gap:1.4rem;">
         <div>
-          <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño y escala de la empresa:</label>
+          <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño de la empresa:</label>
           <select id="demoOrgSize" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;">
-            <option value="pyme">PYME (20 - 200 empleados) · Empresa de Logística, Cadena de Suministro y Ruteo Dinámico</option>
-            <option value="startup">Startup (&lt;20 empleados) · Fintech de Análisis de Riesgo Crediticio e Inversiones</option>
-            <option value="corporacion">Gran Empresa (&gt;200 empleados) · Sector Químico, Farmacéutico o Energía</option>
-            <option value="inadecuado">Caso Inadecuado / Fuera de alcance · Sitio Web Institucional, Carrito de Compras y CRUD Transaccional</option>
+            <option value="pyme">Pequeña y mediana empresa (PYME)</option>
+            <option value="startup">Microempresa o startup</option>
+            <option value="corporacion">Gran empresa o corporación</option>
+            <option value="inadecuado">Caso Inadecuado / Fuera de alcance</option>
           </select>
         </div>
 
