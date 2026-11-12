@@ -478,29 +478,42 @@ function setupAgentDemo() {
 
     if (size === "inadecuado") {
       const fullHtml = `
-        <div style="background:#fff5f5;border:1px solid #feb2b2;padding:1.4rem;border-radius:4px;color:#742a2a;">
-          <h4 style="margin:0 0 0.6rem;font-size:1.2rem;color:#9b2c2c;">Dictamen de idoneidad cuántica (Regla de Realismo NISQ)</h4>
-          <p style="margin:0 0 0.8rem;line-height:1.7;">
-            <strong>Advertencia categórica:</strong> El caso planteado (<em>${useCase}</em>) con el stack clásico descrito (<em>${stack}</em>) corresponde a un problema transaccional estándar de ingeniería de software clásica.
+        <div style="line-height:1.75;font-size:0.95rem;color:var(--ink);text-align:justify;">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:0.8rem;margin-bottom:1.2rem;">
+            <div>
+              <span style="font-size:0.75rem;font-weight:700;color:#c53030;text-transform:uppercase;letter-spacing:0.08em;display:block;">Dictamen de Pertinencia Tecnológica</span>
+              <h4 style="margin:0.2rem 0 0;font-size:1.25rem;font-family:Newsreader,serif;color:var(--ink);">Evaluación de Realismo NISQ: Caso no viable para aceleración cuántica</h4>
+            </div>
+            <span style="padding:4px 10px;background:#fed7d7;color:#9b2c2c;font-size:0.78rem;font-weight:700;border-radius:4px;">RECHAZO TÉCNICO FORMAL</span>
+          </div>
+
+          <p style="margin-bottom:1rem;">
+            He analizado en detalle la solicitud enviada. A partir de la descripción funcional provista (<em>"${esc(useCase)}"</em>) y del stack de infraestructura técnica reportado (<em>"${esc(stack)}"</em>), el dictamen metodológico del proceso PDAEH concluye de manera categórica que <strong>el problema no presenta características matemáticas, combinatorias ni de simulación hamiltoniana</strong> que justifiquen su migración o acoplamiento con coprocesadores cuánticos (QPU).
           </p>
-          <p style="margin:0 0 0.8rem;line-height:1.7;">
-            La adopción de hardware o simuladores cuánticos en este contexto introduciría latencia innecesaria, costes de cómputo desproporcionados y sobreingeniería arquitectónica sin brindar ventaja algorítmica demostrable.
+
+          <p style="margin-bottom:1rem;">
+            La carga de trabajo descrita corresponde estrictamente a patrones transaccionales convencionales de ingeniería de software (arquitectura web, gestión de estados, persistencia relacional o documental y reglas de negocio deterministas estándar). Incorporar llamadas a simuladores o circuitos cuánticos en este escenario introduciría una latencia de red contraproducente, tiempos de cola en nubes cuánticas, elevados costos computacionales y una complejidad arquitectónica injustificada, sin brindar ningún tipo de ventaja cuántica o beneficio de escalabilidad algorítmica.
           </p>
-          <p style="margin:0;line-height:1.7;">
-            <strong>Recomendación PDAEH:</strong> Mantener la arquitectura 100% clásica convencional (microservicios y bases de datos relacionales). No se autoriza la apertura de la Fase 1 en el Órgano de Gobierno Arquitectónico.
+
+          <p style="margin-bottom:1.2rem;">
+            <strong>Recomendación arquitectónica y directriz de gobernanza:</strong> El Órgano de Gobierno Arquitectónico (OGA) <strong>no autoriza</strong> la apertura de la Fase 1 (Definición estratégica) ni la generación de artefactos del proceso PDAEH. Se recomienda enfáticamente continuar operando y optimizando el sistema bajo una arquitectura 100% clásica convencional, asegurando la escalabilidad horizontal y la resiliencia en la capa de servicios existente.
           </p>
+
+          <div style="background:#fffaf0;border-left:4px solid #dd6b20;padding:1rem 1.2rem;border-radius:4px;font-size:0.9rem;">
+            <strong>Orientación metodológica:</strong> Para que un caso organizacional califique válidamente para el proceso PDAEH, debe formularse alrededor de problemas intratables clásicamente como optimización combinatoria NP-hard (QAOA/Annealing), simulación de sistemas moleculares/materiales (VQE), o aprendizaje automático cuántico asistido por kernels en espacios de Hilbert de alta dimensionalidad (QML).
+          </div>
         </div>
       `;
 
       let currentLen = 0;
-      outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Consultando bases ontológicas y evaluando pertinencia cuántica...</span>';
+      outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Analizando caso y evaluando pertinencia bajo la base del conocimiento PDAEH...</span>';
       
       streamInterval = setInterval(() => {
-        currentLen += 25;
+        currentLen += 35;
         if (currentLen >= fullHtml.length) {
           clearInterval(streamInterval);
           outContainer.innerHTML = fullHtml;
-          statusTag.textContent = "Alerta: Solicitud Clásica";
+          statusTag.textContent = "Dictamen Emitido";
           statusTag.style.background = "#fed7d7";
           statusTag.style.color = "#9b2c2c";
           btn.disabled = false;
@@ -508,93 +521,110 @@ function setupAgentDemo() {
         } else {
           outContainer.innerHTML = fullHtml.slice(0, currentLen) + ' <span style="display:inline-block;width:8px;height:14px;background:var(--green);animation:blink 0.8s infinite;"></span>';
         }
-      }, 15);
+      }, 12);
       return;
     }
 
-    let roleAllocation = "";
-    let family = "";
-    let regim = "";
+    let scaleLabel = "";
+    let familyTitle = "";
+    let algRationale = "";
+    let roleNarrative = "";
+    let roadmapNarrative = "";
+    let immediateAction = "";
 
     if (size === "startup") {
-      family = "Quantum Machine Learning (QML / QSVM Variacional)";
-      regim = "Simulador cuántico con ruido (Qiskit Aer / PennyLane) previo a ejecución en QPU cloud";
-      roleAllocation = `
-        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
-          <li><b>AEP / ASP:</b> Asumido por el Co-fundador Técnico / CTO.</li>
-          <li><b>AIP / GPA:</b> Ingeniero Full-Stack Líder.</li>
-          <li><b>EQP:</b> Asesor PhD externo en Algoritmos Cuánticos.</li>
-          <li><b>LNP:</b> CEO / Product Lead de la Startup.</li>
-          <li><b>OGA:</b> Revisión Colegiada de Fundadores + Asesores Técnicos.</li>
-        </ul>
-      `;
+      scaleLabel = "Microempresa o Startup (< 20 colaboradores)";
+      familyTitle = "Quantum Machine Learning (QML con QSVM y clasificadores variacionales)";
+      algRationale = `El caso descrito encaja con precisión en la familia algorítmica de <strong>Quantum Machine Learning</strong>. Dado que el volumen de datos o variables presenta correlaciones no lineales complejas, el enfoque más costo-eficiente durante la era NISQ consiste en formular un clasificador de vectores de soporte cuántico (Quantum Support Vector Machine - QSVM) o circuitos variacionales parametrizados (VQC). En la etapa actual, se prescribe iniciar con simulación clásica con ruido emulado (Qiskit Aer o PennyLane) y reservar las ejecuciones en procesadores cuánticos físicos (QPU en nube) exclusivamente para lotes reducidos de validación de kernel.`;
+      roleNarrative = `Considerando la escala compacta de la organización, la distribución de responsabilidades conforme al elemento estructural <strong>E6</strong> del proceso exige un esquema consolidado para evitar sobrecarga operativa: El <strong>Co-fundador Técnico / CTO</strong> asume simultáneamente las funciones de Arquitecto Empresarial Principal (AEP) y Arquitecto de Solución (ASP), garantizando que las decisiones de diseño se mantengan alineadas con la viabilidad del negocio. El <strong>Ingeniero Full-Stack Líder</strong> asume el rol de Arquitecto de Infraestructura y Plataforma (AIP) gestionando el despliegue serverless y los accesos API. Dado que la empresa no cuenta con un equipo científico cuántico interno de planta, el rol de Experto en Computación Cuántica (EQP) se cubre a través de una asesoría externa o consultoría especializada bajo demanda. Finalmente, la gobernanza arquitectónica y compuertas <strong>OGA</strong> se ejecutan mediante un comité directivo colegiado entre los fundadores y los asesores clave.`;
+      roadmapNarrative = `Para avanzar de manera controlada y metódica, el proceso PDAEH establece la siguiente hoja de ruta secuencial:
+      En la <strong>Fase 1 (Definición estratégica)</strong>, el equipo formalizará el <em>Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a>)</em> para cuantificar el impacto comercial de la ventaja cuántica y el <em>Documento de Contexto y Restricciones (<a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>)</em> para fijar techos presupuestales y cuotas de inferencia, concluyendo con la aprobación formal en la <strong>Compuerta OGA-1</strong>.
+      Posteriormente, en la <strong>Fase 2 (Formalización conceptual)</strong>, se diseñará la vista funcional en el <em>Documento de Puntos de Vista (<a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a>)</em> delimitando el preprocesamiento clásico y el cómputo de kernel cuántico, superando la <strong>Compuerta OGA-2</strong>.
+      En la <strong>Fase 3 (Decisión estructural)</strong>, se evaluarán mediante el <em>Marco de Evaluación de Atributos (<a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>)</em> los escenarios de disponibilidad, latencia de inferencia y costos por llamada antes de autorizar la <strong>Compuerta OGA-3</strong>.
+      En la <strong>Fase 4 (Materialización arquitectónica)</strong>, se detallará el desacoplamiento asíncrono en el <em>Documento de Estructura (<a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a>)</em> y las especificaciones OpenAPI/gRPC en el <em>Documento de Contratos (<a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>)</em> hasta validar la <strong>Compuerta OGA-4</strong>.
+      Finalmente, en la <strong>Fase 5 (Sistematización y evolución)</strong>, se documentarán los patrones emergentes en el <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y se consolidará la <em>Línea Base Integral (<a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>)</em> para cerrar en la <strong>Compuerta OGA-5</strong>.`;
+      immediateAction = `Convocar a los fundadores técnicos y redactar inmediatamente la plantilla del <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a>, estableciendo la métrica de precisión y latencia contra la cual se medirá el éxito de la integración híbrida frente al modelo clásico actual.`;
     } else if (size === "corporacion") {
-      family = "Simulación Hamiltoniana / Variational Quantum Eigensolver (VQE)";
-      regim = "QPU NISQ con mitigación de ruido (Zero-Noise Extrapolation) interconectado con HPC";
-      roleAllocation = `
-        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
-          <li><b>AEP:</b> Arquitecto Empresarial Principal dedicado.</li>
-          <li><b>ASP:</b> Arquitecto de Solución de Cómputo Cuántico.</li>
-          <li><b>AIP / GPA:</b> Administrador de Infraestructura HPC y Contratos Cloud QPU.</li>
-          <li><b>EQP:</b> Grupo de Investigación en Química Cuántica Computacional.</li>
-          <li><b>LNP:</b> Vicepresidente de I+D Farmacéutica.</li>
-          <li><b>OGA:</b> Architecture Review Board (ARB) formal y Comité de Gobernanza.</li>
-        </ul>
-      `;
+      scaleLabel = "Gran Empresa o Corporación (> 200 colaboradores)";
+      familyTitle = "Simulación Molecular y Materiales (VQE y Algoritmos Variacionales Hamiltonianos)";
+      algRationale = `El caso de uso presentado exige modelar interacciones atómicas y orbitales de alta complejidad, un problema exponencialmente intratable para los clústeres de supercómputo convencionales debido al crecimiento dimensional del espacio de Hilbert. La formulación matemática adecuada corresponde a la familia de <strong>Variational Quantum Eigensolver (VQE)</strong> complementada con técnicas activas de mitigación de errores (Zero-Noise Extrapolation y Readout Error Mitigation). El régimen de integración arquitectónica se apoyará en una infraestructura de alto rendimiento (HPC híbrido), delegando la evaluación de operadores fermiónicos al procesador cuántico y conservando la optimización no lineal de parámetros clásicos en el clúster local.`;
+      roleNarrative = `Dado el tamaño corporativo y la madurez de la entidad, el elemento estructural <strong>E6</strong> demanda una estricta segregación y formalización de roles con dedicación especializada: El <strong>Arquitecto Empresarial Principal (AEP)</strong> lidera la alineación estratégica corporativa con los objetivos globales de negocio. Se asigna un <strong>Arquitecto de Solución (ASP)</strong> especializado en computación cuántica, responsable de estructurar la orquestación y los contratos de datos entre los servicios clásicos y cuánticos. El rol de <strong>Arquitecto de Infraestructura y Plataforma (AIP)</strong> coordina los enlaces de red de ultra baja latencia entre el entorno HPC on-premise y los brokers de nube hacia los centros de datos de QPU. La formulación de los operadores matemáticos recae en el <strong>Equipo de Computación Cuántica (EQP)</strong>, compuesto por investigadores en química o física computacional. La gobernanza, control de riesgos y habilitación de hitos queda estrictamente institucionalizada bajo un <strong>Órgano de Gobierno Arquitectónico (OGA)</strong> corporativo permanente (Architecture Review Board y comité de ciberseguridad).`;
+      roadmapNarrative = `El proceso de adopción en un entorno corporativo se ejecuta con rigurosa verificación formal en cada compuerta del proceso PDAEH:
+      Durante la <strong>Fase 1 (Definición estratégica)</strong>, el AEP formalizará el <em>Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a>)</em> y las limitaciones de propiedad intelectual y soberanía de datos en el <em>Documento de Contexto (<a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>)</em>, sometiéndose a dictamen vinculante en la <strong>Compuerta OGA-1</strong>.
+      En la <strong>Fase 2 (Formalización conceptual)</strong>, el ASP modelará la descomposición del circuito variacional en el <em>Documento de Puntos de Vista (<a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a>)</em> y la partición funcional en el <em>Documento de Niveles de Abstracción (<a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>)</em>, logrando la aprobación en la <strong>Compuerta OGA-2</strong>.
+      En la <strong>Fase 3 (Decisión estructural)</strong>, se utilizará el <em>Marco de Evaluación de Atributos (<a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>)</em> para cuantificar las decisiones sobre fidelidad cuántica, tiempos de ejecución y disponibilidad de infraestructura previa a la <strong>Compuerta OGA-3</strong>.
+      En la <strong>Fase 4 (Materialización arquitectónica)</strong>, se detallará la arquitectura del orquestador híbrido en el <em>Documento de Estructura (<a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a>)</em> y las especificaciones formales de integración en el <em>Documento de Contratos (<a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>)</em>, superando la <strong>Compuerta OGA-4</strong>.
+      Por último, en la <strong>Fase 5 (Sistematización y evolución)</strong>, se estandarizarán los patrones reutilizables en el <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y se consolidará la <em>Línea Base Arquitectónica (<a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>)</em> aprobada formalmente en la <strong>Compuerta OGA-5</strong>.`;
+      immediateAction = `Iniciar formalmente los talleres de trabajo interdisciplinario para completar el <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a> y presentar ante el comité OGA-1 las restricciones de seguridad y licenciamiento de la infraestructura cuántica.`;
     } else {
-      family = "Optimización Combinatoria (QAOA / Quantum Annealing)";
-      regim = "Simulación clásica local y pruebas piloto en QPU NISQ compartida";
-      roleAllocation = `
-        <ul style="padding-left:1.2rem;margin:0.5rem 0;">
-          <li><b>AEP:</b> CTO o Líder de Arquitectura de la PYME.</li>
-          <li><b>ASP:</b> Ingeniero de Software Principal.</li>
-          <li><b>AIP:</b> Ingeniero DevOps / Cloud compartido.</li>
-          <li><b>EQP:</b> Consultor especialista cuántico externo.</li>
-          <li><b>LNP:</b> Director de Operaciones y Logística.</li>
-          <li><b>OGA:</b> Comité Directivo (CTO + CEO + Líder de Operaciones).</li>
-        </ul>
-      `;
+      scaleLabel = "Pequeña y Mediana Empresa (PYME)";
+      familyTitle = "Optimización Combinatoria (QAOA y Quantum Annealing)";
+      algRationale = `El caso de negocio planteado exhibe una estructura de optimización combinatoria restringida (como ruteo de vehículos, asignación de recursos o empaquetamiento). En la era NISQ, estos problemas se modelan naturalmente mediante formulaciones Quadratic Unconstrained Binary Optimization (QUBO) para su resolución a través de <strong>Quantum Approximate Optimization Algorithm (QAOA)</strong> en QPUs de compuertas o recocido cuántico (Quantum Annealing). El régimen operativo óptimo consiste en un bucle cerrado híbrido: los algoritmos heurísticos clásicos existentes continúan realizando el preprocesamiento y clustering geográfico, derivando al coprocesador cuántico únicamente los subproblemas de alta combinatoria donde las heurísticas convencionales se estancan en mínimos locales.`;
+      roleNarrative = `Para asegurar la viabilidad del proyecto dentro de la estructura de recursos de una PYME, la asignación de roles bajo el elemento <strong>E6</strong> se organiza de forma balanceada y colaborativa: La dirección estratégica y el rol de <strong>Arquitecto Empresarial Principal (AEP)</strong> recae en el CTO o Líder de Tecnología de la empresa, quien vela por la inversión y el retorno operativo. El <strong>Ingeniero de Software Principal</strong> asume el rol de Arquitecto de Solución (ASP), encargándose del diseño de las interfaces de acoplamiento y de la ingestión de datos desde los microservicios actuales. El soporte de despliegue en la nube y configuración de credenciales cuánticas es administrado por el <strong>Ingeniero DevOps</strong> como Arquitecto de Infraestructura y Plataforma (AIP). El modelado matemático de los operadores QUBO y la parametrización de circuitos se apoya en un <strong>Consultor Cuántico Externo</strong> (rol EQP). Finalmente, el <strong>Órgano de Gobierno Arquitectónico (OGA)</strong> opera como un comité de toma de decisiones conformado por la gerencia general, el director de operaciones y el CTO.`;
+      roadmapNarrative = `La adopción estructurada del proceso PDAEH se articulará a lo largo de las siguientes etapas operativas:
+      En la <strong>Fase 1 (Definición estratégica)</strong>, la gerencia y el equipo técnico formalizarán los objetivos operacionales en el <em>Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a>)</em> y las restricciones de infraestructura y conectividad en el <em>Documento de Contexto (<a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>)</em>, logrando el aval en la <strong>Compuerta OGA-1</strong>.
+      En la <strong>Fase 2 (Formalización conceptual)</strong>, se definirá el flujo de ingestión y respuesta en el <em>Documento de Puntos de Vista (<a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a>)</em> y la separación de responsabilidades entre el solver clásico y el cuántico en el <em>Documento de Niveles (<a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>)</em>, superando la <strong>Compuerta OGA-2</strong>.
+      En la <strong>Fase 3 (Decisión estructural)</strong>, se aplicará el <em>Marco de Evaluación de Atributos (<a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>)</em> para comparar el trade-off entre calidad de la solución encontrada, tiempo de respuesta y coste por simulación, obteniendo la aprobación en la <strong>Compuerta OGA-3</strong>.
+      En la <strong>Fase 4 (Materialización arquitectónica)</strong>, se especificará el conector híbrido en el <em>Documento de Estructura (<a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a>)</em> y los esquemas de eventos o colas asíncronas en el <em>Documento de Contratos (<a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>)</em>, validando la <strong>Compuerta OGA-4</strong>.
+      En la <strong>Fase 5 (Sistematización y evolución)</strong>, se catalogarán las buenas prácticas en el <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y se sellará la arquitectura definitiva en la <em>Línea Base Integral (<a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>)</em> en la <strong>Compuerta OGA-5</strong>.`;
+      immediateAction = `Formalizar el <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Documento de Objetivos Estratégicos (DOE)</a> en conjunto con el área de operaciones para delimitar las ventanas horarias y métricas de ahorro que justificarán la inversión ante la compuerta OGA-1.`;
     }
 
     const fullHtml = `
-      <div style="font-family:inherit;">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.8rem;">
-          <h4 style="margin:0;font-size:1.25rem;color:var(--ink);">Diagnóstico del caso: ${family}</h4>
-          <span style="font-size:0.75rem;padding:3px 8px;border-radius:3px;background:#e7efeb;color:var(--green);font-weight:700;">ERA NISQ VALIDADA</span>
+      <div style="font-family:inherit;line-height:1.75;font-size:0.95rem;color:var(--ink);text-align:justify;">
+        <!-- Encabezado del dictamen -->
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:0.8rem;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.5rem;">
+          <div>
+            <span style="font-size:0.75rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;display:block;">Dictamen Arquitectónico PDAEH</span>
+            <h4 style="margin:0.2rem 0 0;font-size:1.25rem;font-family:Newsreader,serif;color:var(--ink);">Diagnóstico del caso: ${familyTitle}</h4>
+          </div>
+          <span style="padding:4px 10px;background:#eaf1fb;color:#1f2a44;font-size:0.78rem;font-weight:700;border-radius:4px;">${scaleLabel}</span>
         </div>
-        <p style="margin:0 0 1rem;color:var(--ink);font-size:0.95rem;">
-          <b>Régimen tecnológico recomendado:</b> ${regim}
+
+        <!-- Síntesis inicial y justificación algorítmica -->
+        <p style="margin-bottom:1rem;">
+          He procesado la caracterización del caso organizacional. A partir del problema de negocio provisto (<em>"${esc(useCase)}"</em>) y de las tecnologías de base reportadas en el stack As-Is (<em>"${esc(stack)}"</em>), el proceso metodológico confirma la <strong>viabilidad e idoneidad técnica para iniciar la adopción de una arquitectura híbrida clásico-cuántica</strong>.
         </p>
 
-        <div style="background:#f2f7f4;border-left:4px solid var(--green);padding:1rem 1.2rem;margin-bottom:1.4rem;border-radius:4px;">
-          <strong style="color:var(--green);font-size:0.95rem;display:block;margin-bottom:0.3rem;">Asignación formal de roles PDAEH (E6) adaptada a escala:</strong>
-          ${roleAllocation}
+        <p style="margin-bottom:1.2rem;">
+          ${algRationale}
+        </p>
+
+        <!-- Distribución de roles adaptada a escala -->
+        <div style="background:#f2f7f4;border-left:4px solid var(--green);padding:1.1rem 1.3rem;margin:1.4rem 0;border-radius:4px;">
+          <h5 style="margin:0 0 0.5rem;font-size:0.98rem;color:var(--navy);font-weight:700;">Asignación de roles y gobernanza organizacional (Elemento E6)</h5>
+          <p style="margin:0;font-size:0.93rem;line-height:1.7;">
+            ${roleNarrative}
+          </p>
         </div>
 
-        <h4 style="margin:1.4rem 0 0.8rem;font-size:1.15rem;color:var(--ink);font-family:Newsreader,serif;">Hoja de ruta secuencial y compuertas OGA</h4>
-        <ol style="padding-left:1.4rem;margin:0;line-height:1.8;">
-          <li style="margin-bottom:0.5rem;"><b>Fase 1 (Estratégica):</b> Formalizar objetivos en <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a> y contexto en <a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>. → <em>Compuerta OGA-1</em>.</li>
-          <li style="margin-bottom:0.5rem;"><b>Fase 2 (Conceptual):</b> Modelar vistas en <a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a> y niveles en <a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>. → <em>Compuerta OGA-2</em>.</li>
-          <li style="margin-bottom:0.5rem;"><b>Fase 3 (Estructural):</b> Ponderar escenarios de latencia y disponibilidad en <a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>. → <em>Compuerta OGA-3</em>.</li>
-          <li style="margin-bottom:0.5rem;"><b>Fase 4 (Materialización):</b> Descomponer orquestador híbrido en <a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a> y contratos en <a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>. → <em>Compuerta OGA-4</em>.</li>
-          <li style="margin-bottom:0.5rem;"><b>Fase 5 (Sistematización):</b> Consolidar catálogo de patrones <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y Línea Base Integral <a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>. → <em>Compuerta OGA-5</em>.</li>
-        </ol>
+        <!-- Hoja de ruta secuencial narrada con compuertas OGA -->
+        <div style="margin:1.4rem 0;">
+          <h5 style="margin:0 0 0.6rem;font-size:1rem;color:var(--navy);font-weight:700;">Hoja de ruta metodológica y compuertas del Órgano de Gobierno (OGA)</h5>
+          <p style="margin-bottom:0.8rem;">
+            ${roadmapNarrative}
+          </p>
+        </div>
 
-        <div style="margin-top:1.5rem;padding:1rem;background:#f9fbfa;border:1px solid var(--line);border-radius:4px;font-size:0.9rem;">
-          <strong style="color:var(--green);">Paso sugerido inmediato:</strong> Redactar el Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Plantilla DOE</a>) junto al comité directivo para someter a revisión OGA-1.
+        <!-- Directriz de acción inmediata -->
+        <div style="background:#f9fbfa;border:1px solid var(--line);border-radius:4px;padding:1.1rem 1.3rem;margin-top:1.4rem;">
+          <h5 style="margin:0 0 0.4rem;font-size:0.95rem;color:var(--green);font-weight:700;">Directriz de acción inmediata recomendada</h5>
+          <p style="margin:0;font-size:0.93rem;line-height:1.65;">
+            ${immediateAction}
+          </p>
         </div>
       </div>
     `;
 
     let currentLen = 0;
-    outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Consultando especificación PDAEH y trazando hoja de ruta...</span>';
+    outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Procesando variables, aplicando reglas ontológicas y redactando dictamen metodológico...</span>';
 
     streamInterval = setInterval(() => {
-      currentLen += 28;
+      currentLen += 38;
       if (currentLen >= fullHtml.length) {
         clearInterval(streamInterval);
         outContainer.innerHTML = fullHtml;
-        statusTag.textContent = "Roadmap Determinista Generado";
+        statusTag.textContent = "Diagnóstico y Hoja de Ruta Generados";
         statusTag.style.background = "#eaf1fb";
         statusTag.style.color = "#1f2a44";
         btn.disabled = false;
