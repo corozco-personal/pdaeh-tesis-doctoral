@@ -126,14 +126,10 @@
 
   function setLanguage(language) {
     language = normalizeLanguage(language);
+    if (language === activeLanguage) return;
     activeLanguage = language;
     saveLanguage(language);
-    document.documentElement.lang = language;
-    translateTree(document, language);
-    updateSwitcher(language);
-    window.dispatchEvent(new CustomEvent('pdaeh:languageChanged', {
-      detail: { lang: language, language }
-    }));
+    window.location.reload();
   }
 
   function installStyles() {
@@ -146,6 +142,11 @@
       .pdaeh-language-button:hover, .pdaeh-language-button:focus-visible { background: rgba(16, 112, 105, .1); outline: none; }
       .pdaeh-language-button.is-active { border-color: currentColor; background: rgba(16, 112, 105, .12); }
       .pdaeh-language-button span { font-size: 1.15rem; }
+      .goog-te-banner-frame,
+      .goog-te-banner-frame.skiptranslate,
+      .VIpgJd-ZVi9od-ORHb-OEVmcd,
+      iframe.skiptranslate { display: none !important; visibility: hidden !important; }
+      html, body { top: 0 !important; margin-top: 0 !important; }
     `;
     document.head.appendChild(style);
   }
@@ -175,11 +176,27 @@
   }
 
   function removeLegacyGoogleState() {
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+    const expires = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    const hostname = window.location.hostname;
+    const repositoryPath = '/pdaeh-tesis-doctoral/';
+    ['/', repositoryPath].forEach((path) => {
+      document.cookie = `googtrans=; ${expires}; path=${path}; SameSite=Lax`;
+      if (hostname) {
+        document.cookie = `googtrans=; ${expires}; path=${path}; domain=${hostname}; SameSite=Lax`;
+        document.cookie = `googtrans=; ${expires}; path=${path}; domain=.${hostname}; SameSite=Lax`;
+      }
+    });
+    document.querySelectorAll(
+      '.goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, iframe.skiptranslate, #google_translate_element'
+    ).forEach((element) => element.remove());
+    document.querySelectorAll('script[src*="translate.google"], script[src*="translate.googleapis"]')
+      .forEach((element) => element.remove());
     document.documentElement.classList.remove('translated-ltr', 'translated-rtl');
     document.documentElement.style.removeProperty('top');
-    document.body.style.removeProperty('top');
-    document.body.style.removeProperty('margin-top');
+    if (document.body) {
+      document.body.style.removeProperty('top');
+      document.body.style.removeProperty('margin-top');
+    }
   }
 
   function observeDynamicContent() {
@@ -203,9 +220,13 @@
   window.PDAEH_I18N = {
     getLang: () => activeLanguage,
     setLang: setLanguage,
-    translate: (text, language = activeLanguage) => translatedValue(text, language)
+    translate: (text, language = activeLanguage) => translatedValue(text, language),
+    refresh: (root = document) => translateTree(root, activeLanguage)
   };
   window.PDAEH_SET_LANG = setLanguage;
+
+  installStyles();
+  removeLegacyGoogleState();
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
   else initialize();

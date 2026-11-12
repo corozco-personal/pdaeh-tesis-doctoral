@@ -80,7 +80,11 @@ function collectJavaScriptLiterals(source) {
 }
 
 for (const file of JS_FILES) {
-  collectJavaScriptLiterals(await fs.readFile(new URL(file, ROOT), 'utf8'));
+  const source = await fs.readFile(new URL(file, ROOT), 'utf8');
+  collectJavaScriptLiterals(source);
+  for (const match of source.matchAll(/>([^<>]+)</g)) {
+    add(match[1].replace(/\$\{[^}]+\}/g, ''));
+  }
 }
 
 const sourceTexts = [...candidates].sort((a, b) => a.localeCompare(b, 'es'));
