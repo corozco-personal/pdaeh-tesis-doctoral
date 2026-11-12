@@ -441,32 +441,56 @@ function setupAgentDemo() {
     }
   };
 
+  let streamInterval = null;
+
   const runEvaluation = () => {
+    if (streamInterval) clearInterval(streamInterval);
+
     const size = selectSize.value;
     const useCase = txtUseCase.value.trim();
     const stack = txtStack.value.trim();
 
+    statusTag.textContent = "Procesando...";
+    statusTag.style.background = "#fff3cd";
+    statusTag.style.color = "#856404";
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+
     if (size === "inadecuado") {
-      statusTag.textContent = "Alerta: Solicitud Clásica";
-      statusTag.style.background = "#fed7d7";
-      statusTag.style.color = "#9b2c2c";
-      outContainer.innerHTML = `
-        <div style="background:#fff5f5;border:1px solid #feb2b2;padding:1.2rem;border-radius:4px;color:#742a2a;">
-          <h4 style="margin:0 0 0.5rem;font-size:1.1rem;color:#9b2c2c;">Dictamen de idoneidad cuántica (Regla de Realismo NISQ)</h4>
-          <p style="margin:0 0 0.8rem;line-height:1.6;">
-            <strong>Advertencia categórica:</strong> El caso planteado (<em>${useCase}</em>) corresponde a un problema transaccional estándar de ingeniería de software clásica.
+      const fullHtml = `
+        <div style="background:#fff5f5;border:1px solid #feb2b2;padding:1.4rem;border-radius:4px;color:#742a2a;">
+          <h4 style="margin:0 0 0.6rem;font-size:1.2rem;color:#9b2c2c;">Dictamen de idoneidad cuántica (Regla de Realismo NISQ)</h4>
+          <p style="margin:0 0 0.8rem;line-height:1.7;">
+            <strong>Advertencia categórica:</strong> El caso planteado (<em>${useCase}</em>) con el stack clásico descrito (<em>${stack}</em>) corresponde a un problema transaccional estándar de ingeniería de software clásica.
           </p>
-          <p style="margin:0;line-height:1.6;">
-            La adopción de hardware o simuladores cuánticos en este contexto introduciría latencia innecesaria, costes de cómputo desproporcionados y sobreingeniería arquitectónica sin brindar ventaja algorítmica demostrable. <strong>Recomendación PDAEH:</strong> Mantener la arquitectura 100% clásica convencional (microservicios y bases de datos relacionales).
+          <p style="margin:0 0 0.8rem;line-height:1.7;">
+            La adopción de hardware o simuladores cuánticos en este contexto introduciría latencia innecesaria, costes de cómputo desproporcionados y sobreingeniería arquitectónica sin brindar ventaja algorítmica demostrable.
+          </p>
+          <p style="margin:0;line-height:1.7;">
+            <strong>Recomendación PDAEH:</strong> Mantener la arquitectura 100% clásica convencional (microservicios y bases de datos relacionales). No se autoriza la apertura de la Fase 1 en el Órgano de Gobierno Arquitectónico.
           </p>
         </div>
       `;
+
+      let currentLen = 0;
+      outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Consultando bases ontológicas y evaluando pertinencia cuántica...</span>';
+      
+      streamInterval = setInterval(() => {
+        currentLen += 25;
+        if (currentLen >= fullHtml.length) {
+          clearInterval(streamInterval);
+          outContainer.innerHTML = fullHtml;
+          statusTag.textContent = "Alerta: Solicitud Clásica";
+          statusTag.style.background = "#fed7d7";
+          statusTag.style.color = "#9b2c2c";
+          btn.disabled = false;
+          btn.style.opacity = "1";
+        } else {
+          outContainer.innerHTML = fullHtml.slice(0, currentLen) + ' <span style="display:inline-block;width:8px;height:14px;background:var(--green);animation:blink 0.8s infinite;"></span>';
+        }
+      }, 15);
       return;
     }
-
-    statusTag.textContent = "Roadmap Determinista Generado";
-    statusTag.style.background = "#eaf1fb";
-    statusTag.style.color = "#1f2a44";
 
     let roleAllocation = "";
     let family = "";
@@ -512,32 +536,54 @@ function setupAgentDemo() {
       `;
     }
 
-    outContainer.innerHTML = `
+    const fullHtml = `
       <div style="font-family:inherit;">
-        <h4 style="margin:0 0 0.5rem;font-size:1.15rem;color:var(--ink);">Diagnóstico del caso: ${family}</h4>
-        <p style="margin:0 0 0.8rem;color:var(--muted);font-size:0.88rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.8rem;">
+          <h4 style="margin:0;font-size:1.25rem;color:var(--ink);">Diagnóstico del caso: ${family}</h4>
+          <span style="font-size:0.75rem;padding:3px 8px;border-radius:3px;background:#e7efeb;color:var(--green);font-weight:700;">ERA NISQ VALIDADA</span>
+        </div>
+        <p style="margin:0 0 1rem;color:var(--ink);font-size:0.95rem;">
           <b>Régimen tecnológico recomendado:</b> ${regim}
         </p>
 
-        <div style="background:#f2f7f4;border-left:3px solid var(--green);padding:0.8rem 1rem;margin-bottom:1rem;border-radius:3px;">
-          <strong style="color:var(--green);font-size:0.88rem;display:block;margin-bottom:0.2rem;">Asignación de roles PDAEH (E6) adaptada a escala:</strong>
+        <div style="background:#f2f7f4;border-left:4px solid var(--green);padding:1rem 1.2rem;margin-bottom:1.4rem;border-radius:4px;">
+          <strong style="color:var(--green);font-size:0.95rem;display:block;margin-bottom:0.3rem;">Asignación formal de roles PDAEH (E6) adaptada a escala:</strong>
           ${roleAllocation}
         </div>
 
-        <h4 style="margin:1rem 0 0.5rem;font-size:1.05rem;color:var(--ink);">Hoja de ruta secuencial y compuertas OGA</h4>
-        <ol style="padding-left:1.2rem;margin:0;line-height:1.7;">
-          <li><b>Fase 1 (Estratégica):</b> Formalizar objetivos en <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a> y restricciones en <a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>. $\\rightarrow$ <em>Compuerta OGA-1</em>.</li>
-          <li><b>Fase 2 (Conceptual):</b> Modelar vistas en <a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a> y niveles en <a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>. $\\rightarrow$ <em>Compuerta OGA-2</em>.</li>
-          <li><b>Fase 3 (Estructural):</b> Ponderar escenarios de latencia y disponibilidad en <a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>. $\\rightarrow$ <em>Compuerta OGA-3</em>.</li>
-          <li><b>Fase 4 (Materialización):</b> Descomponer orquestador híbrido en <a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a> y contratos en <a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>. $\\rightarrow$ <em>Compuerta OGA-4</em>.</li>
-          <li><b>Fase 5 (Sistematización):</b> Consolidar catálogo de patrones <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y Línea Base Integral <a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>. $\\rightarrow$ <em>Compuerta OGA-5</em>.</li>
+        <h4 style="margin:1.4rem 0 0.8rem;font-size:1.15rem;color:var(--ink);font-family:Newsreader,serif;">Hoja de ruta secuencial y compuertas OGA</h4>
+        <ol style="padding-left:1.4rem;margin:0;line-height:1.8;">
+          <li style="margin-bottom:0.5rem;"><b>Fase 1 (Estratégica):</b> Formalizar objetivos en <a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">DOE</a> y contexto en <a href="plantilla.html?id=DCA" style="color:var(--green);font-weight:700;">DCA</a>. → <em>Compuerta OGA-1</em>.</li>
+          <li style="margin-bottom:0.5rem;"><b>Fase 2 (Conceptual):</b> Modelar vistas en <a href="plantilla.html?id=DPV" style="color:var(--green);font-weight:700;">DPV</a> y niveles en <a href="plantilla.html?id=DNA" style="color:var(--green);font-weight:700;">DNA</a>. → <em>Compuerta OGA-2</em>.</li>
+          <li style="margin-bottom:0.5rem;"><b>Fase 3 (Estructural):</b> Ponderar escenarios de latencia y disponibilidad en <a href="plantilla.html?id=MAC" style="color:var(--green);font-weight:700;">MAC</a>. → <em>Compuerta OGA-3</em>.</li>
+          <li style="margin-bottom:0.5rem;"><b>Fase 4 (Materialización):</b> Descomponer orquestador híbrido en <a href="plantilla.html?id=DEA" style="color:var(--green);font-weight:700;">DEA</a> y contratos en <a href="plantilla.html?id=DCO" style="color:var(--green);font-weight:700;">DCO</a>. → <em>Compuerta OGA-4</em>.</li>
+          <li style="margin-bottom:0.5rem;"><b>Fase 5 (Sistematización):</b> Consolidar catálogo de patrones <a href="plantilla.html?id=CPD" style="color:var(--green);font-weight:700;">CPD</a> y Línea Base Integral <a href="plantilla.html?id=LBA" style="color:var(--green);font-weight:700;">LBA</a>. → <em>Compuerta OGA-5</em>.</li>
         </ol>
 
-        <div style="margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid var(--line);font-size:0.85rem;">
-          <strong>Paso sugerido inmediato:</strong> Redactar el Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Plantilla DOE</a>) con el comité directivo.
+        <div style="margin-top:1.5rem;padding:1rem;background:#f9fbfa;border:1px solid var(--line);border-radius:4px;font-size:0.9rem;">
+          <strong style="color:var(--green);">Paso sugerido inmediato:</strong> Redactar el Documento de Objetivos Estratégicos (<a href="plantilla.html?id=DOE" style="color:var(--green);font-weight:700;">Plantilla DOE</a>) junto al comité directivo para someter a revisión OGA-1.
         </div>
       </div>
     `;
+
+    let currentLen = 0;
+    outContainer.innerHTML = '<span class="typing-cursor" style="color:var(--green);font-weight:700;">Consultando especificación PDAEH y trazando hoja de ruta...</span>';
+
+    streamInterval = setInterval(() => {
+      currentLen += 28;
+      if (currentLen >= fullHtml.length) {
+        clearInterval(streamInterval);
+        outContainer.innerHTML = fullHtml;
+        statusTag.textContent = "Roadmap Determinista Generado";
+        statusTag.style.background = "#eaf1fb";
+        statusTag.style.color = "#1f2a44";
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      } else {
+        outContainer.innerHTML = fullHtml.slice(0, currentLen) + ' <span style="display:inline-block;width:8px;height:14px;background:var(--green);animation:blink 0.8s infinite;"></span>';
+      }
+    }, 12);
+  };
   };
 
   btn.onclick = runEvaluation;

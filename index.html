@@ -486,54 +486,71 @@
   <header class="section-header">
     <p class="section-number">Herramienta de asistencia y automatización</p>
     <h2>Simulador interactivo del agente consultor PDAEH Advisor</h2>
-    <p>
-      El agente <strong>PDAEH Advisor</strong> opera como un consultor inteligente regido por especificaciones formales anti-alucinación. A continuación, el evaluador puede seleccionar perfiles organizacionales tipo o introducir un caso personalizado para inspeccionar el diagnóstico determinista, la asignación de roles y la hoja de ruta visual con diagrama guiado Mermaid generada paso a paso.
-    </p>
+    <div style="line-height:1.75;font-size:1.02rem;color:var(--ink);">
+      <p style="margin-bottom:0.9rem;">
+        El proceso metodológico cuenta con un <strong>agente consultor complementario e inteligente (PDAEH Advisor)</strong>, diseñado para asistir a las organizaciones en el diagnóstico, la estructuración y la adopción progresiva de arquitecturas híbridas clásico-cuánticas. <strong>Este agente extiende el alcance de la propuesta doctoral original y no hace parte de la evaluación del modelo arquitectónico por los expertos</strong>, pero sirve para ofrecer una visión general y permitir al evaluador o usuario observar la propuesta metodológica en ejecución dentro de un entorno controlado, práctico y reproducible.
+      </p>
+      <p style="margin-bottom:0.9rem;">
+        El agente toma como <strong>base de conocimiento formal</strong> las especificaciones anti-alucinación de la tesis (<code>PDAEH_SPECIFICATION_V1.json</code> y <code>knowledge_base_pdaeh.json</code>), las cuales codifican axiomáticamente las 5 fases consecutivas (F1–F5), los 10 elementos armonizados (E1–E10), los 15 artefactos estandarizados, las reglas deterministas de asignación de roles (E6) y las compuertas obligatorias del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
+      </p>
+      <p style="margin-bottom:0;">
+        <strong>Entradas requeridas:</strong> (1) <em>Escala de la organización</em> (Startup, PYME o Gran Empresa), (2) <em>Descripción del caso de uso</em> (problema funcional, volumen de datos o familias como QAOA, VQE, QML o PQC), y (3) <em>Arquitectura clásica actual As-Is</em> (stack tecnológico, infraestructura cloud u on-premise).<br>
+        <strong>Salida esperada:</strong> Evaluación de idoneidad y viabilidad algorítmica bajo la era NISQ, matriz RACI determinista adaptada al tamaño corporativo, hoja de ruta cronológica de adopción fase por fase con artefactos requeridos y puntos de control OGA, y la directriz sobre el siguiente paso inmediato de redacción técnica.
+      </p>
+    </div>
   </header>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;" class="agent-playground-grid">
-    <!-- Panel de control de entrada -->
-    <div style="background:#f9fbfa;border:1px solid var(--line);padding:1.8rem;border-radius:6px;">
-      <h3 style="margin:0 0 1rem;font-size:1.3rem;font-family:Newsreader,serif;color:var(--ink);">Entrada del caso organizacional (Variables As-Is)</h3>
+  <div style="display:flex;flex-direction:column;gap:2rem;margin-top:1.8rem;width:100%;">
+    <!-- Panel superior de entradas -->
+    <div style="background:#f9fbfa;border:1px solid var(--line);padding:2rem;border-radius:6px;width:100%;box-sizing:border-box;">
+      <h3 style="margin:0 0 1.2rem;font-size:1.35rem;font-family:Newsreader,serif;color:var(--ink);">Entradas del caso organizacional (Variables As-Is)</h3>
       
-      <div style="margin-bottom:1.2rem;">
-        <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.88rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño y escala de la empresa:</label>
-        <select id="demoOrgSize" style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;">
-          <option value="pyme">PYME (20 - 200 empleados) · Empresa de Logística y Ruteo</option>
-          <option value="startup">Startup (&lt;20 empleados) · Fintech de Análisis de Riesgo</option>
-          <option value="corporacion">Gran Empresa (&gt;200 empleados) · Sector Químico/Farmacéutico</option>
-          <option value="inadecuado">Caso Inadecuado / Fuera de alcance · Sitio Web y CRUD transaccional</option>
-        </select>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.4rem;">
+        <div>
+          <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño y escala de la empresa:</label>
+          <select id="demoOrgSize" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;">
+            <option value="pyme">PYME (20 - 200 empleados) · Empresa de Logística, Cadena de Suministro y Ruteo Dinámico</option>
+            <option value="startup">Startup (&lt;20 empleados) · Fintech de Análisis de Riesgo Crediticio e Inversiones</option>
+            <option value="corporacion">Gran Empresa (&gt;200 empleados) · Sector Químico, Farmacéutico o Energía</option>
+            <option value="inadecuado">Caso Inadecuado / Fuera de alcance · Sitio Web Institucional, Carrito de Compras y CRUD Transaccional</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="demoUseCase" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Descripción detallada del caso de uso / Problema de negocio:</label>
+          <textarea id="demoUseCase" rows="6" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;line-height:1.6;box-sizing:border-box;">Optimización combinatoria de flota de vehículos para entrega de última milla con ventanas horarias estrictas, restricciones de capacidad dinámica de carga y variaciones de tráfico urbano en tiempo real.</textarea>
+          <small style="color:var(--muted);font-size:0.82rem;display:block;margin-top:4px;">Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.</small>
+        </div>
+
+        <div>
+          <label for="demoStack" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Arquitectura clásica actual detallada (Stack As-Is e infraestructura):</label>
+          <textarea id="demoStack" rows="4" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;line-height:1.6;box-sizing:border-box;">Ecosistema basado en microservicios en contenedores (AWS EKS), bases de datos PostgreSQL para transacciones relacionales, Apache Kafka para ingestión de eventos de telemetría de flotas y algoritmos heurísticos clásicos basados en Python y C++ para solver vehicular.</textarea>
+          <small style="color:var(--muted);font-size:0.82rem;display:block;margin-top:4px;">Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.</small>
+        </div>
       </div>
 
-      <div style="margin-bottom:1.2rem;">
-        <label for="demoUseCase" style="display:block;font-weight:700;font-size:0.88rem;margin-bottom:0.4rem;color:var(--ink);">Descripción del caso de uso / Problema de negocio:</label>
-        <textarea id="demoUseCase" rows="3" style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.9rem;box-sizing:border-box;">Optimización combinatoria de flota de vehículos para entrega de última milla con ventanas horarias y restricciones de carga dinámica.</textarea>
-      </div>
-
-      <div style="margin-bottom:1.4rem;">
-        <label for="demoStack" style="display:block;font-weight:700;font-size:0.88rem;margin-bottom:0.4rem;color:var(--ink);">Arquitectura clásica actual (Stack As-Is):</label>
-        <input type="text" id="demoStack" value="Microservicios en AWS (EKS), bases de datos PostgreSQL y colas Kafka." style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.9rem;box-sizing:border-box;" />
-      </div>
-
-      <button type="button" id="btnRunDemo" style="width:100%;background:var(--navy);color:#fff;border:none;padding:12px;border-radius:4px;font-weight:700;font-size:0.95rem;cursor:pointer;transition:background 0.2s;">
-        Ejecutar diagnóstico y generar roadmap metodológico
-      </button>
-
-      <div style="margin-top:1.2rem;font-size:0.82rem;color:var(--muted);line-height:1.5;">
-        <em>Nota de seguridad y gobernanza:</em> El agente consultor aplica reglas anti-alucinación, delimitación estricta de alcance, asignación determinista de roles (E6) y validación de compuertas obligatorias OGA-1 a OGA-5.
+      <div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <button type="button" id="btnRunDemo" style="background:var(--navy);color:#fff;border:none;padding:14px 28px;border-radius:4px;font-weight:700;font-size:1rem;cursor:pointer;transition:background 0.2s;box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+          Ejecutar diagnóstico y generar respuesta paso a paso
+        </button>
+        <span style="font-size:0.85rem;color:var(--muted);">
+          Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)
+        </span>
       </div>
     </div>
 
-    <!-- Panel de visualización de salida del Agente -->
-    <div style="background:#ffffff;border:1px solid var(--line);padding:1.8rem;border-radius:6px;display:flex;flex-direction:column;">
-      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:0.8rem;margin-bottom:1rem;">
-        <span style="font-size:0.85rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.06em;">Respuesta estructurada del agente</span>
-        <span id="demoStatusTag" style="font-size:0.75rem;padding:3px 8px;border-radius:3px;background:#eaf1fb;color:#1f2a44;font-weight:600;">Diagnóstico generado</span>
+    <!-- Panel inferior de salida generada de forma incremental -->
+    <div style="background:#ffffff;border:1px solid var(--line);padding:2rem;border-radius:6px;width:100%;box-sizing:border-box;box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1.5rem;">
+        <div>
+          <span style="font-size:0.82rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;display:block;">Generación incremental en tiempo real</span>
+          <h3 style="margin:0.2rem 0 0;font-size:1.35rem;font-family:Newsreader,serif;color:var(--ink);">Salida estructurada del Agente Consultor PDAEH</h3>
+        </div>
+        <span id="demoStatusTag" style="font-size:0.82rem;padding:4px 10px;border-radius:4px;background:#eaf1fb;color:#1f2a44;font-weight:600;">En espera</span>
       </div>
 
-      <div id="demoOutputContainer" style="flex:1;overflow-y:auto;max-height:560px;font-size:0.92rem;line-height:1.65;color:var(--ink);padding-right:6px;">
-        <!-- Se inyecta dinámicamente con JavaScript -->
+      <div id="demoOutputContainer" style="min-height:220px;font-size:0.95rem;line-height:1.7;color:var(--ink);">
+        <!-- Salida incremental generada en vivo -->
       </div>
     </div>
   </div>
