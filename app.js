@@ -584,11 +584,52 @@ function setupAgentDemo() {
       }
     }, 12);
   };
-  };
 
   btn.onclick = runEvaluation;
   runEvaluation();
 }
 
-renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupAgentDemo();setupSearch();
+function setupDynamicBreadcrumbs() {
+  const activeLabel = $("#activeSectionName");
+  if (!activeLabel) return;
+
+  const sections = [
+    { id: "informacion-general", name: "Información general del proyecto" },
+    { id: "guia-evaluacion", name: "Guía para evaluadores expertos" },
+    { id: "revision", name: "Revisión sistemática de la literatura" },
+    { id: "sintesis", name: "Síntesis de la evidencia" },
+    { id: "armonizacion", name: "Armonización formal (DSM)" },
+    { id: "modelo", name: "Modelo integrado y dimensiones" },
+    { id: "proceso", name: "Caracterización del proceso PDAEH" },
+    { id: "roles", name: "Definición y consolidación de roles" },
+    { id: "fases", name: "Fases del proceso (F1–F5)" },
+    { id: "actividad-transversal", name: "Actividad transversal y compuertas OGA" },
+    { id: "matriz-trazabilidad", name: "Matriz de trazabilidad cruzada" },
+    { id: "artefactos", name: "Catálogo de plantillas de artefactos" },
+    { id: "consultor-demo", name: "Simulador del agente PDAEH Advisor" },
+    { id: "glosario", name: "Glosario de términos arquitectónicos" },
+    { id: "referencias", name: "Referencias bibliográficas" }
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sec = sections.find(s => s.id === entry.target.id);
+        if (sec) {
+          activeLabel.textContent = sec.name;
+        }
+      }
+    });
+  }, {
+    rootMargin: "-20% 0px -65% 0px",
+    threshold: 0
+  });
+
+  sections.forEach(sec => {
+    const el = document.getElementById(sec.id);
+    if (el) observer.observe(el);
+  });
+}
+
+renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupAgentDemo();setupSearch();setupDynamicBreadcrumbs();
 window.PDAEH={data,cleanText,splitItems,list,indicatorList,artifactLink,richArtifactItem,elementCode,elementNames,phaseNames,artifactCodes,artifactNames,field,esc};
