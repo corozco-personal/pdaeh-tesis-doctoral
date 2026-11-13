@@ -96,7 +96,10 @@ for (const file of JS_FILES) {
   'agente consultor complementario e inteligente (PDAEH Advisor)', 'Entradas requeridas:',
   'Salida esperada:', 'Microempresa o startup', 'Soporte documental', 'Contenido principal',
   'Buscar elementos, fases o artefactos...', 'Imprimir / guardar PDF',
-  'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas'
+  'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas',
+  'Producción científica asociada', 'Artículos derivados de la investigación',
+  'Las siguientes publicaciones documentan los principales resultados que sustentan la construcción de la propuesta doctoral.',
+  'Publicado', 'En proceso de revisión y publicación'
 ].forEach((text) => add(text, true));
 
 const sourceTexts = [...candidates].sort((a, b) => a.localeCompare(b, 'es'));
@@ -177,7 +180,12 @@ const DOMAIN_OVERRIDES = {
     'Todas las fases': 'All phases',
     'Volver a las fases del proceso': 'Return to process phases',
     'Volver a las plantillas': 'Return to templates',
-    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': 'PDAEH: A governable process to support the definition of hybrid classical-quantum enterprise architectures'
+    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': 'PDAEH: A governable process to support the definition of hybrid classical-quantum enterprise architectures',
+    'Producción científica asociada': 'Associated scientific output',
+    'Artículos derivados de la investigación': 'Articles derived from the research',
+    'Las siguientes publicaciones documentan los principales resultados que sustentan la construcción de la propuesta doctoral.': 'The following publications document the main results supporting the development of the doctoral proposal.',
+    'Publicado': 'Published',
+    'En proceso de revisión y publicación': 'Under review and publication'
   },
   fr: {
     'Entradas': 'Entrées',
@@ -195,7 +203,12 @@ const DOMAIN_OVERRIDES = {
     'Todas las fases': 'Toutes les phases',
     'Volver a las fases del proceso': 'Retour aux phases du processus',
     'Volver a las plantillas': 'Retour aux modèles',
-    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': "PDAEH : Un processus gouvernable pour accompagner la définition d’architectures d’entreprise hybrides classiques-quantiques"
+    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': "PDAEH : Un processus gouvernable pour accompagner la définition d’architectures d’entreprise hybrides classiques-quantiques",
+    'Producción científica asociada': 'Production scientifique associée',
+    'Artículos derivados de la investigación': 'Articles issus de la recherche',
+    'Las siguientes publicaciones documentan los principales resultados que sustentan la construcción de la propuesta doctoral.': 'Les publications suivantes documentent les principaux résultats qui soutiennent la construction de la proposition doctorale.',
+    'Publicado': 'Publié',
+    'En proceso de revisión y publicación': 'En cours d’évaluation et de publication'
   }
 };
 TARGETS.forEach((target) => Object.assign(dictionaries[target], DOMAIN_OVERRIDES[target]));
