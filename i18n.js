@@ -8,6 +8,14 @@
     en: { label: 'English', flag: '🇬🇧' },
     fr: { label: 'Français', flag: '🇫🇷' }
   };
+  const FIXED_TRANSLATIONS = {
+    en: {
+      'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': 'PDAEH: A governable process to support the definition of hybrid classical-quantum enterprise architectures'
+    },
+    fr: {
+      'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': "PDAEH : Un processus gouvernable pour accompagner la définition d’architectures d’entreprise hybrides classiques-quantiques"
+    }
+  };
   const ATTRIBUTES = ['title', 'placeholder', 'aria-label', 'alt'];
   const originalText = new WeakMap();
   const originalAttributes = new WeakMap();
@@ -46,7 +54,7 @@
     const normalized = normalizeText(source);
     if (!normalized) return source;
     const translations = dictionary(language);
-    let translation = translations[normalized];
+    let translation = translations[normalized] || (FIXED_TRANSLATIONS[language] && FIXED_TRANSLATIONS[language][normalized]);
     if (!translation) {
       const phaseCount = normalized.match(/^Fase (\d+) de (\d+)$/);
       if (phaseCount) {

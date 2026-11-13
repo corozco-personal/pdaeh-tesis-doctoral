@@ -95,7 +95,8 @@ for (const file of JS_FILES) {
   '10 elementos estructurales integrados', '15 artefactos normalizados',
   'agente consultor complementario e inteligente (PDAEH Advisor)', 'Entradas requeridas:',
   'Salida esperada:', 'Microempresa o startup', 'Soporte documental', 'Contenido principal',
-  'Buscar elementos, fases o artefactos...', 'Imprimir / guardar PDF'
+  'Buscar elementos, fases o artefactos...', 'Imprimir / guardar PDF',
+  'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas'
 ].forEach((text) => add(text, true));
 
 const sourceTexts = [...candidates].sort((a, b) => a.localeCompare(b, 'es'));
@@ -175,7 +176,8 @@ const DOMAIN_OVERRIDES = {
     'Dependencias estructurales': 'Structural dependencies',
     'Todas las fases': 'All phases',
     'Volver a las fases del proceso': 'Return to process phases',
-    'Volver a las plantillas': 'Return to templates'
+    'Volver a las plantillas': 'Return to templates',
+    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': 'PDAEH: A governable process to support the definition of hybrid classical-quantum enterprise architectures'
   },
   fr: {
     'Entradas': 'Entrées',
@@ -192,7 +194,8 @@ const DOMAIN_OVERRIDES = {
     'Dependencias estructurales': 'Dépendances structurelles',
     'Todas las fases': 'Toutes les phases',
     'Volver a las fases del proceso': 'Retour aux phases du processus',
-    'Volver a las plantillas': 'Retour aux modèles'
+    'Volver a las plantillas': 'Retour aux modèles',
+    'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': "PDAEH : Un processus gouvernable pour accompagner la définition d’architectures d’entreprise hybrides classiques-quantiques"
   }
 };
 TARGETS.forEach((target) => Object.assign(dictionaries[target], DOMAIN_OVERRIDES[target]));
