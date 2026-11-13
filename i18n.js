@@ -15,7 +15,8 @@
       'Artículos derivados de la investigación': 'Articles derived from the research',
       'Las siguientes publicaciones documentan los principales resultados que sustentan la construcción de la propuesta doctoral.': 'The following publications document the main results supporting the development of the doctoral proposal.',
       'Publicado': 'Published',
-      'En proceso de revisión y publicación': 'Under review and publication'
+      'En proceso de revisión y publicación': 'Under review and publication',
+      'Proceso de armonización desde las fuentes de evidencia hasta la obtención de los elementos integrados y su clasificación en dimensiones.': 'Harmonization process from the evidence sources to the integrated elements and their classification into dimensions.'
     },
     fr: {
       'PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas': "PDAEH : Un processus gouvernable pour accompagner la définition d’architectures d’entreprise hybrides classiques-quantiques",
@@ -23,7 +24,8 @@
       'Artículos derivados de la investigación': 'Articles issus de la recherche',
       'Las siguientes publicaciones documentan los principales resultados que sustentan la construcción de la propuesta doctoral.': 'Les publications suivantes documentent les principaux résultats qui soutiennent la construction de la proposition doctorale.',
       'Publicado': 'Publié',
-      'En proceso de revisión y publicación': 'En cours d’évaluation et de publication'
+      'En proceso de revisión y publicación': 'En cours d’évaluation et de publication',
+      'Proceso de armonización desde las fuentes de evidencia hasta la obtención de los elementos integrados y su clasificación en dimensiones.': 'Processus d’harmonisation depuis les sources de preuve jusqu’aux éléments intégrés et à leur classification en dimensions.'
     }
   };
   const ATTRIBUTES = ['title', 'placeholder', 'aria-label', 'alt'];

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 760" width="3800" height="1520" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+<rect width="1900" height="760" fill="#FFFFFF"/>
+<rect x="24" y="24" width="370" height="600" rx="0" fill="#EAF4FD"/>
+<path d="M24,120 V38 Q24,24 38,24 H380 Q394,24 394,38 V120 Z" fill="#CDE4FA"/>
+<rect x="24" y="24" width="370" height="600" rx="14" fill="none" stroke="#97C6EE" stroke-width="1.8"/>
+<text x="209.0" y="70.0" font-size="30" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Entradas</text>
+<text x="209.0" y="102.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Fuentes de evidencia</text>
+<rect x="44" y="140" width="330" height="150" rx="12" fill="#F5F9FE" stroke="#9CC3EE" stroke-width="1.6"/>
+<circle cx="96" cy="215" r="30" fill="#3E74B5"/>
+<g transform="translate(96 215) scale(1.1)" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round"><path d="M-17 -12 Q-8 -16 0 -9 Q8 -16 17 -12 V12 Q8 8 0 14 Q-8 8 -17 12 Z"/><path d="M0 -9 V14"/></g>
+<text x="144.0" y="196.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Revisión de</text>
+<text x="144.0" y="222.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Literatura (RSL)</text>
+<text x="144.0" y="254.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">17 estudios primarios</text>
+<text x="144.0" y="278.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">(S1–S17)</text>
+<rect x="44" y="310" width="330" height="150" rx="12" fill="#F5F9FE" stroke="#9CC3EE" stroke-width="1.6"/>
+<circle cx="96" cy="385" r="30" fill="#3E74B5"/>
+<g transform="translate(96 385) scale(1.05)" fill="#FFFFFF"><rect x="-17" y="-2" width="34" height="17"/><polygon points="-17,-2 -5,-10 -5,-2"/><polygon points="-5,-2 7,-10 7,-2"/><rect x="9" y="-18" width="7" height="16"/></g>
+<text x="144.0" y="366.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Exploración</text>
+<text x="144.0" y="392.0" font-size="22" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Industrial</text>
+<text x="144.0" y="424.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">7 casos industriales</text>
+<text x="144.0" y="448.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">(S18–S24)</text>
+<rect x="44" y="486" width="330" height="104" rx="12" fill="#DCEAF9"/>
+<text x="209.0" y="532.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Propuestas existentes, buenas</text>
+<text x="209.0" y="557.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">prácticas, conceptos y definiciones</text>
+<rect x="450" y="24" width="1000" height="600" rx="0" fill="#EDF8EF"/>
+<path d="M450,120 V38 Q450,24 464,24 H1436 Q1450,24 1450,38 V120 Z" fill="#CDEAD4"/>
+<rect x="450" y="24" width="1000" height="600" rx="14" fill="none" stroke="#8FCDA2" stroke-width="1.8"/>
+<text x="950.0" y="70.0" font-size="30" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Proceso de Armonización (HPROCESS)</text>
+<text x="950.0" y="102.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Integra fuentes heterogéneas en un único conjunto coherente de elementos</text>
+<rect x="466.0" y="140" width="163.2" height="356" rx="12" fill="#F7FCF8" stroke="#8FCDA2" stroke-width="1.6"/>
+<circle cx="490.0" cy="164" r="17" fill="#1F6B45"/>
+<text x="490.0" y="172.0" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1</text>
+<g transform="translate(547.6 232) scale(1.06)"><rect x="-62" y="-28" width="38" height="50" rx="4" fill="#FFFFFF" stroke="#3E74B5" stroke-width="2.4"/><path d="M-54 -14 H-32 M-54 -5 H-32 M-54 13 H-40" stroke="#3E74B5" stroke-width="2.4" stroke-linecap="round"/><path d="M-54 4 H-32" stroke="#E8793A" stroke-width="4" stroke-linecap="round"/><line x1="-18" y1="-3" x2="4" y2="-3" stroke="#5E6B7E" stroke-width="3"/><polygon points="2,-10 2,4 14,-3" fill="#5E6B7E"/><rect x="20" y="-28" width="42" height="16" rx="4" fill="#3E74B5"/><rect x="20" y="-8" width="42" height="16" rx="4" fill="#E8793A"/><rect x="20" y="12" width="42" height="16" rx="4" fill="#1F6B45"/></g>
+<text x="547.6" y="306.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Identificación de</text>
+<text x="547.6" y="331.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">elementos</text>
+<line x1="486.0" y1="358" x2="609.2" y2="358" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="547.6" y="386.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">Extraer los</text>
+<text x="547.6" y="409.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">elementos</text>
+<text x="547.6" y="432.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">arquitectónicos de</text>
+<text x="547.6" y="455.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">cada fuente.</text>
+<polygon points="636.2,309.6 646.0,309.6 646.0,303.3 660.0,318.0 646.0,332.7 646.0,326.4 636.2,326.4" fill="#5E6B7E"/>
+<rect x="667.2" y="140" width="163.2" height="356" rx="12" fill="#F7FCF8" stroke="#8FCDA2" stroke-width="1.6"/>
+<circle cx="691.2" cy="164" r="17" fill="#1F6B45"/>
+<text x="691.2" y="172.0" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">2</text>
+<g transform="translate(748.8 232) scale(1.06)"><line x1="-22" y1="-20" x2="22" y2="2" stroke="#1F6B45" stroke-width="2.4"/><line x1="-22" y1="2" x2="22" y2="-20" stroke="#1F6B45" stroke-width="2.4"/><line x1="-22" y1="24" x2="22" y2="24" stroke="#1F6B45" stroke-width="2.4"/><rect x="-64" y="-28" width="42" height="16" rx="4" fill="#DCEAF9" stroke="#3E74B5" stroke-width="1.8"/><rect x="22" y="-28" width="42" height="16" rx="4" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.8"/><rect x="-64" y="-6" width="42" height="16" rx="4" fill="#DCEAF9" stroke="#3E74B5" stroke-width="1.8"/><rect x="22" y="-6" width="42" height="16" rx="4" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.8"/><rect x="-64" y="16" width="42" height="16" rx="4" fill="#DCEAF9" stroke="#3E74B5" stroke-width="1.8"/><rect x="22" y="16" width="42" height="16" rx="4" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.8"/></g>
+<text x="748.8" y="306.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Correspondencia</text>
+<text x="748.8" y="331.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de términos</text>
+<line x1="687.2" y1="358" x2="810.4000000000001" y2="358" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="748.8" y="386.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">Establecer</text>
+<text x="748.8" y="409.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">equivalencias</text>
+<text x="748.8" y="432.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">entre términos de</text>
+<text x="748.8" y="455.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">distintas fuentes.</text>
+<polygon points="837.4,309.6 847.2,309.6 847.2,303.3 861.2,318.0 847.2,332.7 847.2,326.4 837.4,326.4" fill="#5E6B7E"/>
+<rect x="868.4" y="140" width="163.2" height="356" rx="12" fill="#F7FCF8" stroke="#8FCDA2" stroke-width="1.6"/>
+<circle cx="892.4" cy="164" r="17" fill="#1F6B45"/>
+<text x="892.4" y="172.0" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">3</text>
+<g transform="translate(950.0 232) scale(1.06)"><circle cx="-17" cy="0" r="32" fill="#3E74B5" fill-opacity="0.45" stroke="#3E74B5" stroke-width="2.4"/><circle cx="17" cy="0" r="32" fill="#E8793A" fill-opacity="0.45" stroke="#E8793A" stroke-width="2.4"/><path d="M0 -26.6 A32 32 0 0 1 0 26.6 A32 32 0 0 1 0 -26.6 Z" fill="#1F6B45" fill-opacity="0.55"/></g>
+<text x="950.0" y="306.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Análisis</text>
+<text x="950.0" y="331.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">comparativo</text>
+<line x1="888.4" y1="358" x2="1011.5999999999999" y2="358" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="950.0" y="386.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">Comparar alcance,</text>
+<text x="950.0" y="409.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">granularidad y</text>
+<text x="950.0" y="432.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">traslapes.</text>
+<polygon points="1038.6,309.6 1048.4,309.6 1048.4,303.3 1062.4,318.0 1048.4,332.7 1048.4,326.4 1038.6,326.4" fill="#5E6B7E"/>
+<rect x="1069.6" y="140" width="163.2" height="356" rx="12" fill="#F7FCF8" stroke="#8FCDA2" stroke-width="1.6"/>
+<circle cx="1093.6" cy="164" r="17" fill="#1F6B45"/>
+<text x="1093.6" y="172.0" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">4</text>
+<g transform="translate(1151.2 232) scale(1.06)"><rect x="-64" y="-30" width="30" height="16" rx="4" fill="#3E74B5"/><path d="M-34 -22 L-6 -1" stroke="#5E6B7E" stroke-width="2.4" fill="none"/><rect x="-64" y="-8" width="30" height="16" rx="4" fill="#E8793A"/><path d="M-34 0 L-6 -1" stroke="#5E6B7E" stroke-width="2.4" fill="none"/><rect x="-64" y="14" width="30" height="16" rx="4" fill="#7FA9DA"/><path d="M-34 22 L-6 -1" stroke="#5E6B7E" stroke-width="2.4" fill="none"/><polygon points="-10,-8 -10,6 2,-1" fill="#5E6B7E"/><rect x="6" y="-26" width="56" height="52" rx="10" fill="#1F6B45"/><rect x="16" y="-16" width="14" height="12" rx="2.5" fill="#FFFFFF"/><rect x="16" y="4" width="14" height="12" rx="2.5" fill="#FFFFFF"/><rect x="40" y="-16" width="14" height="12" rx="2.5" fill="#FFFFFF"/><rect x="40" y="4" width="14" height="12" rx="2.5" fill="#FFFFFF"/></g>
+<text x="1151.2" y="306.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Integración</text>
+<text x="1151.2" y="331.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">conceptual</text>
+<line x1="1089.6" y1="358" x2="1212.8" y2="358" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="1151.2" y="386.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">Fusionar</text>
+<text x="1151.2" y="409.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">elementos</text>
+<text x="1151.2" y="432.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">equivalentes en</text>
+<text x="1151.2" y="455.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">conceptos</text>
+<text x="1151.2" y="478.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">unificados.</text>
+<polygon points="1239.8,309.6 1249.6,309.6 1249.6,303.3 1263.6,318.0 1249.6,332.7 1249.6,326.4 1239.8,326.4" fill="#5E6B7E"/>
+<rect x="1270.8" y="140" width="163.2" height="356" rx="12" fill="#F7FCF8" stroke="#8FCDA2" stroke-width="1.6"/>
+<circle cx="1294.8" cy="164" r="17" fill="#1F6B45"/>
+<text x="1294.8" y="172.0" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">5</text>
+<g transform="translate(1352.4 232) scale(1.06)"><rect x="-64" y="-34" width="128" height="62" rx="10" fill="#FFFFFF" stroke="#5B3FA6" stroke-width="2" stroke-dasharray="5 4"/><rect x="-52" y="-24" width="18" height="18" rx="3.5" fill="#2F6DB5"/><rect x="-30" y="-24" width="18" height="18" rx="3.5" fill="#2F6DB5"/><rect x="-8" y="-24" width="18" height="18" rx="3.5" fill="#E8793A"/><rect x="14" y="-24" width="18" height="18" rx="3.5" fill="#E8793A"/><rect x="36" y="-24" width="18" height="18" rx="3.5" fill="#3AA86B"/><rect x="-52" y="0" width="18" height="18" rx="3.5" fill="#3AA86B"/><rect x="-30" y="0" width="18" height="18" rx="3.5" fill="#D94A5C"/><rect x="-8" y="0" width="18" height="18" rx="3.5" fill="#D94A5C"/><rect x="14" y="0" width="18" height="18" rx="3.5" fill="#8A63C9"/><rect x="36" y="0" width="18" height="18" rx="3.5" fill="#8A63C9"/></g>
+<text x="1352.4" y="306.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Consolidación</text>
+<text x="1352.4" y="331.0" font-size="20" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">de elementos</text>
+<line x1="1290.8" y1="358" x2="1414.0" y2="358" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="1352.4" y="386.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">Definir el</text>
+<text x="1352.4" y="409.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">conjunto final de</text>
+<text x="1352.4" y="432.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">elementos</text>
+<text x="1352.4" y="455.0" font-size="18" font-weight="normal" fill="#34405A" text-anchor="middle" font-style="normal">(E1–E10).</text>
+<rect x="466" y="512" width="968" height="78" rx="12" fill="#D3EBDB"/>
+<text x="950.0" y="558.0" font-size="20" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Trazabilidad desde la literatura y la evidencia industrial hasta cada uno de los elementos armonizados.</text>
+<rect x="1506" y="24" width="370" height="600" rx="0" fill="#F5F0FD"/>
+<path d="M1506,120 V38 Q1506,24 1520,24 H1862 Q1876,24 1876,38 V120 Z" fill="#E0D4F6"/>
+<rect x="1506" y="24" width="370" height="600" rx="14" fill="none" stroke="#BBA8E6" stroke-width="1.8"/>
+<text x="1691.0" y="70.0" font-size="30" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Salidas</text>
+<text x="1691.0" y="102.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Diez elementos armonizados (E1–E10)</text>
+<rect x="1526" y="130" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="130" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="130" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="157.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E1</text>
+<text x="1600.0" y="157.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Objetivo arquitectónico</text>
+<rect x="1526" y="176" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="176" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="176" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="203.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E2</text>
+<text x="1600.0" y="203.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Contexto arquitectónico</text>
+<rect x="1526" y="222" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="222" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="222" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="249.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E3</text>
+<text x="1600.0" y="249.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Nivel de abstracción</text>
+<rect x="1526" y="268" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="268" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="268" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="295.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E4</text>
+<text x="1600.0" y="295.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Glosario de términos</text>
+<rect x="1526" y="314" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="314" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="314" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="341.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E5</text>
+<text x="1600.0" y="341.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Atributos de calidad</text>
+<rect x="1526" y="360" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="360" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="360" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="387.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E6</text>
+<text x="1600.0" y="387.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Estructuras arquitectónicas</text>
+<rect x="1526" y="406" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="406" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="406" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="433.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E7</text>
+<text x="1600.0" y="433.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Estilos y patrones</text>
+<rect x="1526" y="452" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="452" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="452" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="479.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E8</text>
+<text x="1600.0" y="479.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Patrones de diseño</text>
+<rect x="1526" y="498" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="498" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="498" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="525.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E9</text>
+<text x="1600.0" y="525.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Componentes estructurales</text>
+<rect x="1526" y="544" width="330" height="40" rx="9" fill="#FBF9FE" stroke="#BBA8E6" stroke-width="1.4"/>
+<rect x="1526" y="544" width="62" height="40" rx="9" fill="#5B3FA6"/><rect x="1566" y="544" width="22" height="40" fill="#5B3FA6"/>
+<text x="1557.0" y="571.0" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">E10</text>
+<text x="1600.0" y="571.0" font-size="19" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Elementos reutilizables</text>
+<polygon points="405.0,312.0 419.0,312.0 419.0,303.0 439.0,324.0 419.0,345.0 419.0,336.0 405.0,336.0" fill="#5E6B7E"/>
+<polygon points="1461.0,312.0 1475.0,312.0 1475.0,303.0 1495.0,324.0 1475.0,345.0 1475.0,336.0 1461.0,336.0" fill="#5E6B7E"/>
+<rect x="24" y="654" width="1852" height="62" rx="10" fill="#1B4F82"/>
+<text x="428.1" y="693.0" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="start" font-style="normal">Siguiente paso:</text>
+<text x="583.5" y="693" font-size="24" fill="#FFFFFF" xml:space="preserve"> el análisis de dependencias (DSM) agrupa los diez elementos en las cinco fases del PDAEH</text>
+</svg>

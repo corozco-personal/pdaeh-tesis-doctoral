@@ -488,3 +488,8 @@ p,
   color: var(--ink);
   font-weight: 700;
 }
+
+.harmony-process-figure .harmony-process-image { display: none; }
+html[lang="es"] .harmony-process-figure .language-es { display: block; }
+html[lang="en"] .harmony-process-figure .language-en,
+html[lang="fr"] .harmony-process-figure .language-en { display: block; }
