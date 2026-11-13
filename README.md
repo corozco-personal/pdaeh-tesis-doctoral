@@ -75,7 +75,7 @@ sequenceDiagram
 
 ## Guía de instalación del agente y skill
 
-Para instalar y activar el **Skill PDAEH** en cualquier agente o entorno de desarrollo (Antigravity, Gemini CLI, Claude Code, Cursor) sin tener que copiar archivos a mano, basta con ejecutar el siguiente comando en la terminal:
+Para instalar y activar el **Skill PDAEH** sin copiar archivos a mano, basta con ejecutar un único comando. El instalador global detecta los agentes disponibles y usa sus rutas estándar; actualmente admite **Codex, Claude Code, Gemini CLI, Antigravity, Cursor y OpenCode**, además de la ubicación portátil del estándar Agent Skills.
 
 ### Instalación global (recomendada para todas las sesiones y proyectos)
 
@@ -89,7 +89,7 @@ curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | 
 curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | bash
 ```
 
-El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional de actividades (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento estructurada (`knowledge_base_pdaeh.json`), dejando el skill listo para su invocación inmediata.
+El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional de actividades (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento estructurada (`knowledge_base_pdaeh.json`). En instalación global coloca una copia en `~/.agents/skills` y en las rutas de los agentes detectados —por ejemplo, `~/.codex/skills` para Codex—. Después de instalar, abre una sesión nueva del agente para que descubra la skill.
 
 ## Ejemplo de diagnóstico y mapa de adopción generado por el agente
 
