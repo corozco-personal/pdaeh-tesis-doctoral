@@ -466,3 +466,25 @@ p,
 .publication-status.is-published { background:#dff2e8;color:#12634f }
 .publication-status.is-review { background:#fff1cc;color:#7a5600 }
 @media(max-width:700px){.research-publications-card{padding:1.3rem}.research-publications-list li{grid-template-columns:1fr}.publication-status{justify-self:start}}
+
+.project-overview-list {
+  margin: 1.8rem 0 0;
+  padding-left: 1.45rem;
+}
+
+.project-overview-list li {
+  padding: .45rem 0 .45rem .2rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.project-overview-list li::marker {
+  color: var(--green);
+}
+
+.project-overview-list strong {
+  color: var(--ink);
+  font-weight: 700;
+}
