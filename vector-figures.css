@@ -8,6 +8,20 @@
   background-color: #ffffff;
 }
 
+/* Keep the reference-model overview fully visible within the viewport. */
+.model-figure.vector-figure {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.model-figure.vector-figure img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(72svh, 900px);
+  margin-inline: auto;
+}
+
 .wide-figure, .model-figure, .macro-figure {
   background-color: #ffffff !important;
   border: 1px solid var(--line) !important;
