@@ -8,49 +8,64 @@ fn evaluate_offline_rules(content: &str) -> String {
         || lower.contains("escalamiento horizontal");
 
     if is_crud && no_quantum {
-        r#"# DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO
+        r#"# DIAGNÓSTICO METODOLÓGICO PDAEH: DICTAMEN DE COMPATIBILIDAD ARQUITECTÓNICA
 
 > [!WARNING]
-> **Dictamen Metodológico: NO VIABLE PARA PDAEH**
-> La iniciativa evaluada corresponde a un sistema transaccional convencional (CRUD, PostgreSQL, Redis) sin requerimientos de optimización combinatoria intratable ni algoritmos cuánticos NISQ. No se justifica la introducción de componentes híbridos.
+> **Dictamen Metodológico Definitivo: NO VIABLE PARA PDAEH**
+> Tras contrastar las variables operativas y tecnológicas contra los criterios formales del marco PDAEH (Tesis Doctoral, Universidad del Cauca), se dictamina formalmente la **no viabilidad de adopción de una arquitectura híbrida clásico-cuántica**. El caso de negocio corresponde a un sistema transaccional convencional de complejidad polinomial (Clase P), plenamente satisfecho por la arquitectura clásica actual.
 
 ---
 
-## 1. Evaluación de las Variables Metodológicas
+## 1. Caracterización del Caso y Evaluación de Variables Arquitectónicas
 
-| Variable Evaluada | Entrada Registrada | Dictamen Metodológico PDAEH |
+A continuación se detalla la evaluación formal de las cuatro variables metodológicas fundamentales de la Fase 1 (Definición Estratégica, Elementos E1 y E2):
+
+| Variable Evaluada | Entrada Declarada en Perfil | Dictamen Metodológico PDAEH |
 | :--- | :--- | :--- |
-| **Tamaño Organizacional** | PYME | Absorción orientada a deuda técnica clásica; sin capacidad para I+D cuántico. |
-| **Problema / Caso de Uso** | CRUD facturas y clientes (40 req/s) | Complejidad clase **P** (polinomial clásica). Totalmente cubierta por RDBMS. |
-| **Arquitectura As-Is** | REST + PostgreSQL + Redis | Desempeño óptimo (latencia 120 ms). Escalamiento horizontal estándar suficiente. |
-| **Madurez Cuántica** | Nivel 0 (Nulo) | Sin algoritmos, talento ni infraestructura NISQ especializada. |
+| **Tamaño Organizacional** | PYME (20 – 200 empleados) | Enfoque primordial en deuda técnica y retorno de inversión a corto plazo. No se justifica destinar recursos humanos ni financieros a computación cuántica NISQ. |
+| **Problema / Caso de Uso** | CRUD de facturas y clientes (40 req/s) | Problema transaccional clásico (Clase P). No presenta espacios de búsqueda combinatoria exponencial, simulación molecular ni optimización estocástica. |
+| **Arquitectura Tecnológica As-Is** | REST + PostgreSQL + Redis (120 ms) | Desempeño óptimo y plenamente operativo. La latencia y confiabilidad requeridas se alcanzan con escalamiento horizontal y optimización de base de datos. |
+| **Nivel de Madurez Cuántica** | Nivel 0 — Nulo | Inexistencia de algoritmos cuánticos (QAOA, VQE), gobernanza OGA y talento técnico capacitado en desarrollo híbrido. |
 
 ---
 
-## 2. Topología de Decisión Arquitectónica
+## 2. Topología de Decisión y Compuerta de Gobernanza OGA-1
+
+De acuerdo con el flujo de actividades transversales del **Órgano de Gobierno Arquitectónico (OGA)**, este caso es detenido en la compuerta OGA-1, impidiendo el avance infructuoso hacia la Fase 2:
 
 ```mermaid
 graph TD
-  Start["Solicitud de Evaluación PDAEH"] --> Classify{"Análisis de Complejidad"}
-  Classify -- "Problema Transaccional CRUD (Clase P)" --> Classic["Arquitectura Clásica Optimizada\n(PostgreSQL + Redis + REST)"]
-  Classify -. "Optimización NP-Hard / NISQ" .-> Hybrid["Línea Base Híbrida PDAEH\n(QPU / Algoritmos Cuánticos)"]
-  Classic --> Dictum["Dictamen: NO VIABLE PARA PDAEH\n(Compuerta OGA-1 no superada)"]
+  A["Solicitud de Evaluación PDAEH"] --> B{"Análisis de Complejidad Algorítmica"}
+  B -- "Complejidad Transaccional Clase P (CRUD)" --> C["Arquitectura Clásica Optimizada
+(PostgreSQL + Redis + Microservicios)"]
+  B -. "Problema NP-Hard / Intratabilidad Cuántica" .-> D["Línea Base Híbrida PDAEH
+(Copilotos QPU / Algoritmos Variacionales)"]
+  C --> E["Compuerta OGA-1: RECHAZO DE INICIACIÓN
+(Dictamen: NO VIABLE PARA PDAEH)"]
   
-  style Classic fill:#e7f0ec,stroke:#18796e,stroke-width:2px
-  style Dictum fill:#fdf0ed,stroke:#a53131,stroke-width:2px
+  style C fill:#e7f0ec,stroke:#18796e,stroke-width:2px
+  style E fill:#fdf0ed,stroke:#a53131,stroke-width:2px
 ```
 
 ---
 
-## 3. Condiciones de Reevaluación Metodológica
+## 3. Hoja de Ruta y Recomendaciones para la Arquitectura Clásica
+
+1. **Continuidad del stack actual:** Mantener el enfoque 100% clásico sin introducir SDKs cuánticos (Qiskit, Cirq, PennyLane) ni pasarelas heterogéneas.
+2. **Optimización en PostgreSQL y Redis:** Configurar índices compuestos para consultas de facturación frecuentes y establecer políticas de caché eficientes en Redis.
+3. **Escalabilidad horizontal:** Implementar balanceadores de carga y réplicas de lectura en base de datos para absorber el crecimiento proyectado más allá de las 40 req/s.
+
+---
+
+## 4. Criterios para una Futura Reevaluación Metodológica
 
 > [!IMPORTANT]
-> El caso podrá ser reevaluado bajo el ciclo PDAEH únicamente si concurre al menos una de las siguientes condiciones:
-> 1. **Optimización combinatoria:** Emergencia de problemas de alta complejidad (NP-hard) en planificación o logística masiva.
-> 2. **Criptografía Post-Cuántica (PQC):** Requerimiento regulatorio de migración criptográfica en reposo o en tránsito.
-> 3. **Límite clásico:** Crecimiento exponencial de estados que agote los optimizadores heurísticos convencionales (ILP, SAT, CP).
+> El proyecto solo deberá ser sometido nuevamente al marco PDAEH si concurre de manera comprobable al menos uno de los siguientes hitos de negocio:
+> - **Complejidad combinatoria intratable (NP-hard):** Necesidad de optimizar rutas logísticas masivas o portafolios financieros en tiempo real con millones de variables discretas.
+> - **Exigencia regulatoria de Criptografía Post-Cuántica (PQC):** Mandatos de seguridad que obliguen a migrar llaves asimétricas a esquemas resistentes a Shor (ML-KEM / Dilithium).
+> - **Agotamiento del límite clásico:** Cuellos de botella en simulaciones continuas o aprendizaje profundo donde heurísticas clásicas (ILP, SAT, Simulated Annealing) demuestren ineficacia matemática comprobada.
 
-*Fin del dictamen metodológico PDAEH.*"#.to_string()
+*Dictamen formal emitido por el Consultor Metodológico PDAEH bajo especificación formal v1.0.*"#.to_string()
     } else {
         format!(
             "# EVALUACIÓN METODOLÓGICA PDAEH\n\n## Dictamen Preliminar\nSe ha recibido y analizado la solicitud con base en el marco metodológico PDAEH.\n\n### Análisis de Variables\nEl caso presenta características organizacionales y tecnológicas que requieren formalizar la compuerta de gobierno OGA-1 antes de proceder al diseño de artefactos híbridos (LBA)."
@@ -268,7 +283,7 @@ async fn advisor_handler(
         );
 
         // Timeout estricto de 5 segundos por intento para evitar esperas prolongadas
-        match state.client.post(&url).json(&gemini_body).timeout(Duration::from_secs(5)).send().await {
+        match state.client.post(&url).json(&gemini_body).timeout(Duration::from_secs(30)).send().await {
             Ok(res) => {
                 if res.status().is_success() {
                     tracing::info!("Conectado exitosamente con Gemini modelo: {}", model_name);

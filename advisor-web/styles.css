@@ -170,3 +170,141 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
 .stream-output {
   word-break: break-word;
 }
+
+
+
+/* === Estilos de Tabla y Tipografía de Alta Fidelidad === */
+.bubble table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 0.8rem 0 !important;
+  font-size: 0.88rem !important;
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02) !important;
+}
+
+.bubble thead {
+  background: #e7f0ec !important;
+}
+
+.bubble thead th {
+  background: #e7f0ec !important;
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 0.9rem !important;
+  text-align: left !important;
+  border-bottom: 2px solid var(--line) !important;
+  border-right: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.bubble thead th:last-child {
+  border-right: none !important;
+}
+
+.bubble thead th:nth-child(1) { width: 25% !important; }
+.bubble thead th:nth-child(2) { width: 28% !important; }
+.bubble thead th:nth-child(3) { width: 47% !important; }
+
+.bubble tbody td {
+  padding: 0.65rem 0.9rem !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-right: 1px solid rgba(0,0,0,0.05) !important;
+  vertical-align: top !important;
+  line-height: 1.48 !important;
+}
+
+.bubble tbody td:last-child {
+  border-right: none !important;
+}
+
+.bubble tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.bubble tbody tr:nth-child(even) td {
+  background: #fbfdfc !important;
+}
+
+/* Callouts estilizados y compactos en español institucional */
+.bubble blockquote.callout {
+  margin: 0.65rem 0 !important;
+  padding: 0.7rem 1rem !important;
+  border-left: 4px solid var(--green) !important;
+  background: rgba(24,121,110,.05) !important;
+  border-radius: 0 6px 6px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.bubble blockquote.callout-warning {
+  border-left-color: #d97706 !important;
+  background: #fffbeb !important;
+}
+
+.bubble blockquote.callout-important {
+  border-left-color: #b91c1c !important;
+  background: #fef2f2 !important;
+}
+
+.bubble blockquote.callout-note {
+  border-left-color: #0284c7 !important;
+  background: #f0f9ff !important;
+}
+
+.bubble blockquote.callout p {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.bubble blockquote.callout p + p {
+  margin-top: 0.4rem !important;
+}
+
+.bubble blockquote.callout ol,
+.bubble blockquote.callout ul {
+  margin: 0.4rem 0 0.1rem !important;
+  padding-left: 1.2rem !important;
+}
+
+.bubble blockquote.callout li {
+  margin-bottom: 0.25rem !important;
+  line-height: 1.45 !important;
+}
+
+.bubble blockquote.callout li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Espaciado general compacto */
+.bubble p {
+  margin: 0 0 0.45rem !important;
+  line-height: 1.55 !important;
+}
+
+.bubble p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.bubble ol, .bubble ul {
+  margin: 0.3rem 0 0.5rem !important;
+  padding-left: 1.25rem !important;
+}
+
+.bubble li {
+  margin-bottom: 0.2rem !important;
+  line-height: 1.45 !important;
+}
+
+.bubble li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.bubble hr {
+  margin: 0.9rem 0 !important;
+  border: none !important;
+  border-top: 1px solid var(--line) !important;
+  height: 0 !important;
+}

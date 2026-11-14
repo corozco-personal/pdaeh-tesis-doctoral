@@ -131,9 +131,11 @@
       .replace(/\n{3,}/g, "\n\n");
 
     let html = parseMarkdown(sanitized, { gfm: true, breaks: false });
+    const calloutLabels = { note: "NOTA", tip: "CONSEJO", important: "IMPORTANTE", warning: "ADVERTENCIA", caution: "PRECAUCIÓN" };
     html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
-      const cls = type.toLowerCase();
-      return `<blockquote class="callout callout-${cls}"><p><strong>${type.toUpperCase()}:</strong> `;
+      const key = type.toLowerCase();
+      const label = calloutLabels[key] || type.toUpperCase();
+      return `<blockquote class="callout callout-${key}"><p><strong>${label}:</strong> `;
     });
 
     container.innerHTML = window.DOMPurify.sanitize(html, {
@@ -156,10 +158,18 @@ async function renderRichResponse(container, text) {
 
     let html = parseMarkdown(sanitizedText, { gfm: true, breaks: false });
 
-    // Transformar callouts de GitHub (> [!NOTE], > [!WARNING], etc.)
+    // Transformar callouts de GitHub a español institucional (> [!NOTE], > [!WARNING], etc.)
+    const calloutLabels = {
+      note: "NOTA",
+      tip: "CONSEJO",
+      important: "IMPORTANTE",
+      warning: "ADVERTENCIA",
+      caution: "PRECAUCIÓN"
+    };
     html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
-      const cls = type.toLowerCase();
-      return `<blockquote class="callout callout-${cls}"><p><strong>${type.toUpperCase()}:</strong> `;
+      const key = type.toLowerCase();
+      const label = calloutLabels[key] || type.toUpperCase();
+      return `<blockquote class="callout callout-${key}"><p><strong>${label}:</strong> `;
     });
 
     container.innerHTML = window.DOMPurify.sanitize(html, {
