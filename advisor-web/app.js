@@ -131,11 +131,26 @@
       .replace(/\n{3,}/g, "\n\n");
 
     let html = parseMarkdown(sanitized, { gfm: true, breaks: false });
-    const calloutLabels = { note: "NOTA", tip: "CONSEJO", important: "IMPORTANTE", warning: "ADVERTENCIA", caution: "PRECAUCIÓN" };
-    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
-      const key = type.toLowerCase();
-      const label = calloutLabels[key] || type.toUpperCase();
-      return `<blockquote class="callout callout-${key}"><p><strong>${label}:</strong> `;
+    const calloutMap = {
+      note: { label: "NOTA", cls: "callout-note" },
+      tip: { label: "CONSEJO", cls: "callout-note" },
+      important: { label: "IMPORTANTE", cls: "callout-important" },
+      importante: { label: "IMPORTANTE", cls: "callout-important" },
+      warning: { label: "ADVERTENCIA", cls: "callout-warning" },
+      advertencia: { label: "ADVERTENCIA", cls: "callout-warning" },
+      caution: { label: "PRECAUCIÓN", cls: "callout-warning" },
+      precaución: { label: "PRECAUCIÓN", cls: "callout-warning" },
+      precaucion: { label: "PRECAUCIÓN", cls: "callout-warning" }
+    };
+    // 1. Sintaxis GitHub: > [!IMPORTANT]
+    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|IMPORTANTE|WARNING|ADVERTENCIA|CAUTION|PRECAUCI[ÓO]N)\]\s*(?:<br>|\n)?/gi, (m, type) => {
+      const info = calloutMap[type.toLowerCase()] || { label: "IMPORTANTE", cls: "callout-important" };
+      return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
+    });
+    // 2. Formato en negrita o plano: > **IMPORTANT:** o > IMPORTANT:
+    html = html.replace(/<blockquote>\s*<p>(?:<strong>)?(IMPORTANT|IMPORTANTE|WARNING|ADVERTENCIA|NOTE|NOTA|CAUTION|PRECAUCI[ÓO]N):?(?:<\/strong>)?:?\s*(?:<br>|\n)?/gi, (m, type) => {
+      const info = calloutMap[type.toLowerCase()] || { label: "IMPORTANTE", cls: "callout-important" };
+      return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
     });
 
     container.innerHTML = window.DOMPurify.sanitize(html, {
@@ -158,18 +173,26 @@ async function renderRichResponse(container, text) {
 
     let html = parseMarkdown(sanitizedText, { gfm: true, breaks: false });
 
-    // Transformar callouts de GitHub a español institucional (> [!NOTE], > [!WARNING], etc.)
-    const calloutLabels = {
-      note: "NOTA",
-      tip: "CONSEJO",
-      important: "IMPORTANTE",
-      warning: "ADVERTENCIA",
-      caution: "PRECAUCIÓN"
+    const calloutMap = {
+      note: { label: "NOTA", cls: "callout-note" },
+      tip: { label: "CONSEJO", cls: "callout-note" },
+      important: { label: "IMPORTANTE", cls: "callout-important" },
+      importante: { label: "IMPORTANTE", cls: "callout-important" },
+      warning: { label: "ADVERTENCIA", cls: "callout-warning" },
+      advertencia: { label: "ADVERTENCIA", cls: "callout-warning" },
+      caution: { label: "PRECAUCIÓN", cls: "callout-warning" },
+      precaución: { label: "PRECAUCIÓN", cls: "callout-warning" },
+      precaucion: { label: "PRECAUCIÓN", cls: "callout-warning" }
     };
-    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
-      const key = type.toLowerCase();
-      const label = calloutLabels[key] || type.toUpperCase();
-      return `<blockquote class="callout callout-${key}"><p><strong>${label}:</strong> `;
+    // 1. Sintaxis GitHub: > [!IMPORTANT]
+    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|IMPORTANTE|WARNING|ADVERTENCIA|CAUTION|PRECAUCI[ÓO]N)\]\s*(?:<br>|\n)?/gi, (m, type) => {
+      const info = calloutMap[type.toLowerCase()] || { label: "IMPORTANTE", cls: "callout-important" };
+      return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
+    });
+    // 2. Formato en negrita o plano: > **IMPORTANT:** o > IMPORTANT:
+    html = html.replace(/<blockquote>\s*<p>(?:<strong>)?(IMPORTANT|IMPORTANTE|WARNING|ADVERTENCIA|NOTE|NOTA|CAUTION|PRECAUCI[ÓO]N):?(?:<\/strong>)?:?\s*(?:<br>|\n)?/gi, (m, type) => {
+      const info = calloutMap[type.toLowerCase()] || { label: "IMPORTANTE", cls: "callout-important" };
+      return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
     });
 
     container.innerHTML = window.DOMPurify.sanitize(html, {

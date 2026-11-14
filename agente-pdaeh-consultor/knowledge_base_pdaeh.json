@@ -263,5 +263,107 @@
       "name": "Gestor de Plataformas Cuánticas y Accesos",
       "focus": "Gestión de créditos de QPU, tiempos de cola en clusters y contratos con vendors."
     }
+  ],
+  "casos_de_referencia_industriales": [
+    {
+      "id": "CASE-FIN-01",
+      "nombre_empresa": "FinNova (Servicios Financieros y Gestión de Activos)",
+      "escala": "PYME (20 - 200 empleados)",
+      "dominio": "Finanzas Cuánticas / Optimización de Inversiones",
+      "problema_analogo": "Rebalanceo dinámico de portafolio y optimización combinatoria multiobjetivo bajo restricciones de riesgo (CVaR / Markowitz no lineal).",
+      "complejidad_algoritmica": "NP-hard, formulación QUBO (Quadratic Unconstrained Binary Optimization) / Hamiltoniano de Ising.",
+      "algoritmo_cuantico": "QAOA (Quantum Approximate Optimization Algorithm) y Quantum Annealing (Recocido Cuántico).",
+      "patron_arquitectonico": "Co-procesamiento Híbrido Desacoplado (Mediator/Broker con Qiskit Runtime Sampler/Estimator y fallback clásico).",
+      "stack_as_is": "Microservicios en Python/Go, PostgreSQL, Redis, Apache Kafka, clúster Kubernetes privado.",
+      "linea_base_hibrida": "Capa de Integración Cuántica (QIL) desacoplada con AWS Braket / IBM Quantum y fallback heurístico (Simulated Annealing).",
+      "referencias_oficiales": [
+        {
+          "titulo": "Qiskit Optimization & Portfolio Optimization Tutorials (IBM Quantum)",
+          "url": "https://qiskit-community.github.io/qiskit-optimization/tutorials/01_portfolio_optimization.html"
+        },
+        {
+          "titulo": "AWS Braket Hybrid Jobs & D-Wave Portfolio Allocation Reference",
+          "url": "https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs.html"
+        },
+        {
+          "titulo": "Egger et al. - Quantum Computing for Finance: State-of-the-Art and Future Prospects (IEEE Transactions on Quantum Engineering)",
+          "url": "https://ieeexplore.ieee.org/document/9139369"
+        }
+      ]
+    },
+    {
+      "id": "CASE-LOG-02",
+      "nombre_empresa": "LogisTech Global (Distribución y Cadena de Suministro)",
+      "escala": "Gran Empresa (> 200 empleados)",
+      "dominio": "Logística Inteligente / Planificación de Flotas",
+      "problema_analogo": "Ruteo de vehículos con ventanas de tiempo y capacidad (CVRPTW), asignación de muelles y optimización de última milla con millones de variables discretas.",
+      "complejidad_algoritmica": "NP-hard exponencial; agotamiento de solucionadores clásicos (ILP, CPLEX, Gurobi) con más de 500 paradas.",
+      "algoritmo_cuantico": "Quantum Annealing / QAOA híbrido asistido por descomposición clásica (D-Wave Hybrid Leap / Q-Mesh).",
+      "patron_arquitectonico": "Procesamiento Híbrido Asíncrono de Flujos de Trabajo (Workflow Co-scheduling con cola de mensajes Celery/RabbitMQ).",
+      "stack_as_is": "Java Spring Boot, Apache Spark, PostgreSQL, Kubernetes multi-cloud.",
+      "linea_base_hibrida": "Orquestador híbrido con preprocesamiento espacial en CPU/GPU y resolución de matriz de adyacencia binaria en QPU de recocido.",
+      "referencias_oficiales": [
+        {
+          "titulo": "D-Wave Leap Hybrid Solvers & Vehicle Routing Reference Architecture",
+          "url": "https://docs.dwavesys.com/docs/latest/c_hybrid_1.html"
+        },
+        {
+          "titulo": "Google Quantum AI: Combinatorial Optimization Case Studies",
+          "url": "https://quantumai.google/applications/optimization"
+        }
+      ]
+    },
+    {
+      "id": "CASE-BIO-03",
+      "nombre_empresa": "BioMol Pharma (Química Computacional y Farma)",
+      "escala": "Gran Empresa / Centro de Investigación (> 200 científicos)",
+      "dominio": "Simulación Molecular / Diseño Asistido de Principios Activos",
+      "problema_analogo": "Cálculo del estado fundamental electrónico y afinidad de ligandos en macromoléculas para descubrimiento de fármacos.",
+      "complejidad_algoritmica": "Espacio de Hilbert exponencial; inalcanzable con aproximaciones clásicas Hartree-Fock / DFT en enlaces fuertemente correlacionados.",
+      "algoritmo_cuantico": "VQE (Variational Quantum Eigensolver) con ansatz UCCSD y mitigación de ruido ZNE (Zero-Noise Extrapolation).",
+      "patron_arquitectonico": "Bucle Clásico-Cuántico Variacional Intensivo (Parameter Recirculation Loop con comunicación de bajísima latencia QPU-HPC).",
+      "stack_as_is": "Clúster HPC on-premise con Slurm, OpenMPI, GPU NVIDIA CUDA y librerías C++ / Python.",
+      "linea_base_hibrida": "Integración HPC-QPU vía Azure Quantum o AWS Braket Hybrid Jobs con simulación previa en PennyLane Lightning.",
+      "referencias_oficiales": [
+        {
+          "titulo": "PennyLane: VQE for Molecular Geometry & Chemistry (Xanadu)",
+          "url": "https://pennylane.ai/qml/demos/tutorial_vqe/"
+        },
+        {
+          "titulo": "Qiskit Nature: Quantum Algorithms for Chemistry and Materials",
+          "url": "https://qiskit-community.github.io/qiskit-nature/"
+        },
+        {
+          "titulo": "Azure Quantum Resource Estimator for Chemistry Applications",
+          "url": "https://learn.microsoft.com/azure/quantum/intro-to-resource-estimator"
+        }
+      ]
+    },
+    {
+      "id": "CASE-SEC-04",
+      "nombre_empresa": "SecurNet Global (Ciberseguridad y Telecomunicaciones)",
+      "escala": "Gran Empresa / PYME Tecnológica",
+      "dominio": "Criptografía Post-Cuántica (PQC) e Identidad Digital",
+      "problema_analogo": "Vulnerabilidad estructural de la infraestructura de clave pública (PKI, TLS, RSA, ECC) ante la amenaza 'Harvest Now, Decrypt Later' por el algoritmo de Shor.",
+      "complejidad_algoritmica": "Factorización entera y logaritmo discreto en tiempo polinomial cuántico ($O(n^3)$ con Shor).",
+      "algoritmo_cuantico": "Algoritmo de Shor (amenaza criptoanalítica activa); mitigación mediante algoritmos resistentes post-cuánticos.",
+      "patron_arquitectonico": "Pasarela Híbrida Cripto-Ágil (Crypto-Agility Gateway con intercambio de claves híbrido X25519 + ML-KEM).",
+      "stack_as_is": "API Gateways en NGINX/Envoy, certificados X.509 estándar, servicios TLS 1.3 con RSA 2048/4096 y ECDSA.",
+      "linea_base_hibrida": "Migración ágil a esquemas Post-Cuánticos estandarizados por el NIST con envoltorio híbrido clásico-cuántico en capas de red y almacenamiento.",
+      "referencias_oficiales": [
+        {
+          "titulo": "NIST Post-Quantum Cryptography Standards (FIPS 203 ML-KEM, FIPS 204 ML-DSA, FIPS 205 SLH-DSA)",
+          "url": "https://csrc.nist.gov/projects/post-quantum-cryptography"
+        },
+        {
+          "titulo": "Open Quantum Safe (OQS) - Liboqs & OpenSSL Hybrid Implementations",
+          "url": "https://openquantumsafe.org/"
+        },
+        {
+          "titulo": "NSA Commercial National Security Algorithm Suite 2.0 (CNSA 2.0) Cybersecurity Advisory",
+          "url": "https://www.nsa.gov/Cybersecurity/Post-Quantum-Cybersecurity-Resources/"
+        }
+      ]
+    }
   ]
 }
