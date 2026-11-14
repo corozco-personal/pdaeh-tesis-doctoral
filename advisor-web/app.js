@@ -64,6 +64,13 @@
     return { article, output };
   }
 
+  function normalizeMermaid(source) {
+    const quote = (value) => `"${value.trim().replace(/"/g, "'")}"`;
+    return source
+      .replace(/(\b[A-Za-z_][\w-]*)\[([^\[\]\n]+)\]/g, (match, id, label) => `${id}[${/^\s*"/.test(label) ? label : quote(label)}]`)
+      .replace(/(\b[A-Za-z_][\w-]*)\{([^{}\n]+)\}/g, (match, id, label) => `${id}{${/^\s*"/.test(label) ? label : quote(label)}}`);
+  }
+
   async function renderRichResponse(container, text) {
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
     const html = window.marked.parse(text, { gfm: true, breaks: true });
@@ -79,7 +86,7 @@
       shell.className = "diagram-shell";
       const diagram = document.createElement("div");
       diagram.className = "mermaid";
-      diagram.textContent = source;
+      diagram.textContent = normalizeMermaid(source);
       const caption = document.createElement("figcaption");
       caption.textContent = "Diagrama generado por PDAEH Advisor";
       shell.append(diagram, caption);

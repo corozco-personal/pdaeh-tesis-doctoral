@@ -29,6 +29,7 @@ test("carga la especificación del agente", () => {
   assert.match(prompt, /PDAEH-Advisor/);
   assert.match(prompt, /BASE DE CONOCIMIENTO ESTRUCTURADA/);
   assert.match(prompt, /QUANTUM_MATURITY/);
+  assert.match(prompt, /bloque cercado mermaid válido/);
 });
 
 test("acepta únicamente solicitudes del mismo origen", () => {
