@@ -1,0 +1,48 @@
+.turnstile-widget {
+  min-height: 68px;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.security-status {
+  margin: .35rem 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.4;
+}
+
+.action-with-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.action-with-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Mantiene el título y el enlace al proceso visibles durante la conversación. */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  box-shadow: 0 2px 12px rgba(8,26,43,.18);
+}
+
+.context-panel {
+  padding-top: clamp(1.75rem,3.5vw,3.25rem);
+}
+
+.context-panel h1 {
+  font-size: clamp(2.15rem,2.8vw,3.35rem);
+  line-height: 1.04;
+}

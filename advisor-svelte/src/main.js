@@ -1,3 +1,5 @@
+import './styles.css';
+import './security.css';
 import App from './App.svelte';
 
 const app = new App({
