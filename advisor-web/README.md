@@ -12,7 +12,7 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 
 ## Autenticación del despliegue
 
-- En producción, Vercel suministra automáticamente `VERCEL_OIDC_TOKEN`; no es necesario guardar una clave de OpenAI.
+- En producción, el servicio se despliega en Render con contenedorización Docker nativa en Rust.
 - `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5-mini`, disponible con los créditos gratuitos actuales de AI Gateway.
 - Para desarrollo local puede configurarse `AI_GATEWAY_API_KEY`.
 - `SESSION_SECRET` debe ser un valor aleatorio de al menos 32 bytes.
@@ -28,7 +28,7 @@ No coloque claves en archivos del repositorio ni en el navegador.
 - Una sola consulta simultánea por sesión.
 - Validación estricta de origen, método, tipo de contenido, tamaño y esquema JSON.
 - Bloqueo de patrones comunes de inyección de prompt y de credenciales.
-- Vercel Firewall y mitigación DDoS en el borde, complementados con una regla WAF para `/api/advisor`.
+- Mitigación y balanceo de carga mediante el proxy inverso de Render y Cloudflare Turnstile.
 
 ## Validación local
 
@@ -36,4 +36,4 @@ No coloque claves en archivos del repositorio ni en el navegador.
 npm test
 ```
 
-Para ejecutar el backend localmente se puede vincular el repositorio a un proyecto Vercel y usar `cargo run --bin pdaeh-advisor-server`. El portal documental continúa publicándose desde la rama `gh-pages`; la aplicación Advisor se publica desde `main` como un proyecto separado.
+Para ejecutar el backend localmente se usa `cargo run --bin pdaeh-advisor-server`. El portal documental se publica desde `gh-pages` en GitHub Pages y el servidor Axum se aloja en Render (`pdaeh-tesis-doctoral.onrender.com`).

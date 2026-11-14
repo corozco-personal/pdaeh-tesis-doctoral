@@ -813,17 +813,17 @@ function setupAgentDemo() {
       es: {
         label: "Caso Inadecuado / Fuera de alcance cuántico",
         useCase: "Desarrollo de un portal de comercio electrónico con carrito de compras, catálogo de productos y pasarela de pagos.",
-        stack: "Next.js con Node.js, base de datos MongoDB y hosting en Vercel."
+        stack: "Next.js con Node.js, base de datos MongoDB y hosting estático clásico."
       },
       en: {
         label: "Inappropriate case / Outside quantum scope",
         useCase: "Development of an e-commerce portal with shopping cart, product catalog, and payment gateway.",
-        stack: "Next.js with Node.js, MongoDB database, and hosting on Vercel."
+        stack: "Next.js with Node.js, MongoDB database, and classical static hosting."
       },
       fr: {
         label: "Cas inapproprié / Hors de portée quantique",
         useCase: "Développement d'un portail de commerce électronique avec panier d'achat, catalogue de produits et passerelle de paiement.",
-        stack: "Next.js avec Node.js, base de données MongoDB et hébergement sur Vercel."
+        stack: "Next.js avec Node.js, base de données MongoDB et hébergement statique classique."
       }
     }
   };
