@@ -246,61 +246,17 @@ async fn advisor_handler(
         }
     });
 
-    // 1. Consultar ModelService.ListModels para descubrir los modelos activos autorizados para esta clave
-    let list_url = format!(
-        "https://generativelanguage.googleapis.com/v1beta/models?key={}",
-        *state.gemini_key
-    );
-
-    let mut candidate_models: Vec<String> = Vec::new();
-
-    if let Ok(list_res) = state.client.get(&list_url).send().await {
-        if list_res.status().is_success() {
-            if let Ok(val) = list_res.json::<serde_json::Value>().await {
-                if let Some(models) = val.get("models").and_then(|m| m.as_array()) {
-                    for m in models {
-                        let is_generate = m.get("supportedGenerationMethods")
-                            .and_then(|methods| methods.as_array())
-                            .map(|arr| arr.iter().any(|method| method.as_str() == Some("generateContent")))
-                            .unwrap_or(false);
-
-                        if is_generate {
-                            if let Some(name) = m.get("name").and_then(|n| n.as_str()) {
-                                let model_id = name.strip_prefix("models/").unwrap_or(name);
-                                // Excluir explícitamente modelos de audio (tts), visión pura o embeddings
-                                let lower = model_id.to_lowercase();
-                                if !lower.contains("tts")
-                                    && !lower.contains("audio")
-                                    && !lower.contains("embedding")
-                                    && !lower.contains("imagen")
-                                    && !lower.contains("realtime")
-                                    && !lower.contains("aqa")
-                                {
-                                    candidate_models.push(model_id.to_string());
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    // Definir cascada ultra-rápida de modelos probados y estables
+    let mut candidate_models: Vec<String> = vec![
+        "gemini-1.5-flash".into(),
+        "gemini-2.0-flash".into(),
+        "gemini-1.5-pro".into(),
+    ];
+    if !candidate_models.contains(&*state.gemini_model) {
+        candidate_models.insert(0, state.gemini_model.to_string());
     }
 
-    // Ordenar priorizando modelos flash o experimentales
-    candidate_models.sort_by(|a, b| {
-        let score = |s: &str| {
-            if s.contains("flash") { 0 }
-            else if s.contains("pro") { 1 }
-            else { 2 }
-        };
-        score(a).cmp(&score(b))
-    });
-
-    if candidate_models.is_empty() {
-        candidate_models.push(state.gemini_model.to_string());
-    }
-
-    tracing::info!("Modelos activos con generateContent descubiertos: {:?}", candidate_models);
+    tracing::info!("Modelos prioritarios para streaming: {:?}", candidate_models);
 
     let mut gemini_res = None;
     let mut last_error = String::new();
@@ -311,7 +267,8 @@ async fn advisor_handler(
             model_name, *state.gemini_key
         );
 
-        match state.client.post(&url).json(&gemini_body).send().await {
+        // Timeout estricto de 5 segundos por intento para evitar esperas prolongadas
+        match state.client.post(&url).json(&gemini_body).timeout(Duration::from_secs(5)).send().await {
             Ok(res) => {
                 if res.status().is_success() {
                     tracing::info!("Conectado exitosamente con Gemini modelo: {}", model_name);

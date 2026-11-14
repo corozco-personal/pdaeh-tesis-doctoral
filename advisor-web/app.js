@@ -13,6 +13,7 @@
   let turnstileWidgetId = null;
   let securityReady = true;
   let isBusy = false;
+  let isRustNative = false;
 
   let mermaidInitialized = false;
   function ensureMermaid() {
@@ -40,6 +41,7 @@
 
       if (config.mode === "rust-native" || !config.turnstileSiteKey) {
         // En backend Rust nativo, la conexión es directa y protegida por el servidor
+        isRustNative = true;
         turnstileToken = "rust-session-valid";
         securityReady = true;
         const container = document.querySelector("#turnstileWidget");
@@ -291,10 +293,12 @@ async function renderRichResponse(container, text) {
       else streamMessage?.article.classList.remove("streaming");
       errorMessage.textContent = error.message;
     } finally {
-      turnstileToken = "";
-      securityReady = false;
-      if (window.turnstile && turnstileWidgetId !== null) window.turnstile.reset(turnstileWidgetId);
-      securityStatus.textContent = "Complete una nueva verificación anti-bot para realizar otra consulta.";
+      if (!isRustNative) {
+        turnstileToken = "";
+        securityReady = false;
+        if (window.turnstile && turnstileWidgetId !== null) window.turnstile.reset(turnstileWidgetId);
+        securityStatus.textContent = "Complete una nueva verificación anti-bot para realizar otra consulta.";
+      }
       setBusy(false);
       chatInput.focus();
     }
