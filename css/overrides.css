@@ -875,3 +875,12 @@ details.activity .activity-content {
   text-align: center !important;
   vertical-align: middle !important;
 }
+
+
+#glossaryTables td:first-child,
+#glossaryTables th:first-child {
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-weight: 700 !important;
+  width: 180px !important;
+}
