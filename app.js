@@ -226,7 +226,85 @@ function renderRoles(index=0){
   $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml);
   $$("#roleTabs button").forEach(b => b.onclick = () => renderRoles(+b.dataset.i));
 }
-function renderGovernance(){$("#ogaSteps").innerHTML=data.governance.rows.slice(1).map((r,i)=>`<article><b>${i+1}</b><div><h4>${esc(cleanText(r[1]||r[0]))}</h4><p>${esc(cleanText(r[2]||""))}</p></div></article>`).join("")}
+function renderGovernance() {
+  const container = $("#ogaSteps");
+  if (!container) return;
+  // Usar el mismo formato estructurado de actividad desplegable que en el resto de fases
+  container.className = "activities";
+  container.innerHTML = data.governance.rows.slice(1).map((r, i) => {
+    const code = cleanText(r[0] || `Fx.OGA.A${i+1}`);
+    const name = cleanText(r[1] || "");
+    const desc = cleanText(r[2] || "");
+    const resp = "OGA: Órgano de Gobierno Arquitectónico";
+    
+    // Entradas y salidas estándar según la etapa OGA
+    let entrada = "LBA consolidada de la fase anterior y paquete de artefactos normativos.";
+    let salida = "Acta de deliberación formal del OGA y dictamen de aprobación o ajuste.";
+    let herramientas = "Matriz de trazabilidad cruzada, rúbrica de verificación OGA y repositorio documental.";
+    let validacion = "Aprobación colegiada unánime o por mayoría simple del comité directivo y técnico.";
+
+    if (i === 0) {
+      entrada = "Artefactos completados por el AEP al cierre de la fase (LBA preliminar).";
+      salida = "Registro formal de radicación de artefactos en el repositorio del OGA.";
+    } else if (i === 1) {
+      entrada = "Registro de radicación de artefactos y disponibilidad de miembros del comité.";
+      salida = "Agenda formal de revisión, convocatoria oficial y criterios de análisis.";
+    } else if (i === 2) {
+      entrada = "Paquete de artefactos versionados y criterios metodológicos de aceptación.";
+      salida = "Hojas individuales de hallazgos, inconsistencias y evaluación técnica preliminar.";
+    } else if (i === 3) {
+      entrada = "Hojas de hallazgos individuales y propuestas técnicas del AEP/ASP.";
+      salida = "Decisión conjunta formal (Aprobado, Aprobado con observaciones, o Rechazado).";
+    } else if (i === 4) {
+      entrada = "Votación afirmativa del OGA en la sesión de deliberación.";
+      salida = "Acta formal de aprobación de la Línea Base Arquitectónica y autorización de avance.";
+    } else if (i === 5) {
+      entrada = "Observaciones, no conformidades o solicitudes de ajuste acordadas en la sesión.";
+      salida = "Documento de observaciones consolidado remitido al AEP para ajuste en ciclo corto.";
+    } else if (i === 6) {
+      entrada = "Acta de aprobación o documento de observaciones resuelto por el equipo.";
+      salida = "Línea Base Arquitectónica integral versionada e incorporada al portafolio corporativo.";
+    }
+
+    return `<details class="activity" style="margin-bottom:0.75rem;">
+      <summary>
+        <code>${esc(code)}</code>
+        <strong>${esc(name)}</strong>
+        <span>${esc(resp)}</span>
+      </summary>
+      <div class="activity-content">
+        <h5>Objetivo y alcance de la actividad</h5>
+        <p style="margin:0.3rem 0 1rem;font-size:1.02rem;line-height:1.65;text-align:justify;">${esc(desc)}</p>
+        <div class="activity-details">
+          <div class="activity-detail wide">
+            <h5>Descripción operativa</h5>
+            <p style="text-align:justify;margin:0;">${esc(desc)} Esta actividad asegura que ningún componente o artefacto arquitectónico avance a la fase subsiguiente sin la debida verificación de coherencia, solidez técnica y alineación estratégica.</p>
+          </div>
+          <div class="activity-detail">
+            <h5>Entradas</h5>
+            <ul class="structured-list" style="margin:0;padding-left:1.2rem;"><li>${esc(entrada)}</li></ul>
+          </div>
+          <div class="activity-detail">
+            <h5>Salidas y artefactos</h5>
+            <ul class="structured-list" style="margin:0;padding-left:1.2rem;"><li>${esc(salida)}</li></ul>
+          </div>
+          <div class="activity-detail">
+            <h5>Responsable</h5>
+            <ul class="structured-list" style="margin:0;padding-left:1.2rem;"><li><strong>OGA:</strong> Órgano de Gobierno Arquitectónico (en coordinación con el AEP).</li></ul>
+          </div>
+          <div class="activity-detail">
+            <h5>Herramientas y mecanismos</h5>
+            <ul class="structured-list" style="margin:0;padding-left:1.2rem;"><li>${esc(herramientas)}</li></ul>
+          </div>
+          <div class="activity-detail wide">
+            <h5>Punto de validación</h5>
+            <ul class="structured-list" style="margin:0;padding-left:1.2rem;"><li><strong>Control de compuerta:</strong> ${esc(validacion)}</li></ul>
+          </div>
+        </div>
+      </div>
+    </details>`;
+  }).join("");
+}
 function renderPhases(){$("#phasePanel").innerHTML=data.phases.map((p,i)=>`<article class="phase-card"><span>F${i+1}</span><div><h3>${phaseNames[i]}</h3><p>${esc(cleanText(field(p,["Propósito"])))}</p><a href="fase.html?id=${i+1}">Consultar la fase completa <span aria-hidden="true">→</span></a></div></article>`).join("")}
 
 const artifactInfo = {
@@ -1216,7 +1294,7 @@ function setupAgentDemo() {
         scaleLabel = "Mid-sized Enterprise (SME) · FinNova Reference Company";
         familyTitle = "Financial Portfolio Optimization (QAOA & Quantum Annealing · FinNova Case)";
         
-        algRationale = `<strong>FinNova</strong> is a reference mid-sized financial-services company whose organizational and technological characteristics define the baseline scenario for applying the process to <strong>dynamic portfolio rebalancing</strong>. Asset selection combinatorics under regulatory constraints, turnover limits, and non-linear covariances exceed the capability of classical quadratic solvers when the asset universe expands. The problem is naturally formulated as a <strong>Quadratic Unconstrained Binary Optimization (QUBO)</strong> or Ising Hamiltonian, solved through <em>Quantum Approximate Optimization Algorithm (QAOA)</em> or <em>Quantum Annealing</em>. The guiding design principle prescribes a <strong>decoupled hybrid co-processing model</strong>: FinNova's classical platform retains data governance, regulatory compliance, and factual risk calculations, delegating only the combinatorial stochastic core to external quantum co-processors.`;
+        algRationale = `<strong>FinNova</strong> is a reference mid-sized financial-services company whose organizational and technological characteristics define the baseline scenario for applying the process to <strong>dynamic portfolio rebalancing</strong>. Asset selection combinatorics under regulatory constraints, turnover limits, and non-linear covariances exceed the capability of classical quadratic solvers when the asset universe expands. The problem is naturally formulated as a <strong>Quadratic Unconstrained Binary Optimization (QUBO)</strong> or Ising Hamiltonian, solved through <em>Quantum Approximate Optimization Algorithm (QAOA)</em> or <em>Quantum Annealing</em>. The guiding design principle prescribes a <strong>decoupled hybrid co-processing model:</strong> FinNova's classical platform retains data governance, regulatory compliance, and factual risk calculations, delegating only the combinatorial stochastic core to external quantum co-processors.`;
 
         architecturalSynthesis = `
           <!-- SECTION 1: ARCHITECTURAL RECOMMENDATIONS -->
@@ -1312,7 +1390,7 @@ function setupAgentDemo() {
         scaleLabel = "Moyenne entreprise (PME) · Entreprise de référence FinNova";
         familyTitle = "Optimisation de Portefeuilles Financiers (QAOA et Recuit Quantique · Cas FinNova)";
         
-        algRationale = `<strong>FinNova</strong> est une entreprise moyenne de services financiers utilisée comme référence; ses caractéristiques organisationnelles et technologiques définissent le scénario de base pour appliquer le processus au <strong>rééquilibrage dynamique de portefeuille</strong>. La combinatoire de sélection d'actifs sous contraintes réglementaires et de risque dépasse les capacités des solveurs quadratiques classiques à grande échelle. Le problème est formulé sous forme d'<strong>Optimisation Binaire Quadratique Non Contrainte (QUBO)</strong> résolue via <em>QAOA</em> ou <em>Recuit Quantique</em>. Le principe d'architecture fondamental impose un <strong>modèle hybride découplé</strong>: la plateforme classique de FinNova conserve la gouvernance des données, la conformité réglementaire et les calculs de risque déterministes, ne déléguant au coprocesseur quantique que le cœur combinatoire stochastique.`;
+        algRationale = `<strong>FinNova</strong> est une entreprise moyenne de services financiers utilisée comme référence; ses caractéristiques organisationnelles et technologiques définissent le scénario de base pour appliquer le processus au <strong>rééquilibrage dynamique de portefeuille</strong>. La combinatoire de sélection d'actifs sous contraintes réglementaires et de risque dépasse les capacités des solveurs quadratiques classiques à grande échelle. Le problème est formulé sous forme d'<strong>Optimisation Binaire Quadratique Non Contrainte (QUBO)</strong> résolue via <em>QAOA</em> ou <em>Recuit Quantique</em>. Le principe d'architecture fondamental impose un <strong>modèle hybride découplé:</strong> la plateforme classique de FinNova conserve la gouvernance des données, la conformité réglementaire et les calculs de risque déterministes, ne déléguant au coprocesseur quantique que le cœur combinatoire stochastique.`;
 
         architecturalSynthesis = `
           <!-- SECTION 1: RECOMMANDATIONS ARCHITECTURALES -->
@@ -1403,7 +1481,7 @@ function setupAgentDemo() {
         scaleLabel = "Pequeña y mediana empresa (PYME) · Empresa de referencia FinNova";
         familyTitle = "Optimización de Portafolios Financieros (QAOA y Quantum Annealing · Caso FinNova)";
         
-        algRationale = `<strong>FinNova</strong> es una empresa mediana de servicios financieros utilizada como referencia; sus características organizacionales y tecnológicas definen el escenario base para aplicar el proceso al <strong>rebalanceo dinámico de carteras de inversión</strong>. La combinatoria de selección de activos bajo restricciones regulatorias, costos de transacción y covarianzas no lineales excede la capacidad de respuesta de los métodos cuadráticos clásicos cuando el universo de activos y horizontes temporales escala. La formulación matemática adecuada modela el problema como una <strong>Optimización Binaria Cuadrática No Restringida (QUBO)</strong> o Hamiltoniano de Ising, solucionable mediante <em>Quantum Approximate Optimization Algorithm (QAOA)</em> o <em>Quantum Annealing</em>. El principio rector de diseño prescribe un <strong>enfoque híbrido de co-procesamiento desacoplado</strong>: la plataforma clásica de FinNova preserva el gobierno de datos sensibles, el cumplimiento normativo y el cálculo de riesgo determinista, derivando al coprocesador cuántico externo únicamente la resolución del núcleo combinatorio estocástico.`;
+        algRationale = `<strong>FinNova</strong> es una empresa mediana de servicios financieros utilizada como referencia; sus características organizacionales y tecnológicas definen el escenario base para aplicar el proceso al <strong>rebalanceo dinámico de carteras de inversión</strong>. La combinatoria de selección de activos bajo restricciones regulatorias, costos de transacción y covarianzas no lineales excede la capacidad de respuesta de los métodos cuadráticos clásicos cuando el universo de activos y horizontes temporales escala. La formulación matemática adecuada modela el problema como una <strong>Optimización Binaria Cuadrática No Restringida (QUBO)</strong> o Hamiltoniano de Ising, solucionable mediante <em>Quantum Approximate Optimization Algorithm (QAOA)</em> o <em>Quantum Annealing</em>. El principio rector de diseño prescribe un <strong>enfoque híbrido de co-procesamiento desacoplado:</strong> la plataforma clásica de FinNova preserva el gobierno de datos sensibles, el cumplimiento normativo y el cálculo de riesgo determinista, derivando al coprocesador cuántico externo únicamente la resolución del núcleo combinatorio estocástico.`;
 
         architecturalSynthesis = `
           <!-- SECCIÓN 1: RECOMENDACIONES ARQUITECTÓNICAS -->

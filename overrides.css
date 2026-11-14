@@ -512,3 +512,20 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
 .advisor-entry-link strong { display:block;font-size:1.1rem; }
 .advisor-entry-link small { display:block;color:var(--muted);margin-top:.25rem; }
 .advisor-entry-link>span:last-child { font-size:1.7rem;color:var(--green); }
+
+/* Panel transparente sin borde ni sombra para el modelo de referencia */
+.model-figure,
+.model-figure.vector-figure {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.model-figure img,
+.model-figure.vector-figure img {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
