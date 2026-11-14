@@ -101,11 +101,11 @@ module.exports = async function advisorHandler(req, res) {
   if (error) return sendJson(res, 400, { error });
 
   const payload = {
-    model: process.env.AI_GATEWAY_MODEL || "openai/gpt-5.4",
+    model: process.env.AI_GATEWAY_MODEL || "openai/gpt-5-mini",
     instructions: instructions(),
     input: req.body.messages.map(({ role, content }) => ({ role, content: content.trim() })),
     store: true,
-    max_output_tokens: 6000,
+    max_output_tokens: 3500,
   };
   if (req.body.previousResponseId) payload.previous_response_id = req.body.previousResponseId;
 

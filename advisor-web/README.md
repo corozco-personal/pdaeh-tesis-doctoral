@@ -13,7 +13,7 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 ## Autenticación del despliegue
 
 - En producción, Vercel suministra automáticamente `VERCEL_OIDC_TOKEN`; no es necesario guardar una clave de OpenAI.
-- `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5.4`.
+- `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5-mini`, disponible con los créditos gratuitos actuales de AI Gateway.
 - Para desarrollo local puede configurarse `AI_GATEWAY_API_KEY`.
 
 No coloque claves en archivos del repositorio ni en el navegador.
