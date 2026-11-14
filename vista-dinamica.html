@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Vista Dinámica del Proceso PDAEH — Meta-Arquitectura Interactiva Archify</title>
+  <title>Vista Dinámica del Proceso PDAEH — Navegador Interactivo de Diagramas BPMN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=1794698800">
-  <link rel="stylesheet" href="css/overrides.css?v=1794698800">
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1794699500">
+  <link rel="stylesheet" href="css/overrides.css?v=1794699500">
+  <script src="js/thesis-content.js"></script>
   <style>
     :root {
       --navy: #152b43;
+      --navy-light: #1f3d5e;
       --green: #18796e;
       --green-light: #eef5f3;
       --line: #d8e1dd;
@@ -33,11 +34,11 @@
     .archify-hero {
       background: var(--navy);
       color: #ffffff;
-      padding: 3.5rem 2rem 2.8rem;
+      padding: 2.8rem 2rem 2.2rem;
       border-bottom: 3px solid var(--green);
     }
     .archify-hero-inner {
-      max-width: 1200px;
+      max-width: 1360px;
       margin: 0 auto;
     }
     .archify-badge {
@@ -57,123 +58,207 @@
     }
     .archify-hero h1 {
       font-family: 'Newsreader', serif;
-      font-size: clamp(2rem, 3.8vw, 3.2rem);
-      margin: 0 0 0.8rem;
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      margin: 0 0 0.6rem;
       line-height: 1.15;
     }
     .archify-hero p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: #cad8d3;
-      max-width: 860px;
+      max-width: 980px;
       margin: 0;
-      line-height: 1.65;
+      line-height: 1.6;
     }
-    .archify-container {
-      max-width: 1240px;
-      margin: 2rem auto;
+    .archify-workspace {
+      max-width: 1400px;
+      margin: 1.5rem auto 3rem;
       padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 1.5rem;
     }
-    .archify-card {
+    @media (max-width: 980px) {
+      .archify-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Panel lateral de navegación */
+    .archify-sidebar {
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 1.8rem;
-      margin-bottom: 2rem;
+      padding: 1.25rem;
+      height: fit-content;
+      position: sticky;
+      top: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
-    .archify-card h2 {
+    .archify-sidebar h2 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.25rem;
+      margin: 0 0 0.8rem;
+      color: var(--navy);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.5rem;
+    }
+    .nav-group-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      margin: 1rem 0 0.4rem;
+    }
+    .diagram-nav-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.35rem;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: #f7faf9;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .diagram-nav-btn:hover {
+      background: var(--green-light);
+      border-color: #a8cfc4;
+      color: var(--green);
+    }
+    .diagram-nav-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 600;
+      border-color: var(--navy);
+    }
+    .diagram-nav-btn .pill {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.06);
+    }
+    .diagram-nav-btn.active .pill {
+      background: var(--green);
+      color: #ffffff;
+    }
+    /* Visor central del diagrama BPMN */
+    .diagram-stage {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .stage-title-box h2 {
       font-family: 'Newsreader', serif;
       font-size: 1.65rem;
       color: var(--navy);
-      margin: 0 0 0.6rem;
+      margin: 0 0 0.35rem;
+      line-height: 1.2;
     }
-    .archify-tabs {
+    .stage-title-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .stage-controls {
       display: flex;
       gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 0.8rem;
+      align-items: center;
     }
-    .archify-tab {
-      padding: 0.6rem 1.1rem;
+    .control-btn {
+      padding: 0.45rem 0.85rem;
       border: 1px solid var(--line);
       border-radius: 6px;
-      background: #f7faf9;
+      background: #fafcfb;
       color: var(--navy);
-      font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.12s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
     }
-    .archify-tab:hover {
-      background: var(--green-light);
-      border-color: var(--green);
-    }
-    .archify-tab.active {
+    .control-btn:hover {
       background: var(--navy);
       color: #ffffff;
       border-color: var(--navy);
     }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .archify-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .meta-box {
+    .viewer-box {
+      background: #fafcfb;
       border: 1px solid var(--line);
       border-radius: 6px;
-      padding: 1.1rem 1.3rem;
-      background: #fafcfb;
+      padding: 1rem;
+      text-align: center;
+      overflow: auto;
+      max-height: 75vh;
+      position: relative;
     }
-    .meta-box.conceptual { border-top: 3px solid var(--green); }
-    .meta-box.organizacional { border-top: 3px solid var(--purple); }
-    .meta-box.diseno { border-top: 3px solid var(--amber); }
-    .meta-box.gobernanza { border-top: 3px solid var(--blue); }
-    .meta-box h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.05rem;
-      color: var(--navy);
+    .viewer-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: #ffffff;
     }
-    .meta-box ul {
+    .context-metadata-box {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      background: #f7faf9;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+    .meta-col h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      margin: 0 0 0.35rem;
+    }
+    .meta-col p, .meta-col ul {
       margin: 0;
-      padding-left: 1.2rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--ink);
     }
-    .meta-box li {
-      margin-bottom: 0.35rem;
+    .meta-col ul {
+      padding-left: 1.15rem;
     }
-    .mermaid-shell {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 1.2rem;
-      overflow-x: auto;
-      margin: 1.2rem 0;
-    }
-    .back-btn {
+    .portal-link-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--navy);
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--green);
       color: #ffffff;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 4px;
       font-weight: 700;
-      font-size: 0.9rem;
-      transition: background 0.15s ease;
-    }
-    .back-btn:hover {
-      background: var(--green);
+      font-size: 0.84rem;
     }
   </style>
 </head>
@@ -181,245 +266,354 @@
   <header class="topbar">
     <a class="brand" href="index.html">
       <span class="brand-mark">P</span>
-      <span><strong>PDAEH</strong><small>Meta-Arquitectura Interactiva Archify</small></span>
+      <span><strong>PDAEH</strong><small>Vista Dinámica e Interactiva de Procesos BPMN</small></span>
     </a>
     <div style="display:flex;align-items:center;gap:1rem;">
-      <a class="portal-link" href="index.html#matriz-trazabilidad">← Volver a la Matriz de Trazabilidad</a>
+      <a class="portal-link" href="index.html#vista-dinamica">← Volver al Portal Principal</a>
       <a class="portal-link" href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank" rel="noopener noreferrer" style="color:#72e0d3;font-weight:700;">PDAEH Advisor ↗</a>
     </div>
   </header>
 
   <div class="archify-hero">
     <div class="archify-hero-inner">
-      <div class="archify-badge">Especificación Formal Archify • Tesis Doctoral</div>
-      <h1>Vista Dinámica e Interactiva de la Meta-Arquitectura PDAEH</h1>
+      <div class="archify-badge">Navegador Dinámico • Vista Integral de Procesos</div>
+      <h1>Explorador Dinámico de Procesos BPMN del PDAEH</h1>
       <p>
-        Esta especificación formal modela el proceso en su totalidad como un <strong>Meta-Modelo de Proceso y Arquitectura Empresarial Híbrida</strong>. Articula de forma ejecutable e interactiva el flujo de control, las compuertas de gobernanza OGA, los contratos de información de los 15 artefactos y las transiciones metodológicas entre las 5 fases del PDAEH.
+        Navegue por la totalidad del proceso metodológico de forma fluida y continua sin necesidad de ingresar a cada sección individual. Seleccione cualquier fase, elemento arquitectónico o compuerta de gobierno OGA en el panel lateral para visualizar su diagrama BPMN oficial, sus actividades normativas y sus artefactos generados.
       </p>
     </div>
   </div>
 
-  <main class="archify-container">
-    <div class="archify-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
-        <div>
-          <h2>Meta-Modelo de Ejecución del Proceso (Archify Architecture View)</h2>
-          <p style="margin:0;color:var(--muted);font-size:0.95rem;">Seleccione una vista arquitectónica para explorar la dinámica estructural y operativa:</p>
+  <main class="archify-workspace">
+    <!-- PANEL LATERAL DE NAVEGACIÓN -->
+    <aside class="archify-sidebar">
+      <h2>Diagramas del Proceso</h2>
+
+      <div class="nav-group-title">Visión Macro y Gobernanza</div>
+      <button class="diagram-nav-btn active" data-id="macro-pdaeh">
+        <span>Proceso PDAEH Completo</span>
+        <span class="pill">BPMN Global</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="oga-flujo">
+        <span>Gobernanza Transversal OGA</span>
+        <span class="pill">Fig. 25</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="macro-linea-base">
+        <span>Flujo de Líneas Base (LBA)</span>
+        <span class="pill">Macro</span>
+      </button>
+
+      <div class="nav-group-title">Fase 1: Definición Estratégica</div>
+      <button class="diagram-nav-btn" data-id="fase-1-general">
+        <span>Fase 1: Flujo General</span>
+        <span class="pill">Fig. 26</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-1-e1">
+        <span>Elemento E1: Objetivo Arquitectura</span>
+        <span class="pill">Fig. 27</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-1-e2">
+        <span>Elemento E2: Contexto Arquitectura</span>
+        <span class="pill">Fig. 28</span>
+      </button>
+
+      <div class="nav-group-title">Fase 2: Formalización Conceptual</div>
+      <button class="diagram-nav-btn" data-id="fase-2-general">
+        <span>Fase 2: Flujo General</span>
+        <span class="pill">Fig. 29</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-2-e3">
+        <span>Elemento E3: Grado Abstracción</span>
+        <span class="pill">Fig. 30</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-2-e4">
+        <span>Elemento E4: Glosario y Términos</span>
+        <span class="pill">Fig. 31</span>
+      </button>
+
+      <div class="nav-group-title">Fase 3: Configuración Estructural</div>
+      <button class="diagram-nav-btn" data-id="fase-3-general">
+        <span>Fase 3: Flujo General</span>
+        <span class="pill">Fig. 32</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-3-e5">
+        <span>Elemento E5: Estructuras Arquitectura</span>
+        <span class="pill">Fig. 34</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-3-e6">
+        <span>Elemento E6: Atributos Calidad</span>
+        <span class="pill">Fig. 33</span>
+      </button>
+
+      <div class="nav-group-title">Fase 4: Materialización</div>
+      <button class="diagram-nav-btn" data-id="fase-4-general">
+        <span>Fase 4: Flujo General</span>
+        <span class="pill">Fig. 35</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-4-e9">
+        <span>Elemento E9: Componentes Estructurales</span>
+        <span class="pill">Fig. 36</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-4-e10">
+        <span>Elemento E10: Elementos Reutilizables</span>
+        <span class="pill">Fig. 37</span>
+      </button>
+
+      <div class="nav-group-title">Fase 5: Sistematización del Diseño</div>
+      <button class="diagram-nav-btn" data-id="fase-5-general">
+        <span>Fase 5: Flujo General</span>
+        <span class="pill">Fig. 38</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-5-e7">
+        <span>Elemento E7: Estilos y Patrones</span>
+        <span class="pill">Fig. 39</span>
+      </button>
+      <button class="diagram-nav-btn" data-id="fase-5-e8">
+        <span>Elemento E8: Patrones de Diseño</span>
+        <span class="pill">Fig. 40</span>
+      </button>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL: VISOR DEL DIAGRAMA SELECCIONADO -->
+    <section class="diagram-stage">
+      <div class="stage-header">
+        <div class="stage-title-box">
+          <h2 id="stageTitle">Flujo Global del Proceso PDAEH</h2>
+          <p id="stageDescription">Vista integral de las 5 fases, compuertas OGA y ciclo de retroalimentación metodológico.</p>
         </div>
-        <a href="index.html" class="back-btn">← Regresar al Portal Principal</a>
-      </div>
-
-      <div class="archify-tabs">
-        <button class="archify-tab active" onclick="switchTab('tab-macro')">1. Flujo Dinámico End-to-End (Fases & OGA)</button>
-        <button class="archify-tab" onclick="switchTab('tab-meta')">2. Meta-Modelo Estructural (4 Dimensiones)</button>
-        <button class="archify-tab" onclick="switchTab('tab-artifacts')">3. Red de Trazabilidad de Artefactos (15 Docs)</button>
-        <button class="archify-tab" onclick="switchTab('tab-roles')">4. Coreografía de Roles RACI (E6)</button>
-      </div>
-
-      <!-- TAB 1: FLUJO MACRO -->
-      <div id="tab-macro" class="tab-content active">
-        <h3 style="color:var(--navy);margin-top:0;">1. Ciclo Dinámico de Ejecución y Compuertas de Gobierno (OGA-1 a OGA-5)</h3>
-        <p style="font-size:0.92rem;color:var(--muted);">
-          Representación del flujo completo de retroalimentación, avance condicionado y compuertas de control del Órgano de Gobierno Arquitectónico:
-        </p>
-        <div class="mermaid-shell">
-          <pre class="mermaid">
-flowchart LR
-  Start(["Iniciación de Evaluación"]) --> F1["Fase 1: Definición Estratégica
-(E1 + E2)"]
-  F1 --> Art1["Artefactos: DOE, MTA, DCA"]
-  Art1 --> OGA1{"Compuerta OGA-1
-(Viabilidad Clásica/NISQ)"}
-
-  OGA1 -- "Rechazado" --> Exit1["Dictamen: No Viable
-(Arquitectura Clásica Optimizada)"]
-  OGA1 -- "Aprobado (LBA-F1)" --> F2["Fase 2: Modelado y Requisitos
-(E3 + E4)"]
-
-  F2 --> Art2["Artefactos: MSP, DPV, DNA"]
-  Art2 --> OGA2{"Compuerta OGA-2
-(Alineación Estratégica)"}
-
-  OGA2 -- "Aprobado (LBA-F2)" --> F3["Fase 3: Integración Tecnológica
-(E5 + E6)"]
-  F3 --> Art3["Artefactos: ITA, DVA, MAC"]
-  Art3 --> OGA3{"Compuerta OGA-3
-(Contratos QIL y Seguridad PQC)"}
-
-  OGA3 -- "Aprobado (LBA-F3)" --> F4["Fase 4: Materialización
-(E9 + E10)"]
-  F4 --> Art4["Artefactos: DEA, DCO, BER"]
-  Art4 --> OGA4{"Compuerta OGA-4
-(Benchmark BER y Mitigación Ruido)"}
-
-  OGA4 -- "Aprobado (LBA-F4)" --> F5["Fase 5: Sistematización
-(E7 + E8)"]
-  F5 --> Art5["Artefactos: CEP, CPD, LBA"]
-  Art5 --> OGA5{"Compuerta OGA-5
-(Aprobación Final LBA Consolidada)"}
-
-  OGA5 --> EndNode(["Línea Base Híbrida en Operación
-Catálogo Institucional CPD"])
-
-  style OGA1 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style OGA2 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style OGA3 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style OGA4 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style OGA5 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style F1 fill:#eef5f3,stroke:#18796e,stroke-width:2px
-  style F2 fill:#f3f0fa,stroke:#6d28d9,stroke-width:2px
-  style F3 fill:#fbf3e6,stroke:#b45309,stroke-width:2px
-  style F4 fill:#eff6ff,stroke:#1d4ed8,stroke-width:2px
-  style F5 fill:#eef5f3,stroke:#18796e,stroke-width:2px
-  style Exit1 fill:#fdf0ed,stroke:#a53131,stroke-width:2px
-          </pre>
-        </div>
-      </div>
-
-      <!-- TAB 2: META-MODELO ESTRUCTURAL -->
-      <div id="tab-meta" class="tab-content">
-        <h3 style="color:var(--navy);margin-top:0;">2. Meta-Modelo de 4 Dimensiones y 10 Elementos Estructurales</h3>
-        <p style="font-size:0.92rem;color:var(--muted);">
-          Desglose taxonómico de las dimensiones metodológicas derivadas de la matriz de estructura de diseño (DSM) del PDAEH:
-        </p>
-        <div class="archify-meta-grid">
-          <div class="meta-box conceptual">
-            <h3>Dimensión Conceptual</h3>
-            <ul>
-              <li><strong>E1:</strong> Integración Cuántica-Clásica (QIL).</li>
-              <li><strong>E2:</strong> Patrones de Diseño Híbrido.</li>
-              <li><strong>E3:</strong> Lenguajes y Marcos de Modelado.</li>
-            </ul>
-          </div>
-          <div class="meta-box organizacional">
-            <h3>Dimensión Organizacional</h3>
-            <ul>
-              <li><strong>E4:</strong> Alineación Estratégica con Negocio.</li>
-              <li><strong>E5:</strong> Gobernanza y Gestión del Cambio.</li>
-              <li><strong>E6:</strong> Roles y Responsabilidades (RACI).</li>
-            </ul>
-          </div>
-          <div class="meta-box diseno">
-            <h3>Dimensión Calidad y Diseño</h3>
-            <ul>
-              <li><strong>E7:</strong> Atributos de Calidad Cuántica (QAA).</li>
-              <li><strong>E8:</strong> Ciclo de Vida y Proceso de Software.</li>
-              <li><strong>E9:</strong> Métricas de Diseño y Evaluación.</li>
-            </ul>
-          </div>
-          <div class="meta-box gobernanza">
-            <h3>Soporte y Gobernanza</h3>
-            <ul>
-              <li><strong>E10:</strong> Herramientas de Simulación y QPUs.</li>
-              <li><strong>OGA:</strong> Compuertas OGA-1 a OGA-5.</li>
-              <li><strong>LBA:</strong> Líneas Base Arquitectónicas F1-F5.</li>
-            </ul>
-          </div>
+        <div class="stage-controls">
+          <button class="control-btn" id="zoomInBtn" title="Acercar">🔍+ Zoom</button>
+          <button class="control-btn" id="zoomOutBtn" title="Alejar">🔍- Zoom</button>
+          <button class="control-btn" id="zoomResetBtn" title="Restablecer vista">↺ Reiniciar</button>
+          <a id="openFullBtn" class="control-btn" target="_blank" rel="noopener noreferrer">↗ Abrir Imagen</a>
         </div>
       </div>
 
-      <!-- TAB 3: RED DE ARTEFACTOS -->
-      <div id="tab-artifacts" class="tab-content">
-        <h3 style="color:var(--navy);margin-top:0;">3. Red de Dependencia y Trazabilidad de los 15 Artefactos</h3>
-        <p style="font-size:0.92rem;color:var(--muted);">
-          Topología de flujo de información entre los artefactos normativos del proceso:
-        </p>
-        <div class="mermaid-shell">
-          <pre class="mermaid">
-flowchart TD
-  DOE["DOE: Documento de Oportunidad"] --> MTA["MTA: Matriz Tecnológica"]
-  MTA --> DCA["DCA: Capacidades Arquitectónicas"]
-  DCA --> MSP["MSP: Matriz de Servicios y Procesos"]
-  MSP --> DPV["DPV: Puntos de Variación"]
-  DPV --> DNA["DNA: Nivel de Abstracción"]
-  DNA --> ITA["ITA: Integración Tecnológica"]
-  ITA --> DVA["DVA: Vista Arquitectónica"]
-  DVA --> MAC["MAC: Modelo de Adaptación"]
-  MAC --> DEA["DEA: Estrategia de Evaluación"]
-  DEA --> DCO["DCO: Criterios de Optimización"]
-  DCO --> BER["BER: Benchmark y Eficiencia"]
-  BER --> CEP["CEP: Catálogo de Elementos"]
-  CEP --> CPD["CPD: Patrones de Diseño"]
-  CPD --> LBA["LBA: Línea Base Consolidada"]
-
-  style DOE fill:#eef5f3,stroke:#18796e
-  style DCA fill:#eef5f3,stroke:#18796e
-  style MSP fill:#f3f0fa,stroke:#6d28d9
-  style ITA fill:#fbf3e6,stroke:#b45309
-  style BER fill:#eff6ff,stroke:#1d4ed8
-  style LBA fill:#dcfce7,stroke:#15803d,stroke-width:2px
-          </pre>
-        </div>
+      <div class="viewer-box">
+        <img id="stageImage" src="assets/jiisic/proceso_pdaeh.svg" alt="Diagrama de arquitectura del proceso">
       </div>
 
-      <!-- TAB 4: ROLES RACI -->
-      <div id="tab-roles" class="tab-content">
-        <h3 style="color:var(--navy);margin-top:0;">4. Coreografía y Matriz RACI de Roles (E6)</h3>
-        <p style="font-size:0.92rem;color:var(--muted);">
-          Asignación formal de responsabilidades entre los 9 roles normativos a lo largo del proceso:
-        </p>
-        <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:0.88rem;background:#fff;border:1px solid var(--line);">
-            <thead>
-              <tr style="background:#e7f0ec;color:var(--navy);text-align:left;">
-                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Fase PDAEH</th>
-                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Responsable (R)</th>
-                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Aprobador (A)</th>
-                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Consultado (C)</th>
-                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Informado (I)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 1: Estratégica</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP (Arquitecto Empresarial)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-1)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP, LNP, ASecP</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Equipo de Desarrollo Clásico</td>
-              </tr>
-              <tr style="background:#fafcfb;">
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 2: Requisitos</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">ASP (Arquitecto de Solución)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-2)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP, EQP, GEP (Legal)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">LNP (Líder de Negocio)</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 3: Integración</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">ASP + AIP (Infraestructura)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-3)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP, ASecP (Ciberseguridad)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">GPA (Admin QPU)</td>
-              </tr>
-              <tr style="background:#fafcfb;">
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 4: Materialización</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP + ASP</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-4)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AIP, GPA</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">LNP, AEP</td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 5: Sistematización</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP + ASP</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#15803d;font-weight:700;">Comité OGA (OGA-5 Final)</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Todos los Roles</td>
-                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Organización Institucional</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- METADATOS Y ELEMENTOS DE TRAZABILIDAD -->
+      <div class="context-metadata-box">
+        <div class="meta-col">
+          <h4>Fase y Elementos Involucrados</h4>
+          <p id="metaFase">Visión Global del Marco Metodológico (Fases F1 a F5)</p>
+        </div>
+        <div class="meta-col">
+          <h4>Artefactos Normalizados Asociados</h4>
+          <p id="metaArtefactos">Paquete Completo (DOE, MTA, DCA, MSP, DPV, DNA, ITA, DVA, MAC, DEA, DCO, BER, CEP, CPD, LBA)</p>
+        </div>
+        <div class="meta-col">
+          <h4>Punto de Control OGA</h4>
+          <p id="metaOGA">Compuertas OGA-1 a OGA-5 (Revisiones Colegiadas)</p>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <script>
-    mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.archify-tab').forEach(el => el.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
+    // === CATÁLOGO DE DIAGRAMAS BPMN DEL PROCESO PDAEH ===
+    const DIAGRAMS_CATALOG = {
+      "macro-pdaeh": {
+        title: "Flujo Global del Proceso PDAEH",
+        desc: "Vista integral de las 5 fases, compuertas OGA y ciclo de retroalimentación metodológico derivado de la matriz DSM.",
+        src: "assets/jiisic/proceso_pdaeh.svg",
+        fase: "Todas las fases (F1, F2, F3, F4, F5)",
+        artefactos: "Paquete completo de 15 artefactos normativos",
+        oga: "Ciclo de control formal de compuertas OGA-1 a OGA-5"
+      },
+      "oga-flujo": {
+        title: "Actividad Transversal: Flujo de Gobierno OGA (Figura 25)",
+        desc: "Proceso BPMN de revisión, emisión de actas de dictamen y consolidación de Líneas Base Arquitectónicas al cierre de cada fase.",
+        src: "assets/figures/figura-25.png",
+        fase: "Transversal (Puntos de compuerta al finalizar cada fase)",
+        artefactos: "Actas de aprobación OGA, LBA-F1 a LBA-F5 y dictámenes de ajuste",
+        oga: "Comité OGA formal (Aprobación, Ajuste o Cierre)"
+      },
+      "macro-linea-base": {
+        title: "Progresión de Fases y Consolidación de Líneas Base",
+        desc: "Diagrama macro de entradas, propósito operativo y salidas incrementales gobernadas por el proceso.",
+        src: "assets/jiisic/flujo_fases_linea_base.svg",
+        fase: "Fases F1 a F5 consecutivas",
+        artefactos: "Líneas Base Arquitectónicas (LBA) acumulativas",
+        oga: "Habilitación secuencial de fases"
+      },
+      "fase-1-general": {
+        title: "Fase 1: Definición Estratégica — Flujo General (Figura 26)",
+        desc: "Diagrama BPMN de la Fase 1: Identificación de oportunidades híbridas, evaluación de idoneidad y preparación de la compuerta OGA-1.",
+        src: "assets/figures/figura-26.png",
+        fase: "Fase 1 (Definición Estratégica)",
+        artefactos: "DOE (Oportunidad), MTA (Matriz Tecnológica), DCA (Capacidades)",
+        oga: "Compuerta OGA-1: Dictamen de Viabilidad Híbrida"
+      },
+      "fase-1-e1": {
+        title: "Elemento E1: Objetivo de la Arquitectura — Actividades (Figura 27)",
+        desc: "Flujo BPMN de actividades F1.E1.A1 a F1.E1.A4 para definir la alineación de negocio y el propósito cuántico-clásico.",
+        src: "assets/figures/figura-27.png",
+        fase: "Fase 1 • Elemento E1",
+        artefactos: "DOE (Documento de Oportunidad Estratégica)",
+        oga: "Alineación inicial evaluada en OGA-1"
+      },
+      "fase-1-e2": {
+        title: "Elemento E2: Contexto de la Arquitectura — Actividades (Figura 28)",
+        desc: "Flujo BPMN de actividades F1.E2.A1 a F1.E2.A4 para caracterizar el stack As-Is y los límites de la organización.",
+        src: "assets/figures/figura-28.png",
+        fase: "Fase 1 • Elemento E2",
+        artefactos: "DCA (Diagnóstico de Capacidades Arquitectónicas)",
+        oga: "Cierre conjunto F1.E1.A4 {E2} remitido a OGA-1"
+      },
+      "fase-2-general": {
+        title: "Fase 2: Formalización Conceptual — Flujo General (Figura 29)",
+        desc: "Diagrama BPMN de la Fase 2: Modelado formal de servicios, puntos de variación cuántica y abstracción arquitectónica.",
+        src: "assets/figures/figura-29.png",
+        fase: "Fase 2 (Formalización Conceptual)",
+        artefactos: "MSP (Matriz de Servicios), DPV (Puntos Variación), DNA (Abstracción)",
+        oga: "Compuerta OGA-2: Aprobación de la Línea Base LBA-F2"
+      },
+      "fase-2-e3": {
+        title: "Elemento E3: Grado de Abstracción — Actividades (Figura 30)",
+        desc: "Flujo BPMN de actividades F2.E3.A1 a F2.E3.A4 para desacoplar modelos conceptuales de especificaciones de hardware NISQ.",
+        src: "assets/figures/figura-30.png",
+        fase: "Fase 2 • Elemento E3",
+        artefactos: "DNA (Documento de Niveles de Abstracción)",
+        oga: "Verificación de independencia de proveedor en OGA-2"
+      },
+      "fase-2-e4": {
+        title: "Elemento E4: Glosario de Términos y Definiciones — Actividades (Figura 31)",
+        desc: "Flujo BPMN para formalizar la ontología híbrida, contratos de comunicación y conceptos multidisciplinarios.",
+        src: "assets/figures/figura-31.png",
+        fase: "Fase 2 • Elemento E4",
+        artefactos: "MSP (Matriz de Servicios y Procesos)",
+        oga: "Consolidación F2.E4.A4 {E3} enviada a OGA-2"
+      },
+      "fase-3-general": {
+        title: "Fase 3: Configuración Estructural — Flujo General (Figura 32)",
+        desc: "Diagrama BPMN de la Fase 3: Definición de estructuras, patrones de mediación y asignación de atributos de calidad.",
+        src: "assets/figures/figura-32.png",
+        fase: "Fase 3 (Configuración Estructural)",
+        artefactos: "ITA (Integración Tecnológica), DVA (Vista Arquitectura), MAC (Adaptación)",
+        oga: "Compuerta OGA-3: Aprobación de Contratos de Integración"
+      },
+      "fase-3-e5": {
+        title: "Elemento E5: Estructuras Arquitectónicas — Actividades (Figura 34)",
+        desc: "Flujo BPMN de diseño de la Capa de Integración Cuántica (QIL), brokers híbridos y patrones de seguridad PQC.",
+        src: "assets/figures/figura-34.png",
+        fase: "Fase 3 • Elemento E5",
+        artefactos: "ITA (Integración Tecnológica y Adaptadores)",
+        oga: "Garantía de desacoplamiento en OGA-3"
+      },
+      "fase-3-e6": {
+        title: "Elemento E6: Atributos de Calidad — Actividades (Figura 33)",
+        desc: "Flujo BPMN para mapear atributos de latencia, disponibilidad, resiliencia y planes de fallback.",
+        src: "assets/figures/figura-33.png",
+        fase: "Fase 3 • Elemento E6",
+        artefactos: "MAC (Modelo de Adaptación y Calidad)",
+        oga: "Cierre conjunto F3.E6.A6 {E5} remitido a OGA-3"
+      },
+      "fase-4-general": {
+        title: "Fase 4: Materialización Arquitectónica — Flujo General (Figura 35)",
+        desc: "Diagrama BPMN de la Fase 4: Implementación de componentes de software, circuitos cuánticos y benchmarking empírico.",
+        src: "assets/figures/figura-35.png",
+        fase: "Fase 4 (Materialización Arquitectónica)",
+        artefactos: "DEA (Estrategia Evaluación), DCO (Criterios Optimización), BER (Benchmark)",
+        oga: "Compuerta OGA-4: Validación de Desempeño NISQ y Ruido"
+      },
+      "fase-4-e9": {
+        title: "Elemento E9: Componentes Estructurales — Actividades (Figura 36)",
+        desc: "Flujo BPMN para codificar interfaces gRPC/REST, circuitos parametrizados y mitigación de ruido.",
+        src: "assets/figures/figura-36.png",
+        fase: "Fase 4 • Elemento E9",
+        artefactos: "DEA (Documento de Evaluación Arquitectónica)",
+        oga: "Revisión de componentes en OGA-4"
+      },
+      "fase-4-e10": {
+        title: "Elemento E10: Elementos Reutilizables — Actividades (Figura 37)",
+        desc: "Flujo BPMN para ejecutar pruebas comparativas de ventaja algorítmica clásica vs. NISQ (ILP vs. QAOA).",
+        src: "assets/figures/figura-37.png",
+        fase: "Fase 4 • Elemento E10",
+        artefactos: "BER (Benchmark de Eficiencia y Ruido)",
+        oga: "Cierre conjunto F4.E9.A6 {E10} evaluado en OGA-4"
+      },
+      "fase-5-general": {
+        title: "Fase 5: Sistematización del Diseño — Flujo General (Figura 38)",
+        desc: "Diagrama BPMN de la Fase 5: Catalogación de patrones de diseño, empaquetamiento de elementos y consolidación final de la LBA.",
+        src: "assets/figures/figura-38.png",
+        fase: "Fase 5 (Sistematización del Diseño)",
+        artefactos: "CEP (Catálogo de Elementos), CPD (Patrones de Diseño), LBA (Línea Base Final)",
+        oga: "Compuerta OGA-5: Aprobación y Adopción Institucional Definitiva"
+      },
+      "fase-5-e7": {
+        title: "Elemento E7: Estilos y Patrones Arquitectónicos — Actividades (Figura 39)",
+        desc: "Flujo BPMN para formalizar los patrones híbridos documentados (Mediator, Broker, Circuit Knitting).",
+        src: "assets/figures/figura-39.png",
+        fase: "Fase 5 • Elemento E7",
+        artefactos: "CPD (Catálogo de Patrones de Diseño)",
+        oga: "Catalogación formal en repositorio institucional"
+      },
+      "fase-5-e8": {
+        title: "Elemento E8: Patrones de Diseño — Actividades (Figura 40)",
+        desc: "Flujo BPMN para estructurar plantillas de microarquitectura, librerías y contratos reutilizables.",
+        src: "assets/figures/figura-40.png",
+        fase: "Fase 5 • Elemento E8",
+        artefactos: "LBA (Línea Base Arquitectónica Consolidada)",
+        oga: "Cierre final mancomunado F5.E7.A6 {E8} aprobado en OGA-5"
+      }
+    };
+
+    let currentScale = 1.0;
+    const stageImage = document.getElementById("stageImage");
+    const stageTitle = document.getElementById("stageTitle");
+    const stageDescription = document.getElementById("stageDescription");
+    const metaFase = document.getElementById("metaFase");
+    const metaArtefactos = document.getElementById("metaArtefactos");
+    const metaOGA = document.getElementById("metaOGA");
+    const openFullBtn = document.getElementById("openFullBtn");
+
+    function loadDiagram(key) {
+      const d = DIAGRAMS_CATALOG[key];
+      if (!d) return;
+
+      currentScale = 1.0;
+      stageImage.style.transform = `scale(${currentScale})`;
+      stageImage.src = d.src;
+      stageImage.alt = d.title;
+
+      stageTitle.textContent = d.title;
+      stageDescription.textContent = d.desc;
+      metaFase.textContent = d.fase;
+      metaArtefactos.textContent = d.artefactos;
+      metaOGA.textContent = d.oga;
+      openFullBtn.href = d.src;
+
+      document.querySelectorAll(".diagram-nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-id") === key);
+      });
     }
+
+    document.querySelectorAll(".diagram-nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-id");
+        loadDiagram(id);
+      });
+    });
+
+    document.getElementById("zoomInBtn").addEventListener("click", () => {
+      currentScale = Math.min(currentScale + 0.25, 2.8);
+      stageImage.style.transform = `scale(${currentScale})`;
+    });
+
+    document.getElementById("zoomOutBtn").addEventListener("click", () => {
+      currentScale = Math.max(currentScale - 0.25, 0.6);
+      stageImage.style.transform = `scale(${currentScale})`;
+    });
+
+    document.getElementById("zoomResetBtn").addEventListener("click", () => {
+      currentScale = 1.0;
+      stageImage.style.transform = `scale(${currentScale})`;
+    });
+
+    // Cargar diagrama por defecto
+    loadDiagram("macro-pdaeh");
   </script>
 </body>
 </html>

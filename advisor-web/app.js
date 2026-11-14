@@ -320,19 +320,25 @@ async function renderRichResponse(container, text) {
         const data = await response.json().catch(() => ({}));
         throw new Error(data.error || "No fue posible consultar el agente.");
       }
-      let renderPending = false;
-      function renderProgressive() {
-        if (!renderPending) {
-          renderPending = true;
+      let lastRenderTime = 0;
+      let renderTimeout = null;
+      function renderProgressive(force = false) {
+        const now = Date.now();
+        if (force || now - lastRenderTime > 120) {
+          lastRenderTime = now;
+          if (renderTimeout) clearTimeout(renderTimeout);
           requestAnimationFrame(() => {
-            renderPending = false;
             renderMarkdownProgressive(streamMessage.output, text);
-            const now = Date.now();
-            if (now - lastScrollTime > 60) {
+            if (now - lastScrollTime > 120) {
               messages.scrollTop = messages.scrollHeight;
               lastScrollTime = now;
             }
           });
+        } else if (!renderTimeout) {
+          renderTimeout = setTimeout(() => {
+            renderTimeout = null;
+            renderProgressive(true);
+          }, 120);
         }
       }
 
