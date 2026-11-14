@@ -94,7 +94,9 @@
       shell.append(diagram, caption);
       code.parentElement.replaceWith(shell);
       try {
-        await window.mermaid.run({ nodes: [diagram], suppressErrors: false });
+        const renderPromise = window.mermaid.run({ nodes: [diagram], suppressErrors: false });
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout renderizando diagrama")), 3000));
+        await Promise.race([renderPromise, timeoutPromise]);
         const svg = diagram.querySelector("svg");
         if (svg) { svg.removeAttribute("height"); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", caption.textContent); }
       } catch (error) {
@@ -168,14 +170,20 @@
       streamMessage = createStreamingMessage();
       let text = "";
       let streamError = "";
+      let lastScrollTime = 0;
       await consumeAdvisorStream(response, ({ event, data }) => {
         if (event === "delta") {
           text += data.delta || "";
           streamMessage.output.textContent = text;
-          streamMessage.article.scrollIntoView({ behavior: "auto", block: "end" });
+          const now = Date.now();
+          if (now - lastScrollTime > 100) {
+            messages.scrollTop = messages.scrollHeight;
+            lastScrollTime = now;
+          }
         } else if (event === "done") previousResponseId = data.id || previousResponseId;
         else if (event === "error") streamError = data.error || "El agente no pudo completar la respuesta.";
       });
+      messages.scrollTop = messages.scrollHeight;
       if (streamError) throw new Error(streamError);
       if (!text.trim()) throw new Error("El agente no produjo contenido textual.");
       streamMessage.article.classList.remove("streaming");
