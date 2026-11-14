@@ -24,12 +24,24 @@ test("interpreta eventos SSE de la Responses API", () => {
   assert.equal(_test.parseSseBlock("data: [DONE]"), null);
 });
 
+test("extrae y formatea fuentes web sin duplicados", () => {
+  const response = { output: [
+    { type: "message", content: [{ annotations: [{ type: "url_citation", url: "https://example.com/a", title: "Caso A" }] }] },
+    { type: "web_search_call", action: { sources: [{ url: "https://example.com/a", title: "Caso A" }, { url: "https://example.com/b", title: "Caso B" }] } },
+  ] };
+  const citations = _test.collectCitations(response);
+  assert.equal(citations.length, 2);
+  assert.match(_test.citationMarkdown(citations), /\[Caso A\]\(https:\/\/example\.com\/a\)/);
+});
+
 test("carga la especificación del agente", () => {
   const prompt = _test.loadAgentInstructions();
   assert.match(prompt, /PDAEH-Advisor/);
   assert.match(prompt, /BASE DE CONOCIMIENTO ESTRUCTURADA/);
   assert.match(prompt, /QUANTUM_MATURITY/);
   assert.match(prompt, /bloque cercado mermaid válido/);
+  assert.match(prompt, /Recomendaciones específicas para E1–E10/);
+  assert.match(prompt, /NO solicites campos adicionales/);
 });
 
 test("acepta únicamente solicitudes del mismo origen", () => {
