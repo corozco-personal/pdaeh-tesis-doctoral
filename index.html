@@ -469,8 +469,10 @@
   <p style="margin-top:1.4rem;background:#f8faf9;border-left:4px solid var(--green);padding:1rem 1.4rem;border-radius:4px;color:var(--ink-light);line-height:1.7;text-align:justify;">
     <strong>Nota metodológica sobre la fundamentación de roles:</strong> La caracterización y asignación de responsabilidades de los nueve roles del proceso PDAEH no constituye una propuesta empírica aislada, sino que es el resultado de un <strong>análisis comparativo transversal</strong> sustentado en la literatura científica y los estándares de la disciplina (Capítulo IV de la tesis). Esta definición se fundamentó en el modelo de gestión de procesos de <strong>COMPETISOFT</strong> y las recomendaciones de la norma <strong>ISO/IEC 24773</strong>, complementados con las áreas de conocimiento del <strong>SWEBOK</strong>, las prácticas de gobierno arquitectónico de <strong>TOGAF</strong> (Architecture Capability Framework) y los perfiles de computación cuántica de frontera. Se identificaron funciones convergentes, superposiciones y vacíos estructurales entre los dominios clásico y cuántico, consolidando un esquema escalable para microempresas, PYMES y grandes corporaciones. No obstante, al tratarse de un <strong>campo de frontera en constante evolución</strong>, esta definición y su distribución funcional permanecen <strong>susceptibles a ajustes, adaptaciones y refinamientos continuos</strong> de acuerdo con la madurez tecnológica de cada organización.
   </p>
-</section>   </section> <!-- Sección formal de convención de codificación de actividades -->
-<section class="subsection" id="convencion-nomenclatura" style="padding-top:2.5rem;border-top:1px solid var(--line);">
+</section> <!-- Fin subsección roles y segmentación -->
+
+  <!-- Sección formal de convención de codificación de actividades -->
+  <section class="subsection" id="convencion-nomenclatura" style="padding-top:2.5rem;border-top:1px solid var(--line);">
   <h3 style="margin:0 0 0.8rem;font-size:1.55rem;font-family:Newsreader,serif;color:var(--ink);">Convención formal de codificación de actividades del proceso</h3>
   <p style="margin:0 0 1.2rem;line-height:1.75;font-size:1.02rem;text-align:justify;">
     Para asegurar una trazabilidad unívoca y rigurosa en todas las fases y niveles de granularidad del proceso PDAEH, cada actividad sigue una nomenclatura formal estructurada bajo el patrón <code>Fx.EY.AZ</code>, la cual codifica la pertenencia de fase, el elemento arquitectónico origen y la secuencia de ejecución:
@@ -513,6 +515,7 @@
   <p style="margin:0 0 1rem;line-height:1.75;font-size:0.98rem;text-align:justify;">
     <strong>Casos donde se incluye la notación <code>{Ej, Ek}</code>:</strong> Esta especificación entre llaves se emplea de manera sistemática en las actividades de cierre de cada fase (como <code>F1.E1.A4 {E2}</code>, <code>F2.E4.A4 {E3}</code>, <code>F3.E6.A6 {E5}</code>, <code>F4.E9.A6 {E10}</code> y <code>F5.E7.A6 {E8}</code>). En estos puntos, la actividad tiene como propósito consolidar, verificar e integrar de forma mancomunada los artefactos generados por ambos elementos de la fase (por ejemplo, el <em>DOE</em> de E1 junto con el <em>DCA</em> de E2 en F1) para su empaquetamiento y remisión al Órgano de Gobierno Arquitectónico (OGA), o para ejecutar los ajustes conjuntos dictaminados en el acta de revisión.
   </p>
+</section>
 </section>
 
 <section class="section phases-section" id="fases"><header class="section-header"><p class="section-number">Caracterización de las fases</p><h2>Fases del proceso</h2><p>Cada fase se abre en una página independiente para presentar sin saturación sus elementos, diagramas, actividades, tareas, artefactos, responsables y puntos de validación.</p></header><figure class="wide-figure macro-figure"><img src="assets/jiisic/fases_pdaeh_entradas_salidas.svg" alt="Entradas, proceso y salidas de las cinco fases"><figcaption>Vista general de las entradas, el propósito y las salidas de las cinco fases.</figcaption></figure>
