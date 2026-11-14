@@ -191,7 +191,17 @@ async fn advisor_handler(
                         if is_generate {
                             if let Some(name) = m.get("name").and_then(|n| n.as_str()) {
                                 let model_id = name.strip_prefix("models/").unwrap_or(name);
-                                candidate_models.push(model_id.to_string());
+                                // Excluir explícitamente modelos de audio (tts), visión pura o embeddings
+                                let lower = model_id.to_lowercase();
+                                if !lower.contains("tts")
+                                    && !lower.contains("audio")
+                                    && !lower.contains("embedding")
+                                    && !lower.contains("imagen")
+                                    && !lower.contains("realtime")
+                                    && !lower.contains("aqa")
+                                {
+                                    candidate_models.push(model_id.to_string());
+                                }
                             }
                         }
                     }
@@ -236,9 +246,11 @@ async fn advisor_handler(
                     let body = res.text().await.unwrap_or_default();
                     tracing::warn!("Modelo {} falló ({})", model_name, status);
                     last_error = format!("{} ({}): {}", model_name, status, body);
-                    if status != StatusCode::NOT_FOUND {
+                    // Si el error es 401 o 403 (clave de API inválida o sin permisos), detener
+                    if status == StatusCode::UNAUTHORIZED || status == StatusCode::FORBIDDEN {
                         break;
                     }
+                    // Si es 400 (Bad Request por incompatibilidad de modelo) o 404, continuar probando el siguiente modelo
                 }
             }
             Err(err) => {
