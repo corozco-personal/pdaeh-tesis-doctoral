@@ -842,7 +842,8 @@
   .bubble :global(table) {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
+    table-layout: auto;
+    margin: 0.8rem 0;
     font-size: 0.86rem;
     background: #fff;
     border-radius: 6px;
@@ -854,15 +855,23 @@
     background: #e7f0ec;
     color: var(--navy, #152b43);
     font-weight: 700;
-    padding: 0.6rem 0.85rem;
+    padding: 0.55rem 0.8rem;
     text-align: left;
-    border-bottom: 2px solid var(--line, #d8e1dd);
+    border: 1px solid var(--line, #d8e1dd);
+    vertical-align: bottom;
+    line-height: 1.35;
   }
 
   .bubble :global(td) {
-    padding: 0.55rem 0.85rem;
-    border-bottom: 1px solid var(--line, #d8e1dd);
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--line, #d8e1dd);
     vertical-align: top;
+    line-height: 1.42;
+    background: #ffffff;
+  }
+
+  .bubble :global(tbody tr:nth-child(even) td) {
+    background: #f9fbfb;
   }
 
   .bubble :global(blockquote) {
