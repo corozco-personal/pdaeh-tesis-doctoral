@@ -122,7 +122,12 @@
     container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
     const parseMarkdown = typeof window.marked === 'function' ? window.marked : (window.marked?.parse || window.marked);
-    let html = parseMarkdown(text, { gfm: true, breaks: true });
+    // Eliminar cualquier fuga accidental de identificadores internos
+    let sanitizedText = text
+      .replace(/\s*\((?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY)\)/gi, "")
+      .replace(/\b(?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY):\s*/gi, "");
+
+    let html = parseMarkdown(sanitizedText, { gfm: true, breaks: true });
 
     // Transformar callouts de GitHub (> [!NOTE], > [!WARNING], etc.)
     html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
