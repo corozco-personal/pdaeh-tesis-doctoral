@@ -124,7 +124,7 @@
     messages.setAttribute("aria-busy", String(busy));
     chatInput.disabled = busy || !started;
     sendButton.disabled = busy || !started;
-    profileForm.querySelector("button").disabled = busy;
+    checkFormValidity();
   }
 
   function parseEventBlock(block) {
@@ -209,6 +209,28 @@
       chatInput.focus();
     }
   }
+
+  const startDiagnosisBtn = document.querySelector("#startDiagnosisBtn") || profileForm.querySelector("button");
+  const orgSizeEl = document.querySelector("#orgSize");
+  const coreProblemEl = document.querySelector("#coreProblem");
+  const asIsEl = document.querySelector("#asIs");
+  const maturityEl = document.querySelector("#maturity");
+
+  function checkFormValidity() {
+    const isComplete = Boolean(
+      orgSizeEl.value.trim() &&
+      coreProblemEl.value.trim() &&
+      asIsEl.value.trim() &&
+      maturityEl.value.trim()
+    );
+    startDiagnosisBtn.disabled = busy || !isComplete;
+  }
+
+  [orgSizeEl, coreProblemEl, asIsEl, maturityEl].forEach((el) => {
+    el.addEventListener("input", checkFormValidity);
+    el.addEventListener("change", checkFormValidity);
+  });
+  checkFormValidity();
 
   profileForm.addEventListener("submit", (event) => {
     event.preventDefault();

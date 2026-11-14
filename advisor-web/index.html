@@ -26,7 +26,7 @@
       <p class="lead">El agente evalúa la viabilidad cuántica, contrasta casos empresariales mediante consulta web controlada y construye una hoja de ruta gobernada por las fases, artefactos y puntos OGA del proceso.</p>
 
       <form id="profileForm">
-        <label for="orgSize">Tamaño de la organización</label>
+        <label for="orgSize">Tamaño de la organización <span class="req" title="Obligatorio">*</span></label>
         <select id="orgSize" required>
           <option value="">Seleccione…</option>
           <option>Startup</option>
@@ -34,13 +34,13 @@
           <option>Gran Empresa</option>
         </select>
 
-        <label for="coreProblem">Problema o caso de uso</label>
+        <label for="coreProblem">Problema o caso de uso <span class="req" title="Obligatorio">*</span></label>
         <textarea id="coreProblem" rows="5" required placeholder="Objetivo de negocio, restricciones y complejidad del problema."></textarea>
 
-        <label for="asIs">Arquitectura actual (As-Is)</label>
+        <label for="asIs">Arquitectura actual (As-Is) <span class="req" title="Obligatorio">*</span></label>
         <textarea id="asIs" rows="5" required placeholder="Servicios, datos, infraestructura, integraciones, seguridad y cumplimiento."></textarea>
 
-        <label for="maturity">Madurez cuántica</label>
+        <label for="maturity">Madurez cuántica <span class="req" title="Obligatorio">*</span></label>
         <select id="maturity" required>
           <option value="">Seleccione…</option>
           <option value="Nivel 0 — Nulo">Nivel 0 — Nulo</option>
@@ -50,7 +50,7 @@
         </select>
         <div id="turnstileWidget" class="turnstile-widget" aria-label="Verificación anti-bot de Cloudflare"></div>
         <p id="securityStatus" class="security-status" role="status">Inicializando protección anti-bot…</p>
-        <button class="primary action-with-icon" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4M21 3l-5 5"/></svg><span>Iniciar diagnóstico</span></button>
+        <button id="startDiagnosisBtn" class="primary action-with-icon" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4M21 3l-5 5"/></svg><span>Iniciar diagnóstico</span></button>
       </form>
 
       <div class="method-note"><strong>Contrato metodológico:</strong> 5 fases, 10 elementos, 15 artefactos y 5 compuertas OGA. La evidencia web se presenta con fuentes verificables y el agente no promete ventaja cuántica sin benchmarking clásico.</div>

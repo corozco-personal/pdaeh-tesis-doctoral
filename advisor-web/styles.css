@@ -3,3 +3,6 @@
 .stream-output{white-space:pre-wrap;font-family:inherit;line-height:1.65;color:var(--ink);word-break:break-word}
 .streaming .stream-output::after{content:"▊";display:inline-block;color:var(--green);margin-left:2px;animation:stream-blink 0.8s infinite}
 @keyframes stream-blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.req{color:var(--danger);font-weight:700;margin-left:3px}
+.primary:disabled{opacity:.5;cursor:not-allowed;background:#879893!important}

@@ -122,10 +122,11 @@ module.exports = async function advisorHandler(req, res) {
       if (!apiResponse.ok) {
         const errData = await apiResponse.json().catch(() => ({}));
         console.error("Gemini API error", apiResponse.status, errData);
+        const detailedMsg = errData?.error?.message ? `Error del servicio Gemini (${apiResponse.status}): ${errData.error.message}` : "No fue posible obtener una respuesta del agente.";
         return sendJson(res, apiResponse.status === 429 ? 429 : 502, {
           error: apiResponse.status === 429
             ? "El servicio alcanzó temporalmente su límite de uso. Inténtelo de nuevo más tarde."
-            : "No fue posible obtener una respuesta del agente.",
+            : detailedMsg,
         });
       }
 
