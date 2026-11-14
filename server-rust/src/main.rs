@@ -1,4 +1,77 @@
 
+
+fn score_model_version(name: &str) -> i32 {
+    let mut score = 0;
+    let lower = name.to_lowercase();
+    // Priorizar versiones numéricas más recientes
+    if lower.contains("3.0") { score += 300; }
+    else if lower.contains("2.5") { score += 250; }
+    else if lower.contains("2.0") { score += 200; }
+    else if lower.contains("1.5") { score += 150; }
+    else { score += 50; }
+
+    // Priorizar familia flash por velocidad y cuota gratuita amplia
+    if lower.contains("flash") { score += 30; }
+    else if lower.contains("pro") { score += 15; }
+
+    // Penalizar o bonificar variantes
+    if lower.contains("preview") || lower.contains("exp") { score -= 5; }
+    score
+}
+
+async fn fetch_latest_gemini_models(client: &reqwest::Client, key: &str, default_model: &str) -> Vec<String> {
+    let list_url = format!("https://generativelanguage.googleapis.com/v1beta/models?key={}", key);
+    let mut models = Vec::new();
+
+    if let Ok(res) = client.get(&list_url).timeout(Duration::from_secs(6)).send().await {
+        if res.status().is_success() {
+            if let Ok(val) = res.json::<serde_json::Value>().await {
+                if let Some(list) = val.get("models").and_then(|m| m.as_array()) {
+                    for m in list {
+                        let is_generate = m.get("supportedGenerationMethods")
+                            .and_then(|methods| methods.as_array())
+                            .map(|arr| arr.iter().any(|method| method.as_str() == Some("generateContent")))
+                            .unwrap_or(false);
+
+                        if is_generate {
+                            if let Some(name) = m.get("name").and_then(|n| n.as_str()) {
+                                let model_id = name.strip_prefix("models/").unwrap_or(name);
+                                let lower = model_id.to_lowercase();
+                                if !lower.contains("tts")
+                                    && !lower.contains("audio")
+                                    && !lower.contains("embedding")
+                                    && !lower.contains("imagen")
+                                    && !lower.contains("realtime")
+                                    && !lower.contains("aqa")
+                                {
+                                    models.push(model_id.to_string());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if models.is_empty() {
+        models = vec![
+            "gemini-2.0-flash".into(),
+            "gemini-1.5-flash".into(),
+            "gemini-1.5-pro".into(),
+        ];
+    } else {
+        // Ordenar descendentemente por versión más reciente y velocidad
+        models.sort_by(|a, b| score_model_version(b).cmp(&score_model_version(a)));
+    }
+
+    if !default_model.is_empty() && !models.contains(&default_model.to_string()) {
+        models.insert(0, default_model.to_string());
+    }
+
+    models
+}
+
 pub fn evaluate_offline_rules(content: &str) -> String {
     let lower = content.to_lowercase();
     let is_crud = lower.contains("crud") || lower.contains("facturas") || lower.contains("postgresql");
@@ -93,7 +166,9 @@ use tower_http::services::ServeDir;
 struct AppState {
     instructions: Arc<String>,
     gemini_key: Arc<String>,
+    #[allow(dead_code)]
     gemini_model: Arc<String>,
+    discovered_models: Arc<tokio::sync::RwLock<Vec<String>>>,
     client: reqwest::Client,
 }
 
@@ -153,15 +228,46 @@ async fn main() {
     let gemini_model = std::env::var("GEMINI_MODEL")
         .unwrap_or_else(|_| "gemini-2.5-flash".into());
 
+    let client = reqwest::Client::builder()
+        .timeout(Duration::from_secs(120))
+        .build()
+        .unwrap();
+
+    let initial_models = vec![
+        "gemini-2.0-flash".into(),
+        "gemini-1.5-flash".into(),
+        "gemini-1.5-pro".into(),
+    ];
+    let discovered_models = Arc::new(tokio::sync::RwLock::new(initial_models));
+
     let state = AppState {
         instructions: Arc::new(full_instructions),
-        gemini_key: Arc::new(gemini_key),
-        gemini_model: Arc::new(gemini_model),
-        client: reqwest::Client::builder()
-            .timeout(Duration::from_secs(120))
-            .build()
-            .unwrap(),
+        gemini_key: Arc::new(gemini_key.clone()),
+        gemini_model: Arc::new(gemini_model.clone()),
+        discovered_models: Arc::clone(&discovered_models),
+        client: client.clone(),
     };
+
+    // Tarea en segundo plano para descubrir y actualizar automáticamente a la versión más reciente disponible
+    let bg_client = client.clone();
+    let bg_key = gemini_key.clone();
+    let bg_model = gemini_model.clone();
+    let bg_discovered = Arc::clone(&discovered_models);
+    tokio::spawn(async move {
+        if !bg_key.is_empty() {
+            let updated = fetch_latest_gemini_models(&bg_client, &bg_key, &bg_model).await;
+            tracing::info!("Descubrimiento inicial de versiones activas Gemini: {:?}", updated);
+            *bg_discovered.write().await = updated;
+
+            let mut interval = tokio::time::interval(Duration::from_secs(1800)); // Cada 30 minutos
+            loop {
+                interval.tick().await;
+                let refreshed = fetch_latest_gemini_models(&bg_client, &bg_key, &bg_model).await;
+                tracing::info!("Actualización periódica de versiones Gemini: {:?}", refreshed);
+                *bg_discovered.write().await = refreshed;
+            }
+        }
+    });
 
     let static_dir = PathBuf::from(&root_path).join("advisor-web");
 
@@ -250,28 +356,28 @@ async fn advisor_handler(
         })
         .collect();
 
+    // Habilitar Google Search Grounding para consultar documentación oficial en tiempo real
     let gemini_body = serde_json::json!({
         "systemInstruction": {
             "parts": [{ "text": *state.instructions }]
         },
         "contents": contents,
+        "tools": [
+            { "googleSearch": {} }
+        ],
         "generationConfig": {
             "maxOutputTokens": 8000,
             "temperature": 0.2
         }
     });
 
-    // Definir cascada ultra-rápida de modelos probados y estables
-    let mut candidate_models: Vec<String> = vec![
-        "gemini-1.5-flash".into(),
-        "gemini-2.0-flash".into(),
-        "gemini-1.5-pro".into(),
-    ];
-    if !candidate_models.contains(&*state.gemini_model) {
-        candidate_models.insert(0, state.gemini_model.to_string());
-    }
+    // Obtener en O(1) la lista de modelos clasificados por versión más reciente
+    let candidate_models = {
+        let lock = state.discovered_models.read().await;
+        lock.clone()
+    };
 
-    tracing::info!("Modelos prioritarios para streaming: {:?}", candidate_models);
+    tracing::info!("Modelos priorizados por versión más reciente: {:?}", candidate_models);
 
     let mut gemini_res = None;
     let mut last_error = String::new();
