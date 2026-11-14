@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="PDAEH Advisor, agente metodológico para arquitecturas empresariales híbridas clásico-cuánticas">
+  <title>PDAEH Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#conversation">Saltar a la conversación</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Inicio del PDAEH Advisor"><span>P</span><strong>PDAEH Advisor</strong></a>
+    <a class="portal-link" href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank" rel="noopener noreferrer">Consultar el proceso ↗</a>
+  </header>
+
+  <main>
+    <aside class="context-panel" aria-labelledby="contextTitle">
+      <p class="eyebrow">Agente metodológico</p>
+      <h1 id="contextTitle">Diagnóstico PDAEH basado en el contexto real de su organización</h1>
+      <p class="lead">El agente evalúa la viabilidad cuántica, identifica información faltante y construye una hoja de ruta gobernada por las fases, artefactos y puntos OGA del proceso.</p>
+
+      <form id="profileForm">
+        <label for="orgSize">Tamaño de la organización</label>
+        <select id="orgSize" required>
+          <option value="">Seleccione…</option>
+          <option>Startup</option>
+          <option>PYME</option>
+          <option>Gran Empresa</option>
+        </select>
+
+        <label for="coreProblem">Problema o caso de uso</label>
+        <textarea id="coreProblem" rows="5" required placeholder="Objetivo de negocio, restricciones y complejidad del problema."></textarea>
+
+        <label for="asIs">Arquitectura actual (As-Is)</label>
+        <textarea id="asIs" rows="5" required placeholder="Servicios, datos, infraestructura, integraciones, seguridad y cumplimiento."></textarea>
+
+        <label for="maturity">Madurez cuántica</label>
+        <select id="maturity" required>
+          <option value="">Seleccione…</option>
+          <option value="Nivel 0 — Nulo">Nivel 0 — Nulo</option>
+          <option value="Nivel 1 — Exploratorio">Nivel 1 — Exploratorio</option>
+          <option value="Nivel 2 — Pilotos NISQ">Nivel 2 — Pilotos NISQ</option>
+          <option value="Nivel 3 — Producción híbrida">Nivel 3 — Producción híbrida</option>
+        </select>
+        <button class="primary" type="submit">Iniciar diagnóstico</button>
+      </form>
+
+      <div class="method-note"><strong>Contrato metodológico:</strong> 5 fases, 10 elementos, 15 artefactos y 5 compuertas OGA. El agente no promete ventaja cuántica sin benchmarking clásico.</div>
+    </aside>
+
+    <section class="chat-panel" id="conversation" aria-labelledby="chatTitle">
+      <header class="chat-header">
+        <div><span class="status-dot" aria-hidden="true"></span><div><h2 id="chatTitle">Conversación con PDAEH Advisor</h2><p>Respuesta generada dinámicamente por el agente</p></div></div>
+        <button id="newConversation" class="text-button" type="button">Nueva conversación</button>
+      </header>
+
+      <div id="messages" class="messages" aria-live="polite" aria-busy="false">
+        <article class="message assistant">
+          <div class="avatar" aria-hidden="true">P</div>
+          <div class="bubble"><p>Complete el perfil organizacional. Analizaré si la información es suficiente y, cuando falte contexto, formularé preguntas antes de emitir un diagnóstico.</p></div>
+        </article>
+      </div>
+
+      <form id="chatForm" class="composer">
+        <label class="sr-only" for="chatInput">Mensaje para el Advisor</label>
+        <textarea id="chatInput" rows="2" maxlength="12000" placeholder="Responda las preguntas del agente o solicite profundizar en una fase…" disabled></textarea>
+        <button id="sendMessage" type="submit" disabled>Enviar</button>
+      </form>
+      <p id="errorMessage" class="error" role="alert"></p>
+      <p class="privacy">No incluya contraseñas, claves de API ni secretos de infraestructura. Las respuestas son orientación metodológica y deben validarse mediante los puntos OGA.</p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
