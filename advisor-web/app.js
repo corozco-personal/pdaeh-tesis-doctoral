@@ -28,19 +28,48 @@
 
   async function initializeSecurity() {
     try {
-      const response = await fetch("/api/security-config", { credentials: "same-origin", cache: "no-store" });
-      const config = await response.json();
-      if (!response.ok) throw new Error(config.error || "No fue posible inicializar la seguridad.");
-      for (let attempt = 0; attempt < 40 && !window.turnstile; attempt += 1) await new Promise((resolve) => setTimeout(resolve, 100));
-      if (!window.turnstile) throw new Error("Cloudflare Turnstile no pudo cargarse.");
+      securityStatus.textContent = "Inicializando verificación de seguridad…";
+      const response = await fetch("/api/security-config", {
+        credentials: "same-origin",
+        cache: "no-store",
+        signal: AbortSignal.timeout ? AbortSignal.timeout(12000) : undefined,
+      });
+      const config = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(config.error || "No fue posible conectar con el servicio de seguridad.");
+
+      for (let attempt = 0; attempt < 80 && !window.turnstile; attempt += 1) {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+      if (!window.turnstile) throw new Error("El componente de verificación no pudo cargarse. Compruebe su conexión.");
+
+      const container = document.querySelector("#turnstileWidget");
+      if (container) container.innerHTML = "";
+
       turnstileWidgetId = window.turnstile.render("#turnstileWidget", {
-        sitekey: config.turnstileSiteKey, action: "advisor", theme: "light",
-        callback(token) { turnstileToken = token; securityReady = true; securityStatus.textContent = "Verificación anti-bot completada."; },
-        "expired-callback"() { turnstileToken = ""; securityReady = false; securityStatus.textContent = "La verificación expiró. Complétela nuevamente."; },
-        "error-callback"() { turnstileToken = ""; securityReady = false; securityStatus.textContent = "No fue posible completar la verificación anti-bot."; },
+        sitekey: config.turnstileSiteKey,
+        action: "advisor",
+        theme: "light",
+        callback(token) {
+          turnstileToken = token;
+          securityReady = true;
+          securityStatus.textContent = "Verificación anti-bot completada.";
+        },
+        "expired-callback"() {
+          turnstileToken = "";
+          securityReady = false;
+          securityStatus.textContent = "La verificación expiró. Complétela nuevamente.";
+        },
+        "error-callback"() {
+          turnstileToken = "";
+          securityReady = false;
+          securityStatus.textContent = "No fue posible completar la verificación anti-bot.";
+        },
       });
       securityStatus.textContent = "Complete la verificación anti-bot para continuar.";
-    } catch (error) { securityStatus.textContent = error.message; errorMessage.textContent = error.message; }
+    } catch (error) {
+      securityStatus.innerHTML = `${error.message} <button type="button" class="text-button" id="retrySecurityBtn" style="margin-left:8px;font-size:0.85em;text-decoration:underline;cursor:pointer">Reintentar</button>`;
+      document.querySelector("#retrySecurityBtn")?.addEventListener("click", initializeSecurity);
+    }
   }
 
   function createMessage(role) {
