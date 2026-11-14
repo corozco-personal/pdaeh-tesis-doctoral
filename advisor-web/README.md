@@ -10,12 +10,13 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 - `agente-pdaeh-consultor/knowledge_base_pdaeh.json`: base metodológica.
 - `vercel.json`: rutas y encabezados de seguridad.
 
-## Variables del despliegue
+## Autenticación del despliegue
 
-- `OPENAI_API_KEY` (obligatoria y secreta).
-- `OPENAI_MODEL` (opcional; valor predeterminado: `gpt-5.4`).
+- En producción, Vercel suministra automáticamente `VERCEL_OIDC_TOKEN`; no es necesario guardar una clave de OpenAI.
+- `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5.4`.
+- Para desarrollo local puede configurarse `AI_GATEWAY_API_KEY`.
 
-No coloque la clave en archivos del repositorio ni en el navegador. Configúrela como secreto del proveedor de alojamiento.
+No coloque claves en archivos del repositorio ni en el navegador.
 
 ## Validación local
 

@@ -92,15 +92,16 @@ module.exports = async function advisorHandler(req, res) {
   if (!isSameOrigin(req)) return sendJson(res, 403, { error: "Origen de solicitud no autorizado." });
   if (isRateLimited(req)) return sendJson(res, 429, { error: "Se alcanzó el límite temporal de consultas. Inténtelo más tarde." });
 
-  if (!process.env.OPENAI_API_KEY) {
-    return sendJson(res, 503, { error: "El Advisor aún no tiene configurada la credencial del modelo." });
-  }
+  const gatewayToken = process.env.AI_GATEWAY_API_KEY
+    || process.env.VERCEL_OIDC_TOKEN
+    || req.headers?.["x-vercel-oidc-token"];
+  if (!gatewayToken) return sendJson(res, 503, { error: "El Advisor no pudo obtener la identidad segura del servicio." });
 
   const error = validateBody(req.body);
   if (error) return sendJson(res, 400, { error });
 
   const payload = {
-    model: process.env.OPENAI_MODEL || "gpt-5.4",
+    model: process.env.AI_GATEWAY_MODEL || "openai/gpt-5.4",
     instructions: instructions(),
     input: req.body.messages.map(({ role, content }) => ({ role, content: content.trim() })),
     store: true,
@@ -109,10 +110,10 @@ module.exports = async function advisorHandler(req, res) {
   if (req.body.previousResponseId) payload.previous_response_id = req.body.previousResponseId;
 
   try {
-    const apiResponse = await fetch("https://api.openai.com/v1/responses", {
+    const apiResponse = await fetch("https://ai-gateway.vercel.sh/v1/responses", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${gatewayToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
