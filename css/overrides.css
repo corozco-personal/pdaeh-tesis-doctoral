@@ -657,3 +657,205 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
 .eval-form-direct-btn:hover {
   background: var(--navy, #0F3B43);
 }
+
+
+/* === Correcciones de Estilo Globales solicitadas por el usuario === */
+
+/* 1. Evitar solapamiento en el branding de la cabecera */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.brand > span:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  line-height: 1.15 !important;
+}
+
+.brand strong {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--navy) !important;
+  display: block !important;
+  line-height: 1.15 !important;
+}
+
+.brand small {
+  font-size: 0.68rem !important;
+  color: var(--muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  display: block !important;
+  margin-top: 2px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+}
+
+.topbar nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  flex-wrap: wrap !important;
+}
+
+/* 2. Unificación visual de páginas de detalle (.detail-page) con la página principal */
+.detail-page {
+  width: 100% !important;
+  max-width: 1550px !important;
+  margin: 0 auto !important;
+  padding: 40px clamp(1.5rem, 5vw, 5rem) 70px !important;
+  box-sizing: border-box !important;
+}
+
+.detail-page .breadcrumb-bar {
+  position: static !important;
+  padding: 0.85rem 0 !important;
+  margin-bottom: 2rem !important;
+  background: transparent !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.template-section table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: #ffffff !important;
+  margin: 1.2rem 0 !important;
+}
+
+.template-section th,
+.template-section td {
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 3. Homogeneización de acordeones de actividades (OGA y fases) con símbolo + */
+.activities {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  margin-top: 1.5rem !important;
+}
+
+details.activity {
+  background: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+details.activity summary {
+  list-style: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.2rem !important;
+  padding: 18px 20px !important;
+  cursor: pointer !important;
+  font-size: 1.02rem !important;
+  background: #ffffff !important;
+  transition: background 0.15s ease !important;
+}
+
+details.activity summary:hover {
+  background: #f8faf9 !important;
+}
+
+details.activity summary::-webkit-details-marker {
+  display: none !important;
+}
+
+details.activity summary code {
+  color: var(--green) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  min-width: 120px !important;
+}
+
+details.activity summary strong {
+  flex: 1 !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+
+details.activity summary span {
+  display: none !important;
+}
+
+details.activity summary::after {
+  content: "+" !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  color: var(--green) !important;
+  line-height: 1 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+details.activity[open] summary::after {
+  content: "−" !important;
+}
+
+details.activity .activity-content {
+  padding: 18px 24px 24px !important;
+  border-top: 1px solid var(--line) !important;
+  background: #fafcfb !important;
+}
+
+/* 4. Barra de paginación de artefactos limpia y estilizada */
+.artifact-pagination {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin: 35px 0 50px !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid var(--line) !important;
+  justify-content: flex-start !important;
+}
+
+.artifact-pagination a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 44px !important;
+  height: 38px !important;
+  padding: 0 12px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  color: var(--ink) !important;
+  background: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  transition: all 0.15s ease !important;
+}
+
+.artifact-pagination a:hover {
+  background: #eef5f3 !important;
+  color: var(--green) !important;
+  border-color: #c2dbd4 !important;
+}
+
+.artifact-pagination a.active {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-color: var(--navy) !important;
+}

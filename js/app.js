@@ -354,11 +354,10 @@ function renderGovernance() {
       salida = "Línea Base Arquitectónica integral versionada e incorporada al portafolio corporativo.";
     }
 
-    return `<details class="activity" style="margin-bottom:0.75rem;">
+    return `<details class="activity">
       <summary>
         <code>${esc(code)}</code>
         <strong>${esc(name)}</strong>
-        <span>${esc(resp)}</span>
       </summary>
       <div class="activity-content">
         <h5>Objetivo y alcance de la actividad</h5>

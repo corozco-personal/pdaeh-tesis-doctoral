@@ -1,4 +1,4 @@
-const style=document.createElement("link");style.rel="stylesheet";style.href="overrides.css";document.head.append(style);
+
 const names={LBA:"Línea Base Arquitectónica",DOE:"Documento de objetivos estratégicos",MTA:"Matriz de trazabilidad objetivos-arquitectura",DCA:"Documento de contexto arquitectónico",MSP:"Mapa de stakeholders y preocupaciones",DPV:"Documento de perspectivas y vistas arquitectónicas",DNA:"Documento de niveles arquitectónicos",ITA:"Inventario de términos arquitectónicos",DVA:"Diccionario de vocabulario arquitectónico",MAC:"Modelo de atributos de calidad",DEA:"Documento de estructuras arquitectónicas",DCO:"Documento de componentes estructurales",BER:"Biblioteca de elementos reutilizables",CEP:"Catálogo de estilos y patrones arquitectónicos",CPD:"Catálogo de patrones de diseño"};
 const schemas={
 DOE:["Identificador del objetivo","Descripción y justificación","Prioridad","Responsable","Indicador de éxito","Restricciones y supuestos","Estado de validación"],
