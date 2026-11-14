@@ -561,14 +561,14 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
 }
 .evaluator-menu-panel {
   position: absolute;
-  bottom: 52px;
+  bottom: 56px;
   right: 0;
-  width: 340px;
+  width: 440px;
   max-width: calc(100vw - 32px);
   background: #ffffff;
   border: 1px solid var(--line, #e2e8f0);
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -609,14 +609,20 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
 }
 .eval-links-list a {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 10px 16px;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
   color: var(--ink, #0f172a);
   text-decoration: none;
-  font-size: 0.88rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.4;
   transition: background 0.15s ease;
+}
+.eval-sec-desc {
+  flex: 1;
+  text-align: left !important;
+  white-space: normal;
+  word-break: normal;
 }
 .eval-links-list a:hover {
   background: #f0fdf4;
