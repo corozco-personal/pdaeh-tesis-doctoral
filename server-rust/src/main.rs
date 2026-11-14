@@ -76,7 +76,7 @@ async fn main() {
         .unwrap_or_default();
 
     let gemini_model = std::env::var("GEMINI_MODEL")
-        .unwrap_or_else(|_| "gemini-2.0-flash".into());
+        .unwrap_or_else(|_| "gemini-2.5-flash".into());
 
     let state = AppState {
         instructions: Arc::new(full_instructions),
@@ -170,37 +170,60 @@ async fn advisor_handler(
         }
     });
 
-    let url = format!(
-        "https://generativelanguage.googleapis.com/v1beta/models/{}:streamGenerateContent?alt=sse&key={}",
-        *state.gemini_model, *state.gemini_key
-    );
+    // Intentar con el modelo configurado o fallback
+    let candidate_models = vec![
+        state.gemini_model.as_str(),
+        "gemini-2.5-flash",
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
+    ];
 
-    let gemini_res = match state.client.post(&url).json(&gemini_body).send().await {
-        Ok(res) => res,
-        Err(err) => {
-            tracing::error!("Error conectando con Gemini API: {}", err);
+    let mut gemini_res = None;
+    let mut last_error = String::new();
+
+    for model_name in candidate_models {
+        let url = format!(
+            "https://generativelanguage.googleapis.com/v1beta/models/{}:streamGenerateContent?alt=sse&key={}",
+            model_name, *state.gemini_key
+        );
+
+        match state.client.post(&url).json(&gemini_body).send().await {
+            Ok(res) => {
+                if res.status().is_success() {
+                    tracing::info!("Conectado exitosamente con Gemini modelo: {}", model_name);
+                    gemini_res = Some(res);
+                    break;
+                } else {
+                    let status = res.status();
+                    let body = res.text().await.unwrap_or_default();
+                    tracing::warn!("Modelo {} falló ({})", model_name, status);
+                    last_error = format!("{} ({}): {}", model_name, status, body);
+                    // Si el error no es 404 (p. ej. 400 o 403 clave inválida), no tiene sentido reintentar otros modelos
+                    if status != StatusCode::NOT_FOUND {
+                        break;
+                    }
+                }
+            }
+            Err(err) => {
+                last_error = format!("Error de red: {}", err);
+                break;
+            }
+        }
+    }
+
+    let gemini_res = match gemini_res {
+        Some(res) => res,
+        None => {
+            tracing::error!("Todos los modelos de Gemini fallaron: {}", last_error);
             return (
                 StatusCode::BAD_GATEWAY,
                 Json(ErrorResponse {
-                    error: format!("No fue posible conectar con el servicio de IA: {}", err),
+                    error: format!("Error al consultar Gemini: {}", last_error),
                 }),
             )
                 .into_response();
         }
     };
-
-    if !gemini_res.status().is_success() {
-        let status = gemini_res.status();
-        let error_body = gemini_res.text().await.unwrap_or_default();
-        tracing::error!("Gemini API error ({}): {}", status, error_body);
-        return (
-            StatusCode::BAD_GATEWAY,
-            Json(ErrorResponse {
-                error: format!("Error en API Gemini ({}): {}", status, error_body),
-            }),
-        )
-            .into_response();
-    }
 
     // Stream SSE transformando de Gemini SSE a eventos de cliente
     let byte_stream = gemini_res.bytes_stream();
