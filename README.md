@@ -20,12 +20,24 @@ Popayán, Colombia
 </p>
 
 <div align="center">
-  <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
-    <img src="assets/qr-portal-pdaeh.png" alt="QR Portal Web PDAEH" width="220" />
-  </a>
-  <p>
-    <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Consultar portal web del proceso</strong></a>
-  </p>
+  <table>
+    <tr>
+      <td align="center" style="padding: 15px;">
+        <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank">
+          <img src="assets/qr-portal-pdaeh.png" alt="QR Portal Web PDAEH" width="200" />
+        </a>
+        <br />
+        <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Consultar portal web del proceso</strong></a>
+      </td>
+      <td align="center" style="padding: 15px;">
+        <a href="https://pdaeh-advisor.vercel.app/" target="_blank">
+          <img src="assets/qr-pdaeh-advisor.png" alt="QR PDAEH Advisor" width="200" />
+        </a>
+        <br />
+        <a href="https://pdaeh-advisor.vercel.app/" target="_blank"><strong>Consultar PDAEH Advisor</strong></a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 El sitio web disponible en GitHub Pages presenta el detalle riguroso de cada uno de los elementos, fases, actividades, roles, puntos de control de gobierno arquitectónico y artefactos que conforman el proceso PDAEH. Por su parte, el agente consultor toma esta base de conocimiento metodológica para brindar orientación personalizada, diagnosticar la situación de la organización y generar hojas de ruta de adopción precisas. De este modo, un usuario final puede interactuar y utilizar el agente de forma directa, y consultar el material complementario en el portal web cuando necesite comprender el detalle de algún concepto, actividad o plantilla técnica del proceso.
@@ -98,53 +110,6 @@ curl -fsSL https://corozco-personal.github.io/pdaeh-tesis-doctoral/install.sh | 
 ```
 
 El comando descarga e instala automáticamente la especificación formal del skill (`SKILL.md`), el esquema funcional de actividades (`PDAEH_SPECIFICATION_V1.json`) y la base de conocimiento estructurada (`knowledge_base_pdaeh.json`). En instalación global coloca una copia en `~/.agents/skills` y en las rutas de los agentes detectados —por ejemplo, `~/.codex/skills` para Codex—. Después de instalar, abre una sesión nueva del agente para que descubra la skill.
-
-## Ejemplo de diagnóstico y mapa de adopción generado por el agente
-
-Al interactuar con el agente proporcionando el contexto de la empresa, este entrega un diagnóstico estructurado y un plan de acción:
-
-```markdown
-# Diagnóstico de viabilidad y mapa de adopción PDAEH
-
-## 1. Diagnóstico de madurez y ventaja cuántica
-- **Caso evaluado:** Optimización de rutas de distribución de última milla con flota eléctrica.
-- **Veredicto:** Apto para arquitectura híbrida en régimen NISQ (algoritmo QAOA / VQE sobre simulador y QPU en nube).
-- **Riesgo:** Alto en latencia de circuito; se prescribe patrón arquitectónico *Split Execution* con mitigación de ruido.
-
-## 2. Asignación de roles según tamaño de la organización (Pyme)
-- **AEP (Arquitecto empresarial del proceso):** Lidera alineación estratégica y absorbe la gestión de datos (ADP).
-- **AIP (Arquitecto de integración):** Responsable de conectores clásicos-cuánticos y absorbe seguridad (ASecP).
-- **ETC (Especialista cuántico):** Rol externo bajo demanda para formulación de Hamiltonianos y ejecución de circuitos.
-
-## 3. Mapa de adopción paso a paso
-
-### Fase 1: Definición estratégica
-- **Paso 1.1:** Delimitar metas de reducción de costos y emisiones mediante el Documento de objetivos estratégicos (DOE).
-- **Paso 1.2:** Levantar las capacidades tecnológicas actuales y restricciones normativas en el Documento de contexto arquitectónico (DCA).
-- **Paso 1.3:** Formular la matriz de trazabilidad objetivos-arquitectura (MTA).
-- **Punto de control OGA-1:** Validación y firma de la línea base LBA-F1 por el comité directivo.
-
-### Fase 2: Formalización conceptual
-- **Paso 2.1:** Identificar partes interesadas y expectativas en el Mapa de stakeholders (MSP).
-- **Paso 2.2:** Especificar los niveles de abstracción y vistas del sistema en DPV y DNA.
-- **Paso 2.3:** Unificar el glosario institucional en el Diccionario de vocabulario arquitectónico (DVA).
-- **Punto de control OGA-2:** Aprobación del modelo conceptual de integración híbrida.
-
-### Fase 3: Configuración estructural
-- **Paso 3.1:** Modelar vistas lógicas y físicas de la solución híbrida en el Documento de estructuras arquitectónicas (DEA).
-- **Paso 3.2:** Definir escenarios de calidad (latencia, disponibilidad y fidelidad) en el Modelo de atributos de calidad (MAC).
-- **Punto de control OGA-3:** Certificación formal del diseño estructural.
-
-### Fase 4: Materialización arquitectónica
-- **Paso 4.1:** Especificar componentes de orquestación y middleware en el Documento de componentes (DCO).
-- **Paso 4.2:** Catalogar algoritmos y conectores reutilizables en la Biblioteca de elementos reutilizables (BER).
-- **Punto de control OGA-4:** Aprobación técnica de los artefactos de implementación.
-
-### Fase 5: Sistematización del diseño
-- **Paso 5.1:** Estandarizar patrones de diseño y estilos arquitectónicos en los catálogos CEP y CPD.
-- **Paso 5.2:** Consolidar la Línea Base Arquitectónica integral (LBA).
-- **Punto de control OGA-5:** Aprobación definitiva por el Órgano de Gobierno Arquitectónico (OGA).
-```
 
 ---
 
