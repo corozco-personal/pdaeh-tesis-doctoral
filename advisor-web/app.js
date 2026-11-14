@@ -13,12 +13,18 @@
   let turnstileWidgetId = null;
   let securityReady = false;
 
-  window.mermaid?.initialize({
-    startOnLoad: false,
-    securityLevel: "strict",
-    theme: "neutral",
-    flowchart: { htmlLabels: true, useMaxWidth: true },
-  });
+  let mermaidInitialized = false;
+  function ensureMermaid() {
+    if (!mermaidInitialized && window.mermaid) {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "strict",
+        theme: "neutral",
+        flowchart: { htmlLabels: true, useMaxWidth: true },
+      });
+      mermaidInitialized = true;
+    }
+  }
 
   async function initializeSecurity() {
     try {
@@ -82,6 +88,7 @@
       FORBID_ATTR: ["style", "srcset"],
     });
     const diagramCodes = [...container.querySelectorAll("pre > code.language-mermaid")];
+    if (diagramCodes.length) ensureMermaid();
     for (const code of diagramCodes) {
       const source = code.textContent.trim();
       const shell = document.createElement("figure");
