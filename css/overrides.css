@@ -942,3 +942,46 @@ details.activity .activity-content {
 .numbered-table {
   margin: 1.2rem 0 1.5rem 0 !important;
 }
+
+/* Refuerzo explícito para acordeón de gobernanza OGA y todas las actividades */
+#ogaSteps,
+.activities {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  margin-top: 1.5rem !important;
+}
+
+#ogaSteps details.activity,
+#ogaSteps .activity,
+details.activity,
+.activity {
+  background: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+#ogaSteps summary span,
+.activity summary span {
+  display: none !important;
+}
+
+#ogaSteps summary::after,
+.activity summary::after {
+  content: "+" !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  color: var(--green) !important;
+  line-height: 1 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+#ogaSteps details[open] summary::after,
+.activity[open] summary::after {
+  content: "−" !important;
+}
