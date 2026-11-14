@@ -157,10 +157,10 @@
     if (buffer.trim()) { const parsed = parseEventBlock(buffer); if (parsed) onEvent(parsed); }
   }
 
-  async function askAdvisor(content) {
+  async function askAdvisor(content, displayText = null) {
     if (!securityReady || !turnstileToken) { errorMessage.textContent = "Complete la verificación anti-bot antes de consultar el Advisor."; return; }
     errorMessage.textContent = "";
-    addUserMessage(content);
+    addUserMessage(displayText || content);
     setBusy(true);
     let streamMessage = null;
     try {
@@ -216,15 +216,28 @@
     started = true;
     chatInput.disabled = false;
     sendButton.disabled = false;
+    const orgSize = document.querySelector("#orgSize").value;
+    const coreProblem = document.querySelector("#coreProblem").value.trim();
+    const asIs = document.querySelector("#asIs").value.trim();
+    const maturity = document.querySelector("#maturity").value;
+
     const profile = [
       "Solicito iniciar un diagnóstico PDAEH con el siguiente contexto confirmado:",
-      `ORG_SIZE: ${document.querySelector("#orgSize").value}`,
-      `CORE_PROBLEM: ${document.querySelector("#coreProblem").value.trim()}`,
-      `AS_IS_TECH_STACK: ${document.querySelector("#asIs").value.trim()}`,
-      `QUANTUM_MATURITY: ${document.querySelector("#maturity").value}`,
+      `ORG_SIZE: ${orgSize}`,
+      `CORE_PROBLEM: ${coreProblem}`,
+      `AS_IS_TECH_STACK: ${asIs}`,
+      `QUANTUM_MATURITY: ${maturity}`,
       "Emite el diagnóstico definitivo con estas cuatro variables. No solicites campos ni información adicionales; declara como supuestos los vacíos que condicionen el dictamen.",
     ].join("\n\n");
-    askAdvisor(profile);
+
+    const userFacingSummary = [
+      `Solicitud de diagnóstico PDAEH para organización de tamaño ${orgSize}.`,
+      `Problema o caso de negocio: ${coreProblem}`,
+      `Arquitectura y stack tecnológico actual: ${asIs}`,
+      `Nivel de madurez cuántica: ${maturity}.`
+    ].join("\n\n");
+
+    askAdvisor(profile, userFacingSummary);
   });
 
   chatForm.addEventListener("submit", (event) => {
