@@ -4,7 +4,7 @@
   <script src="locales.js?v=1.2.0"></script>
   <script src="i18n.js?v=3.1.4"></script>
 </head>
-<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
+<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="advisor.html" style="color:var(--green);font-weight:700;">PDAEH Advisor</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
 
   <nav class="breadcrumb-bar" aria-label="Miga de pan">
     <div class="breadcrumb-nav">
@@ -86,7 +86,7 @@
     </div>
     <div style="background:#f9fbfa;border:1px solid var(--line);padding:1.2rem;border-radius:4px;">
       <strong style="color:var(--green);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.4rem;">Paso 3 · Verificación instrumental</strong>
-      <p style="margin:0;font-size:0.92rem;line-height:1.6;text-align:justify;">Compruebe la <a href="#matriz-trazabilidad" style="color:var(--green);font-weight:700;">matriz de trazabilidad cruzada</a>, descargue las <a href="#artefactos" style="color:var(--green);font-weight:700;">15 plantillas normalizadas</a> (.MD, .DOCX, .TEX) e interactúe con el <a href="#consultor-demo" style="color:var(--green);font-weight:700;">simulador del agente</a>.</p>
+      <p style="margin:0;font-size:0.92rem;line-height:1.6;text-align:justify;">Compruebe la <a href="#matriz-trazabilidad" style="color:var(--green);font-weight:700;">matriz de trazabilidad cruzada</a>, descargue las <a href="#artefactos" style="color:var(--green);font-weight:700;">15 plantillas normalizadas</a> (.MD, .DOCX, .TEX) y, en un espacio independiente, utilice el <a href="advisor.html" style="color:var(--green);font-weight:700;">agente PDAEH Advisor instalado</a>.</p>
     </div>
   </div>
 </div>
@@ -519,112 +519,16 @@
 </section>
 </section>
 
-<!-- Sección Interactiva: Simulador y Playground del Agente PDAEH Advisor -->
-<section class="section" id="consultor-demo" style="background:#ffffff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+<section class="section advisor-entry" id="advisor">
   <header class="section-header">
-    <p class="section-number">Herramienta de asistencia y automatización</p>
-    <h2>Simulador interactivo del agente consultor PDAEH Advisor</h2>
-    <div style="line-height:1.75;font-size:1.02rem;color:var(--ink);">
-      <p style="margin-bottom:0.9rem;">
-        El proceso metodológico cuenta con un <strong>agente consultor complementario e inteligente (PDAEH Advisor)</strong>, diseñado para asistir a las organizaciones en el diagnóstico, la estructuración y la adopción progresiva de arquitecturas híbridas clásico-cuánticas. <strong>Este agente extiende el alcance de la propuesta original y no hace parte de la evaluación del modelo arquitectónico</strong>, pero sirve para dar una visión general a un usuario o evaluador y permitirle ver la propuesta metodológica en ejecución dentro de un entorno controlado, práctico y reproducible.
-      </p>
-      <p style="margin-bottom:0.9rem;">
-        El agente toma como <strong>base del conocimiento</strong> todo el conocimiento obtenido durante el desarrollo de la tesis doctoral y los artefactos resultantes, integrando axiomáticamente las 5 fases del proceso (F1–F5), los 10 elementos estructurales armonizados (E1–E10), las 15 plantillas normalizadas de artefactos, el modelo de distribución de roles organizacionales por tamaño de empresa y las compuertas de control del Órgano de Gobierno Arquitectónico (OGA-1 a OGA-5).
-      </p>
-      
-      <div style="margin:1rem 0;background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:1.2rem 1.5rem;">
-        <h4 style="margin:0 0 0.5rem;font-size:1rem;color:var(--navy);font-weight:700;">Variables de interacción del agente</h4>
-        <ul style="margin:0;padding-left:1.3rem;line-height:1.7;">
-          <li style="margin-bottom:0.4rem;">
-            <strong>Entradas requeridas:</strong>
-            <ul style="margin:0.2rem 0 0.4rem;padding-left:1.2rem;">
-              <li><strong>Tamaño de la organización:</strong> Selección del tipo o escala empresarial (Microempresa o Startup, Pequeña y Mediana Empresa, o Gran Empresa).</li>
-              <li><strong>Descripción del problema de negocio:</strong> Naturaleza del reto computacional, objetivos funcionales y características operativas del caso.</li>
-              <li><strong>Arquitectura clásica actual (Stack As-Is):</strong> Infraestructura tecnológica existente, servicios de nube, bases de datos o esquemas de despliegue sobre los cuales se integrará el componente cuántico.</li>
-            </ul>
-          </li>
-          <li style="margin-top:0.6rem;">
-            <strong>Salida esperada:</strong>
-            <ul style="margin:0.2rem 0 0;padding-left:1.2rem;">
-              <li><strong>Diagnóstico de pertinencia:</strong> Evaluación sobre la idoneidad algorítmica para determinar si el problema califica para una solución híbrida cuántico-clásica o debe permanecer clásico.</li>
-              <li><strong>Asignación adaptada de roles:</strong> Mapeo de responsabilidades adaptado a la capacidad y tamaño de la organización según el modelo de roles del proceso PDAEH.</li>
-              <li><strong>Ponderación de atributos de calidad (Elemento E6):</strong> Identificación de escenarios críticos de calidad (latencia, disponibilidad, interoperabilidad o fidelidad cuántica) y artefactos vinculados.</li>
-              <li><strong>Hoja de ruta secuencial:</strong> Ruta metodológica fase por fase especificando los artefactos a generar y las compuertas de decisión OGA correspondientes.</li>
-              <li><strong>Directriz de acción inmediata:</strong> Orientación concreta sobre el primer artefacto a formalizar.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div style="background:#fefbf3;border-left:4px solid #d4a017;padding:1rem 1.3rem;border-radius:4px;margin-top:1.2rem;">
-        <h4 style="margin:0 0 0.35rem;font-size:0.95rem;color:#7f5a00;font-weight:700;">Instrucciones para la ejecución del simulador</h4>
-        <p style="margin:0;font-size:0.95rem;line-height:1.65;color:var(--ink);">
-          La descripción de cada uno de los campos debe ser <strong>lo más detallada posible</strong> para que el agente sea capaz de capturar el contexto real del problema que se busca abordar. Este ejercicio implica conocer claramente las restricciones del dominio de negocio, las dependencias de datos y la capacidad técnica actual de la organización. Si se proporcionan descripciones parciales o ambiguas, las sugerencias generadas pueden ser limitadas, genéricas o sesgadas.
-        </p>
-      </div>
-    </div>
+    <p class="section-number">Herramienta complementaria independiente</p>
+    <h2>PDAEH Advisor</h2>
+    <p>El diagnóstico inteligente se ejecuta en el agente PDAEH instalado, no mediante respuestas preprogramadas en este portal. La preparación del caso y las instrucciones de uso se encuentran en una página separada.</p>
   </header>
-
-  <div style="display:flex;flex-direction:column;gap:2rem;margin-top:1.8rem;width:100%;">
-    <!-- Panel superior de entradas -->
-    <div style="background:#f9fbfa;border:1px solid var(--line);padding:2rem;border-radius:6px;width:100%;box-sizing:border-box;">
-      <h3 style="margin:0 0 1.2rem;font-size:1.35rem;font-family:Newsreader,serif;color:var(--ink);">Entradas del caso organizacional (variables As-Is)</h3>
-      
-      <div style="display:grid;grid-template-columns:1fr;gap:1.4rem;">
-        <div>
-          <label for="demoOrgSize" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Tamaño de la empresa:</label>
-          <select id="demoOrgSize" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;">
-            <option value="pyme">Pequeña y mediana empresa (PYME) · Empresa de referencia FinNova</option>
-            <option value="startup">Microempresa o startup</option>
-            <option value="corporacion">Gran empresa o corporación</option>
-            <option value="inadecuado">Caso Inadecuado / Fuera de alcance</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="demoUseCase" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Descripción detallada del caso de uso / Problema de negocio:</label>
-          <textarea id="demoUseCase" rows="6" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;line-height:1.6;box-sizing:border-box;">Empresa de referencia FinNova: Empresa mediana de servicios financieros (PYME) especializada en gestión de inversiones y análisis de carteras para clientes institucionales y profesionales. La firma busca incorporar capacidad de optimización cuántica asistida para problemas complejos de rebalanceo dinámico de portafolio y optimización combinatoria multiobjetivo bajo restricciones de riesgo, preservando el control clásico integral sobre datos financieros, reglas de negocio, cumplimiento normativo y cálculo de riesgo fáctico.</textarea>
-          <small style="color:var(--muted);font-size:0.82rem;display:block;margin-top:4px;">Permite ingresar descripciones extensas del problema de negocio para evaluar la pertinencia cuántica.</small>
-        </div>
-
-        <div>
-          <label for="demoStack" style="display:block;font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--ink);">Arquitectura clásica actual detallada (Stack As-Is e infraestructura):</label>
-          <textarea id="demoStack" rows="4" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:4px;background:#fff;font-family:inherit;font-size:0.95rem;line-height:1.6;box-sizing:border-box;">Plataforma analítica clásica establecida (As-Is): Servicios de datos de mercado (Market Data Services), servicios de gestión de portafolios (Portfolio Services), motor de análisis y riesgo financiero (Risk & Analytics Services), servicios de cumplimiento normativo (Compliance Services) y generación de reportes (Reporting Services), desplegados en arquitectura de microservicios sobre clúster en la nube privada con bases de datos relacionales y series temporales.</textarea>
-          <small style="color:var(--muted);font-size:0.82rem;display:block;margin-top:4px;">Especifique el entorno tecnológico actual, nube, servicios o esquemas on-premise existentes.</small>
-        </div>
-      </div>
-
-      <div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:1rem;width:100%;">
-        <span style="font-size:0.85rem;color:var(--muted);margin-right:auto;">
-          Gobernado por la especificación formal del proceso PDAEH (v1.0.0-PROD)
-        </span>
-        <button type="button" id="btnRunDemo" style="background:var(--navy);color:#fff;border:none;padding:13px 26px;border-radius:4px;font-weight:700;font-size:0.98rem;cursor:pointer;transition:background 0.2s;box-shadow:0 2px 5px rgba(0,0,0,0.1);display:inline-flex;align-items:center;gap:0.6rem;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          <span>Ejecutar diagnóstico</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Panel inferior de salida generada de forma incremental -->
-    <div style="background:#ffffff;border:1px solid var(--line);padding:2rem;border-radius:6px;width:100%;box-sizing:border-box;box-shadow:0 2px 8px rgba(0,0,0,0.02);">
-      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1.5rem;">
-        <div>
-          <span style="font-size:0.82rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;display:block;">Generación incremental en tiempo real</span>
-          <h3 style="margin:0.2rem 0 0;font-size:1.35rem;font-family:Newsreader,serif;color:var(--ink);">Salida estructurada del agente consultor PDAEH</h3>
-        </div>
-        <span id="demoStatusTag" style="font-size:0.82rem;padding:4px 10px;border-radius:4px;background:#eaf1fb;color:#1f2a44;font-weight:600;">En espera</span>
-      </div>
-
-      <div id="demoOutputContainer" style="min-height:180px;font-size:0.95rem;line-height:1.7;color:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;background:#fafcfb;border:1px dashed var(--line);border-radius:4px;padding:2rem;">
-        <div style="max-width:550px;">
-          <p style="margin:0 0 0.5rem;font-weight:600;color:var(--ink);">El simulador no se ha ejecutado aún.</p>
-          <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.6;">
-            Revise o ajuste las variables del caso en el panel superior y haga clic en <strong>"Ejecutar diagnóstico y generar respuesta paso a paso"</strong> para iniciar la evaluación estructurada del agente PDAEH.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a class="advisor-entry-link" href="advisor.html">
+    <span><strong>Abrir PDAEH Advisor</strong><small>Preparar el caso y ejecutarlo con el skill instalado en Codex u otro agente compatible.</small></span>
+    <span aria-hidden="true">→</span>
+  </a>
 </section>
 
 <section class="section" id="referencias">

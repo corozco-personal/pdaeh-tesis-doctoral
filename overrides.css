@@ -493,3 +493,9 @@ p,
 html[lang="es"] .harmony-process-figure .language-es { display: block; }
 html[lang="en"] .harmony-process-figure .language-en,
 html[lang="fr"] .harmony-process-figure .language-en { display: block; }
+
+.advisor-entry { background:#f6faf8; }
+.advisor-entry-link { display:flex;justify-content:space-between;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:6px;padding:1.4rem 1.6rem;text-decoration:none;color:var(--ink); }
+.advisor-entry-link strong { display:block;font-size:1.1rem; }
+.advisor-entry-link small { display:block;color:var(--muted);margin-top:.25rem; }
+.advisor-entry-link>span:last-child { font-size:1.7rem;color:var(--green); }

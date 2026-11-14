@@ -545,6 +545,9 @@ function buildDetailedAgentArchitectureDiagram({ lang, size, useCase, stack }) {
 }
 
 function setupAgentDemo() {
+  // Simulador determinista legado deshabilitado. El diagnóstico se ejecuta
+  // exclusivamente mediante el agente instalado desde advisor.html.
+  return;
   const btn = $("#btnRunDemo");
   const selectSize = $("#demoOrgSize");
   const txtUseCase = $("#demoUseCase");
@@ -1623,7 +1626,7 @@ function setupDynamicBreadcrumbs() {
     { id: "actividad-transversal", name: "Actividad transversal y compuertas OGA" },
     { id: "matriz-trazabilidad", name: "Matriz de trazabilidad cruzada" },
     { id: "artefactos", name: "Catálogo de plantillas de artefactos" },
-    { id: "consultor-demo", name: "Simulador del agente PDAEH Advisor" },
+    { id: "advisor", name: "Acceso al agente PDAEH Advisor" },
     { id: "glosario", name: "Glosario de términos arquitectónicos" },
     { id: "referencias", name: "Referencias bibliográficas" }
   ];
@@ -1648,5 +1651,5 @@ function setupDynamicBreadcrumbs() {
   });
 }
 
-renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupAgentDemo();setupSearch();setupDynamicBreadcrumbs();
+renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupSearch();setupDynamicBreadcrumbs();
 window.PDAEH={data,cleanText,splitItems,list,indicatorList,artifactLink,richArtifactItem,elementCode,elementNames,phaseNames,artifactCodes,artifactNames,field,esc};
