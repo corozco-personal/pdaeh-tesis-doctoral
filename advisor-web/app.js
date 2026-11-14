@@ -162,7 +162,10 @@
     errorMessage.textContent = "";
     addUserMessage(displayText || content);
     setBusy(true);
-    let streamMessage = null;
+    const streamMessage = createStreamingMessage();
+    let text = "";
+    let streamError = "";
+    let lastScrollTime = 0;
     try {
       const response = await fetch("/api/advisor", {
         method: "POST",
@@ -174,16 +177,12 @@
         const data = await response.json().catch(() => ({}));
         throw new Error(data.error || "No fue posible consultar el agente.");
       }
-      streamMessage = createStreamingMessage();
-      let text = "";
-      let streamError = "";
-      let lastScrollTime = 0;
       await consumeAdvisorStream(response, ({ event, data }) => {
         if (event === "delta") {
           text += data.delta || "";
           streamMessage.output.textContent = text;
           const now = Date.now();
-          if (now - lastScrollTime > 100) {
+          if (now - lastScrollTime > 80) {
             messages.scrollTop = messages.scrollHeight;
             lastScrollTime = now;
           }
@@ -198,7 +197,7 @@
       streamMessage.output.removeAttribute("aria-label");
       await renderRichResponse(streamMessage.output, text);
     } catch (error) {
-      if (streamMessage && !streamMessage.output.textContent.trim()) streamMessage.article.remove();
+      if (streamMessage && !text.trim()) streamMessage.article.remove();
       else streamMessage?.article.classList.remove("streaming");
       errorMessage.textContent = error.message;
     } finally {

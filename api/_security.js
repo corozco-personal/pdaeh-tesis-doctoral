@@ -9,7 +9,7 @@ const RATE_WINDOWS = [
   { name: "hour", duration: 60 * 60_000, limit: 20 },
 ];
 const buckets = new Map();
-const activeSessions = new Set();
+const activeSessions = new Map();
 
 const INJECTION_PATTERNS = [
   /ignore\s+(all\s+)?(previous|prior|above)\s+(instructions|rules)/i,
@@ -114,7 +114,13 @@ function rateLimit(key, now = Date.now()) {
   return 0;
 }
 
-function acquire(sessionId) { if (activeSessions.has(sessionId)) return false; activeSessions.add(sessionId); return true; }
+function acquire(sessionId) {
+  const now = Date.now();
+  const last = activeSessions.get(sessionId);
+  if (last && (now - last) < 25_000) return false;
+  activeSessions.set(sessionId, now);
+  return true;
+}
 function release(sessionId) { activeSessions.delete(sessionId); }
 
 async function verifyTurnstile(token, ip) {

@@ -96,7 +96,7 @@ module.exports = async function advisorHandler(req, res) {
   const isGeminiKey = gatewayToken.startsWith("AIzaSy");
   if (isGeminiKey) {
     try {
-      const geminiModel = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+      const geminiModel = process.env.GEMINI_MODEL || "gemini-2.0-flash";
       const systemInstruction = { parts: [{ text: instructions() }] };
       const contents = req.body.messages.map(({ role, content }) => ({
         role: role === "assistant" ? "model" : "user",
@@ -151,10 +151,11 @@ module.exports = async function advisorHandler(req, res) {
           try {
             const data = JSON.parse(jsonStr);
             const candidate = data.candidates?.[0];
-            const textPart = candidate?.content?.parts?.[0]?.text;
-            if (textPart && typeof textPart === "string") {
-              characters += textPart.length;
-              if (characters <= 50_000) sendEvent(res, "delta", { delta: textPart });
+            for (const part of candidate?.content?.parts || []) {
+              if (part?.text && !part?.thought) {
+                characters += part.text.length;
+                if (characters <= 50_000) sendEvent(res, "delta", { delta: part.text });
+              }
             }
           } catch {}
         }
