@@ -42,6 +42,8 @@ test("carga la especificación del agente", () => {
   assert.match(prompt, /bloque cercado mermaid válido/);
   assert.match(prompt, /Recomendaciones específicas para E1–E10/);
   assert.match(prompt, /NO solicites campos adicionales/);
+  assert.match(prompt, /DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO/);
+  assert.match(prompt, /NO generes análisis E1–E10/);
 });
 
 test("acepta únicamente solicitudes del mismo origen", () => {

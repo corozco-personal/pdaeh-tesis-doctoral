@@ -72,6 +72,8 @@
   }
 
   async function renderRichResponse(container, text) {
+    const negativeDiagnosis = /^#\s+DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO\s*$/im.test(text);
+    container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
     const html = window.marked.parse(text, { gfm: true, breaks: true });
     container.innerHTML = window.DOMPurify.sanitize(html, {
