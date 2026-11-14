@@ -84,7 +84,7 @@ module.exports = async function advisorHandler(req, res) {
     });
     if (!apiResponse.ok) {
       const data = await apiResponse.json().catch(() => ({}));
-      console.error("OpenAI API error", apiResponse.status, data?.error?.code || "unknown");
+      console.error("OpenAI API error", apiResponse.status, data?.error?.code || "unknown", String(data?.error?.message || "").slice(0, 500));
       return sendJson(res, apiResponse.status === 429 ? 429 : 502, {
         error: apiResponse.status === 429
           ? "El servicio alcanzó temporalmente su límite de uso. Inténtelo de nuevo más tarde."
