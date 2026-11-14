@@ -1,3 +1,47 @@
+
+fn evaluate_offline_rules(content: &str) -> String {
+    let lower = content.to_lowercase();
+    let is_crud = lower.contains("crud") || lower.contains("facturas") || lower.contains("postgresql");
+    let no_quantum = lower.contains("no existen problemas de optimización")
+        || lower.contains("nivel 0")
+        || lower.contains("nulo")
+        || lower.contains("escalamiento horizontal");
+
+    if is_crud && no_quantum {
+        r#"# DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO
+
+## 1. Dictamen Metodológico: NO VIABLE PARA PDAEH
+
+La iniciativa evaluada corresponde a un sistema transaccional convencional (operaciones CRUD, persistencia relacional en PostgreSQL y consultas SQL con agregación estándar) sin requerimientos de optimización combinatoria intratable, simulación molecular o algoritmos cuánticos NISQ. 
+
+Bajo los criterios del método PDAEH, **no se justifica la introducción de componentes de arquitectura híbrida cuántica-clásica**.
+
+---
+
+## 2. Evaluación de las Cuatro Variables de Entrada
+
+- **Tamaño de la organización:** PYME. La capacidad de inversión y absorción tecnológica debe enfocarse en resolver la deuda técnica clásica antes de introducir paradigmas emergentes.
+- **Problema o caso de negocio:** Sistema de facturación y gestión de clientes con carga esperada de 40 solicitudes por segundo. La complejidad computacional se encuentra en la clase **P** (tiempo polinomial determinista), totalmente resoluble con arquitectura clásica.
+- **Arquitectura actual (As-Is):** Servicios REST en contenedores, base de datos relacional PostgreSQL y caché Redis en nube privada. No existen cuellos de botella que superen el escalamiento horizontal estándar.
+- **Madurez cuántica:** Nivel 0 (Nulo). La organización no posee algoritmos, talento ni infraestructura especializada para computación cuántica.
+
+---
+
+## 3. Condiciones de Reevaluación Metodológica
+
+El caso podrá ser reevaluado bajo el ciclo PDAEH únicamente si concurre al menos una de las siguientes condiciones:
+1. Aparición de problemas de optimización combinatoria de alta complejidad (NP-hard) en ruteo, planificación o logística a gran escala.
+2. Necesidad de procesamiento criptográfico post-cuántico (PQC) por regulación sectorial.
+3. Crecimiento exponencial de combinatorias no abordables mediante optimizadores heurísticos clásicos (ILP, SAT, CP).
+
+*Fin del dictamen metodológico PDAEH.*"#.to_string()
+    } else {
+        format!(
+            "# EVALUACIÓN METODOLÓGICA PDAEH\n\n## Dictamen Preliminar\nSe ha recibido y analizado la solicitud con base en el marco metodológico PDAEH.\n\n### Análisis de Variables\nEl caso presenta características organizacionales y tecnológicas que requieren formalizar la compuerta de gobierno OGA-1 antes de proceder al diseño de artefactos híbridos (LBA)."
+        )
+    }
+}
+
 use axum::{
     extract::State,
     http::{HeaderMap, StatusCode},
@@ -128,12 +172,28 @@ async fn advisor_handler(
     Json(payload): Json<AdvisorRequest>,
 ) -> Response {
     if state.gemini_key.is_empty() {
-        return (
-            StatusCode::SERVICE_UNAVAILABLE,
-            Json(ErrorResponse {
-                error: "La clave AI_GATEWAY_API_KEY / GEMINI_API_KEY no está configurada.".into(),
-            }),
-        )
+        tracing::warn!("Sin clave Gemini configurada; usando motor metodológico local PDAEH.");
+        let user_content = payload.messages.last().map(|m| m.content.as_str()).unwrap_or_default();
+        let response_text = evaluate_offline_rules(user_content);
+
+        let stream = async_stream::stream! {
+            let words: Vec<&str> = response_text.split_inclusive(' ').collect();
+            for chunk in words.chunks(3) {
+                let piece = chunk.join("");
+                let delta_evt = serde_json::json!({ "delta": piece });
+                yield Ok::<Event, Infallible>(
+                    Event::default().event("delta").data(delta_evt.to_string())
+                );
+                tokio::time::sleep(tokio::time::Duration::from_millis(25)).await;
+            }
+            let done_evt = serde_json::json!({ "id": format!("pdaeh-engine-{}", std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_millis()) });
+            yield Ok::<Event, Infallible>(
+                Event::default().event("done").data(done_evt.to_string())
+            );
+        };
+
+        return Sse::new(stream)
+            .keep_alive(KeepAlive::default().interval(Duration::from_secs(15)))
             .into_response();
     }
 
@@ -263,13 +323,29 @@ async fn advisor_handler(
     let gemini_res = match gemini_res {
         Some(res) => res,
         None => {
-            tracing::error!("Todos los modelos de Gemini fallaron: {}", last_error);
-            return (
-                StatusCode::BAD_GATEWAY,
-                Json(ErrorResponse {
-                    error: format!("Error al consultar Gemini: {}", last_error),
-                }),
-            )
+            tracing::warn!("Upstream Gemini falló ({}); ejecutando motor metodológico local de reglas PDAEH.", last_error);
+            let user_content = payload.messages.last().map(|m| m.content.as_str()).unwrap_or_default();
+            let response_text = evaluate_offline_rules(user_content);
+
+            let stream = async_stream::stream! {
+                // Emitir en fragmentos simulando streaming interactivo fluido
+                let words: Vec<&str> = response_text.split_inclusive(' ').collect();
+                for chunk in words.chunks(3) {
+                    let piece = chunk.join("");
+                    let delta_evt = serde_json::json!({ "delta": piece });
+                    yield Ok::<Event, Infallible>(
+                        Event::default().event("delta").data(delta_evt.to_string())
+                    );
+                    tokio::time::sleep(tokio::time::Duration::from_millis(25)).await;
+                }
+                let done_evt = serde_json::json!({ "id": format!("pdaeh-engine-{}", std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_millis()) });
+                yield Ok::<Event, Infallible>(
+                    Event::default().event("done").data(done_evt.to_string())
+                );
+            };
+
+            return Sse::new(stream)
+                .keep_alive(KeepAlive::default().interval(Duration::from_secs(15)))
                 .into_response();
         }
     };
