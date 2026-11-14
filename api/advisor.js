@@ -83,6 +83,7 @@ module.exports = async function advisorHandler(req, res) {
   if (!acquire(session.id)) return sendJson(res, 409, { error: "Ya existe una consulta en curso para esta sesión." });
 
   const gatewayToken = process.env.AI_GATEWAY_API_KEY
+    || process.env.GEMINI_API_KEY
     || process.env.VERCEL_OIDC_TOKEN
     || req.headers?.["x-vercel-oidc-token"];
   if (!gatewayToken) { release(session.id); return sendJson(res, 503, { error: "El Advisor no pudo obtener la identidad segura del servicio." }); }
@@ -91,6 +92,90 @@ module.exports = async function advisorHandler(req, res) {
   if (error) { release(session.id); return sendJson(res, 400, { error }); }
   const turnstile = await verifyTurnstile(req.body.turnstileToken, ip);
   if (!turnstile.success) { release(session.id); return sendJson(res, 403, { error: "No fue posible validar la verificación anti-bot. Inténtelo nuevamente." }); }
+
+  const isGeminiKey = gatewayToken.startsWith("AIzaSy");
+  if (isGeminiKey) {
+    try {
+      const geminiModel = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+      const systemInstruction = { parts: [{ text: instructions() }] };
+      const contents = req.body.messages.map(({ role, content }) => ({
+        role: role === "assistant" ? "model" : "user",
+        parts: [{ text: content.trim() }]
+      }));
+      const geminiPayload = {
+        systemInstruction,
+        contents,
+        generationConfig: {
+          maxOutputTokens: 7000,
+          temperature: 0.2
+        }
+      };
+
+      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:streamGenerateContent?alt=sse&key=${gatewayToken}`;
+      const apiResponse = await fetch(geminiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(geminiPayload),
+        signal: AbortSignal.timeout(115_000),
+      });
+
+      if (!apiResponse.ok) {
+        const errData = await apiResponse.json().catch(() => ({}));
+        console.error("Gemini API error", apiResponse.status, errData);
+        return sendJson(res, apiResponse.status === 429 ? 429 : 502, {
+          error: apiResponse.status === 429
+            ? "El servicio alcanzó temporalmente su límite de uso. Inténtelo de nuevo más tarde."
+            : "No fue posible obtener una respuesta del agente.",
+        });
+      }
+
+      if (!apiResponse.body) return sendJson(res, 502, { error: "El servicio no proporcionó un flujo de respuesta." });
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "text/event-stream; charset=utf-8");
+      res.setHeader("Cache-Control", "no-cache, no-transform");
+      res.setHeader("X-Accel-Buffering", "no");
+      res.setHeader("X-Content-Type-Options", "nosniff");
+      res.flushHeaders?.();
+
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let characters = 0;
+      for await (const chunk of apiResponse.body) {
+        buffer += decoder.decode(chunk, { stream: true });
+        const lines = buffer.split(/\r?\n/);
+        buffer = lines.pop() || "";
+        for (const line of lines) {
+          if (!line.startsWith("data:")) continue;
+          const jsonStr = line.slice(5).trim();
+          if (!jsonStr) continue;
+          try {
+            const data = JSON.parse(jsonStr);
+            const candidate = data.candidates?.[0];
+            const textPart = candidate?.content?.parts?.[0]?.text;
+            if (textPart && typeof textPart === "string") {
+              characters += textPart.length;
+              if (characters <= 50_000) sendEvent(res, "delta", { delta: textPart });
+            }
+          } catch {}
+        }
+      }
+      if (!res.writableEnded) {
+        if (!characters) sendEvent(res, "error", { error: "El agente no produjo contenido textual." });
+        else sendEvent(res, "done", { id: "gemini-" + Date.now() });
+        res.end();
+      }
+      return;
+    } catch (geminiError) {
+      console.error("Gemini request failed", geminiError?.message || geminiError);
+      if (res.headersSent) {
+        sendEvent(res, "error", { error: "La conexión con el agente se interrumpió." });
+        return res.end();
+      }
+      return sendJson(res, 502, { error: "No fue posible conectar con el servicio del agente." });
+    } finally {
+      release(session.id);
+    }
+  }
 
   const payload = {
     model: process.env.AI_GATEWAY_MODEL || "openai/gpt-5-mini",
