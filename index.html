@@ -4,7 +4,7 @@
   <script src="js/locales.js?v=1.2.0"></script>
   <script src="js/i18n.js?v=3.1.4"></script>
 </head>
-<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="https://pdaeh-advisor.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;">PDAEH Advisor ↗</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
+<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="#evaluacion-global">Aporte</a><a href="https://pdaeh-advisor.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;">PDAEH Advisor ↗</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
 
   <nav class="breadcrumb-bar" aria-label="Miga de pan">
     <div class="breadcrumb-nav">
@@ -519,7 +519,55 @@
 
 <section class="subsection" id="actividad-transversal"><h3>Actividad transversal: revisión de líneas base</h3><p>Al finalizar cada fase, el Arquitecto Empresarial del Proceso remite los artefactos al Órgano de Gobierno Arquitectónico. La aprobación habilita la siguiente fase; las observaciones activan un ciclo de ajuste y nueva revisión.</p><figure class="wide-figure macro-figure"><img src="assets/jiisic/flujo_fases_linea_base.svg" alt="Flujo de fases y consolidación de líneas base"><figcaption>Vista macro de la progresión entre fases y la consolidación incremental de las líneas base arquitectónicas.</figcaption></figure> <div class="transversal-io"><article><h4>Entradas</h4><ul><li>Paquete de artefactos generado en la fase.</li><li>Línea base arquitectónica de la fase.</li><li>Criterios de aceptación e indicadores de cumplimiento.</li><li>Observaciones pendientes de revisiones anteriores, cuando existan.</li></ul></article><article><h4>Salidas</h4><ul><li>Acta de aprobación o decisión formal del OGA.</li><li>Observaciones, recomendaciones y ajustes requeridos.</li><li>Línea base aprobada y versionada.</li><li>Autorización para continuar con la siguiente fase o cierre del proceso.</li></ul></article></div> <figure class="wide-figure"><img src="assets/figures/figura-25.png" alt="Flujo de actividades del OGA al finalizar cada fase"><figcaption>Flujo de actividades llevadas a cabo por el OGA al finalizar cada fase.</figcaption></figure><div class="oga-steps" id="ogaSteps"></div> </section>
 
-<div id="phasePanel"></div></section> 
+  <!-- Línea de Vida Metodológica y Compuertas OGA -->
+  <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.4rem 1.6rem;margin:1.8rem 0;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;margin-bottom:1rem;">
+      <h3 style="margin:0;font-size:1.15rem;color:var(--navy);font-weight:700;">Línea de vida metodológica: progresión de fases y compuertas OGA</h3>
+      <span style="font-size:0.82rem;font-weight:700;padding:3px 10px;background:#eef5f3;color:var(--green);border-radius:12px;border:1px solid #c2dbd4;">Secuencia F1 → F2 → F3 → F4 → F5</span>
+    </div>
+    <p style="margin:0 0 1.2rem;font-size:0.92rem;color:var(--ink-light);line-height:1.6;text-align:justify;">
+      El proceso PDAEH opera como un ciclo de maduración arquitectónica donde ninguna fase avanza sin la aprobación explícita de su compuerta de gobierno. Cada fase genera un incremento auditable denominado <strong>Línea Base Arquitectónica (LBA)</strong>:
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.9rem;">
+      <div style="background:#f8faf9;border:1px solid #c2dbd4;border-top:3px solid var(--green);border-radius:4px;padding:0.9rem 1rem;">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Fase 1</div>
+        <div style="font-weight:700;color:var(--green);font-size:0.92rem;margin:0.2rem 0;">Alineación Estratégica</div>
+        <div style="font-size:0.82rem;color:var(--ink);margin-bottom:0.6rem;"><strong>Elementos:</strong> E1 + E2<br><strong>Salida:</strong> LBA-F1 (DOE, DCA)</div>
+        <div style="display:inline-block;padding:2px 8px;background:#e0f2fe;color:#0369a1;font-weight:700;font-size:0.76rem;border-radius:4px;">Compuerta OGA-1</div>
+      </div>
+
+      <div style="background:#faf8fd;border:1px solid #d4c7ed;border-top:3px solid #7c3aed;border-radius:4px;padding:0.9rem 1rem;">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Fase 2</div>
+        <div style="font-weight:700;color:#7c3aed;font-size:0.92rem;margin:0.2rem 0;">Formalización Conceptual</div>
+        <div style="font-size:0.82rem;color:var(--ink);margin-bottom:0.6rem;"><strong>Elementos:</strong> E3 + E4<br><strong>Salida:</strong> LBA-F2 (DPV, DVA)</div>
+        <div style="display:inline-block;padding:2px 8px;background:#e0f2fe;color:#0369a1;font-weight:700;font-size:0.76rem;border-radius:4px;">Compuerta OGA-2</div>
+      </div>
+
+      <div style="background:#fdf9f3;border:1px solid #edd7b4;border-top:3px solid #d97706;border-radius:4px;padding:0.9rem 1rem;">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Fase 3</div>
+        <div style="font-weight:700;color:#d97706;font-size:0.92rem;margin:0.2rem 0;">Configuración Estructural</div>
+        <div style="font-size:0.82rem;color:var(--ink);margin-bottom:0.6rem;"><strong>Elementos:</strong> E5 + E6<br><strong>Salida:</strong> LBA-F3 (MAC, DEA)</div>
+        <div style="display:inline-block;padding:2px 8px;background:#e0f2fe;color:#0369a1;font-weight:700;font-size:0.76rem;border-radius:4px;">Compuerta OGA-3</div>
+      </div>
+
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-top:3px solid #16a34a;border-radius:4px;padding:0.9rem 1rem;">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Fase 4</div>
+        <div style="font-weight:700;color:#16a34a;font-size:0.92rem;margin:0.2rem 0;">Materialización Tecnológica</div>
+        <div style="font-size:0.82rem;color:var(--ink);margin-bottom:0.6rem;"><strong>Elementos:</strong> E9 + E10<br><strong>Salida:</strong> LBA-F4 (DCO, BER)</div>
+        <div style="display:inline-block;padding:2px 8px;background:#e0f2fe;color:#0369a1;font-weight:700;font-size:0.76rem;border-radius:4px;">Compuerta OGA-4</div>
+      </div>
+
+      <div style="background:#f8fafc;border:1px solid #cbd5e1;border-top:3px solid #475569;border-radius:4px;padding:0.9rem 1rem;">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Fase 5</div>
+        <div style="font-weight:700;color:#475569;font-size:0.92rem;margin:0.2rem 0;">Sistematización del Diseño</div>
+        <div style="font-size:0.82rem;color:var(--ink);margin-bottom:0.6rem;"><strong>Elementos:</strong> E7 + E8<br><strong>Salida:</strong> LBA-F5 (CEP, CPD)</div>
+        <div style="display:inline-block;padding:2px 8px;background:#dcfce7;color:#15803d;font-weight:700;font-size:0.76rem;border-radius:4px;">Compuerta OGA-5 (LBA Final)</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="phasePanel"></div></section> 
 
 <!-- Sección de Matriz de Trazabilidad Integral para Evaluadores -->
 <section class="section" id="matriz-trazabilidad" style="background:#fafcfb;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
@@ -550,13 +598,168 @@
         </a>
       </div>
     </div>
-  </header><div id="artifactTemplates"></div><section class="subsection" id="glosario" style="margin-top:3rem;">
+  </header>  <!-- Visor Rápido de Estructura de las 4 Plantillas del Proceso -->
+  <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.4rem 1.6rem;margin:1.8rem 0 2.2rem;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;margin-bottom:0.8rem;">
+      <h3 style="margin:0;font-size:1.15rem;color:var(--navy);font-weight:700;">Estructura de las 4 plantillas de documentación del proceso</h3>
+      <span style="font-size:0.82rem;font-weight:700;padding:3px 10px;background:#eef5f3;color:var(--green);border-radius:12px;border:1px solid #c2dbd4;">Patrón COMPETISOFT</span>
+    </div>
+    <p style="margin:0 0 1.2rem;font-size:0.92rem;color:var(--ink-light);line-height:1.6;text-align:justify;">
+      Para garantizar la uniformidad en la caracterización arquitectónica, el proceso PDAEH adopta el patrón de documentación de <strong>COMPETISOFT</strong> e <strong>ISO/IEC 12207 / 29110</strong> en cuatro niveles jerárquicos complementarios:
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:1rem;">
+      <!-- Plantilla Macro -->
+      <div style="background:#f8faf9;border:1px solid #c2dbd4;border-top:3px solid var(--green);border-radius:4px;padding:1rem 1.15rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Nivel 1</div>
+        <div style="font-weight:700;color:var(--green);font-size:0.98rem;margin:0.2rem 0 0.5rem;">Plantilla de Proceso (Macro)</div>
+        <p style="margin:0 0 0.6rem;font-size:0.86rem;color:var(--ink-light);line-height:1.5;text-align:justify;">Fija la identidad global, gobernanza y límites del proceso.</p>
+        <ul style="margin:0;padding-left:1.1rem;font-size:0.82rem;color:var(--ink);line-height:1.5;">
+          <li><strong>Identificación:</strong> Nombre e identificador.</li>
+          <li><strong>Dirección:</strong> Propósito y alcance institucional.</li>
+          <li><strong>Estructura:</strong> Dimensiones y subconjuntos DSM.</li>
+          <li><strong>Flujo:</strong> Entradas y salidas globales (LBA).</li>
+          <li><strong>Control:</strong> Criterios de inicio, cierre, indicadores y OGA.</li>
+        </ul>
+      </div>
+
+      <!-- Plantilla de Fase -->
+      <div style="background:#faf8fd;border:1px solid #d4c7ed;border-top:3px solid #7c3aed;border-radius:4px;padding:1rem 1.15rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Nivel 2</div>
+        <div style="font-weight:700;color:#7c3aed;font-size:0.98rem;margin:0.2rem 0 0.5rem;">Plantilla de Fase (F1–F5)</div>
+        <p style="margin:0 0 0.6rem;font-size:0.86rem;color:var(--ink-light);line-height:1.5;text-align:justify;">Modela cada subconjunto estructural en una unidad de habilitación.</p>
+        <ul style="margin:0;padding-left:1.1rem;font-size:0.82rem;color:var(--ink);line-height:1.5;">
+          <li><strong>Identificación:</strong> Nombre y código (F1–F5).</li>
+          <li><strong>Origen:</strong> Subconjunto estructural y elementos.</li>
+          <li><strong>Propósito:</strong> Meta de la fase en el ciclo de vida.</li>
+          <li><strong>Flujo:</strong> Entradas y salidas específicas de fase.</li>
+          <li><strong>Gobernanza:</strong> Punto de control OGA e indicadores.</li>
+        </ul>
+      </div>
+
+      <!-- Plantilla de Elemento -->
+      <div style="background:#fdf9f3;border:1px solid #edd7b4;border-top:3px solid #d97706;border-radius:4px;padding:1rem 1.15rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Nivel 3</div>
+        <div style="font-weight:700;color:#d97706;font-size:0.98rem;margin:0.2rem 0 0.5rem;">Plantilla de Elemento (E1–E10)</div>
+        <p style="margin:0 0 0.6rem;font-size:0.86rem;color:var(--ink-light);line-height:1.5;text-align:justify;">Caracteriza los bloques constitutivos de la arquitectura híbrida.</p>
+        <ul style="margin:0;padding-left:1.1rem;font-size:0.82rem;color:var(--ink);line-height:1.5;">
+          <li><strong>Identificación:</strong> Código (E1–E10) y fase asociada.</li>
+          <li><strong>Clasificación:</strong> Categoría dimensional.</li>
+          <li><strong>Objetivos:</strong> Propósito y metas específicas.</li>
+          <li><strong>Resultados:</strong> Productos generados (artefactos).</li>
+          <li><strong>Calidad:</strong> Criterios de aceptación y dependencias.</li>
+        </ul>
+      </div>
+
+      <!-- Plantilla de Actividad -->
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-top:3px solid #16a34a;border-radius:4px;padding:1rem 1.15rem;">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Nivel 4</div>
+        <div style="font-weight:700;color:#16a34a;font-size:0.98rem;margin:0.2rem 0 0.5rem;">Plantilla de Actividad (Operativo)</div>
+        <p style="margin:0 0 0.6rem;font-size:0.86rem;color:var(--ink-light);line-height:1.5;text-align:justify;">Formaliza el trabajo procedimental y técnico detallado.</p>
+        <ul style="margin:0;padding-left:1.1rem;font-size:0.82rem;color:var(--ink);line-height:1.5;">
+          <li><strong>Código:</strong> Notación unívoca Fx.EY.AZ [{Ej, Ek}].</li>
+          <li><strong>Definición:</strong> Nombre, objetivo y descripción.</li>
+          <li><strong>Flujo de trabajo:</strong> Entradas y salidas concretas.</li>
+          <li><strong>Ejecución:</strong> Rol responsable y herramientas.</li>
+          <li><strong>Auditoría:</strong> Punto de validación verificable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="artifactTemplates"></div><section class="subsection" id="glosario" style="margin-top:3rem;">
   <header>
     <h3>Glosario de términos arquitectónicos</h3>
     <p>Consolidación de términos genéricos asociados a la ingeniería y definición de procesos, así como conceptos especializados del dominio arquitectónico híbrido clásico-cuántico.</p>
+    <div style="margin-top:1rem;background:#f8faf9;border-left:4px solid var(--green);padding:0.9rem 1.25rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+      <strong style="color:var(--green);display:block;margin-bottom:0.25rem;">Homologación y armonización terminológica:</strong>
+      La base terminológica de procesos (proceso, actividad, tarea, subtarea, rol, recurso, herramienta, producto de trabajo) adopta estrictamente las definiciones consagradas en <strong>COMPETISOFT</strong>, <strong>ISO/IEC 12207</strong> e <strong>ISO/IEC 29110</strong> para garantizar rigor conceptual en ingeniería de software. A su vez, los términos específicos del dominio (Línea Base Arquitectónica, elementos E1–E10, dimensiones, compuertas OGA y patrones híbridos) delimitan la semántica técnica especializada necesaria para gobernar la coexistencia cuántico-clásica.
+    </div>
   </header>
   <div id="glossaryTables"></div>
 </section>
+</section>
+
+<!-- Sección VIII: Aporte y Evaluación Global del Proceso PDAEH -->
+<section class="section" id="evaluacion-global" style="background:#fafcfb;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <header class="section-header">
+    <p class="section-number">Evaluación global y aplicabilidad</p>
+    <h2>Aporte de PDAEH y diferenciación frente a marcos consolidados</h2>
+    <div style="width:100%;">
+      <p style="margin-bottom:0.85rem;line-height:1.75;text-align:justify;">
+        Para evaluar el impacto, la viabilidad y la aplicabilidad del proceso en organizaciones reales, esta sección sintetiza cómo <strong>PDAEH</strong> complementa los marcos tradicionales de arquitectura empresarial (como <strong>TOGAF ADM</strong>), incorporando de forma nativa la gobernanza de la tecnología cuántica, la gestión de incertidumbre en la era <strong>NISQ</strong> y el ciclo de vida continuo del software híbrido.
+      </p>
+    </div>
+  </header>
+
+  <!-- Matriz Diferencial PDAEH vs TOGAF -->
+  <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.6rem 1.8rem;margin:1.5rem 0 2rem;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;margin-bottom:1rem;">
+      <h3 style="margin:0;font-size:1.2rem;color:var(--navy);font-weight:700;">Matriz comparativa: marcos clásicos (TOGAF) vs. PDAEH</h3>
+      <span style="font-size:0.82rem;font-weight:700;padding:3px 10px;background:#eef5f3;color:var(--green);border-radius:12px;border:1px solid #c2dbd4;">Diferenciación arquitectónica</span>
+    </div>
+
+    <div class="table-shell" style="margin-top:1rem;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%;text-align:center !important;vertical-align:middle !important;">Dimensión analizada</th>
+            <th style="width:39%;text-align:center !important;vertical-align:middle !important;">Marcos clásicos (Ej. TOGAF ADM)</th>
+            <th style="width:39%;text-align:center !important;vertical-align:middle !important;">Proceso propuesto (PDAEH)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Paradigma tecnológico</td>
+            <td style="text-align:justify;">Orientado primordialmente a sistemas computacionales clásicos y deterministas (on-premise, microservicios, nube tradicional).</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Coexistencia híbrida nativa:</strong> Modela y gobierna explícitamente la articulación simbiótica entre computación clásica (CPU/GPU) y coprocesadores cuánticos (QPU).</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Gobernanza y compuertas</td>
+            <td style="text-align:justify;">Comités de arquitectura (ARB) enfocados en estándares corporativos tradicionales y deuda técnica convencional.</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Gobernanza OGA con compuertas formales:</strong> 5 puntos de control auditable (OGA-1 a OGA-5) y 7 actividades de revisión transversal sobre Líneas Base Arquitectónicas incrementales (LBA).</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Restricciones de hardware y madurez</td>
+            <td style="text-align:justify;">Asume disponibilidad de hardware determinista, altamente estable y con tolerancia a fallos estándar.</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Realismo NISQ:</strong> Incorpora formalmente la mitigación de errores cuánticos, tiempos de coherencia, fidelidad de cúbits y evaluación de ventaja cuántica real en E10 (BER) y E6 (DEA).</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Seguridad y criptografía</td>
+            <td style="text-align:justify;">Modelos basados en criptografía asimétrica tradicional (RSA, ECC) sin contemplar el riesgo de descifrado cuántico.</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Transición Postcuántica (PQC):</strong> Rol dedicado (ASecP) y artefactos específicos para gobernar la migración segura hacia algoritmos resistentes al cómputo cuántico.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Patrones y componentes</td>
+            <td style="text-align:justify;">Catálogos maduros consolidados tras décadas de práctica (capas, EDA, SOA, microservicios).</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Patrones y estilos híbridos emergentes:</strong> Catálogo sistemático de 3 estilos arquitectónicos (E7) y 5 patrones de diseño híbrido (E8) para resolver la variabilidad de interacción.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Adaptabilidad por escala</td>
+            <td style="text-align:justify;">Estructuras de roles pesadas diseñadas para grandes corporaciones que resultan costosas o inviables en etapas tempranas.</td>
+            <td style="text-align:justify;background:#f8faf9;"><strong>Segmentación organizacional proporcional:</strong> Modelos formalmente adaptados para Microempresas/Startups (fusión en AEP), PyMEs (diferenciación progresiva) y Corporaciones (especialización plena).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Orientación al ciclo de vida y recomendación de adopción -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1.2rem;margin-top:1.5rem;">
+    <div style="background:#ffffff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:4px;padding:1.2rem 1.4rem;">
+      <h4 style="margin:0 0 0.5rem;color:var(--green);font-size:1.05rem;">Orientación al ciclo de vida arquitectónico</h4>
+      <p style="margin:0;font-size:0.92rem;color:var(--ink);line-height:1.65;text-align:justify;">
+        El proceso PDAEH no se restringe a una formulación teórica inicial; guía a las organizaciones a lo largo de la <strong>definición</strong> (F1, F2), <strong>formalización técnica</strong> (F3, F4) y <strong>sistematización evolutiva</strong> (F5) de su arquitectura, facilitando iteraciones controladas y revisiones de impacto cuando la tecnología cuántica o las prioridades del negocio evolucionan.
+      </p>
+    </div>
+
+    <div style="background:#ffffff;border:1px solid var(--line);border-left:4px solid #0284c7;border-radius:4px;padding:1.2rem 1.4rem;">
+      <h4 style="margin:0 0 0.5rem;color:#0284c7;font-size:1.05rem;">Recomendación y escalabilidad de adopción</h4>
+      <p style="margin:0;font-size:0.92rem;color:var(--ink);line-height:1.65;text-align:justify;">
+        Gracias a su base modular derivada de la matriz DSM y sus plantillas de documentación adaptables, el proceso permite que cualquier organización que proyecte incorporar capacidades cuánticas adopte gradualmente los elementos pertinentes a su nivel de madurez, sin incurrir en costos prohibitivos ni en burocracia innecesaria.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="referencias">
@@ -685,6 +888,98 @@
 
 <script src="js/thesis-content.js?v=1.0.8"></script>
 <script src="js/app.js?v=2.3.1"></script>
+
+<!-- Guía Rápida del Evaluador (Acceso directo a las 6 secciones del Formulario) -->
+<aside id="evaluatorNav" class="evaluator-nav-widget" aria-label="Guía rápida para evaluadores">
+  <button id="evaluatorToggleBtn" type="button" class="evaluator-toggle-btn" title="Abrir índice para responder el Formulario de Evaluación">
+    <span class="eval-btn-icon">📋</span>
+    <span class="eval-btn-label">Guía para el Evaluador</span>
+  </button>
+  <div id="evaluatorMenu" class="evaluator-menu-panel" hidden>
+    <div class="eval-menu-header">
+      <div>
+        <h4 style="margin:0;font-size:0.95rem;color:var(--navy);font-weight:700;">Índice del Instrumento</h4>
+        <p style="margin:0.2rem 0 0;font-size:0.8rem;color:var(--ink-light);">Correspondencia directa con Google Forms</p>
+      </div>
+      <button id="evaluatorCloseBtn" type="button" class="eval-close-btn" aria-label="Cerrar índice">✕</button>
+    </div>
+    <ul class="eval-links-list">
+      <li>
+        <a href="#proceso">
+          <span class="eval-sec-tag">Sec. III</span>
+          <span class="eval-sec-desc">Proceso a nivel macro (criterios, métricas, OGA)</span>
+        </a>
+      </li>
+      <li>
+        <a href="#fases">
+          <span class="eval-sec-tag">Sec. IV</span>
+          <span class="eval-sec-desc">Fases del proceso y compuertas OGA-1 a 5</span>
+        </a>
+      </li>
+      <li>
+        <a href="#modelo">
+          <span class="eval-sec-tag">Sec. V</span>
+          <span class="eval-sec-desc">Elementos estructurales E1 a E10 y DSM</span>
+        </a>
+      </li>
+      <li>
+        <a href="#roles">
+          <span class="eval-sec-tag">Sec. VI</span>
+          <span class="eval-sec-desc">Roles y segmentación (Startups, PyMEs, Grandes)</span>
+        </a>
+      </li>
+      <li>
+        <a href="#artefactos">
+          <span class="eval-sec-tag">Sec. VII</span>
+          <span class="eval-sec-desc">Plantillas, glosario y gobierno OGA</span>
+        </a>
+      </li>
+      <li>
+        <a href="#evaluacion-global">
+          <span class="eval-sec-tag">Sec. VIII</span>
+          <span class="eval-sec-desc">Aporte global y comparativa vs. TOGAF</span>
+        </a>
+      </li>
+    </ul>
+    <div class="eval-menu-footer">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXia-amNQ_jEGeEQ1BzjTzgt6-cP2Mn_icd1X_1deXeLsX2g/viewform" target="_blank" rel="noopener noreferrer" class="eval-form-direct-btn">
+        <span>Abrir Google Form ↗</span>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var btn = document.getElementById('evaluatorToggleBtn');
+  var menu = document.getElementById('evaluatorMenu');
+  var close = document.getElementById('evaluatorCloseBtn');
+  if(btn && menu && close){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isHidden = menu.hidden;
+      menu.hidden = !isHidden;
+    });
+    close.addEventListener('click', function(e){
+      e.stopPropagation();
+      menu.hidden = true;
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        if(!a.classList.contains('eval-form-direct-btn')){
+          menu.hidden = true;
+        }
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!menu.hidden && !menu.contains(e.target) && e.target !== btn){
+        menu.hidden = true;
+      }
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
 

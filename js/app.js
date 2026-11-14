@@ -123,9 +123,23 @@ function renderResearch(){
       const criteriosList = splitCriterios(criteriosRaw);
       const criterios = criteriosList.length ? `<div style="margin-bottom:0.8rem;"><strong style="color:var(--green);">Criterios de aceptación:</strong><ul class="structured-list">${criteriosList.map(c => `<li>${esc(c)}.</li>`).join("")}</ul></div>` : "";
 
+      let estadoArteBadge = "";
+      if (code === "E7") {
+        estadoArteBadge = `<div style="margin-bottom:1.2rem;background:#fbf8f2;border-left:4px solid #d97706;padding:0.9rem 1.15rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+          <strong style="color:#b45309;display:block;margin-bottom:0.3rem;">Nota sobre el Estado del Arte (Estilos Híbridos):</strong>
+          A diferencia del software clásico donde los estilos arquitectónicos cuentan con décadas de estandarización formal, en el paradigma híbrido clásico-cuántico los estilos arquitectónicos catalogados (desacoplado, acoplado y acelerador cuántico) poseen un <strong>carácter emergente e inferido</strong> a partir de patrones empíricos y prototipos experimentales de la era NISQ. El proceso PDAEH los formaliza para proporcionar una guía de diseño gobernable ante la ausencia de taxonomías consolidadas en la literatura.
+        </div>`;
+      } else if (code === "E8") {
+        estadoArteBadge = `<div style="margin-bottom:1.2rem;background:#fbf8f2;border-left:4px solid #d97706;padding:0.9rem 1.15rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+          <strong style="color:#b45309;display:block;margin-bottom:0.3rem;">Nota sobre el Estado del Arte (Patrones de Diseño Híbrido):</strong>
+          Ante la <strong>ausencia de un catálogo formal y unificado de patrones de diseño híbrido</strong> en la literatura de computación cuántica, el elemento E8 sistematiza soluciones recurrentes para problemas críticos de interacción (orquestación cuántica, variabilidad de algoritmos, compensación de errores, particionamiento clásico-cuántico y emulación previa). Su inclusión como último elemento asegura que las decisiones de bajo nivel se apoyen en los cimientos estructurales definidos previamente.
+        </div>`;
+      }
+
       return `<details>
         <summary><span><b>${code}:</b> ${elementNames[code]}</span></summary>
         <div class="element-summary-body" style="padding-top:1.2rem;">
+          ${estadoArteBadge}
           <div style="margin-bottom:1.2rem;">
             <strong style="color:var(--green);">Propósito:</strong>
             <p style="margin-top:0.3rem;">${proposito}</p>
@@ -150,7 +164,66 @@ function renderMacro(){
   $("#macroGrid").innerHTML=order.map(k=>{
     if(k==="Artefactos y plantillas definidos") return `<div><dt>${artifactSummary.label}</dt><dd>${artifactSummary.value}</dd></div>`;
     if(!data.macro[k]) return "";
-    const value=["Nombre","Identificador","Propósito","Alcance","Autoridad de aprobación"].includes(k)?esc(cleanText(data.macro[k])):k.includes("Indicadores")?list(data.macro[k],"indicators"):list(data.macro[k],"general",k.includes("Salidas"));
+    let value="";
+    if(["Nombre","Identificador","Propósito","Alcance"].includes(k)){
+      value=esc(cleanText(data.macro[k]));
+    } else if(k==="Autoridad de aprobación"){
+      value=`<div style="display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.15rem;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:4px;">
+        <span style="font-size:1.5rem;line-height:1;">🏛️</span>
+        <div>
+          <strong style="color:#166534;font-size:1.02rem;display:block;">${esc(cleanText(data.macro[k]))}</strong>
+          <p style="margin:0.25rem 0 0;font-size:0.88rem;color:#15803d;line-height:1.55;text-align:justify;">
+            Máxima autoridad colegiada de gobernanza técnica encargada de evaluar la conformidad, tramitar excepciones y autorizar formalmente el avance entre fases del proceso PDAEH mediante la aprobación de cada punto de control.
+          </p>
+        </div>
+      </div>`;
+    } else if(k==="Criterios de inicio"){
+      const items = splitCriterios(data.macro[k]);
+      value=`<div class="criterios-checklist-card" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.1rem 1.25rem;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+        <p style="margin:0 0 0.85rem;font-size:0.9rem;color:var(--ink-light);line-height:1.5;text-align:justify;">
+          Condiciones institucionales, técnicas y operativas formalmente verificables requeridas para activar el proceso PDAEH:
+        </p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          ${items.map((it, idx) => `
+            <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.92rem;line-height:1.55;text-align:justify;">
+              <span style="display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:50%;background:#e0f2fe;color:#0369a1;font-weight:700;font-size:0.75rem;flex-shrink:0;margin-top:2px;">${idx+1}</span>
+              <span><strong>Criterio de inicio ${idx+1}:</strong> ${esc(it)}.</span>
+            </li>
+          `).join("")}
+        </ul>
+      </div>`;
+    } else if(k==="Criterios de cierre"){
+      const items = splitCriterios(data.macro[k]);
+      value=`<div class="criterios-checklist-card" style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.1rem 1.25rem;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+        <p style="margin:0 0 0.85rem;font-size:0.9rem;color:var(--ink-light);line-height:1.5;text-align:justify;">
+          Condiciones formales y entregables requeridos para dictaminar la finalización y aprobación del proceso:
+        </p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          ${items.map((it, idx) => `
+            <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.92rem;line-height:1.55;text-align:justify;">
+              <span style="display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:50%;background:#dcfce7;color:#15803d;font-weight:700;font-size:0.8rem;flex-shrink:0;margin-top:2px;">✓</span>
+              <span><strong>Criterio de cierre ${idx+1}:</strong> ${esc(it)}.</span>
+            </li>
+          `).join("")}
+        </ul>
+      </div>`;
+    } else if(k==="Indicadores globales"){
+      const raw = splitItems(data.macro[k], "indicators");
+      value=`<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:0.85rem;margin-top:0.4rem;">
+        ${raw.map((ind, idx) => {
+          const sep = ind.indexOf(":");
+          const name = sep > 0 ? ind.slice(0, sep).trim() : `Indicador ${idx+1}`;
+          const desc = sep > 0 ? ind.slice(sep+1).trim() : ind.trim();
+          return `<div style="background:#f8faf9;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:4px;padding:0.9rem 1.1rem;">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">Métrica macro ${idx+1}</div>
+            <div style="font-weight:700;color:var(--green);font-size:0.95rem;margin:0.25rem 0 0.35rem;">${esc(name)}</div>
+            <p style="margin:0;font-size:0.88rem;color:var(--ink);line-height:1.55;text-align:justify;">${esc(desc)}</p>
+          </div>`;
+        }).join("")}
+      </div>`;
+    } else {
+      value=list(data.macro[k],"general",k.includes("Salidas"));
+    }
     return `<div><dt>${k}</dt><dd>${value}</dd></div>`;
   }).join("");
 }
@@ -223,7 +296,22 @@ function renderRoles(index=0){
     });
   }
   tableNumber = 2; // Mantener la secuencia global: las pestañas de roles actualizan la Tabla 3
-  $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml);
+  const orgNotes = [
+    "",
+    `<div style="margin-top:1rem;background:#f9fafb;border-left:4px solid #0284c7;padding:0.9rem 1.2rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+      <strong style="color:#0369a1;display:block;margin-bottom:0.25rem;">Fundamentación de roles en Microempresas y Startups:</strong>
+      Debido a recursos humanos y presupuestales altamente limitados, mantener una separación estricta de los 9 roles generaría sobrecarga operativa y redundancia. La propuesta concentra las responsabilidades estratégicas, de integración, gestión y gobierno en el <strong>Arquitecto Empresarial del Proceso (AEP)</strong> (quien absorbe temporalmente funciones de ASP, AIP, ASecP, GPA y las tareas básicas de validación del OGA). Las capacidades especializadas de datos (ADP) o cuánticas (ETC) se contemplan como soporte compartido o externo bajo demanda, asegurando la viabilidad económica y la agilidad de entrega.
+    </div>`,
+    `<div style="margin-top:1rem;background:#f9fafb;border-left:4px solid #0284c7;padding:0.9rem 1.2rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+      <strong style="color:#0369a1;display:block;margin-bottom:0.25rem;">Fundamentación de roles en Pequeñas y Medianas Empresas (PyMEs):</strong>
+      Con múltiples proyectos o servicios en curso, se supera la sobrecarga de una sola persona mediante una <strong>diferenciación progresiva</strong>. El AEP lidera la estrategia y puede absorber la arquitectura de datos (ADP); el Arquitecto de Integración (AIP) lidera la interoperabilidad técnico-cuántica y puede coordinar la seguridad (ASecP); el Gestor de Portafolio (GPA) prioriza iniciativas y el <strong>OGA opera de manera simplificada</strong> como un comité técnico periódico, apoyado por consultoría cuántica (ETC) recurrente o a tiempo parcial.
+    </div>`,
+    `<div style="margin-top:1rem;background:#f9fafb;border-left:4px solid #0284c7;padding:0.9rem 1.2rem;border-radius:4px;font-size:0.92rem;line-height:1.65;color:var(--ink);text-align:justify;">
+      <strong style="color:#0369a1;display:block;margin-bottom:0.25rem;">Fundamentación de roles en Grandes Empresas (Corporaciones):</strong>
+      En entornos caracterizados por alta complejidad, líneas de negocio diversificadas y marcos regulatorios estrictos, la organización cuenta con capacidad instalada para soportar una <strong>especialización estructurada</strong>. Los 9 roles operan de manera totalmente independiente y formal: AEP corporativo, arquitectos de solución (ASP), integración (AIP), datos (ADP), seguridad y transición post-cuántica (ASecP), portafolio (GPA), equipo cuántico dedicado (ETC), comités ejecutivos (SE) y un <strong>Órgano de Gobierno Arquitectónico (OGA) colegiado e independiente</strong> con autoridad formal sobre la LBA.
+    </div>`
+  ];
+  $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml) + (orgNotes[index] || "");
   $$("#roleTabs button").forEach(b => b.onclick = () => renderRoles(+b.dataset.i));
 }
 function renderGovernance() {
