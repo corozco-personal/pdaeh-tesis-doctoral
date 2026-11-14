@@ -44,6 +44,7 @@ test("carga la especificación del agente", () => {
   assert.match(prompt, /NO solicites campos adicionales/);
   assert.match(prompt, /DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO/);
   assert.match(prompt, /NO generes análisis E1–E10/);
+  assert.match(prompt, /No hagas preguntas, no ofrezcas opciones de continuación/);
 });
 
 test("acepta únicamente solicitudes del mismo origen", () => {

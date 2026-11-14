@@ -207,7 +207,7 @@
       `CORE_PROBLEM: ${document.querySelector("#coreProblem").value.trim()}`,
       `AS_IS_TECH_STACK: ${document.querySelector("#asIs").value.trim()}`,
       `QUANTUM_MATURITY: ${document.querySelector("#maturity").value}`,
-      "Evalúa si la información es suficiente. Si falta contexto material, formula preguntas antes del diagnóstico definitivo.",
+      "Emite el diagnóstico definitivo con estas cuatro variables. No solicites campos ni información adicionales; declara como supuestos los vacíos que condicionen el dictamen.",
     ].join("\n\n");
     askAdvisor(profile);
   });
