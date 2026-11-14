@@ -480,8 +480,9 @@
 
   <!-- Ecuación / Diagrama visual formal con underbraces -->
   <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.6rem 2rem;margin:1.4rem 0 1.6rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
-    <div style="font-family:'Courier New',Courier,monospace;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:0.12em;margin-bottom:0.8rem;">
-      <span style="display:inline-block;padding:2px 8px;background:#eef5f3;border-radius:4px;border:1px solid #c2dbd4;">Fx</span>.<span style="display:inline-block;padding:2px 8px;background:#f3f0fa;border-radius:4px;border:1px solid #d4c7ed;">EY</span>.<span style="display:inline-block;padding:2px 8px;background:#fbf3e6;border-radius:4px;border:1px solid #edd7b4;">AZ</span> <span style="font-size:1.15rem;color:var(--muted);font-weight:400;margin-left:0.5rem;">[ {Ej, Ek} ]</span>
+    <div style="font-family:'Courier New',Courier,monospace;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:0.12em;margin-bottom:0.8rem;display:flex;align-items:center;justify-content:center;gap:0.35rem;flex-wrap:wrap;">
+      <span style="display:inline-block;padding:3px 9px;background:#eef5f3;border-radius:5px;border:1.5px solid #a8cfc4;color:var(--green);" title="Fase del proceso">Fx</span><span style="color:var(--muted);font-weight:700;">.</span><span style="display:inline-block;padding:3px 9px;background:#f3f0fa;border-radius:5px;border:1.5px solid #c4b5fd;color:#6d28d9;" title="Elemento arquitectónico">EY</span><span style="color:var(--muted);font-weight:700;">.</span><span style="display:inline-block;padding:3px 9px;background:#fbf3e6;border-radius:5px;border:1.5px solid #fcd34d;color:#b45309;" title="Secuencia de actividad">AZ</span>
+      <span style="color:var(--muted);font-weight:400;margin:0 0.2rem;">[</span><span style="display:inline-block;padding:3px 9px;background:#eff6ff;border-radius:5px;border:1.5px solid #bfdbfe;color:#1d4ed8;font-size:1.35rem;" title="Notación de elementos copartícipes">{Ej, Ek}</span><span style="color:var(--muted);font-weight:400;margin:0 0.2rem;">]</span>
     </div>
 
     <!-- Estructura visual de llaves inferiores (underbraces) -->
@@ -508,6 +509,11 @@
         <code style="font-weight:700;color:#475569;font-size:1.05rem;">{Ej, Ek}</code>
         <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Articulación conjunta</div>
         <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Especifica actividades compuestas que integran o consolidan artefactos de múltiples elementos simultáneamente.</p>
+      </div>
+      <div style="background:#f0f7ff;border:1px solid #bfdbfe;border-top:3px solid #2563eb;padding:0.9rem 1.1rem;border-radius:4px;">
+        <code style="font-weight:700;color:#1d4ed8;font-size:1.05rem;">{Ej, Ek}</code>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Coparticipación / Cierre</div>
+        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Especificación opcional de elementos copartícipes en actividades de consolidación mancomunada y entrega al OGA.</p>
       </div>
     </div>
   </div>
