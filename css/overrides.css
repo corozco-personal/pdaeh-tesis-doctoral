@@ -884,3 +884,21 @@ details.activity .activity-content {
   font-weight: 700 !important;
   width: 180px !important;
 }
+
+
+/* Centrado estricto e invariable para columnas de términos en ambas tablas del glosario (Tabla 6 y Tabla 7) */
+#glossaryTables table tr td:first-child,
+#glossaryTables table tr th:first-child,
+#glossaryTables .table-shell table td:first-child,
+#glossaryTables .table-shell table th:first-child {
+  text-align: center !important;
+  text-align: -webkit-center !important;
+  vertical-align: middle !important;
+  font-weight: 700 !important;
+  width: 220px !important;
+  white-space: normal !important;
+}
+
+#glossaryTables table tr td:first-child * {
+  text-align: center !important;
+}
