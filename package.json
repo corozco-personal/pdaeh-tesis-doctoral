@@ -2,17 +2,14 @@
   "name": "pdaeh-advisor-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Aplicación web independiente del agente metodológico PDAEH Advisor",
+  "description": "Aplicaci\u00f3n web independiente del agente metodol\u00f3gico PDAEH Advisor",
   "scripts": {
-    "build": "node scripts/build-advisor.mjs",
-    "test": "cd server-rust && cargo test"
+    "build": "npm run build:advisor",
+    "test": "cd server-rust && cargo test",
+    "build:advisor": "npm --prefix advisor-svelte run build"
   },
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {
-    "dompurify": "^3.2.7",
-    "marked": "^16.4.1",
-    "mermaid": "^12.3.0"
-  }
+  "dependencies": {}
 }

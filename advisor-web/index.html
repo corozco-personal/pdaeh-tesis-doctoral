@@ -4,110 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="PDAEH Advisor, agente metodológico para arquitecturas empresariales híbridas clásico-cuánticas">
-  <title>PDAEH Advisor</title>
+  <title>PDAEH Advisor — Svelte Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=1794698560">
-  <link rel="stylesheet" href="./security.css?v=1794698560">
+  <link rel="stylesheet" href="./security.css">
+  <script type="module" crossorigin src="./assets/index-DWrknqaM.js"></script>
 </head>
 <body>
-  <a class="skip" href="#conversation">Saltar a la conversación</a>
-  <header class="topbar">
-    <a class="brand" href="/" aria-label="Inicio del PDAEH Advisor"><span>P</span><strong>PDAEH Advisor</strong></a>
-    <a class="portal-link action-with-icon" href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank" rel="noopener noreferrer" aria-label="Ver el detalle del proceso PDAEH en el portal documental"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Ver detalle del proceso PDAEH</span></a>
-  </header>
-
-  <main>
-    <aside class="context-panel" aria-labelledby="contextTitle">
-      <p class="eyebrow">Agente metodológico</p>
-      <h1 id="contextTitle">Diagnóstico PDAEH basado en el contexto real de su organización</h1>
-      <p class="lead">El agente evalúa la viabilidad cuántica, contrasta casos empresariales mediante consulta web controlada y construye una hoja de ruta gobernada por las fases, artefactos y puntos OGA del proceso.</p>
-
-            <div class="preset-selector-box">
-        <label for="scenarioPreset"><strong>Escenarios de referencia (1-Clic):</strong></label>
-        <div class="preset-chips" role="group" aria-label="Escenarios rápidos">
-          <button type="button" class="preset-chip active" data-preset="finnova">
-            <strong>FinNova (PYME)</strong>
-            <span>Portafolios & QAOA (Viable)</span>
-          </button>
-          <button type="button" class="preset-chip" data-preset="logistech">
-            <strong>LogisTech (Grande)</strong>
-            <span>Ruteo CVRP & Recocido (Viable)</span>
-          </button>
-          <button type="button" class="preset-chip" data-preset="crud">
-            <strong>Tienda CRUD (PYME)</strong>
-            <span>Transaccional (Rechazo OGA-1)</span>
-          </button>
-          <button type="button" class="preset-chip" data-preset="pqc">
-            <strong>SecurNet (Ciberseguridad)</strong>
-            <span>Migración PQC NIST (Viable)</span>
-          </button>
-        </div>
-      </div>
-
-      <form id="profileForm">
-        <label for="orgSize">Tamaño de la organización <span class="req" title="Obligatorio">*</span></label>
-        <select id="orgSize" required>
-          <option value="">Seleccione…</option>
-          <option>Startup</option>
-          <option>PYME</option>
-          <option>Gran Empresa</option>
-        </select>
-
-        <label for="coreProblem">Problema o caso de uso <span class="req" title="Obligatorio">*</span></label>
-        <textarea id="coreProblem" rows="5" required placeholder="Objetivo de negocio, restricciones y complejidad del problema."></textarea>
-
-        <label for="asIs">Arquitectura actual (As-Is) <span class="req" title="Obligatorio">*</span></label>
-        <textarea id="asIs" rows="5" required placeholder="Servicios, datos, infraestructura, integraciones, seguridad y cumplimiento."></textarea>
-
-        <label for="maturity">Madurez cuántica <span class="req" title="Obligatorio">*</span></label>
-        <select id="maturity" required>
-          <option value="">Seleccione…</option>
-          <option value="Nivel 0 — Nulo">Nivel 0 — Nulo</option>
-          <option value="Nivel 1 — Exploratorio">Nivel 1 — Exploratorio</option>
-          <option value="Nivel 2 — Pilotos NISQ">Nivel 2 — Pilotos NISQ</option>
-          <option value="Nivel 3 — Producción híbrida">Nivel 3 — Producción híbrida</option>
-        </select>
-        <p id="securityStatus" class="security-status" role="status" style="display:none"></p>
-        <button id="startDiagnosisBtn" class="primary action-with-icon" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4M21 3l-5 5"/></svg><span>Iniciar diagnóstico</span></button>
-      </form>
-
-      <div class="method-note"><strong>Contrato metodológico:</strong> 5 fases, 10 elementos, 15 artefactos y 5 compuertas OGA. La evidencia web se presenta con fuentes verificables y el agente no promete ventaja cuántica sin benchmarking clásico.</div>
-    </aside>
-
-    <section class="chat-panel" id="conversation" aria-labelledby="chatTitle">
-      <header class="chat-header">
-        <div><span class="status-dot" aria-hidden="true"></span><div><h2 id="chatTitle">Conversación con PDAEH Advisor</h2><p>Respuesta generada dinámicamente por el agente</p></div></div>
-        <div class="chat-actions-group">
-          <button id="exportArtifactBtn" class="text-button action-with-icon" type="button" title="Descargar dictamen formal y artefacto F1 en Markdown">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span>Descargar Dictamen (.MD)</span>
-          </button>
-          <button id="newConversation" class="text-button action-with-icon" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 8M20 3v5h-5"/></svg><span>Nueva conversación</span></button>
-        </div>
-      </header>
-
-      <div id="messages" class="messages" aria-live="polite" aria-busy="false">
-        <article class="message assistant">
-          <div class="avatar" aria-hidden="true">P</div>
-          <div class="bubble"><p>Complete el perfil organizacional. Emitiré el diagnóstico con estas cuatro variables y declararé como supuestos los vacíos que condicionen el dictamen.</p></div>
-        </article>
-      </div>
-
-      <form id="chatForm" class="composer">
-        <label class="sr-only" for="chatInput">Mensaje para el Advisor</label>
-        <textarea id="chatInput" rows="2" maxlength="12000" placeholder="Solicite profundizar en el diagnóstico o en una recomendación…" disabled></textarea>
-        <button id="sendMessage" class="action-with-icon" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-8-8 18-2-8-8-2Z M11 13l4-4"/></svg><span>Enviar</span></button>
-      </form>
-      <p id="errorMessage" class="error" role="alert"></p>
-      <p class="privacy">No incluya contraseñas, claves de API ni secretos de infraestructura. Las respuestas son orientación metodológica y deben validarse mediante los puntos OGA.</p>
-    </section>
-  </main>
-
-  <script src="./vendor/marked.umd.js"></script>
-  <script src="./vendor/purify.min.js"></script>
-  <script src="./vendor/mermaid.min.js"></script>
-  <script src="./app.js?v=1794699605"></script>
+  <div id="app"></div>
 </body>
 </html>
