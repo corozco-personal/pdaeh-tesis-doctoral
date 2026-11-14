@@ -1,3 +1,21 @@
+const artifactIcons = {
+  LBA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+  DOE: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>`,
+  MTA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+  DCA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
+  MSP: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+  DPV: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+  DNA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+  ITA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
+  DVA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+  MAC: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`,
+  DEA: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`,
+  DCO: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+  BER: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>`,
+  CEP: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+  CPD: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);flex-shrink:0;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>`
+};
+
 const data=window.THESIS_DATA,$=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=(v="")=>String(v).replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const field=(o,names)=>names.map(n=>o[n]).find(Boolean)||"";
@@ -463,13 +481,19 @@ function renderArtifacts() {
   const rows = artifactCodes.map(code => {
     const info = artifactInfo[code] || { queEs: artifactNames[code], paraQueSirve: "Plantilla estandarizada del proceso." };
     const desc = `${info.queEs} ${info.paraQueSirve}`;
+    const icon = artifactIcons[code] || "";
     return `<tr>
       <td style="text-align:center;vertical-align:middle;font-weight:700;"><a href="plantilla.html?id=${code}" style="color:var(--green);text-decoration:none;">${code}</a></td>
-      <td style="vertical-align:middle;font-weight:600;"><a href="plantilla.html?id=${code}" class="artifact-link">${artifactNames[code]}</a></td>
+      <td style="vertical-align:middle;font-weight:600;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          ${icon}
+          <a href="plantilla.html?id=${code}" class="artifact-link" style="color:var(--navy);">${artifactNames[code]}</a>
+        </div>
+      </td>
       <td style="vertical-align:middle;text-align:justify;">${desc}</td>
       <td style="vertical-align:middle;text-align:center;white-space:nowrap;">
-        <div style="display:inline-flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;">
-          <a href="plantilla.html?id=${code}" class="artifact-link" style="font-weight:700;font-size:0.85rem;margin-right:4px;">Ver</a>
+        <div style="display:inline-flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;">
+          <a href="plantilla.html?id=${code}" class="artifact-link" style="padding:4px 10px;border:1px solid var(--green);border-radius:4px;background:#eef5f3;color:var(--green);text-decoration:none;font-size:0.82rem;font-weight:700;">Ver</a>
           <a href="assets/descargas/markdown/Plantilla_${code}.md" download title="Descargar plantilla Markdown (.MD)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.MD</a>
           <a href="assets/descargas/docx/Plantilla_${code}.docx" download title="Descargar plantilla Word (.DOCX)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.DOCX</a>
           <a href="assets/descargas/latex/Plantilla_${code}.tex" download title="Descargar plantilla LaTeX (.TEX)" style="padding:4px 8px;border:1px solid var(--line);border-radius:4px;background:#f8faf9;color:var(--ink);text-decoration:none;font-size:0.8rem;font-weight:600;">.TEX</a>
@@ -515,61 +539,73 @@ function renderTraceabilityMatrix() {
   const matrixData = [
     {
       fase: "F1: Definición estratégica",
-      elementos: "E1 (Objetivo de la arquitectura), E2 (Contexto de la arquitectura)",
+      elementos: [
+        "E1: Objetivo de la arquitectura",
+        "E2: Contexto de la arquitectura"
+      ],
       artefactos: ["DOE", "MTA", "DCA"],
-      rolesResp: "AEP (Principal), LNP (Negocio)",
-      rolesConsult: "ASP, OGA, GPA",
-      puntoOGA: "OGA-1",
-      criterioOGA: "Aprobación formal del caso de uso cuántico, objetivos de negocio (DOE) y restricciones de contexto (DCA)."
+      responsable: "Arquitecto(a) empresarial del proceso (AEP)",
+      criterioOGA: "Aprobación formal del caso de negocio híbrido, objetivos de la arquitectura (DOE) y delimitación de restricciones y stakeholders (DCA, MSP)."
     },
     {
       fase: "F2: Formalización conceptual",
-      elementos: "E3 (Grado de abstracción), E4 (Glosario de términos y definiciones)",
+      elementos: [
+        "E3: Grado de abstracción",
+        "E4: Glosario de términos y definiciones"
+      ],
       artefactos: ["MSP", "DPV", "DNA"],
-      rolesResp: "AEP (Principal), ASP (Solución)",
-      rolesConsult: "LNP, EQP, GEP",
-      puntoOGA: "OGA-2",
-      criterioOGA: "Validación de expectativas de stakeholders (MSP), vistas conceptuales (DPV) y niveles de abstracción (DNA)."
+      responsable: "Arquitecto(a) empresarial del proceso (AEP)",
+      criterioOGA: "Validación del modelo de perspectivas y vistas (DPV), niveles de abstracción (DNA) y vocabulario unificado (DVA)."
     },
     {
       fase: "F3: Configuración estructural",
-      elementos: "E5 (Estructuras arquitectónicas), E6 (Atributos de calidad)",
+      elementos: [
+        "E5: Estructuras arquitectónicas",
+        "E6: Atributos de calidad"
+      ],
       artefactos: ["ITA", "DVA", "MAC"],
-      rolesResp: "ASP (Solución), AIP (Infraestructura)",
-      rolesConsult: "AEP, ASecP, EQP",
-      puntoOGA: "OGA-3",
-      criterioOGA: "Certificación de escenarios de atributos de calidad (MAC), estructuras arquitectónicas (ITA/DVA) y esquema de gobierno."
+      responsable: "Arquitecto(a) de solución del proceso (ASP)",
+      criterioOGA: "Certificación de escenarios y métricas de calidad (MAC), flujos híbridos y estructuras arquitectónicas (DEA)."
     },
     {
       fase: "F4: Materialización arquitectónica",
-      elementos: "E9 (Componentes estructurales), E10 (Elementos reutilizables)",
+      elementos: [
+        "E9: Componentes estructurales",
+        "E10: Elementos reutilizables"
+      ],
       artefactos: ["DEA", "DCO", "BER"],
-      rolesResp: "ASP (Solución), EQP (Especialista cuántico)",
-      rolesConsult: "AIP, ASecP, GPA",
-      puntoOGA: "OGA-4",
-      criterioOGA: "Aprobación de estructuras de descomposición (DEA), contratos de componentes (DCO) y módulos reusables (BER)."
+      responsable: "Arquitecto(a) de solución del proceso (ASP)",
+      criterioOGA: "Aprobación de la especificación técnica de componentes (DCO), benchmarking y catálogo de activos reutilizables (BER)."
     },
     {
       fase: "F5: Sistematización del diseño",
-      elementos: "E7 (Estilos y patrones arquitectónicos), E8 (Patrones de diseño)",
+      elementos: [
+        "E7: Estilos y patrones arquitectónicos",
+        "E8: Patrones de diseño"
+      ],
       artefactos: ["CEP", "CPD", "LBA"],
-      rolesResp: "AEP (Principal), ASP (Solución)",
-      rolesConsult: "Todos los roles involucrados",
-      puntoOGA: "OGA-5",
+      responsable: "Arquitecto(a) empresarial del proceso (AEP)",
       criterioOGA: "Aprobación definitiva de catálogos CEP/CPD y formalización de la Línea Base Arquitectónica integral (LBA)."
     }
   ];
 
   const rows = matrixData.map(item => `
     <tr>
-      <td style="vertical-align:middle;font-weight:700;color:var(--green);">${item.fase}</td>
-      <td style="vertical-align:middle;">${item.elementos}</td>
-      <td style="vertical-align:middle;text-align:center;text-align:-webkit-center;">
-        ${item.artefactos.map(code => `<a href="plantilla.html?id=${code}" class="artifact-link" style="font-weight:700;margin:0 3px;">${code}</a>`).join(" · ")}
+      <td style="vertical-align:middle;text-align:center !important;font-weight:700;color:var(--green);">${item.fase}</td>
+      <td style="vertical-align:middle;padding:12px 14px;">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          ${item.elementos.map(el => `<div style="padding:4px 8px;background:#f8faf9;border-left:3px solid var(--green);border-radius:2px;font-size:0.88rem;white-space:nowrap;"><strong>${esc(el.split(':')[0])}:</strong> ${esc(el.split(':')[1]?.trim() || '')}</div>`).join("")}
+        </div>
       </td>
-      <td style="vertical-align:middle;"><small><b>Resp:</b> ${item.rolesResp}<br><b>Cons:</b> ${item.rolesConsult}</small></td>
-      <td style="vertical-align:middle;text-align:center;text-align:-webkit-center;font-weight:700;background:#f9fbfa;"><span style="color:var(--navy);">${item.puntoOGA}</span></td>
-      <td style="vertical-align:middle;font-size:0.88rem;line-height:1.5;">${item.criterioOGA}</td>
+      <td style="vertical-align:middle;text-align:center;">
+        <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+          ${item.artefactos.map(code => `<a href="plantilla.html?id=${code}" class="artifact-link" style="padding:3px 8px;background:#eef5f3;border:1px solid #c2dbd4;border-radius:4px;font-weight:700;font-size:0.85rem;text-decoration:none;">${code}</a>`).join("")}
+        </div>
+      </td>
+      <td style="vertical-align:middle;font-size:0.88rem;line-height:1.55;">
+        ${item.responsable}
+      </td>
+      <td style="vertical-align:middle;font-size:0.88rem;line-height:1.5;text-align:justify;">${item.criterioOGA}</td>
     </tr>
   `).join("");
 
@@ -580,12 +616,11 @@ function renderTraceabilityMatrix() {
         <table style="width:100%;border-collapse:collapse;background:#fff;font-size:0.92rem;">
           <thead>
             <tr style="background:#eaf1fb;color:#1f2a44;">
-              <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Fase del proceso</th>
-              <th style="padding:10px;border:1px solid var(--line);width:22%;text-align:left;">Elementos cubiertos</th>
-              <th style="padding:10px;border:1px solid var(--line);width:15%;text-align:center;">Artefactos vinculados</th>
-              <th style="padding:10px;border:1px solid var(--line);width:20%;text-align:left;">Asignación de roles</th>
-              <th style="padding:10px;border:1px solid var(--line);width:90px;text-align:center;">Compuerta OGA</th>
-              <th style="padding:10px;border:1px solid var(--line);text-align:left;">Criterio de aprobación</th>
+              <th style="padding:10px;border:1px solid var(--line);width:22%;text-align:center !important;vertical-align:middle;">Fase del proceso</th>
+              <th style="padding:10px;border:1px solid var(--line);width:28%;text-align:center !important;vertical-align:middle;">Elementos cubiertos</th>
+              <th style="padding:10px;border:1px solid var(--line);width:15%;text-align:center !important;vertical-align:middle;">Artefactos vinculados</th>
+              <th style="padding:10px;border:1px solid var(--line);width:17%;text-align:center !important;vertical-align:middle;">Rol responsable</th>
+              <th style="padding:10px;border:1px solid var(--line);text-align:center !important;vertical-align:middle;">Criterio de aprobación OGA</th>
             </tr>
           </thead>
           <tbody>
