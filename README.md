@@ -73,6 +73,14 @@ sequenceDiagram
 
 ---
 
+## Uso vía web
+
+El agente puede utilizarse directamente desde el navegador, sin instalar dependencias ni configurar un entorno local, accediendo a **[PDAEH Advisor](https://pdaeh-advisor.vercel.app/)**. El portal web solicita el perfil de la organización, el problema o caso de uso, la arquitectura actual (*As-Is*) y el nivel de madurez cuántica; a partir de esta información, el agente genera progresivamente un diagnóstico metodológico, recomendaciones y una hoja de ruta PDAEH con contenido estructurado y diagramas interactivos. El acceso está protegido mediante Cloudflare Turnstile, límites de solicitudes y controles de seguridad en el servidor.
+
+La versión web del agente es independiente del **[portal documental del proceso PDAEH](https://corozco-personal.github.io/pdaeh-tesis-doctoral/)**: el Advisor permite realizar el diagnóstico conversacional, mientras que el portal documental presenta las fases, elementos, roles, artefactos, plantillas y fundamentos metodológicos de la propuesta.
+
+---
+
 ## Guía de instalación del agente y skill
 
 Para instalar y activar el **Skill PDAEH** sin copiar archivos a mano, basta con ejecutar un único comando. El instalador global detecta los agentes disponibles y usa sus rutas estándar; actualmente admite **Codex, Claude Code, Gemini CLI, Antigravity, Cursor y OpenCode**, además de la ubicación portátil del estándar Agent Skills.
