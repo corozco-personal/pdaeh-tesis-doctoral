@@ -37,12 +37,28 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
 .privacy { margin: .2rem clamp(1rem, 3vw, 2rem) .6rem !important; }
 .error { margin: .2rem clamp(1rem, 3vw, 2rem) .4rem !important; }
 
-/* Reducir espacios verticales excesivos en las respuestas */
-.bubble h1 { font-size: 1.35rem; margin: .4rem 0 .6rem; }
-.bubble h2 { font-size: 1.15rem; margin: .8rem 0 .4rem; }
-.bubble h3 { font-size: 1.02rem; margin: .6rem 0 .3rem; }
-.bubble p { margin-bottom: .6rem; }
-.bubble ul, .bubble ol { margin: .4rem 0 .7rem; padding-left: 1.3rem; }
-.bubble li { margin-bottom: .3rem; }
-.bubble blockquote { margin: .6rem 0; padding: .6rem .9rem; }
-.diagram-shell { margin: .8rem 0; padding: .9rem; }
+/* Tipografía y espaciado compacto para el chat del agente PDAEH */
+.bubble h1 { font-size: 1.28rem !important; margin: 0.6rem 0 0.35rem !important; line-height: 1.25 !important; }
+.bubble h2 { font-size: 1.12rem !important; margin: 0.6rem 0 0.3rem !important; line-height: 1.25 !important; }
+.bubble h3 { font-size: 1.0rem !important; margin: 0.5rem 0 0.25rem !important; line-height: 1.25 !important; }
+.bubble h1:first-child, .bubble h2:first-child, .bubble h3:first-child { margin-top: 0 !important; }
+
+.bubble p { margin: 0 0 0.4rem !important; line-height: 1.5 !important; }
+.bubble p:last-child { margin-bottom: 0 !important; }
+
+.bubble ul, .bubble ol { margin: 0.25rem 0 0.45rem !important; padding-left: 1.2rem !important; }
+.bubble li { margin-bottom: 0.18rem !important; line-height: 1.45 !important; }
+.bubble li:last-child { margin-bottom: 0 !important; }
+.bubble li > p, .bubble li p { margin: 0 !important; display: inline !important; }
+
+.bubble hr {
+  margin: 0.8rem 0 !important;
+  border: none !important;
+  border-top: 1px solid var(--line) !important;
+  height: 0 !important;
+}
+
+.bubble blockquote { margin: 0.5rem 0 !important; padding: 0.5rem 0.8rem !important; }
+.diagram-shell { margin: 0.6rem 0 !important; padding: 0.8rem !important; }
+.bubble table { margin: 0.6rem 0 !important; }
+.bubble br + br { display: none !important; }

@@ -122,12 +122,13 @@
     container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
     const parseMarkdown = typeof window.marked === 'function' ? window.marked : (window.marked?.parse || window.marked);
-    // Eliminar cualquier fuga accidental de identificadores internos
+    // Eliminar cualquier fuga accidental de identificadores internos y normalizar saltos de línea repetitivos
     let sanitizedText = text
       .replace(/\s*\((?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY)\)/gi, "")
-      .replace(/\b(?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY):\s*/gi, "");
+      .replace(/\b(?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY):\s*/gi, "")
+      .replace(/\n{3,}/g, "\n\n");
 
-    let html = parseMarkdown(sanitizedText, { gfm: true, breaks: true });
+    let html = parseMarkdown(sanitizedText, { gfm: true, breaks: false });
 
     // Transformar callouts de GitHub (> [!NOTE], > [!WARNING], etc.)
     html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
