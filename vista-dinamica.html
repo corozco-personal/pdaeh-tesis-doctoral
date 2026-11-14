@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vista Dinámica del Proceso PDAEH — Meta-Arquitectura Interactiva Archify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1794698800">
+  <link rel="stylesheet" href="css/overrides.css?v=1794698800">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --navy: #152b43;
+      --green: #18796e;
+      --green-light: #eef5f3;
+      --line: #d8e1dd;
+      --ink: #1d2b39;
+      --muted: #66756f;
+      --card-bg: #ffffff;
+      --purple: #6d28d9;
+      --amber: #b45309;
+      --blue: #1d4ed8;
+    }
+    body {
+      background: #edf2ef;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .archify-hero {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 3.5rem 2rem 2.8rem;
+      border-bottom: 3px solid var(--green);
+    }
+    .archify-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .archify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(24, 121, 110, 0.25);
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #72e0d3;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .archify-hero h1 {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      margin: 0 0 0.8rem;
+      line-height: 1.15;
+    }
+    .archify-hero p {
+      font-size: 1.05rem;
+      color: #cad8d3;
+      max-width: 860px;
+      margin: 0;
+      line-height: 1.65;
+    }
+    .archify-container {
+      max-width: 1240px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .archify-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .archify-card h2 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.65rem;
+      color: var(--navy);
+      margin: 0 0 0.6rem;
+    }
+    .archify-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.8rem;
+    }
+    .archify-tab {
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f7faf9;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .archify-tab:hover {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+    .archify-tab.active {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .archify-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .meta-box {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1.1rem 1.3rem;
+      background: #fafcfb;
+    }
+    .meta-box.conceptual { border-top: 3px solid var(--green); }
+    .meta-box.organizacional { border-top: 3px solid var(--purple); }
+    .meta-box.diseno { border-top: 3px solid var(--amber); }
+    .meta-box.gobernanza { border-top: 3px solid var(--blue); }
+    .meta-box h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+      color: var(--navy);
+    }
+    .meta-box ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .meta-box li {
+      margin-bottom: 0.35rem;
+    }
+    .mermaid-shell {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1.2rem;
+      overflow-x: auto;
+      margin: 1.2rem 0;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--navy);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.15s ease;
+    }
+    .back-btn:hover {
+      background: var(--green);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">P</span>
+      <span><strong>PDAEH</strong><small>Meta-Arquitectura Interactiva Archify</small></span>
+    </a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a class="portal-link" href="index.html#matriz-trazabilidad">← Volver a la Matriz de Trazabilidad</a>
+      <a class="portal-link" href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank" rel="noopener noreferrer" style="color:#72e0d3;font-weight:700;">PDAEH Advisor ↗</a>
+    </div>
+  </header>
+
+  <div class="archify-hero">
+    <div class="archify-hero-inner">
+      <div class="archify-badge">Especificación Formal Archify • Tesis Doctoral</div>
+      <h1>Vista Dinámica e Interactiva de la Meta-Arquitectura PDAEH</h1>
+      <p>
+        Esta especificación formal modela el proceso en su totalidad como un <strong>Meta-Modelo de Proceso y Arquitectura Empresarial Híbrida</strong>. Articula de forma ejecutable e interactiva el flujo de control, las compuertas de gobernanza OGA, los contratos de información de los 15 artefactos y las transiciones metodológicas entre las 5 fases del PDAEH.
+      </p>
+    </div>
+  </div>
+
+  <main class="archify-container">
+    <div class="archify-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <h2>Meta-Modelo de Ejecución del Proceso (Archify Architecture View)</h2>
+          <p style="margin:0;color:var(--muted);font-size:0.95rem;">Seleccione una vista arquitectónica para explorar la dinámica estructural y operativa:</p>
+        </div>
+        <a href="index.html" class="back-btn">← Regresar al Portal Principal</a>
+      </div>
+
+      <div class="archify-tabs">
+        <button class="archify-tab active" onclick="switchTab('tab-macro')">1. Flujo Dinámico End-to-End (Fases & OGA)</button>
+        <button class="archify-tab" onclick="switchTab('tab-meta')">2. Meta-Modelo Estructural (4 Dimensiones)</button>
+        <button class="archify-tab" onclick="switchTab('tab-artifacts')">3. Red de Trazabilidad de Artefactos (15 Docs)</button>
+        <button class="archify-tab" onclick="switchTab('tab-roles')">4. Coreografía de Roles RACI (E6)</button>
+      </div>
+
+      <!-- TAB 1: FLUJO MACRO -->
+      <div id="tab-macro" class="tab-content active">
+        <h3 style="color:var(--navy);margin-top:0;">1. Ciclo Dinámico de Ejecución y Compuertas de Gobierno (OGA-1 a OGA-5)</h3>
+        <p style="font-size:0.92rem;color:var(--muted);">
+          Representación del flujo completo de retroalimentación, avance condicionado y compuertas de control del Órgano de Gobierno Arquitectónico:
+        </p>
+        <div class="mermaid-shell">
+          <pre class="mermaid">
+flowchart LR
+  Start(["Iniciación de Evaluación"]) --> F1["Fase 1: Definición Estratégica
+(E1 + E2)"]
+  F1 --> Art1["Artefactos: DOE, MTA, DCA"]
+  Art1 --> OGA1{"Compuerta OGA-1
+(Viabilidad Clásica/NISQ)"}
+
+  OGA1 -- "Rechazado" --> Exit1["Dictamen: No Viable
+(Arquitectura Clásica Optimizada)"]
+  OGA1 -- "Aprobado (LBA-F1)" --> F2["Fase 2: Modelado y Requisitos
+(E3 + E4)"]
+
+  F2 --> Art2["Artefactos: MSP, DPV, DNA"]
+  Art2 --> OGA2{"Compuerta OGA-2
+(Alineación Estratégica)"}
+
+  OGA2 -- "Aprobado (LBA-F2)" --> F3["Fase 3: Integración Tecnológica
+(E5 + E6)"]
+  F3 --> Art3["Artefactos: ITA, DVA, MAC"]
+  Art3 --> OGA3{"Compuerta OGA-3
+(Contratos QIL y Seguridad PQC)"}
+
+  OGA3 -- "Aprobado (LBA-F3)" --> F4["Fase 4: Materialización
+(E9 + E10)"]
+  F4 --> Art4["Artefactos: DEA, DCO, BER"]
+  Art4 --> OGA4{"Compuerta OGA-4
+(Benchmark BER y Mitigación Ruido)"}
+
+  OGA4 -- "Aprobado (LBA-F4)" --> F5["Fase 5: Sistematización
+(E7 + E8)"]
+  F5 --> Art5["Artefactos: CEP, CPD, LBA"]
+  Art5 --> OGA5{"Compuerta OGA-5
+(Aprobación Final LBA Consolidada)"}
+
+  OGA5 --> EndNode(["Línea Base Híbrida en Operación
+Catálogo Institucional CPD"])
+
+  style OGA1 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  style OGA2 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  style OGA3 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  style OGA4 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  style OGA5 fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  style F1 fill:#eef5f3,stroke:#18796e,stroke-width:2px
+  style F2 fill:#f3f0fa,stroke:#6d28d9,stroke-width:2px
+  style F3 fill:#fbf3e6,stroke:#b45309,stroke-width:2px
+  style F4 fill:#eff6ff,stroke:#1d4ed8,stroke-width:2px
+  style F5 fill:#eef5f3,stroke:#18796e,stroke-width:2px
+  style Exit1 fill:#fdf0ed,stroke:#a53131,stroke-width:2px
+          </pre>
+        </div>
+      </div>
+
+      <!-- TAB 2: META-MODELO ESTRUCTURAL -->
+      <div id="tab-meta" class="tab-content">
+        <h3 style="color:var(--navy);margin-top:0;">2. Meta-Modelo de 4 Dimensiones y 10 Elementos Estructurales</h3>
+        <p style="font-size:0.92rem;color:var(--muted);">
+          Desglose taxonómico de las dimensiones metodológicas derivadas de la matriz de estructura de diseño (DSM) del PDAEH:
+        </p>
+        <div class="archify-meta-grid">
+          <div class="meta-box conceptual">
+            <h3>Dimensión Conceptual</h3>
+            <ul>
+              <li><strong>E1:</strong> Integración Cuántica-Clásica (QIL).</li>
+              <li><strong>E2:</strong> Patrones de Diseño Híbrido.</li>
+              <li><strong>E3:</strong> Lenguajes y Marcos de Modelado.</li>
+            </ul>
+          </div>
+          <div class="meta-box organizacional">
+            <h3>Dimensión Organizacional</h3>
+            <ul>
+              <li><strong>E4:</strong> Alineación Estratégica con Negocio.</li>
+              <li><strong>E5:</strong> Gobernanza y Gestión del Cambio.</li>
+              <li><strong>E6:</strong> Roles y Responsabilidades (RACI).</li>
+            </ul>
+          </div>
+          <div class="meta-box diseno">
+            <h3>Dimensión Calidad y Diseño</h3>
+            <ul>
+              <li><strong>E7:</strong> Atributos de Calidad Cuántica (QAA).</li>
+              <li><strong>E8:</strong> Ciclo de Vida y Proceso de Software.</li>
+              <li><strong>E9:</strong> Métricas de Diseño y Evaluación.</li>
+            </ul>
+          </div>
+          <div class="meta-box gobernanza">
+            <h3>Soporte y Gobernanza</h3>
+            <ul>
+              <li><strong>E10:</strong> Herramientas de Simulación y QPUs.</li>
+              <li><strong>OGA:</strong> Compuertas OGA-1 a OGA-5.</li>
+              <li><strong>LBA:</strong> Líneas Base Arquitectónicas F1-F5.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: RED DE ARTEFACTOS -->
+      <div id="tab-artifacts" class="tab-content">
+        <h3 style="color:var(--navy);margin-top:0;">3. Red de Dependencia y Trazabilidad de los 15 Artefactos</h3>
+        <p style="font-size:0.92rem;color:var(--muted);">
+          Topología de flujo de información entre los artefactos normativos del proceso:
+        </p>
+        <div class="mermaid-shell">
+          <pre class="mermaid">
+flowchart TD
+  DOE["DOE: Documento de Oportunidad"] --> MTA["MTA: Matriz Tecnológica"]
+  MTA --> DCA["DCA: Capacidades Arquitectónicas"]
+  DCA --> MSP["MSP: Matriz de Servicios y Procesos"]
+  MSP --> DPV["DPV: Puntos de Variación"]
+  DPV --> DNA["DNA: Nivel de Abstracción"]
+  DNA --> ITA["ITA: Integración Tecnológica"]
+  ITA --> DVA["DVA: Vista Arquitectónica"]
+  DVA --> MAC["MAC: Modelo de Adaptación"]
+  MAC --> DEA["DEA: Estrategia de Evaluación"]
+  DEA --> DCO["DCO: Criterios de Optimización"]
+  DCO --> BER["BER: Benchmark y Eficiencia"]
+  BER --> CEP["CEP: Catálogo de Elementos"]
+  CEP --> CPD["CPD: Patrones de Diseño"]
+  CPD --> LBA["LBA: Línea Base Consolidada"]
+
+  style DOE fill:#eef5f3,stroke:#18796e
+  style DCA fill:#eef5f3,stroke:#18796e
+  style MSP fill:#f3f0fa,stroke:#6d28d9
+  style ITA fill:#fbf3e6,stroke:#b45309
+  style BER fill:#eff6ff,stroke:#1d4ed8
+  style LBA fill:#dcfce7,stroke:#15803d,stroke-width:2px
+          </pre>
+        </div>
+      </div>
+
+      <!-- TAB 4: ROLES RACI -->
+      <div id="tab-roles" class="tab-content">
+        <h3 style="color:var(--navy);margin-top:0;">4. Coreografía y Matriz RACI de Roles (E6)</h3>
+        <p style="font-size:0.92rem;color:var(--muted);">
+          Asignación formal de responsabilidades entre los 9 roles normativos a lo largo del proceso:
+        </p>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.88rem;background:#fff;border:1px solid var(--line);">
+            <thead>
+              <tr style="background:#e7f0ec;color:var(--navy);text-align:left;">
+                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Fase PDAEH</th>
+                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Responsable (R)</th>
+                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Aprobador (A)</th>
+                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Consultado (C)</th>
+                <th style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Informado (I)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 1: Estratégica</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP (Arquitecto Empresarial)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-1)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP, LNP, ASecP</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Equipo de Desarrollo Clásico</td>
+              </tr>
+              <tr style="background:#fafcfb;">
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 2: Requisitos</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">ASP (Arquitecto de Solución)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-2)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP, EQP, GEP (Legal)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">LNP (Líder de Negocio)</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 3: Integración</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">ASP + AIP (Infraestructura)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-3)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP, ASecP (Ciberseguridad)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">GPA (Admin QPU)</td>
+              </tr>
+              <tr style="background:#fafcfb;">
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 4: Materialización</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">EQP + ASP</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#b45309;font-weight:700;">Comité OGA (OGA-4)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AIP, GPA</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">LNP, AEP</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);font-weight:700;">Fase 5: Sistematización</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">AEP + ASP</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);color:#15803d;font-weight:700;">Comité OGA (OGA-5 Final)</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Todos los Roles</td>
+                <td style="padding:0.6rem 0.8rem;border:1px solid var(--line);">Organización Institucional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.archify-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
