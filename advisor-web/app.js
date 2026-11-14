@@ -121,7 +121,8 @@
     const negativeDiagnosis = /^#\s+DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO\s*$/im.test(text);
     container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
-    const html = window.marked.parse(text, { gfm: true, breaks: true });
+    const parseMarkdown = typeof window.marked === 'function' ? window.marked : (window.marked?.parse || window.marked);
+    const html = parseMarkdown(text, { gfm: true, breaks: true });
     container.innerHTML = window.DOMPurify.sanitize(html, {
       USE_PROFILES: { html: true },
       FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
