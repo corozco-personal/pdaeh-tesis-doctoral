@@ -62,3 +62,111 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
 .diagram-shell { margin: 0.6rem 0 !important; padding: 0.8rem !important; }
 .bubble table { margin: 0.6rem 0 !important; }
 .bubble br + br { display: none !important; }
+
+
+
+/* === Estilo Natural y Limpio estilo ChatGPT / Claude === */
+.messages {
+  padding: 1.5rem clamp(1rem, 3.5vw, 3rem) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.message {
+  display: flex !important;
+  gap: 0.9rem !important;
+  align-items: flex-start !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Mensajes del usuario: alineados a la derecha, en pastilla limpia sin avatar */
+.message.user {
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+}
+
+.message.user .avatar {
+  display: none !important;
+}
+
+.message.user .bubble {
+  background: #eef3f1 !important;
+  color: var(--ink) !important;
+  border: 1px solid #d5e2dc !important;
+  border-radius: 18px !important;
+  padding: 10px 18px !important;
+  max-width: 80% !important;
+  box-shadow: none !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Mensajes del asistente: completamente naturales, sin tarjeta ni burbuja */
+.message.assistant {
+  justify-content: flex-start !important;
+}
+
+.message.assistant .avatar {
+  flex: 0 0 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 2px !important;
+}
+
+.message.assistant .bubble {
+  flex: 1 !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  color: var(--ink) !important;
+  line-height: 1.6 !important;
+  font-size: 0.98rem !important;
+}
+
+/* Eliminación total de tarjetas de borde en diagnósticos */
+.negative-diagnosis .bubble {
+  border-left: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.negative-diagnosis .bubble h1,
+.negative-diagnosis .bubble h2 {
+  color: var(--danger) !important;
+}
+
+/* Cursor parpadeante durante streaming */
+.streaming-cursor {
+  display: inline-block;
+  color: var(--green);
+  font-weight: 700;
+  margin-left: 2px;
+  animation: stream-blink 0.8s infinite;
+}
+
+@keyframes stream-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.stream-output {
+  word-break: break-word;
+}

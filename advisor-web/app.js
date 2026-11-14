@@ -117,7 +117,31 @@
       .replace(/(\b[A-Za-z_][\w-]*)\{([^{}\n]+)\}/g, (match, id, label) => `${id}{${/^\s*"/.test(label) ? label : quote(label)}}`);
   }
 
-  async function renderRichResponse(container, text) {
+    function renderMarkdownProgressive(container, rawText) {
+    if (!window.marked || !window.DOMPurify) {
+      container.textContent = rawText;
+      return;
+    }
+    const parseMarkdown = typeof window.marked === 'function' ? window.marked : (window.marked?.parse || window.marked);
+    let sanitized = rawText
+      .replace(/\s*\((?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY)\)/gi, "")
+      .replace(/\b(?:ORG_SIZE|CORE_PROBLEM|AS_IS_TECH_STACK|QUANTUM_MATURITY):\s*/gi, "")
+      .replace(/\n{3,}/g, "\n\n");
+
+    let html = parseMarkdown(sanitized, { gfm: true, breaks: false });
+    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
+      const cls = type.toLowerCase();
+      return `<blockquote class="callout callout-${cls}"><p><strong>${type.toUpperCase()}:</strong> `;
+    });
+
+    container.innerHTML = window.DOMPurify.sanitize(html, {
+      USE_PROFILES: { html: true },
+      FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
+      FORBID_ATTR: ["style", "srcset"],
+    }) + '<span class="streaming-cursor">▊</span>';
+  }
+
+async function renderRichResponse(container, text) {
     const negativeDiagnosis = /(?:DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO|NO VIABLE PARA PDAEH)/i.test(text);
     container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
@@ -232,15 +256,26 @@
         const data = await response.json().catch(() => ({}));
         throw new Error(data.error || "No fue posible consultar el agente.");
       }
+      let renderPending = false;
+      function renderProgressive() {
+        if (!renderPending) {
+          renderPending = true;
+          requestAnimationFrame(() => {
+            renderPending = false;
+            renderMarkdownProgressive(streamMessage.output, text);
+            const now = Date.now();
+            if (now - lastScrollTime > 60) {
+              messages.scrollTop = messages.scrollHeight;
+              lastScrollTime = now;
+            }
+          });
+        }
+      }
+
       await consumeAdvisorStream(response, ({ event, data }) => {
         if (event === "delta") {
           text += data.delta || "";
-          streamMessage.output.textContent = text;
-          const now = Date.now();
-          if (now - lastScrollTime > 80) {
-            messages.scrollTop = messages.scrollHeight;
-            lastScrollTime = now;
-          }
+          renderProgressive();
         } else if (event === "done") previousResponseId = data.id || previousResponseId;
         else if (event === "error") streamError = data.error || "El agente no pudo completar la respuesta.";
       });
