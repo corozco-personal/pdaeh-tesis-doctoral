@@ -1,0 +1,66 @@
+.turnstile-widget {
+  min-height: 68px;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.security-status {
+  margin: .35rem 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.4;
+}
+
+.action-with-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.action-with-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stream-output { min-width: 0; }
+.message.streaming .stream-output { white-space: pre-wrap; }
+.message.streaming .stream-output::after { content: ""; display: inline-block; width: .55em; height: 1.05em; margin-left: .18rem; vertical-align: -.15em; background: var(--green); animation: typing-cursor .8s steps(1) infinite; }
+.bubble .stream-output > :first-child { margin-top: 0; }
+.bubble .stream-output > :last-child { margin-bottom: 0; }
+.bubble .stream-output p { margin: .55rem 0; }
+.bubble .stream-output ul,
+.bubble .stream-output ol { margin: .55rem 0; padding-left: 1.5rem; }
+.bubble .stream-output li { margin: .28rem 0; }
+.bubble .stream-output blockquote { margin: .8rem 0; padding: .2rem 1rem; border-left: 4px solid var(--green); color: var(--muted); }
+.bubble .stream-output pre { max-width: 100%; overflow: auto; padding: .9rem; border-radius: 6px; background: #132536; color: #f4f7f6; white-space: pre; }
+.bubble .stream-output pre code { padding: 0; background: transparent; color: inherit; }
+.bubble .stream-output table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: .9rem 0; }
+.bubble .stream-output th,
+.bubble .stream-output td { padding: .55rem .7rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.bubble .stream-output th { background: #e3ebe8; color: var(--navy); }
+.bubble .stream-output a { color: var(--green); text-underline-offset: 3px; }
+.diagram-shell { width: 100%; margin: 1.1rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: auto; }
+.diagram-shell .mermaid { min-width: 520px; text-align: center; }
+.diagram-shell svg { display: block; width: 100%; max-width: 100%; height: auto; margin: 0 auto; }
+.diagram-shell figcaption { margin-top: .65rem; color: var(--muted); font-size: .75rem; text-align: center; }
+.diagram-shell.diagram-error { border-color: #d9b84f; background: #fffaf0; }
+.diagram-shell.diagram-error .mermaid { min-width: 0; text-align: left; }
+
+@keyframes typing-cursor { 0%,45% { opacity: 1; } 46%,100% { opacity: 0; } }
+
+@media (max-width: 650px) {
+  .diagram-shell { padding: .65rem; }
+  .diagram-shell .mermaid { min-width: 460px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message.streaming .stream-output::after { animation: none; }
+}

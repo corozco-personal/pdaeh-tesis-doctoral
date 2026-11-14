@@ -15,8 +15,20 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 - En producción, Vercel suministra automáticamente `VERCEL_OIDC_TOKEN`; no es necesario guardar una clave de OpenAI.
 - `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5-mini`, disponible con los créditos gratuitos actuales de AI Gateway.
 - Para desarrollo local puede configurarse `AI_GATEWAY_API_KEY`.
+- `SESSION_SECRET` debe ser un valor aleatorio de al menos 32 bytes.
+- `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` pertenecen al widget Cloudflare Turnstile configurado para `pdaeh-advisor.vercel.app`.
 
 No coloque claves en archivos del repositorio ni en el navegador.
+
+## Controles de seguridad
+
+- Cloudflare Turnstile validado en servidor y renovado después de cada consulta.
+- Sesión firmada en cookie `HttpOnly`, `Secure` y `SameSite=Strict`.
+- Límite de cinco solicitudes por minuto y veinte por hora, aplicado por IP y sesión.
+- Una sola consulta simultánea por sesión.
+- Validación estricta de origen, método, tipo de contenido, tamaño y esquema JSON.
+- Bloqueo de patrones comunes de inyección de prompt y de credenciales.
+- Vercel Firewall y mitigación DDoS en el borde, complementados con una regla WAF para `/api/advisor`.
 
 ## Validación local
 

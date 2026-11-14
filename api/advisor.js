@@ -1,11 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
-
-const MAX_MESSAGE_LENGTH = 12000;
-const ALLOWED_ROLES = new Set(["user"]);
-const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT = 12;
-const rateBuckets = new Map();
+const { SESSION_COOKIE, parseCookies, verifySession, clientIp, sameOrigin, contentRequestIsValid, validateBody, rateLimit, acquire, release, verifyTurnstile } = require("./_security");
 
 function loadAgentInstructions() {
   const root = process.cwd();
@@ -25,62 +20,21 @@ function sendJson(res, status, payload) {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
   res.end(JSON.stringify(payload));
 }
 
-function validateBody(body) {
-  if (!body || !Array.isArray(body.messages) || body.messages.length < 1 || body.messages.length > 12) {
-    return "La conversación debe contener entre 1 y 12 mensajes.";
-  }
-  for (const message of body.messages) {
-    if (!message || !ALLOWED_ROLES.has(message.role) || typeof message.content !== "string") {
-      return "La conversación contiene un mensaje inválido.";
-    }
-    const length = message.content.trim().length;
-    if (length < 1 || length > MAX_MESSAGE_LENGTH) {
-      return `Cada mensaje debe contener entre 1 y ${MAX_MESSAGE_LENGTH} caracteres.`;
-    }
-  }
-  if (body.previousResponseId && !/^resp_[A-Za-z0-9_-]+$/.test(body.previousResponseId)) {
-    return "El identificador de conversación no es válido.";
-  }
-  return null;
+function sendEvent(res, event, data) {
+  res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
 }
 
-function isSameOrigin(req) {
-  const origin = req.headers?.origin;
-  if (!origin) return true;
-  try {
-    const originHost = new URL(origin).host;
-    const requestHost = req.headers["x-forwarded-host"] || req.headers.host;
-    return originHost === requestHost;
-  } catch {
-    return false;
-  }
-}
-
-function isRateLimited(req) {
-  const now = Date.now();
-  const forwarded = req.headers?.["x-forwarded-for"] || "unknown";
-  const key = String(forwarded).split(",")[0].trim();
-  const bucket = rateBuckets.get(key);
-  if (!bucket || now - bucket.startedAt >= RATE_WINDOW_MS) {
-    rateBuckets.set(key, { startedAt: now, count: 1 });
-    return false;
-  }
-  bucket.count += 1;
-  return bucket.count > RATE_LIMIT;
-}
-
-function extractText(response) {
-  if (typeof response.output_text === "string" && response.output_text.trim()) return response.output_text;
-  return (response.output || [])
-    .filter((item) => item.type === "message")
-    .flatMap((item) => item.content || [])
-    .filter((item) => item.type === "output_text")
-    .map((item) => item.text)
-    .join("\n")
-    .trim();
+function parseSseBlock(block) {
+  const data = block.split(/\r?\n/)
+    .filter((line) => line.startsWith("data:"))
+    .map((line) => line.slice(5).trimStart())
+    .join("\n");
+  if (!data || data === "[DONE]") return null;
+  try { return JSON.parse(data); } catch { return null; }
 }
 
 module.exports = async function advisorHandler(req, res) {
@@ -89,16 +43,24 @@ module.exports = async function advisorHandler(req, res) {
     return sendJson(res, 405, { error: "Método no permitido." });
   }
 
-  if (!isSameOrigin(req)) return sendJson(res, 403, { error: "Origen de solicitud no autorizado." });
-  if (isRateLimited(req)) return sendJson(res, 429, { error: "Se alcanzó el límite temporal de consultas. Inténtelo más tarde." });
+  if (!sameOrigin(req) || req.headers?.["x-pdaeh-client"] !== "web-v1") return sendJson(res, 403, { error: "Solicitud no autorizada." });
+  if (!contentRequestIsValid(req)) return sendJson(res, 413, { error: "Tipo o tamaño de solicitud no permitido." });
+  const session = verifySession(parseCookies(req)[SESSION_COOKIE], process.env.SESSION_SECRET);
+  if (!session) return sendJson(res, 401, { error: "La sesión de seguridad expiró. Recargue la página." });
+  const ip = clientIp(req);
+  const retryAfter = Math.max(rateLimit(`ip:${ip}`), rateLimit(`session:${session.id}`));
+  if (retryAfter > 0) { res.setHeader("Retry-After", String(retryAfter)); return sendJson(res, 429, { error: "Se alcanzó el límite de consultas. Espere antes de intentarlo nuevamente." }); }
+  if (!acquire(session.id)) return sendJson(res, 409, { error: "Ya existe una consulta en curso para esta sesión." });
 
   const gatewayToken = process.env.AI_GATEWAY_API_KEY
     || process.env.VERCEL_OIDC_TOKEN
     || req.headers?.["x-vercel-oidc-token"];
-  if (!gatewayToken) return sendJson(res, 503, { error: "El Advisor no pudo obtener la identidad segura del servicio." });
+  if (!gatewayToken) { release(session.id); return sendJson(res, 503, { error: "El Advisor no pudo obtener la identidad segura del servicio." }); }
 
   const error = validateBody(req.body);
-  if (error) return sendJson(res, 400, { error });
+  if (error) { release(session.id); return sendJson(res, 400, { error }); }
+  const turnstile = await verifyTurnstile(req.body.turnstileToken, ip);
+  if (!turnstile.success) { release(session.id); return sendJson(res, 403, { error: "No fue posible validar la verificación anti-bot. Inténtelo nuevamente." }); }
 
   const payload = {
     model: process.env.AI_GATEWAY_MODEL || "openai/gpt-5-mini",
@@ -106,6 +68,7 @@ module.exports = async function advisorHandler(req, res) {
     input: req.body.messages.map(({ role, content }) => ({ role, content: content.trim() })),
     store: true,
     max_output_tokens: 3500,
+    stream: true,
   };
   if (req.body.previousResponseId) payload.previous_response_id = req.body.previousResponseId;
 
@@ -117,9 +80,10 @@ module.exports = async function advisorHandler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(55_000),
     });
-    const data = await apiResponse.json();
     if (!apiResponse.ok) {
+      const data = await apiResponse.json().catch(() => ({}));
       console.error("OpenAI API error", apiResponse.status, data?.error?.code || "unknown");
       return sendJson(res, apiResponse.status === 429 ? 429 : 502, {
         error: apiResponse.status === 429
@@ -127,13 +91,53 @@ module.exports = async function advisorHandler(req, res) {
           : "No fue posible obtener una respuesta del agente.",
       });
     }
-    const text = extractText(data);
-    if (!text) return sendJson(res, 502, { error: "El agente no produjo contenido textual." });
-    return sendJson(res, 200, { id: data.id, text });
+
+    if (!apiResponse.body) return sendJson(res, 502, { error: "El servicio no proporcionó un flujo de respuesta." });
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/event-stream; charset=utf-8");
+    res.setHeader("Cache-Control", "no-cache, no-transform");
+    res.setHeader("X-Accel-Buffering", "no");
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.flushHeaders?.();
+
+    const decoder = new TextDecoder();
+    let buffer = "";
+    let responseId = null;
+    let characters = 0;
+    for await (const chunk of apiResponse.body) {
+      buffer += decoder.decode(chunk, { stream: true });
+      const blocks = buffer.split(/\r?\n\r?\n/);
+      buffer = blocks.pop() || "";
+      for (const block of blocks) {
+        const event = parseSseBlock(block);
+        if (!event) continue;
+        if (event.type === "response.created") responseId = event.response?.id || responseId;
+        if (event.type === "response.output_text.delta" && typeof event.delta === "string") {
+          characters += event.delta.length;
+          if (characters <= 50_000) sendEvent(res, "delta", { delta: event.delta });
+        } else if (event.type === "response.completed") {
+          responseId = event.response?.id || responseId;
+          sendEvent(res, "done", { id: responseId });
+        } else if (event.type === "response.failed" || event.type === "error") {
+          sendEvent(res, "error", { error: "El agente no pudo completar la respuesta." });
+        }
+      }
+    }
+    if (!res.writableEnded) {
+      if (!characters) sendEvent(res, "error", { error: "El agente no produjo contenido textual." });
+      else if (!responseId) sendEvent(res, "done", { id: null });
+      res.end();
+    }
   } catch (requestError) {
     console.error("Advisor request failed", requestError?.message || requestError);
+    if (res.headersSent) {
+      sendEvent(res, "error", { error: "La conexión con el agente se interrumpió." });
+      return res.end();
+    }
     return sendJson(res, 502, { error: "No fue posible conectar con el servicio del agente." });
+  } finally {
+    release(session.id);
   }
 };
 
-module.exports._test = { validateBody, extractText, loadAgentInstructions, isSameOrigin };
+module.exports._test = { parseSseBlock, loadAgentInstructions };

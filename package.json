@@ -9,5 +9,10 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "dompurify": "^3.2.7",
+    "marked": "^16.4.1",
+    "mermaid": "^12.3.0"
   }
 }

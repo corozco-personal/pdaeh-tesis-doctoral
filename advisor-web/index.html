@@ -9,12 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./security.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
 </head>
 <body>
   <a class="skip" href="#conversation">Saltar a la conversación</a>
   <header class="topbar">
     <a class="brand" href="/" aria-label="Inicio del PDAEH Advisor"><span>P</span><strong>PDAEH Advisor</strong></a>
-    <a class="portal-link" href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank" rel="noopener noreferrer">Consultar el proceso ↗</a>
+    <a class="portal-link action-with-icon" href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Consultar el proceso</span></a>
   </header>
 
   <main>
@@ -46,7 +48,9 @@
           <option value="Nivel 2 — Pilotos NISQ">Nivel 2 — Pilotos NISQ</option>
           <option value="Nivel 3 — Producción híbrida">Nivel 3 — Producción híbrida</option>
         </select>
-        <button class="primary" type="submit">Iniciar diagnóstico</button>
+        <div id="turnstileWidget" class="turnstile-widget" aria-label="Verificación anti-bot de Cloudflare"></div>
+        <p id="securityStatus" class="security-status" role="status">Inicializando protección anti-bot…</p>
+        <button class="primary action-with-icon" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4M21 3l-5 5"/></svg><span>Iniciar diagnóstico</span></button>
       </form>
 
       <div class="method-note"><strong>Contrato metodológico:</strong> 5 fases, 10 elementos, 15 artefactos y 5 compuertas OGA. El agente no promete ventaja cuántica sin benchmarking clásico.</div>
@@ -55,7 +59,7 @@
     <section class="chat-panel" id="conversation" aria-labelledby="chatTitle">
       <header class="chat-header">
         <div><span class="status-dot" aria-hidden="true"></span><div><h2 id="chatTitle">Conversación con PDAEH Advisor</h2><p>Respuesta generada dinámicamente por el agente</p></div></div>
-        <button id="newConversation" class="text-button" type="button">Nueva conversación</button>
+        <button id="newConversation" class="text-button action-with-icon" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 8M20 3v5h-5"/></svg><span>Nueva conversación</span></button>
       </header>
 
       <div id="messages" class="messages" aria-live="polite" aria-busy="false">
@@ -68,13 +72,16 @@
       <form id="chatForm" class="composer">
         <label class="sr-only" for="chatInput">Mensaje para el Advisor</label>
         <textarea id="chatInput" rows="2" maxlength="12000" placeholder="Responda las preguntas del agente o solicite profundizar en una fase…" disabled></textarea>
-        <button id="sendMessage" type="submit" disabled>Enviar</button>
+        <button id="sendMessage" class="action-with-icon" type="submit" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-8-8 18-2-8-8-2Z M11 13l4-4"/></svg><span>Enviar</span></button>
       </form>
       <p id="errorMessage" class="error" role="alert"></p>
       <p class="privacy">No incluya contraseñas, claves de API ni secretos de infraestructura. Las respuestas son orientación metodológica y deben validarse mediante los puntos OGA.</p>
     </section>
   </main>
 
+  <script src="./vendor/marked.umd.js"></script>
+  <script src="./vendor/purify.min.js"></script>
+  <script src="./vendor/mermaid.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

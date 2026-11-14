@@ -6,33 +6,100 @@
   const messages = document.querySelector("#messages");
   const errorMessage = document.querySelector("#errorMessage");
   const newConversation = document.querySelector("#newConversation");
+  const securityStatus = document.querySelector("#securityStatus");
   let previousResponseId = null;
   let started = false;
+  let turnstileToken = "";
+  let turnstileWidgetId = null;
+  let securityReady = false;
 
-  const escapeHtml = (value) => value.replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;",
-  })[char]);
+  window.mermaid?.initialize({
+    startOnLoad: false,
+    securityLevel: "strict",
+    theme: "neutral",
+    flowchart: { htmlLabels: true, useMaxWidth: true },
+  });
 
-  function renderMarkdown(text) {
-    const escaped = escapeHtml(text);
-    return escaped
-      .replace(/^### (.+)$/gm, "<h4>$1</h4>")
-      .replace(/^## (.+)$/gm, "<h3>$1</h3>")
-      .replace(/^# (.+)$/gm, "<h2>$1</h2>")
-      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
-      .replace(/^(?:- |\* )(.+)$/gm, "<div class=\"list-item\">• $1</div>")
-      .replace(/^\d+\. (.+)$/gm, "<div class=\"list-item\">$1</div>")
-      .replace(/\n{2,}/g, "</p><p>")
-      .replace(/\n/g, "<br>");
+  async function initializeSecurity() {
+    try {
+      const response = await fetch("/api/security-config", { credentials: "same-origin", cache: "no-store" });
+      const config = await response.json();
+      if (!response.ok) throw new Error(config.error || "No fue posible inicializar la seguridad.");
+      for (let attempt = 0; attempt < 40 && !window.turnstile; attempt += 1) await new Promise((resolve) => setTimeout(resolve, 100));
+      if (!window.turnstile) throw new Error("Cloudflare Turnstile no pudo cargarse.");
+      turnstileWidgetId = window.turnstile.render("#turnstileWidget", {
+        sitekey: config.turnstileSiteKey, action: "advisor", theme: "light",
+        callback(token) { turnstileToken = token; securityReady = true; securityStatus.textContent = "Verificación anti-bot completada."; },
+        "expired-callback"() { turnstileToken = ""; securityReady = false; securityStatus.textContent = "La verificación expiró. Complétela nuevamente."; },
+        "error-callback"() { turnstileToken = ""; securityReady = false; securityStatus.textContent = "No fue posible completar la verificación anti-bot."; },
+      });
+      securityStatus.textContent = "Complete la verificación anti-bot para continuar.";
+    } catch (error) { securityStatus.textContent = error.message; errorMessage.textContent = error.message; }
   }
 
-  function addMessage(role, text) {
+  function createMessage(role) {
     const article = document.createElement("article");
     article.className = `message ${role}`;
-    article.innerHTML = `<div class="avatar" aria-hidden="true">${role === "assistant" ? "P" : "U"}</div><div class="bubble"><p>${role === "assistant" ? renderMarkdown(text) : escapeHtml(text)}</p></div>`;
+    article.innerHTML = `<div class="avatar" aria-hidden="true">${role === "assistant" ? "P" : "U"}</div><div class="bubble"></div>`;
     messages.append(article);
     article.scrollIntoView({ behavior: "smooth", block: "end" });
+    return article;
+  }
+
+  function addUserMessage(text) {
+    const article = createMessage("user");
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    article.querySelector(".bubble").append(paragraph);
+  }
+
+  function createStreamingMessage() {
+    const article = createMessage("assistant");
+    article.classList.add("streaming");
+    const output = document.createElement("div");
+    output.className = "stream-output";
+    output.setAttribute("role", "status");
+    output.setAttribute("aria-label", "El Advisor está generando la respuesta");
+    article.querySelector(".bubble").append(output);
+    return { article, output };
+  }
+
+  async function renderRichResponse(container, text) {
+    if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
+    const html = window.marked.parse(text, { gfm: true, breaks: true });
+    container.innerHTML = window.DOMPurify.sanitize(html, {
+      USE_PROFILES: { html: true },
+      FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
+      FORBID_ATTR: ["style", "srcset"],
+    });
+    const diagramCodes = [...container.querySelectorAll("pre > code.language-mermaid")];
+    for (const code of diagramCodes) {
+      const source = code.textContent.trim();
+      const shell = document.createElement("figure");
+      shell.className = "diagram-shell";
+      const diagram = document.createElement("div");
+      diagram.className = "mermaid";
+      diagram.textContent = source;
+      const caption = document.createElement("figcaption");
+      caption.textContent = "Diagrama generado por PDAEH Advisor";
+      shell.append(diagram, caption);
+      code.parentElement.replaceWith(shell);
+      try {
+        await window.mermaid.run({ nodes: [diagram], suppressErrors: false });
+        const svg = diagram.querySelector("svg");
+        if (svg) { svg.removeAttribute("height"); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", caption.textContent); }
+      } catch (error) {
+        shell.classList.add("diagram-error");
+        diagram.replaceChildren();
+        const notice = document.createElement("p");
+        notice.textContent = "No fue posible representar este diagrama; se conserva su definición técnica.";
+        const fallback = document.createElement("pre");
+        fallback.textContent = source;
+        diagram.append(notice, fallback);
+        console.warn("Mermaid render failed", error?.message || error);
+      }
+    }
+    container.querySelectorAll("a").forEach((link) => { link.target = "_blank"; link.rel = "noopener noreferrer"; });
   }
 
   function setBusy(busy) {
@@ -40,33 +107,81 @@
     chatInput.disabled = busy || !started;
     sendButton.disabled = busy || !started;
     profileForm.querySelector("button").disabled = busy;
-    const pending = messages.querySelector(".pending");
-    if (busy && !pending) {
-      const article = document.createElement("article");
-      article.className = "message assistant pending";
-      article.innerHTML = '<div class="avatar" aria-hidden="true">P</div><div class="bubble"><span></span><span></span><span></span><em>Analizando el contexto…</em></div>';
-      messages.append(article);
-      article.scrollIntoView({ behavior: "smooth", block: "end" });
-    } else if (!busy && pending) pending.remove();
+  }
+
+  function parseEventBlock(block) {
+    let event = "message";
+    const data = [];
+    for (const line of block.split(/\r?\n/)) {
+      if (line.startsWith("event:")) event = line.slice(6).trim();
+      else if (line.startsWith("data:")) data.push(line.slice(5).trimStart());
+    }
+    if (!data.length) return null;
+    try { return { event, data: JSON.parse(data.join("\n")) }; } catch { return null; }
+  }
+
+  async function consumeAdvisorStream(response, onEvent) {
+    if (!response.body) throw new Error("El navegador no pudo abrir el flujo de respuesta.");
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      const { value, done } = await reader.read();
+      buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+      const blocks = buffer.split(/\r?\n\r?\n/);
+      buffer = blocks.pop() || "";
+      for (const block of blocks) {
+        const parsed = parseEventBlock(block);
+        if (parsed) onEvent(parsed);
+      }
+      if (done) break;
+    }
+    if (buffer.trim()) { const parsed = parseEventBlock(buffer); if (parsed) onEvent(parsed); }
   }
 
   async function askAdvisor(content) {
+    if (!securityReady || !turnstileToken) { errorMessage.textContent = "Complete la verificación anti-bot antes de consultar el Advisor."; return; }
     errorMessage.textContent = "";
-    addMessage("user", content);
+    addUserMessage(content);
     setBusy(true);
+    let streamMessage = null;
     try {
       const response = await fetch("/api/advisor", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [{ role: "user", content }], previousResponseId }),
+        headers: { "Content-Type": "application/json", "X-PDAEH-Client": "web-v1", Accept: "text/event-stream" },
+        credentials: "same-origin",
+        body: JSON.stringify({ messages: [{ role: "user", content }], previousResponseId, turnstileToken }),
       });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "No fue posible consultar el agente.");
-      previousResponseId = data.id;
-      addMessage("assistant", data.text);
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "No fue posible consultar el agente.");
+      }
+      streamMessage = createStreamingMessage();
+      let text = "";
+      let streamError = "";
+      await consumeAdvisorStream(response, ({ event, data }) => {
+        if (event === "delta") {
+          text += data.delta || "";
+          streamMessage.output.textContent = text;
+          streamMessage.article.scrollIntoView({ behavior: "auto", block: "end" });
+        } else if (event === "done") previousResponseId = data.id || previousResponseId;
+        else if (event === "error") streamError = data.error || "El agente no pudo completar la respuesta.";
+      });
+      if (streamError) throw new Error(streamError);
+      if (!text.trim()) throw new Error("El agente no produjo contenido textual.");
+      streamMessage.article.classList.remove("streaming");
+      streamMessage.output.removeAttribute("role");
+      streamMessage.output.removeAttribute("aria-label");
+      await renderRichResponse(streamMessage.output, text);
     } catch (error) {
+      if (streamMessage && !streamMessage.output.textContent.trim()) streamMessage.article.remove();
+      else streamMessage?.article.classList.remove("streaming");
       errorMessage.textContent = error.message;
     } finally {
+      turnstileToken = "";
+      securityReady = false;
+      if (window.turnstile && turnstileWidgetId !== null) window.turnstile.reset(turnstileWidgetId);
+      securityStatus.textContent = "Complete una nueva verificación anti-bot para realizar otra consulta.";
       setBusy(false);
       chatInput.focus();
     }
@@ -106,4 +221,6 @@
     errorMessage.textContent = "";
     messages.innerHTML = '<article class="message assistant"><div class="avatar" aria-hidden="true">P</div><div class="bubble"><p>Complete el perfil organizacional para iniciar un nuevo diagnóstico.</p></div></article>';
   });
+
+  initializeSecurity();
 })();
