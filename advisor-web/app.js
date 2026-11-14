@@ -28,7 +28,7 @@
 
   async function initializeSecurity() {
     try {
-      securityStatus.textContent = "Inicializando verificación de seguridad…";
+      securityStatus.textContent = "Inicializando conexión segura…";
       const response = await fetch("/api/security-config", {
         credentials: "same-origin",
         cache: "no-store",
@@ -36,6 +36,16 @@
       });
       const config = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(config.error || "No fue posible conectar con el servicio de seguridad.");
+
+      if (config.mode === "rust-native" || !config.turnstileSiteKey) {
+        // En backend Rust nativo, la conexión es directa y protegida por el servidor
+        turnstileToken = "rust-session-valid";
+        securityReady = true;
+        const container = document.querySelector("#turnstileWidget");
+        if (container) container.style.display = "none";
+        securityStatus.style.display = "none";
+        return;
+      }
 
       for (let attempt = 0; attempt < 80 && !window.turnstile; attempt += 1) {
         await new Promise((resolve) => setTimeout(resolve, 100));
