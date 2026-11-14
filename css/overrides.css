@@ -865,3 +865,13 @@ details.activity .activity-content {
   color: #ffffff !important;
   border-color: var(--navy) !important;
 }
+
+
+/* Centrado forzado para columnas de identificadores y códigos */
+#artifactTemplates td:first-child,
+#artifactTemplates th:first-child,
+.numbered-table table td.col-center,
+.numbered-table table th.col-center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}

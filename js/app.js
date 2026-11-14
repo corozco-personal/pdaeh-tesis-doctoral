@@ -483,7 +483,7 @@ function renderArtifacts() {
     const desc = `${info.queEs} ${info.paraQueSirve}`;
     const icon = artifactIcons[code] || "";
     return `<tr>
-      <td style="text-align:center;vertical-align:middle;font-weight:700;"><a href="plantilla.html?id=${code}" style="color:var(--green);text-decoration:none;">${code}</a></td>
+      <td class="col-center" style="text-align:center !important;vertical-align:middle !important;font-weight:700;"><a href="plantilla.html?id=${code}" style="color:var(--green);text-decoration:none;display:inline-block;width:100%;text-align:center;">${code}</a></td>
       <td style="vertical-align:middle;font-weight:600;">
         <div style="display:flex;align-items:center;gap:10px;">
           ${icon}
