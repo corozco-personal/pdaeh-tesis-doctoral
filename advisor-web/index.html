@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=1794687928">
-  <link rel="stylesheet" href="./security.css?v=1794687928">
+  <link rel="stylesheet" href="./styles.css?v=1794698560">
+  <link rel="stylesheet" href="./security.css?v=1794698560">
 </head>
 <body>
   <a class="skip" href="#conversation">Saltar a la conversación</a>
@@ -23,6 +23,28 @@
       <p class="eyebrow">Agente metodológico</p>
       <h1 id="contextTitle">Diagnóstico PDAEH basado en el contexto real de su organización</h1>
       <p class="lead">El agente evalúa la viabilidad cuántica, contrasta casos empresariales mediante consulta web controlada y construye una hoja de ruta gobernada por las fases, artefactos y puntos OGA del proceso.</p>
+
+            <div class="preset-selector-box">
+        <label for="scenarioPreset"><strong>Escenarios de referencia (1-Clic):</strong></label>
+        <div class="preset-chips" role="group" aria-label="Escenarios rápidos">
+          <button type="button" class="preset-chip active" data-preset="finnova">
+            <strong>FinNova (PYME)</strong>
+            <span>Portafolios & QAOA (Viable)</span>
+          </button>
+          <button type="button" class="preset-chip" data-preset="logistech">
+            <strong>LogisTech (Grande)</strong>
+            <span>Ruteo CVRP & Recocido (Viable)</span>
+          </button>
+          <button type="button" class="preset-chip" data-preset="crud">
+            <strong>Tienda CRUD (PYME)</strong>
+            <span>Transaccional (Rechazo OGA-1)</span>
+          </button>
+          <button type="button" class="preset-chip" data-preset="pqc">
+            <strong>SecurNet (Ciberseguridad)</strong>
+            <span>Migración PQC NIST (Viable)</span>
+          </button>
+        </div>
+      </div>
 
       <form id="profileForm">
         <label for="orgSize">Tamaño de la organización <span class="req" title="Obligatorio">*</span></label>
@@ -57,7 +79,13 @@
     <section class="chat-panel" id="conversation" aria-labelledby="chatTitle">
       <header class="chat-header">
         <div><span class="status-dot" aria-hidden="true"></span><div><h2 id="chatTitle">Conversación con PDAEH Advisor</h2><p>Respuesta generada dinámicamente por el agente</p></div></div>
-        <button id="newConversation" class="text-button action-with-icon" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 8M20 3v5h-5"/></svg><span>Nueva conversación</span></button>
+        <div class="chat-actions-group">
+          <button id="exportArtifactBtn" class="text-button action-with-icon" type="button" title="Descargar dictamen formal y artefacto F1 en Markdown">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Descargar Dictamen (.MD)</span>
+          </button>
+          <button id="newConversation" class="text-button action-with-icon" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 8M20 3v5h-5"/></svg><span>Nueva conversación</span></button>
+        </div>
       </header>
 
       <div id="messages" class="messages" aria-live="polite" aria-busy="false">
@@ -80,6 +108,6 @@
   <script src="./vendor/marked.umd.js"></script>
   <script src="./vendor/purify.min.js"></script>
   <script src="./vendor/mermaid.min.js"></script>
-  <script src="./app.js?v=1794687928"></script>
+  <script src="./app.js?v=1794698560"></script>
 </body>
 </html>

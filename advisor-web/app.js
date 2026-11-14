@@ -6,6 +6,7 @@
   const messages = document.querySelector("#messages");
   const errorMessage = document.querySelector("#errorMessage");
   const newConversation = document.querySelector("#newConversation");
+  const exportArtifactBtn = document.querySelector("#exportArtifactBtn");
   const securityStatus = document.querySelector("#securityStatus");
   let previousResponseId = null;
   let started = false;
@@ -14,6 +15,7 @@
   let securityReady = true;
   let isBusy = false;
   let isRustNative = false;
+  let latestAssistantMarkdown = "";
 
   let mermaidInitialized = false;
   function ensureMermaid() {
@@ -231,6 +233,33 @@ async function renderRichResponse(container, text) {
       }
     }
     container.querySelectorAll("a").forEach((link) => { link.target = "_blank"; link.rel = "noopener noreferrer"; });
+
+    // Inyectar sugerencias de continuidad (Follow-up prompts) accionables
+    const isAssistant = container.closest(".message.assistant");
+    if (isAssistant && !container.querySelector(".follow-up-container")) {
+      latestAssistantMarkdown = text;
+      const followUp = document.createElement("div");
+      followUp.className = "follow-up-container";
+      followUp.innerHTML = `
+        <div class="follow-up-title">Preguntas recomendadas para profundizar:</div>
+        <div class="follow-up-chips">
+          <button type="button" class="follow-up-btn" data-query="¿Cómo redactar formalmente el artefacto DOE para este caso bajo el marco PDAEH?">¿Cómo redactar el artefacto DOE?</button>
+          <button type="button" class="follow-up-btn" data-query="¿Qué criterios y métricas de error de lectura (ZNE/M3) deben evaluarse en la Fase 4 (BER)?">Métricas de error en Fase 4 (BER)</button>
+          <button type="button" class="follow-up-btn" data-query="¿Cómo estructurar el patrón Broker/Mediador con fallback clásico para la compuerta OGA-2?">Patrón Broker y Fallback (OGA-2)</button>
+          <button type="button" class="follow-up-btn" data-query="¿Cuáles son las fuentes y librerías oficiales (Qiskit Runtime / PennyLane) sugeridas para iniciar la experimentación?">Librerías recomendadas (Qiskit/PennyLane)</button>
+        </div>
+      `;
+      followUp.querySelectorAll(".follow-up-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const query = btn.getAttribute("data-query");
+          if (query && !isBusy) {
+            chatInput.value = "";
+            askAdvisor(query);
+          }
+        });
+      });
+      container.append(followUp);
+    }
   }
 
   function setBusy(busy) {
@@ -406,6 +435,81 @@ async function renderRichResponse(container, text) {
     errorMessage.textContent = "";
     messages.innerHTML = '<article class="message assistant"><div class="avatar" aria-hidden="true">P</div><div class="bubble"><p>Complete el perfil organizacional para iniciar un nuevo diagnóstico.</p></div></article>';
   });
+
+  
+  // === Catálogo de Escenarios de 1-Clic para Evaluación ===
+  const SCENARIO_PRESETS = {
+    finnova: {
+      orgSize: "PYME",
+      maturity: "Nivel 1 — Exploratorio",
+      coreProblem: "Empresa de referencia FinNova: Empresa mediana de servicios financieros (PYME) especializada en gestión de inversiones y análisis de carteras para clientes institucionales y profesionales. La firma busca incorporar capacidad de optimización cuántica asistida para problemas complejos de rebalanceo dinámico de portafolio y optimización combinatoria multiobjetivo bajo restricciones de riesgo (CVaR), preservando el control clásico integral sobre datos financieros, reglas de negocio, cumplimiento normativo y cálculo de riesgo fáctico.",
+      asIs: "Plataforma analítica clásica establecida (As-Is): Servicios de datos de mercado (Market Data Services), servicios de gestión de portafolios (Portfolio Services), motor de análisis y riesgo financiero (Risk & Analytics Services), servicios de cumplimiento normativo (Compliance Services) y generación de reportes (Reporting Services), desplegados en arquitectura de microservicios sobre clúster en la nube privada con bases de datos relacionales (PostgreSQL), series temporales (TimescaleDB) y Redis en memoria con colas Apache Kafka."
+    },
+    logistech: {
+      orgSize: "Gran Empresa",
+      maturity: "Nivel 2 — Pilotos NISQ",
+      coreProblem: "Optimización de rutas de distribución de última milla y asignación de flota (CVRPTW) con más de 2.000 nodos y ventanas horarias estrictas. Crecimiento factorial del espacio de combinaciones que satura los solvers de optimización lineal clásicos en horas pico.",
+      asIs: "Arquitectura de microservicios en Java Spring Boot, Apache Spark para analítica geoespacial, PostgreSQL y colas RabbitMQ desplegadas en clúster Kubernetes multirregión."
+    },
+    crud: {
+      orgSize: "PYME",
+      maturity: "Nivel 0 — Nulo",
+      coreProblem: "Sistema de gestión comercial y facturación electrónica (CRUD) con emisión de reportes contables mensuales y catálogo web para 150 usuarios concurrentes.",
+      asIs: "Stack LAMP tradicional con PHP 8.2, base de datos MySQL relacional y servidor Apache en máquina virtual en la nube."
+    },
+    pqc: {
+      orgSize: "Gran Empresa",
+      maturity: "Nivel 1 — Exploratorio",
+      coreProblem: "Plan de contingencia y transición hacia Criptografía Post-Cuántica (PQC) para proteger la pasarela de pagos interbancarios contra la amenaza Harvest Now, Decrypt Later.",
+      asIs: "Infraestructura PKI corporativa con certificados X.509 basados en RSA 2048 y curvas elípticas ECDSA, expuestos mediante API Gateways Envoy."
+    }
+  };
+
+  function applyScenarioPreset(presetKey) {
+    const data = SCENARIO_PRESETS[presetKey];
+    if (!data) return;
+    document.querySelector("#orgSize").value = data.orgSize;
+    document.querySelector("#coreProblem").value = data.coreProblem;
+    document.querySelector("#asIs").value = data.asIs;
+    document.querySelector("#maturity").value = data.maturity;
+    checkFormValidity();
+
+    document.querySelectorAll(".preset-chip").forEach((chip) => {
+      chip.classList.toggle("active", chip.getAttribute("data-preset") === presetKey);
+    });
+  }
+
+  document.querySelectorAll(".preset-chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const presetKey = chip.getAttribute("data-preset");
+      applyScenarioPreset(presetKey);
+    });
+  });
+
+  // Inicializar con el preset de FinNova por defecto para comodidad inmediata
+  applyScenarioPreset("finnova");
+
+  // === Descarga y Exportación del Dictamen en Markdown ===
+  if (exportArtifactBtn) {
+    exportArtifactBtn.addEventListener("click", () => {
+      const contentToExport = latestAssistantMarkdown || messages.innerText;
+      if (!contentToExport || contentToExport.length < 50) {
+        alert("Aún no se ha generado un dictamen para exportar. Inicie primero el diagnóstico.");
+        return;
+      }
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      const filename = `dictamen-pdaeh-artefacto-${timestamp}.md`;
+      const blob = new Blob([contentToExport], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      document.body.append(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    });
+  }
 
   initializeSecurity();
 })();

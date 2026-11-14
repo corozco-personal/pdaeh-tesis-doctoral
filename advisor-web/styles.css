@@ -347,3 +347,148 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
   margin: 0.5rem 0 !important;
   padding: 0.75rem !important;
 }
+
+/* === Selector de Escenarios Rápidos de 1-Clic === */
+.preset-selector-box {
+  margin: 1.1rem 0 1.2rem;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.preset-selector-box label {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--navy);
+  display: block;
+}
+
+.preset-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.preset-chip {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fafcfb;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.preset-chip:hover {
+  border-color: var(--green);
+  background: #f0f7f5;
+}
+
+.preset-chip.active {
+  border-color: var(--green);
+  background: #e7f3ef;
+  box-shadow: 0 0 0 2px rgba(24,121,110,0.18);
+}
+
+.preset-chip strong {
+  font-size: 0.82rem;
+  color: var(--navy);
+}
+
+.preset-chip span {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+/* Acciones en la cabecera del chat */
+.chat-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+#exportArtifactBtn {
+  font-size: 0.84rem;
+  color: var(--navy);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  background: #f8faf9;
+  transition: all 0.15s ease;
+}
+
+#exportArtifactBtn:hover {
+  background: #eef4f1;
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Sugerencias de continuidad (Follow-up prompts) */
+.follow-up-container {
+  margin: 0.6rem 0 0.2rem;
+  padding: 0.65rem 0.85rem;
+  background: #f7faf9;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.follow-up-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+.follow-up-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.follow-up-btn {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid #cad7d2;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  line-height: 1.3;
+}
+
+.follow-up-btn:hover {
+  background: var(--navy);
+  color: #ffffff;
+  border-color: var(--navy);
+}
+
+/* Copiar código de Mermaid */
+.diagram-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.diagram-copy-btn {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f8faf9;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.diagram-copy-btn:hover {
+  color: var(--navy);
+  border-color: var(--green);
+}
