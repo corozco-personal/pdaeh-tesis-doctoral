@@ -30,11 +30,11 @@ Popayán, Colombia
         <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank"><strong>Consultar portal web del proceso</strong></a>
       </td>
       <td align="center" style="padding: 15px;">
-        <a href="https://pdaeh-advisor.vercel.app/" target="_blank">
+        <a href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank">
           <img src="assets/qr-pdaeh-advisor.png" alt="QR PDAEH Advisor" width="200" />
         </a>
         <br />
-        <a href="https://pdaeh-advisor.vercel.app/" target="_blank"><strong>Consultar PDAEH Advisor</strong></a>
+        <a href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank"><strong>Consultar PDAEH Advisor</strong></a>
       </td>
     </tr>
   </table>
@@ -87,7 +87,7 @@ sequenceDiagram
 
 ## Uso vía web
 
-El agente puede utilizarse directamente desde el navegador, sin instalar dependencias ni configurar un entorno local, accediendo a **[PDAEH Advisor](https://pdaeh-advisor.vercel.app/)**. El portal web solicita el perfil de la organización, el problema o caso de uso, la arquitectura actual (*As-Is*) y el nivel de madurez cuántica; a partir de esta información, el agente genera progresivamente un diagnóstico metodológico, recomendaciones y una hoja de ruta PDAEH con contenido estructurado y diagramas interactivos. El acceso está protegido mediante Cloudflare Turnstile, límites de solicitudes y controles de seguridad en el servidor.
+El agente puede utilizarse directamente desde el navegador, sin instalar dependencias ni configurar un entorno local, accediendo a **[PDAEH Advisor](https://pdaeh-tesis-doctoral.onrender.com/)**. El portal web solicita el perfil de la organización, el problema o caso de uso, la arquitectura actual (*As-Is*) y el nivel de madurez cuántica; a partir de esta información, el agente genera progresivamente un diagnóstico metodológico, recomendaciones y una hoja de ruta PDAEH con contenido estructurado y diagramas interactivos. El acceso está protegido mediante Cloudflare Turnstile, límites de solicitudes y controles de seguridad en el servidor.
 
 La versión web del agente es independiente del **[portal documental del proceso PDAEH](https://corozco-personal.github.io/pdaeh-tesis-doctoral/)**: el Advisor permite realizar el diagnóstico conversacional, mientras que el portal documental presenta las fases, elementos, roles, artefactos, plantillas y fundamentos metodológicos de la propuesta.
 

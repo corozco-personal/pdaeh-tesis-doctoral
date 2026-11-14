@@ -1,5 +1,5 @@
 
-fn evaluate_offline_rules(content: &str) -> String {
+pub fn evaluate_offline_rules(content: &str) -> String {
     let lower = content.to_lowercase();
     let is_crud = lower.contains("crud") || lower.contains("facturas") || lower.contains("postgresql");
     let no_quantum = lower.contains("no existen problemas de optimización")
@@ -434,4 +434,30 @@ async fn advisor_handler(
     Sse::new(stream)
         .keep_alive(KeepAlive::default().interval(Duration::from_secs(15)))
         .into_response()
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_offline_rules_crud_negative_verdict() {
+        let input = "Solicito diagnóstico: CRUD facturas y clientes (40 req/s), PostgreSQL, Redis, Nivel 0 - Nulo";
+        let output = evaluate_offline_rules(input);
+        assert!(output.contains("NO VIABLE PARA PDAEH"));
+        assert!(output.contains("Compuerta OGA-1"));
+        assert!(output.contains("Variable Evaluada"));
+        assert!(output.contains("Clase P"));
+    }
+
+    #[test]
+    fn test_system_prompt_loading() {
+        let prompt_path = PathBuf::from("agente-pdaeh-consultor/SYSTEM_PROMPT.md");
+        if prompt_path.exists() {
+            let content = fs::read_to_string(&prompt_path).unwrap();
+            assert!(content.contains("PDAEH-Advisor"));
+            assert!(content.contains("Fases Inmutables"));
+        }
+    }
 }

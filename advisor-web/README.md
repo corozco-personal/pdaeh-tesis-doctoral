@@ -8,7 +8,7 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 - `api/advisor.js`: función serverless que invoca la Responses API.
 - `agente-pdaeh-consultor/SYSTEM_PROMPT.md`: contrato de comportamiento.
 - `agente-pdaeh-consultor/knowledge_base_pdaeh.json`: base metodológica.
-- `vercel.json`: rutas y encabezados de seguridad.
+- `Dockerfile`: empaquetado para Render / Railway.
 
 ## Autenticación del despliegue
 
@@ -16,7 +16,7 @@ Aplicación conversacional independiente del portal documental PDAEH. Vive en el
 - `AI_GATEWAY_MODEL` es opcional; su valor predeterminado es `openai/gpt-5-mini`, disponible con los créditos gratuitos actuales de AI Gateway.
 - Para desarrollo local puede configurarse `AI_GATEWAY_API_KEY`.
 - `SESSION_SECRET` debe ser un valor aleatorio de al menos 32 bytes.
-- `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` pertenecen al widget Cloudflare Turnstile configurado para `pdaeh-advisor.vercel.app`.
+- `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` pertenecen al widget Cloudflare Turnstile configurado para `pdaeh-tesis-doctoral.onrender.com`.
 
 No coloque claves en archivos del repositorio ni en el navegador.
 
@@ -36,4 +36,4 @@ No coloque claves en archivos del repositorio ni en el navegador.
 npm test
 ```
 
-Para ejecutar el backend localmente se puede vincular el repositorio a un proyecto Vercel y usar `vercel dev`. El portal documental continúa publicándose desde la rama `gh-pages`; la aplicación Advisor se publica desde `main` como un proyecto separado.
+Para ejecutar el backend localmente se puede vincular el repositorio a un proyecto Vercel y usar `cargo run --bin pdaeh-advisor-server`. El portal documental continúa publicándose desde la rama `gh-pages`; la aplicación Advisor se publica desde `main` como un proyecto separado.
