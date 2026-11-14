@@ -10,29 +10,45 @@ fn evaluate_offline_rules(content: &str) -> String {
     if is_crud && no_quantum {
         r#"# DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO
 
-## 1. Dictamen Metodológico: NO VIABLE PARA PDAEH
-
-La iniciativa evaluada corresponde a un sistema transaccional convencional (operaciones CRUD, persistencia relacional en PostgreSQL y consultas SQL con agregación estándar) sin requerimientos de optimización combinatoria intratable, simulación molecular o algoritmos cuánticos NISQ. 
-
-Bajo los criterios del método PDAEH, **no se justifica la introducción de componentes de arquitectura híbrida cuántica-clásica**.
+> [!WARNING]
+> **Dictamen Metodológico: NO VIABLE PARA PDAEH**
+> La iniciativa evaluada corresponde a un sistema transaccional convencional (CRUD, PostgreSQL, Redis) sin requerimientos de optimización combinatoria intratable ni algoritmos cuánticos NISQ. No se justifica la introducción de componentes híbridos.
 
 ---
 
-## 2. Evaluación de las Cuatro Variables de Entrada
+## 1. Evaluación de las Variables Metodológicas
 
-- **Tamaño de la organización:** PYME. La capacidad de inversión y absorción tecnológica debe enfocarse en resolver la deuda técnica clásica antes de introducir paradigmas emergentes.
-- **Problema o caso de negocio:** Sistema de facturación y gestión de clientes con carga esperada de 40 solicitudes por segundo. La complejidad computacional se encuentra en la clase **P** (tiempo polinomial determinista), totalmente resoluble con arquitectura clásica.
-- **Arquitectura actual (As-Is):** Servicios REST en contenedores, base de datos relacional PostgreSQL y caché Redis en nube privada. No existen cuellos de botella que superen el escalamiento horizontal estándar.
-- **Madurez cuántica:** Nivel 0 (Nulo). La organización no posee algoritmos, talento ni infraestructura especializada para computación cuántica.
+| Variable Evaluada | Entrada Registrada | Dictamen Metodológico PDAEH |
+| :--- | :--- | :--- |
+| **Tamaño Organizacional** | PYME | Absorción orientada a deuda técnica clásica; sin capacidad para I+D cuántico. |
+| **Problema / Caso de Uso** | CRUD facturas y clientes (40 req/s) | Complejidad clase **P** (polinomial clásica). Totalmente cubierta por RDBMS. |
+| **Arquitectura As-Is** | REST + PostgreSQL + Redis | Desempeño óptimo (latencia 120 ms). Escalamiento horizontal estándar suficiente. |
+| **Madurez Cuántica** | Nivel 0 (Nulo) | Sin algoritmos, talento ni infraestructura NISQ especializada. |
+
+---
+
+## 2. Topología de Decisión Arquitectónica
+
+```mermaid
+graph TD
+  Start["Solicitud de Evaluación PDAEH"] --> Classify{"Análisis de Complejidad"}
+  Classify -- "Problema Transaccional CRUD (Clase P)" --> Classic["Arquitectura Clásica Optimizada\n(PostgreSQL + Redis + REST)"]
+  Classify -. "Optimización NP-Hard / NISQ" .-> Hybrid["Línea Base Híbrida PDAEH\n(QPU / Algoritmos Cuánticos)"]
+  Classic --> Dictum["Dictamen: NO VIABLE PARA PDAEH\n(Compuerta OGA-1 no superada)"]
+  
+  style Classic fill:#e7f0ec,stroke:#18796e,stroke-width:2px
+  style Dictum fill:#fdf0ed,stroke:#a53131,stroke-width:2px
+```
 
 ---
 
 ## 3. Condiciones de Reevaluación Metodológica
 
-El caso podrá ser reevaluado bajo el ciclo PDAEH únicamente si concurre al menos una de las siguientes condiciones:
-1. Aparición de problemas de optimización combinatoria de alta complejidad (NP-hard) en ruteo, planificación o logística a gran escala.
-2. Necesidad de procesamiento criptográfico post-cuántico (PQC) por regulación sectorial.
-3. Crecimiento exponencial de combinatorias no abordables mediante optimizadores heurísticos clásicos (ILP, SAT, CP).
+> [!IMPORTANT]
+> El caso podrá ser reevaluado bajo el ciclo PDAEH únicamente si concurre al menos una de las siguientes condiciones:
+> 1. **Optimización combinatoria:** Emergencia de problemas de alta complejidad (NP-hard) en planificación o logística masiva.
+> 2. **Criptografía Post-Cuántica (PQC):** Requerimiento regulatorio de migración criptográfica en reposo o en tránsito.
+> 3. **Límite clásico:** Crecimiento exponencial de estados que agote los optimizadores heurísticos convencionales (ILP, SAT, CP).
 
 *Fin del dictamen metodológico PDAEH.*"#.to_string()
     } else {

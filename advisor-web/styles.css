@@ -6,3 +6,23 @@
 
 .req{color:var(--danger);font-weight:700;margin-left:3px}
 .primary:disabled{opacity:.5;cursor:not-allowed;background:#879893!important}
+
+/* Componentes visuales modernos del agente PDAEH */
+.bubble blockquote{margin:1rem 0;padding:.8rem 1.1rem;border-left:4px solid var(--green);background:rgba(24,121,110,.07);border-radius:0 8px 8px 0;font-size:.92rem;line-height:1.6}
+.bubble blockquote p{margin:0}
+.bubble table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.88rem;background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.bubble th{background:#e7f0ec;color:var(--navy);font-weight:700;padding:.7rem .9rem;text-align:left;border-bottom:2px solid var(--line)}
+.bubble td{padding:.65rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+.bubble tr:last-child td{border-bottom:none}
+.bubble tr:nth-child(even) td{background:#fafcfb}
+
+.negative-diagnosis .bubble{border-left:5px solid var(--danger);background:#fdf6f6}
+.negative-diagnosis .bubble h1,.negative-diagnosis .bubble h2{color:var(--danger)}
+
+.diagram-shell{margin:1.4rem 0;padding:1.2rem;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.03);overflow-x:auto}
+.diagram-shell .mermaid{display:flex;justify-content:center;margin:0 auto}
+.diagram-shell figcaption{margin-top:.8rem;font-size:.78rem;color:var(--muted);text-align:center;font-weight:600;letter-spacing:.02em}
+
+.artifact-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .6rem;background:#e2eeea;color:var(--green);border-radius:4px;font-weight:700;font-size:.82rem;text-decoration:none;margin:.2rem .2rem .2rem 0;transition:background .15s}
+.artifact-badge:hover{background:#d0e5df}
+.artifact-badge svg{width:14px;height:14px}

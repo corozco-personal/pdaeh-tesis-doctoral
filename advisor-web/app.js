@@ -118,11 +118,18 @@
   }
 
   async function renderRichResponse(container, text) {
-    const negativeDiagnosis = /^#\s+DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO\s*$/im.test(text);
+    const negativeDiagnosis = /(?:DIAGNÓSTICO ARQUITECTÓNICO NEGATIVO|NO VIABLE PARA PDAEH)/i.test(text);
     container.closest(".message")?.classList.toggle("negative-diagnosis", negativeDiagnosis);
     if (!window.marked || !window.DOMPurify) { container.textContent = text; return; }
     const parseMarkdown = typeof window.marked === 'function' ? window.marked : (window.marked?.parse || window.marked);
-    const html = parseMarkdown(text, { gfm: true, breaks: true });
+    let html = parseMarkdown(text, { gfm: true, breaks: true });
+
+    // Transformar callouts de GitHub (> [!NOTE], > [!WARNING], etc.)
+    html = html.replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/gi, (m, type) => {
+      const cls = type.toLowerCase();
+      return `<blockquote class="callout callout-${cls}"><p><strong>${type.toUpperCase()}:</strong> `;
+    });
+
     container.innerHTML = window.DOMPurify.sanitize(html, {
       USE_PROFILES: { html: true },
       FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
