@@ -12,6 +12,7 @@
   let turnstileToken = "active";
   let turnstileWidgetId = null;
   let securityReady = true;
+  let isBusy = false;
 
   let mermaidInitialized = false;
   function ensureMermaid() {
@@ -160,6 +161,7 @@
   }
 
   function setBusy(busy) {
+    isBusy = busy;
     messages.setAttribute("aria-busy", String(busy));
     chatInput.disabled = busy || !started;
     sendButton.disabled = busy || !started;
@@ -262,7 +264,7 @@
       asIsEl.value.trim() &&
       maturityEl.value.trim()
     );
-    startDiagnosisBtn.disabled = busy || !isComplete;
+    startDiagnosisBtn.disabled = isBusy || !isComplete;
   }
 
   [orgSizeEl, coreProblemEl, asIsEl, maturityEl].forEach((el) => {
