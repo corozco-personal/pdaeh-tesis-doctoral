@@ -285,12 +285,15 @@ async fn advisor_handler(
             match chunk_result {
                 Ok(bytes) => {
                     let text = String::from_utf8_lossy(&bytes);
-                    buffer.push_str(&text);
+                    // Normalizar CRLF a LF para un parsing uniforme e infalible
+                    let normalized = text.replace("\r\n", "\n");
+                    buffer.push_str(&normalized);
 
                     while let Some(pos) = buffer.find("\n\n") {
                         let block: String = buffer.drain(..pos + 2).collect();
                         for line in block.lines() {
-                            if let Some(json_str) = line.strip_prefix("data:") {
+                            let trimmed = line.trim();
+                            if let Some(json_str) = trimmed.strip_prefix("data:") {
                                 let json_str = json_str.trim();
                                 if json_str.is_empty() {
                                     continue;
@@ -300,7 +303,6 @@ async fn advisor_handler(
                                         for cand in candidates {
                                             if let Some(parts) = cand.get("content").and_then(|c| c.get("parts")).and_then(|p| p.as_array()) {
                                                 for part in parts {
-                                                    // Filtrar thoughts
                                                     if part.get("thought").and_then(|t| t.as_bool()).unwrap_or(false) {
                                                         continue;
                                                     }
@@ -328,6 +330,33 @@ async fn advisor_handler(
                         Event::default().event("error").data(err_evt.to_string())
                     );
                     break;
+                }
+            }
+        }
+
+        if !buffer.trim().is_empty() {
+            for line in buffer.lines() {
+                let trimmed = line.trim();
+                if let Some(json_str) = trimmed.strip_prefix("data:") {
+                    let json_str = json_str.trim();
+                    if let Ok(val) = serde_json::from_str::<serde_json::Value>(json_str) {
+                        if let Some(candidates) = val.get("candidates").and_then(|c| c.as_array()) {
+                            for cand in candidates {
+                                if let Some(parts) = cand.get("content").and_then(|c| c.get("parts")).and_then(|p| p.as_array()) {
+                                    for part in parts {
+                                        if !part.get("thought").and_then(|t| t.as_bool()).unwrap_or(false) {
+                                            if let Some(txt) = part.get("text").and_then(|t| t.as_str()) {
+                                                let delta_evt = serde_json::json!({ "delta": txt });
+                                                yield Ok::<Event, Infallible>(
+                                                    Event::default().event("delta").data(delta_evt.to_string())
+                                                );
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
