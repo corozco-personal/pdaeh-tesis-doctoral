@@ -1,10 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    { "source": "/", "destination": "/advisor-web/index.html" },
-    { "source": "/app.js", "destination": "/advisor-web/app.js" },
-    { "source": "/styles.css", "destination": "/advisor-web/styles.css" }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*)",

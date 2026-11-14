@@ -4,6 +4,7 @@
   "private": true,
   "description": "Aplicación web independiente del agente metodológico PDAEH Advisor",
   "scripts": {
+    "build": "node scripts/build-advisor.mjs",
     "test": "node --test tests/*.test.js"
   },
   "engines": {

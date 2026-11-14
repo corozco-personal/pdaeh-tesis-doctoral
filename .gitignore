@@ -26,6 +26,7 @@ Thumbs.db
 
 # Node & Python caches
 node_modules/
+dist/
 __pycache__/
 *.pyc
 *.pyo
@@ -42,3 +43,5 @@ env/
 
 # Temporary scripts
 generate_specs.py
+.vercel
+.env*
