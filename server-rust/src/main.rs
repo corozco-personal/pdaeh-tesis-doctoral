@@ -170,18 +170,56 @@ async fn advisor_handler(
         }
     });
 
-    // Intentar con el modelo configurado o fallback
-    let candidate_models = vec![
-        state.gemini_model.as_str(),
-        "gemini-2.5-flash",
-        "gemini-1.5-flash",
-        "gemini-1.5-pro",
-    ];
+    // 1. Consultar ModelService.ListModels para descubrir los modelos activos autorizados para esta clave
+    let list_url = format!(
+        "https://generativelanguage.googleapis.com/v1beta/models?key={}",
+        *state.gemini_key
+    );
+
+    let mut candidate_models: Vec<String> = Vec::new();
+
+    if let Ok(list_res) = state.client.get(&list_url).send().await {
+        if list_res.status().is_success() {
+            if let Ok(val) = list_res.json::<serde_json::Value>().await {
+                if let Some(models) = val.get("models").and_then(|m| m.as_array()) {
+                    for m in models {
+                        let is_generate = m.get("supportedGenerationMethods")
+                            .and_then(|methods| methods.as_array())
+                            .map(|arr| arr.iter().any(|method| method.as_str() == Some("generateContent")))
+                            .unwrap_or(false);
+
+                        if is_generate {
+                            if let Some(name) = m.get("name").and_then(|n| n.as_str()) {
+                                let model_id = name.strip_prefix("models/").unwrap_or(name);
+                                candidate_models.push(model_id.to_string());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Ordenar priorizando modelos flash o experimentales
+    candidate_models.sort_by(|a, b| {
+        let score = |s: &str| {
+            if s.contains("flash") { 0 }
+            else if s.contains("pro") { 1 }
+            else { 2 }
+        };
+        score(a).cmp(&score(b))
+    });
+
+    if candidate_models.is_empty() {
+        candidate_models.push(state.gemini_model.to_string());
+    }
+
+    tracing::info!("Modelos activos con generateContent descubiertos: {:?}", candidate_models);
 
     let mut gemini_res = None;
     let mut last_error = String::new();
 
-    for model_name in candidate_models {
+    for model_name in &candidate_models {
         let url = format!(
             "https://generativelanguage.googleapis.com/v1beta/models/{}:streamGenerateContent?alt=sse&key={}",
             model_name, *state.gemini_key
@@ -198,7 +236,6 @@ async fn advisor_handler(
                     let body = res.text().await.unwrap_or_default();
                     tracing::warn!("Modelo {} falló ({})", model_name, status);
                     last_error = format!("{} ({}): {}", model_name, status, body);
-                    // Si el error no es 404 (p. ej. 400 o 403 clave inválida), no tiene sentido reintentar otros modelos
                     if status != StatusCode::NOT_FOUND {
                         break;
                     }
