@@ -902,3 +902,43 @@ details.activity .activity-content {
 #glossaryTables table tr td:first-child * {
   text-align: center !important;
 }
+
+
+/* === Optimización de Espaciado Vertical entre Secciones Grandes y Subsecciones === */
+.section {
+  padding-top: clamp(2rem, 3.5vw, 3rem) !important;
+  padding-bottom: clamp(1.8rem, 3vw, 2.5rem) !important;
+  margin-bottom: 0 !important;
+}
+
+.intro {
+  padding-top: clamp(2.5rem, 4vw, 3.5rem) !important;
+  padding-bottom: clamp(1.8rem, 3vw, 2.5rem) !important;
+}
+
+.subsection {
+  padding-top: 1.8rem !important;
+  padding-bottom: 1.2rem !important;
+  margin-top: 1.5rem !important;
+}
+
+#glosario {
+  margin-top: 1.8rem !important;
+  padding-top: 1.5rem !important;
+}
+
+#artifactTemplates {
+  margin-bottom: 1.5rem !important;
+}
+
+#artifactTemplates section.numbered-table {
+  margin: 1rem 0 1.2rem 0 !important;
+}
+
+#glossaryTables .numbered-table:last-child {
+  margin-bottom: 0.5rem !important;
+}
+
+.numbered-table {
+  margin: 1.2rem 0 1.5rem 0 !important;
+}
