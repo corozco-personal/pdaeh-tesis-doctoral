@@ -362,9 +362,7 @@
       </button>
     </form>
 
-    <div class="method-note">
-      <strong>Contrato metodológico:</strong> 5 fases, 10 elementos, 15 artefactos y 5 compuertas OGA. Svelte Core garantiza actualización de 60 FPS sin reflows pesados.
-    </div>
+
   </aside>
 
   <!-- Panel Derecho: Conversación y Dictamen -->
