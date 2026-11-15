@@ -215,7 +215,7 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -228,7 +228,7 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DCA.md" download="Plantilla_DCA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DCA.docx" download="Plantilla_DCA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DCA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DCA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -241,7 +241,7 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_MSP.md" download="Plantilla_MSP_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_MSP.docx" download="Plantilla_MSP_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=MSP" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=MSP" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -254,7 +254,7 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 </div>
@@ -370,7 +370,7 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -383,7 +383,7 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -396,7 +396,7 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_BER.md" download="Plantilla_BER_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_BER.docx" download="Plantilla_BER_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=BER" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=BER" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 </div>
@@ -498,7 +498,7 @@ flowchart LR
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -511,7 +511,7 @@ flowchart LR
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 
@@ -524,7 +524,7 @@ flowchart LR
     <div class="artifact-actions">
       <a href="./assets/descargas/markdown/Plantilla_LBA.md" download="Plantilla_LBA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
       <a href="./assets/descargas/docx/Plantilla_LBA.docx" download="Plantilla_LBA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="plantilla.html?id=LBA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=LBA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
     </div>
   </div>
 </div>

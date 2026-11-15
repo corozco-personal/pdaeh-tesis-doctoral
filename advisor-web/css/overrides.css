@@ -1,0 +1,1035 @@
+p,.structured-list li,.protocol li,.contents-list li,td,dd{text-align:justify;hyphens:none}.research-intro{max-width:100%;margin:20px 0 24px;padding:0;border:none}.research-intro p{font-size:1.12rem;line-height:1.8;margin:0 0 14px}figcaption,.numbered-table>h4,.template-section>h2{text-align:center}th{text-align:center!important;vertical-align:middle}.harmony-steps article{display:block}.harmony-steps article>h4{margin:0 0 16px;font-size:1.12rem}.macro-figure img{width:100%;max-height:820px;object-fit:contain}.contents-list a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:4px}.contents-list a:hover{color:var(--green)}.transversal-io{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0}.transversal-io article{background:var(--paper);border:1px solid var(--line);padding:24px}.transversal-io h4{margin:0 0 12px;color:var(--green)}.element-accordion{border-top:1px solid var(--line)}.element-accordion details{border-bottom:1px solid var(--line);background:#fff}.element-accordion summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 24px;cursor:pointer;list-style:none;font-size:1.08rem}.element-accordion summary::-webkit-details-marker{display:none}.element-accordion summary:after{content:"+";font-size:1.5rem;color:var(--green)}.element-accordion details[open] summary:after{content:"−"}.element-accordion summary small{margin-left:auto;text-align:right;text-transform:uppercase;letter-spacing:.08em;color:var(--green);font-weight:700}.element-summary-body{padding:0 24px 26px}.element-summary-body h5{margin:22px 0 10px;text-transform:uppercase;color:var(--green);letter-spacing:.08em}.artifact-link{color:var(--green);text-underline-offset:3px}.role-avatar{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;letter-spacing:.03em;margin:auto}.indicators strong{color:var(--ink)}.phase-card,.artifact-card{display:grid;grid-template-columns:76px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}.phase-card>span,.artifact-card>span{font-family:Newsreader,serif;font-size:2rem;color:var(--green)}.phase-card h3,.artifact-card h3{margin:0 0 8px;font-size:1.4rem}.phase-card a,.artifact-card a{font-weight:700;color:var(--green);text-decoration:none}#artifactTemplates{display:block!important;width:100%!important;max-width:100%!important}.detail-page{max-width:1180px;margin:0 auto;padding:110px 34px 80px}.detail-hero{padding:70px 0 44px;border-bottom:1px solid var(--line)}.detail-hero>p:first-child{text-transform:uppercase;letter-spacing:.13em;color:var(--green);font-weight:700}.detail-hero h1{font-family:Newsreader,serif;font-size:clamp(3rem,7vw,5.7rem);line-height:.98;margin:16px 0 24px}.detail-hero>p:last-child{max-width:880px;font-size:1.15rem;line-height:1.75}.phase-nav,.artifact-pagination{display:flex;gap:9px;flex-wrap:wrap;margin:30px 0 50px}.phase-nav a,.artifact-pagination a{display:grid;place-items:center;min-width:46px;height:42px;padding:0 14px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}.phase-nav a.active,.artifact-pagination a.active{background:var(--navy);color:#fff;border-color:var(--navy)}.phase-overview,.element-section{padding:42px 0;border-bottom:1px solid var(--line)}.phase-overview figure,.element-section figure{margin:42px 0;text-align:center}.phase-overview img,.element-section img{max-width:100%;max-height:840px;object-fit:contain;background:#fff;border:1px solid var(--line)}.element-section>header h2{font-family:Newsreader,serif;font-size:2.4rem;margin-bottom:10px}.activity summary code{margin-right:14px;white-space:nowrap}.phase-pagination{display:flex;justify-content:space-between;padding:48px 0}.phase-pagination a{font-weight:700;color:var(--green)}.template-instructions,.template-section{padding:34px 0;border-bottom:1px solid var(--line)}.template-instructions aside{margin-top:22px;padding:18px 20px;background:var(--paper);border-left:3px solid var(--green)}.template-section table{width:100%;border-collapse:collapse;background:#fff}.template-section th,.template-section td{border:1px solid var(--line);padding:14px;vertical-align:top}.template-section th{background:#e7efeb}.template-section .fillable{color:#78827f;font-style:italic}.print-button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;font-weight:700}@media(max-width:800px){.transversal-io,#artifactTemplates{grid-template-columns:1fr}.element-accordion summary{align-items:flex-start;flex-wrap:wrap}.element-accordion summary small{width:100%;text-align:justify;margin:0}.detail-page{padding:82px 20px 50px}.phase-data,.element-data{grid-template-columns:1fr}.phase-card,.artifact-card{grid-template-columns:48px 1fr}.print-button{display:none}}@media print{.topbar,footer,.artifact-pagination,.print-button{display:none!important}.detail-page{padding:0;max-width:none}.detail-hero{padding-top:0}.template-section{break-inside:avoid}.fillable{min-width:120px;height:45px;color:transparent!important}}
+
+
+/* === Mejoras de aprovechamiento del espacio, reducción de espacios en blanco y escala tipográfica === */
+.intro h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
+  line-height: 1.1 !important;
+  max-width: 100% !important;
+  margin: 0.35rem 0 1.2rem 0 !important;
+}
+
+.intro {
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) !important;
+}
+
+.intro-inner {
+  max-width: 1600px !important;
+}
+
+.research-intro {
+  max-width: 100% !important;
+  margin: 18px 0 24px !important;
+}
+
+.research-intro p {
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 10px !important;
+}
+
+.section {
+  max-width: 1650px !important;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) !important;
+}
+
+.section-header {
+  margin-bottom: 1.8rem !important;
+  row-gap: 0.5rem !important;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  line-height: 1.15 !important;
+}
+
+.project-overview {
+  margin-top: 1.8rem !important;
+}
+
+.project-overview article {
+  padding: 1.25rem 1.5rem !important;
+}
+
+.detail-page {
+  max-width: 1550px !important;
+  padding: 85px 36px 60px !important;
+}
+
+.detail-hero {
+  padding: 35px 0 25px !important;
+}
+
+.detail-hero h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem) !important;
+  line-height: 1.1 !important;
+  margin: 10px 0 16px !important;
+}
+
+.detail-hero > p:last-child {
+  max-width: 1250px !important;
+}
+
+/* Evitar corte de palabras con guiones */
+*, p, .structured-list li, .protocol li, .contents-list li, td, dd, div, span, h1, h2, h3, h4, h5 {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+}
+
+p, .structured-list li, .protocol li, .contents-list li, td, dd {
+  text-align: justify !important;
+}
+
+/* === Barra de Migas de Pan (Breadcrumbs) === */
+.breadcrumb-bar {
+  background: #fdfdfc;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem clamp(1.2rem, 4vw, 4rem);
+  font-size: 0.85rem;
+  color: var(--muted);
+  position: sticky;
+  top: 72px;
+  z-index: 15;
+  backdrop-filter: blur(8px);
+}
+
+.breadcrumb-nav {
+  max-width: 1650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-nav a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #a0aba6;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+
+/* === Alineación y Justificación de Párrafos y Bloques de Texto === */
+p, 
+.research-intro p,
+.intro p,
+.section p,
+.subsection p,
+.element-summary-body p,
+.phase-overview p,
+.activity-detail p,
+.activity-content p,
+.template-instructions p,
+.structured-list li, 
+.protocol li, 
+.contents-list li, 
+dd {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+}
+
+figcaption, .numbered-table > h4, .template-section > h2, th {
+  text-align: center !important;
+}
+
+
+/* Ocultar cualquier etiqueta de dimensión en el resumen de los elementos */
+.element-accordion summary small {
+  display: none !important;
+}
+
+
+/* === Estructura vertical limpia para encabezados de sección === */
+.section-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  margin-bottom: 2.2rem !important;
+}
+
+.section-header .section-number {
+  margin: 0 !important;
+}
+
+.section-header h2 {
+  width: 100% !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.section-header > p:last-child,
+.section-header > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+
+/* === Unificación del formato y tamaño de títulos de secciones principales === */
+h1, .intro h1, .detail-hero h1 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+h2, .section-header h2, .section h2, .detail-page h2 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(2rem, 3.2vw, 2.9rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--ink) !important;
+}
+
+h3, .subsection h3, .section h3 {
+  font-family: Newsreader, serif !important;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: var(--ink) !important;
+}
+
+/* === Márgenes de resguardo y padding generoso para evitar texto pegado al borde === */
+.section, .intro, .detail-page {
+  padding-left: clamp(2rem, 6vw, 6rem) !important;
+  padding-right: clamp(2rem, 6vw, 6rem) !important;
+  box-sizing: border-box !important;
+}
+
+.intro-inner, .section, .detail-page {
+  max-width: 1550px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* === Tarjetas generales apiladas verticalmente (un item debajo del anterior) === */
+.project-overview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  margin-top: 2rem !important;
+}
+
+.project-overview article {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-left: 4px solid var(--green) !important;
+  border-radius: 4px !important;
+  padding: 1.6rem 2rem !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+.project-overview article h2,
+.project-overview article h3 {
+  font-family: Newsreader, serif !important;
+  font-size: 1.45rem !important;
+  margin: 0 0 0.5rem 0 !important;
+  color: var(--green) !important;
+}
+
+.project-overview article p {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: var(--ink) !important;
+  margin: 0 !important;
+}
+
+
+/* === Ocupar el 100% del ancho útil sin recortes a la derecha === */
+.definition,
+.research-intro,
+.protocol,
+.project-overview,
+.project-overview article,
+.wide-figure,
+.model-figure,
+.macro-figure,
+.element-accordion,
+.transversal-io,
+.evidence,
+.template-instructions aside {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.definition {
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-left: 5px solid var(--green) !important;
+  border-radius: 4px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 2.5rem 0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.definition h3 {
+  font-family: Newsreader, serif !important;
+  font-size: 1.55rem !important;
+  color: var(--green) !important;
+  margin: 0 0 0.6rem 0 !important;
+}
+
+.definition p {
+  color: var(--ink) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+  text-align: justify !important;
+}
+
+/* Alineación consistente en el contenedor de sección */
+.section, .model-section, .phases-section, .reference-section {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+/* === Centrado de títulos de las dimensiones en sus tarjetas === */
+.dimensions article h3 {
+  text-align: center !important;
+  margin: 0 0 0.8rem 0 !important;
+}
+
+
+/* === Ocupar todo el ancho útil disponible a la derecha (100% del contenedor) === */
+.section-header > div,
+.section-header > p,
+.intro-inner,
+.research-intro,
+.definition,
+.protocol,
+.project-overview,
+.project-overview article,
+.wide-figure,
+.model-figure,
+.macro-figure,
+.element-accordion,
+.transversal-io,
+.evidence,
+.note-box,
+div[style*="border-left"],
+p[style*="border-left"],
+.template-instructions aside {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+/* === Centrado automático de guiones, rayas o acrónimos en celdas de tablas === */
+td:empty,
+td[data-center="true"],
+#traceabilityMatrixContainer td:nth-child(3),
+#traceabilityMatrixContainer td:nth-child(5) {
+  text-align: center !important;
+}
+
+#artifactTemplates {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#artifactTemplates section.numbered-table {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1.5rem 0 2rem 0 !important;
+  box-sizing: border-box !important;
+}
+
+#artifactTemplates .table-shell {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+}
+
+#artifactTemplates table {
+  display: table !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+  box-sizing: border-box !important;
+}
+
+/* === Eliminar restricciones de ancho (max-width) en todos los parrafos y bloques de texto === */
+p,
+.subsection > p,
+.subsection p,
+.section > p,
+.section p,
+.section-header > p,
+.phase-heading > p,
+.element-section > header p,
+.model-section > *,
+.rsl-stage header,
+.rsl-stage p,
+.protocol p,
+.protocol ul,
+.protocol ol,
+.structured-list,
+.contents-list {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Consistent visual hierarchy for every numbered Advisor section. */
+.advisor-section-card {
+  margin: 1.4rem 0;
+  padding: 1.2rem 1.3rem;
+  background: #f9fbfa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.advisor-section-card > h5 {
+  margin: 0 0 .65rem !important;
+  color: var(--navy) !important;
+}
+
+.advisor-section-card > ul,
+.advisor-section-card > ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.advisor-stream-chunk {
+  animation: advisor-stream-reveal .32s ease-out both;
+}
+
+.advisor-generation-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 1.15em;
+  margin: .35rem 0 .35rem .2rem;
+  vertical-align: text-bottom;
+  background: var(--green);
+  animation: advisor-cursor-blink .75s steps(1) infinite;
+}
+
+@keyframes advisor-stream-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes advisor-cursor-blink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .advisor-stream-chunk { animation: none; }
+  .advisor-generation-cursor { animation-duration: 1.4s; }
+}
+
+.research-publications-card { margin-top:1.35rem;padding:1.8rem 2rem;background:#fff;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.03) }
+.research-publications-label { display:inline-block;padding:3px 8px;border-radius:3px;background:#e7efeb;color:var(--green);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase }
+.research-publications-card h3 { margin:.55rem 0 .35rem;color:var(--ink);font:600 1.8rem/1.15 Newsreader,serif }
+.research-publications-card>p { margin:0 0 1rem;color:var(--muted) }
+.research-publications-list { display:grid;gap:.75rem;margin:0;padding:0;list-style:none }
+.research-publications-list li { display:grid;grid-template-columns:minmax(95px,auto) 1fr;gap:1rem;align-items:start;padding:1rem;background:#f9fbfa;border:1px solid var(--line);border-radius:4px }
+.research-publications-list a { color:var(--ink);text-decoration-color:var(--green);text-underline-offset:3px }
+.publication-status { display:inline-flex;justify-content:center;padding:.25rem .55rem;border-radius:999px;font-size:.72rem;font-weight:700;text-align:center }
+.publication-status.is-published { background:#dff2e8;color:#12634f }
+.publication-status.is-review { background:#fff1cc;color:#7a5600 }
+@media(max-width:700px){.research-publications-card{padding:1.3rem}.research-publications-list li{grid-template-columns:1fr}.publication-status{justify-self:start}}
+
+.project-overview-list {
+  margin: 1.8rem 0 0;
+  padding-left: 1.45rem;
+}
+
+.project-overview-list li {
+  padding: .45rem 0 .45rem .2rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.project-overview-list li::marker {
+  color: var(--green);
+}
+
+.project-overview-list strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Los nombres y etiquetas breves no deben justificarse en columnas estrechas. */
+#roleTable td,
+#roleTable td * {
+  text-align: left !important;
+  text-justify: auto !important;
+  word-spacing: normal !important;
+  letter-spacing: normal;
+}
+
+#roleTable .role-avatar {
+  text-align: center !important;
+}
+
+.harmony-process-figure .harmony-process-image { display: none; }
+html[lang="es"] .harmony-process-figure .language-es { display: block; }
+html[lang="en"] .harmony-process-figure .language-en,
+html[lang="fr"] .harmony-process-figure .language-en { display: block; }
+
+.advisor-entry { background:#f6faf8; }
+.advisor-entry-link { display:flex;justify-content:space-between;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:6px;padding:1.4rem 1.6rem;text-decoration:none;color:var(--ink); }
+.advisor-entry-link strong { display:block;font-size:1.1rem; }
+.advisor-entry-link small { display:block;color:var(--muted);margin-top:.25rem; }
+.advisor-entry-link>span:last-child { font-size:1.7rem;color:var(--green); }
+
+/* Panel transparente sin borde ni sombra para el modelo de referencia */
+.model-figure,
+.model-figure.vector-figure {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.model-figure img,
+.model-figure.vector-figure img {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Widget flotante: Guía Rápida del Evaluador */
+.evaluator-nav-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.evaluator-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 220px !important;
+  box-sizing: border-box !important;
+  padding: 10px 16px;
+  background: var(--navy, #0F3B43);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 30px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 59, 67, 0.35);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.evaluator-toggle-btn:hover {
+  background: var(--green, #18796E);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(24, 121, 110, 0.4);
+}
+.evaluator-menu-panel {
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  width: 440px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.evaluator-menu-panel[hidden] {
+  display: none;
+}
+.eval-menu-header {
+  padding: 14px 16px;
+  background: #f8faf9;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.eval-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--ink-light, #64748b);
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+.eval-close-btn:hover {
+  color: var(--ink, #0f172a);
+}
+.eval-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  max-height: 380px;
+  overflow-y: auto;
+}
+.eval-links-list li {
+  margin: 0;
+  padding: 0;
+}
+.eval-links-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
+  color: var(--ink, #0f172a);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: background 0.15s ease;
+}
+.eval-sec-desc {
+  flex: 1;
+  text-align: left !important;
+  white-space: normal;
+  word-break: normal;
+}
+.eval-links-list a:hover {
+  background: #f0fdf4;
+}
+.eval-sec-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  background: #eef5f3;
+  color: var(--green, #18796E);
+  font-weight: 700;
+  font-size: 0.76rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.eval-sec-desc {
+  flex: 1;
+  text-align: left !important;
+}
+.eval-menu-footer {
+  padding: 12px 16px;
+  background: #fafcfb;
+  border-top: 1px solid var(--line, #e2e8f0);
+}
+.eval-form-direct-btn {
+  display: block;
+  text-align: center;
+  padding: 8px 12px;
+  background: var(--green, #18796E);
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(24, 121, 110, 0.25);
+  transition: background 0.2s ease;
+}
+.eval-form-direct-btn:hover {
+  background: var(--navy, #0F3B43);
+}
+
+
+/* === Correcciones de Estilo Globales solicitadas por el usuario === */
+
+/* 1. Evitar solapamiento en el branding de la cabecera */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.brand > span:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  line-height: 1.15 !important;
+}
+
+.brand strong {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--navy) !important;
+  display: block !important;
+  line-height: 1.15 !important;
+}
+
+.brand small {
+  font-size: 0.68rem !important;
+  color: var(--muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  display: block !important;
+  margin-top: 2px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+}
+
+.topbar nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  flex-wrap: wrap !important;
+}
+
+/* 2. Unificación visual de páginas de detalle (.detail-page) con la página principal */
+.detail-page {
+  width: 100% !important;
+  max-width: 1550px !important;
+  margin: 0 auto !important;
+  padding: 40px clamp(1.5rem, 5vw, 5rem) 70px !important;
+  box-sizing: border-box !important;
+}
+
+.detail-page .breadcrumb-bar {
+  position: static !important;
+  padding: 0.85rem 0 !important;
+  margin-bottom: 2rem !important;
+  background: transparent !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.template-section table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: #ffffff !important;
+  margin: 1.2rem 0 !important;
+}
+
+.template-section th,
+.template-section td {
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 3. Homogeneización de acordeones de actividades (OGA y fases) con símbolo + */
+.activities {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  margin-top: 1.5rem !important;
+}
+
+details.activity {
+  background: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+details.activity summary {
+  list-style: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.2rem !important;
+  padding: 18px 20px !important;
+  cursor: pointer !important;
+  font-size: 1.02rem !important;
+  background: #ffffff !important;
+  transition: background 0.15s ease !important;
+}
+
+details.activity summary:hover {
+  background: #f8faf9 !important;
+}
+
+details.activity summary::-webkit-details-marker {
+  display: none !important;
+}
+
+details.activity summary code {
+  color: var(--green) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  min-width: 120px !important;
+}
+
+details.activity summary strong {
+  flex: 1 !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+
+details.activity summary span {
+  display: none !important;
+}
+
+details.activity summary::after {
+  content: "+" !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  color: var(--green) !important;
+  line-height: 1 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+details.activity[open] summary::after {
+  content: "−" !important;
+}
+
+details.activity .activity-content {
+  padding: 18px 24px 24px !important;
+  border-top: 1px solid var(--line) !important;
+  background: #fafcfb !important;
+}
+
+/* 4. Barra de paginación de artefactos limpia y estilizada */
+.artifact-pagination {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin: 35px 0 50px !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid var(--line) !important;
+  justify-content: flex-start !important;
+}
+
+.artifact-pagination a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 44px !important;
+  height: 38px !important;
+  padding: 0 12px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  color: var(--ink) !important;
+  background: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  transition: all 0.15s ease !important;
+}
+
+.artifact-pagination a:hover {
+  background: #eef5f3 !important;
+  color: var(--green) !important;
+  border-color: #c2dbd4 !important;
+}
+
+.artifact-pagination a.active {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-color: var(--navy) !important;
+}
+
+
+/* Centrado forzado para columnas de identificadores y códigos */
+#artifactTemplates td:first-child,
+#artifactTemplates th:first-child,
+.numbered-table table td.col-center,
+.numbered-table table th.col-center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+#glossaryTables td:first-child,
+#glossaryTables th:first-child {
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-weight: 700 !important;
+  width: 180px !important;
+}
+
+
+/* Centrado estricto e invariable para columnas de términos en ambas tablas del glosario (Tabla 6 y Tabla 7) */
+#glossaryTables table tr td:first-child,
+#glossaryTables table tr th:first-child,
+#glossaryTables .table-shell table td:first-child,
+#glossaryTables .table-shell table th:first-child {
+  text-align: center !important;
+  text-align: -webkit-center !important;
+  vertical-align: middle !important;
+  font-weight: 700 !important;
+  width: 220px !important;
+  white-space: normal !important;
+}
+
+#glossaryTables table tr td:first-child * {
+  text-align: center !important;
+}
+
+
+/* === Optimización de Espaciado Vertical entre Secciones Grandes y Subsecciones === */
+.section {
+  padding-top: clamp(2rem, 3.5vw, 3rem) !important;
+  padding-bottom: clamp(1.8rem, 3vw, 2.5rem) !important;
+  margin-bottom: 0 !important;
+}
+
+.intro {
+  padding-top: clamp(2.5rem, 4vw, 3.5rem) !important;
+  padding-bottom: clamp(1.8rem, 3vw, 2.5rem) !important;
+}
+
+.subsection {
+  padding-top: 1.8rem !important;
+  padding-bottom: 1.2rem !important;
+  margin-top: 1.5rem !important;
+}
+
+#glosario {
+  margin-top: 1.8rem !important;
+  padding-top: 1.5rem !important;
+}
+
+#artifactTemplates {
+  margin-bottom: 1.5rem !important;
+}
+
+#artifactTemplates section.numbered-table {
+  margin: 1rem 0 1.2rem 0 !important;
+}
+
+#glossaryTables .numbered-table:last-child {
+  margin-bottom: 0.5rem !important;
+}
+
+.numbered-table {
+  margin: 1.2rem 0 1.5rem 0 !important;
+}
+
+/* Refuerzo explícito para acordeón de gobernanza OGA y todas las actividades */
+#ogaSteps,
+.activities {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  margin-top: 1.5rem !important;
+}
+
+#ogaSteps details.activity,
+#ogaSteps .activity,
+details.activity,
+.activity {
+  background: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+#ogaSteps summary span,
+.activity summary span {
+  display: none !important;
+}
+
+#ogaSteps summary::after,
+.activity summary::after {
+  content: "+" !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  color: var(--green) !important;
+  line-height: 1 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+#ogaSteps details[open] summary::after,
+.activity[open] summary::after {
+  content: "−" !important;
+}
+
+
+/* Botones en columna del widget flotante de evaluación */
+.evaluator-widget-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.eval-forms-action-btn {
+  background: #ffffff !important;
+  color: var(--navy, #0F3B43) !important;
+  border: 1px solid var(--line, #e2e8f0) !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+.eval-forms-action-btn:hover {
+  background: #f8fafc !important;
+  border-color: #7248B9 !important;
+  color: #5E35B1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(114, 72, 185, 0.25) !important;
+}
+
+.eval-advisor-action-btn {
+  background: #09252a !important;
+  color: #e6fffa !important;
+  border: 1px solid #18796e !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(9, 37, 42, 0.35) !important;
+}
+
+.eval-advisor-action-btn:hover {
+  background: #18796e !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(24, 121, 110, 0.45) !important;
+}
+
+.evaluator-menu-panel {
+  bottom: 155px !important;
+}

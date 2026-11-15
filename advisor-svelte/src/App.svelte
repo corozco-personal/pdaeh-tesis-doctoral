@@ -105,13 +105,18 @@
       return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
     });
 
+    html = html.replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"/gi, (match, href) => {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer"`;
+    });
+
     html = html.replace(/<table>/gi, '<div class="table-responsive"><table>');
     html = html.replace(/<\/table>/gi, '</table></div>');
 
     return DOMPurify.sanitize(html, {
       USE_PROFILES: { html: true },
       FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
-      FORBID_ATTR: ["style", "srcset"]
+      FORBID_ATTR: ["style", "srcset"],
+      ADD_ATTR: ["target", "rel"]
     });
   }
 

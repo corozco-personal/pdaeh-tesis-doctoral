@@ -542,8 +542,11 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
 .evaluator-toggle-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
+  width: 220px !important;
+  box-sizing: border-box !important;
+  padding: 10px 16px;
   background: var(--navy, #0F3B43);
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.15);
@@ -553,6 +556,7 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(15, 59, 67, 0.35);
   transition: all 0.2s ease;
+  text-align: center;
 }
 .evaluator-toggle-btn:hover {
   background: var(--green, #18796E);
@@ -1011,6 +1015,21 @@ details.activity,
   box-shadow: 0 6px 18px rgba(114, 72, 185, 0.25) !important;
 }
 
+.eval-advisor-action-btn {
+  background: #09252a !important;
+  color: #e6fffa !important;
+  border: 1px solid #18796e !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(9, 37, 42, 0.35) !important;
+}
+
+.eval-advisor-action-btn:hover {
+  background: #18796e !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(24, 121, 110, 0.45) !important;
+}
+
 .evaluator-menu-panel {
-  bottom: 105px !important;
+  bottom: 155px !important;
 }

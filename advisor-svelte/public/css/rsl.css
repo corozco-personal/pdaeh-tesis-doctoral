@@ -1,0 +1,5 @@
+.rsl-stage{padding:42px 0;border-top:1px solid var(--line)}
+.rsl-stage header{max-width:980px}
+.rsl-stage header>p:first-child{margin:0 0 8px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}
+.rsl-stage h3{font:600 clamp(2rem,3.4vw,3.2rem)/1.05 Newsreader;margin:0 0 14px}
+.rsl-stage .wide-figure{margin-top:24px}
