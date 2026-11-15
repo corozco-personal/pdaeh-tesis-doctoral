@@ -1051,4 +1051,105 @@
       min-height: 500px;
     }
   }
+
+/* Tarjetas de Artefactos Descargables PDAEH */
+.artifacts-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.artifact-card {
+  background: #ffffff;
+  border: 1px solid var(--line, #d8e1dd);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.artifact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21,43,67,0.08);
+  border-color: var(--green, #18796e);
+}
+
+.artifact-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.artifact-header strong {
+  font-size: 0.95rem;
+  color: var(--navy, #152b43);
+  line-height: 1.3;
+}
+
+.artifact-card p {
+  font-size: 0.84rem;
+  color: var(--muted, #66756f);
+  line-height: 1.45;
+  margin: 0 0 0.85rem !important;
+  flex: 1;
+}
+
+.artifact-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 0.65rem;
+  border-top: 1px solid #edf2ef;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 1px solid var(--line, #d8e1dd);
+  background: #f8faf9;
+  color: var(--ink, #1d2b39);
+}
+
+.btn-download:hover {
+  background: #edf5f2;
+  border-color: var(--green, #18796e);
+  color: var(--green, #18796e);
+}
+
+.btn-download.primary-dl {
+  background: var(--green, #18796e);
+  color: #ffffff;
+  border-color: var(--green, #18796e);
+}
+
+.btn-download.primary-dl:hover {
+  background: #11695f;
+  border-color: #11695f;
+  color: #ffffff;
+}
+
+.btn-download.text-dl {
+  background: transparent;
+  border-color: transparent;
+  color: var(--green, #18796e);
+  padding: 0.4rem 0.4rem;
+}
+
+.btn-download.text-dl:hover {
+  text-decoration: underline;
+}
+
 </style>

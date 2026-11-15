@@ -131,35 +131,66 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 
 ---
 
-## 3. Topología de Integración y Decisión Arquitectónica (C4 Nivel 2)
+## 3. Benchmarking Industrial: Organizaciones con Desafíos Similares
+
+A partir de la base de conocimiento y referencias de la industria financiera internacional, se identifican las siguientes implementaciones análogas de co-procesamiento híbrido:
+
+| Organización de Referencia | Sector / Caso de Uso | Enfoque Algorítmico e Infraestructura Híbrida | Lección Aprendida y Criterio PDAEH |
+| :--- | :--- | :--- | :--- |
+| **BBVA & Multiverse Computing** | Banca y Gestión de Inversiones / Optimización de Carteras con Restricciones de Liquidez | Algoritmo híbrido clásico-cuántico VQE / QAOA combinado con computación clásica HPC y D-Wave Advantage. | El preprocesamiento clásico y la reducción de dimensionalidad son obligatorios para no saturar los qubits físicos NISQ. |
+| **JPMorgan Chase & QC Ware** | Banca de Inversión / Selección de Activos y Estrategias Hedging | Co-procesamiento con QPU basada en compuertas (Gate-based) y optimizadores clásicos COBYLA / SPSA. | Es imprescindible contar con un fallback clásico determinista si la latencia de cola en la nube cuántica supera el SLA de negocio. |
+| **Goldman Sachs & AWS Braket** | Mercados de Capitales / Simulación Monte Carlo y Riesgo Financiero | Aceleración cuántica mediante estimación de fase cuántica (QPE) y algoritmos variacionales asistidos por CPU clásica. | La custodia y anonimización de datos de mercado deben resolverse en el perímetro clásico antes de remitir circuitos a la nube. |
+
+---
+
+## 4. Diagrama de Arquitectura Híbrida Sugerida (C4 Contenedores)
+
+> [!TIP]
+> **Convención Cromática del Diagrama:**
+> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de FinNova.
+> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas sugeridas por el marco PDAEH** (no contempladas en la solución original) requeridas para gobernar el ciclo cuántico y asegurar la resiliencia operativa.
 
 ```mermaid
 graph TD
-  subgraph Clásico ["Plataforma Clásica Existente (As-Is)"]
-    A["Servicios de Portafolio y Mercado"] --> B["Cálculo de Covarianza y Riesgo"]
-    B --> C["Motor de Cumplimiento Normativo"]
+  subgraph AS_IS ["1. Plataforma Clásica Existente en FinNova (As-Is)"]
+    A["Servicio de Portafolio y Cuentas\n(Microservicio Go / REST)"]
+    B["Motor de Series Temporales y Mercado\n(TimescaleDB / Kafka)"]
+    C["Motor Clásico de Riesgo y CVaR\n(Python / NumPy / PostgreSQL)"]
+    D["Servicio de Cumplimiento y Auditoría\n(Spring Boot / Postgres)"]
   end
 
-  subgraph Híbrido ["Capa de Integración Cuántica PDAEH (QIL)"]
-    D["Mapeador Matemático QUBO/Ising"] --> E{"Orquestador y Broker Híbrido"}
-    E -- "Canal Cuántico Principal" --> F["QPU Remota (QAOA / AWS Braket / IBM)"]
-    E -. "Fallback Contingente (Fallo/Latencia)" .-> G["Recocido Simulado Clásico (HPC)"]
-    F --> H["Mitigación de Ruido y Decodificador"]
-    G --> H
+  subgraph QIL ["2. Capa de Integración Cuántica PDAEH (QIL) — NUEVAS CAPACIDADES"]
+    E["Mapeador Matemático QUBO/Ising\n(Transformador de restricciones a matriz Q)"]:::nuevaCapacidad
+    F{"Broker Híbrido & Orquestador\n(Patrón Strategy + Circuit Breaker)"}:::nuevaCapacidad
+    G["Módulo de Mitigación de Ruido ZNE / M3\n(Post-procesamiento estadístico)"]:::nuevaCapacidad
+    H["Gestor de Fallback Contingente Clásico\n(Solucionador Clásico ILP / HPC)"]:::nuevaCapacidad
   end
 
-  C --> D
-  H --> A
+  subgraph EXEC ["3. Entorno de Ejecución Híbrido"]
+    I["Servicio Cloud Cuántico NISQ\n(IBM Quantum / AWS Braket - QAOA)"]:::nuevaCapacidad
+    J["Simulador Cuántico Local / HPC\n(Qiskit Aer / PennyLane)"]:::nuevaCapacidad
+  end
 
-  style Clásico fill:#f2f6f4,stroke:#18796e,stroke-width:1px
-  style Híbrido fill:#fcfdfd,stroke:#152b43,stroke-width:2px
-  style F fill:#e7f0ec,stroke:#18796e,stroke-width:2px
-  style G fill:#fff9e8,stroke:#d5a92f,stroke-width:1px
+  A --> B
+  B --> C
+  C --> E
+  E --> F
+  F -- "Ruta Primaria (Normal)" --> I
+  F -- "Ruta Piloto / Exploratoria" --> J
+  F -. "Fallback en caso de Timeout / Error QPU" .-> H
+  I --> G
+  J --> G
+  H --> G
+  G --> D
+  D --> A
+
+  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
 ---
 
-## 4. Asignación Metodológica de Roles (PDAEH E6 - Escala PYME)
+## 5. Asignación Metodológica de Roles (PDAEH E6 - Escala PYME)
 
 | Rol Metodológico | Denominación en FinNova | Responsabilidad Clave en el Proceso |
 | :--- | :--- | :--- |
@@ -171,17 +202,77 @@ graph TD
 
 ---
 
-## 5. Hoja de Ruta y Artefactos Normativos (Fases F1 a F5)
+## 6. Generación y Descarga de Plantillas Oficiales de Artefactos PDAEH
 
-1. **Fase 1 (Definición Estratégica):** Elaboración y aprobación formal de los artefactos `DOE` (Documento de Oportunidad Estratégica) y `DCA` (Diagnóstico de Capacidades Arquitectónicas). *Compuerta: Aprobación OGA-1.*
-2. **Fase 2 (Modelado y Requisitos):** Especificación del artefacto `MSP` (Matriz de Servicios y Procesos) definiendo los contratos gRPC/REST con el broker híbrido. *Compuerta: Aprobación OGA-2.*
-3. **Fase 3 (Diseño de la Integración):** Diseño del artefacto `ITA` (Integración Tecnológica y Adaptadores) aplicando el patrón de co-procesamiento desacoplado con Circuit Knitting y mitigación de errores de lectura. *Compuerta: Aprobación OGA-3.*
-4. **Fase 4 (Evaluación y Validación):** Despliegue del artefacto `BER` (Benchmark de Eficiencia y Ruido) comparando el tiempo y calidad de aproximación frente a solucionadores clásicos (ILP/Gurobi). *Compuerta: Aprobación OGA-4.*
+Como agente metodológico activo, puede descargar directamente las plantillas normalizadas con la estructura requerida para formalizar este caso de estudio ante el comité OGA:
+
+<div class="artifacts-download-grid">
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 1 · OGA-1</span>
+      <strong>DOE — Documento de Objetivos Estratégicos</strong>
+    </div>
+    <p>Formaliza los objetivos estratégicos de optimización de carteras, hipótesis de ventaja híbrida y criterios de éxito del negocio.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_FinNova.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 1 · OGA-1</span>
+      <strong>DCA — Diagnóstico de Contexto Arquitectónico</strong>
+    </div>
+    <p>Caracteriza la arquitectura As-Is (microservicios, Kafka, Postgres), capacidades existentes y restricciones de desacoplamiento.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DCA.md" download="Plantilla_DCA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DCA.docx" download="Plantilla_DCA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DCA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 2 · OGA-2</span>
+      <strong>MSP — Mapa de Stakeholders y Preocupaciones</strong>
+    </div>
+    <p>Mapeo de actores clave (CTO, Gestor de Portafolio, Oficial de Riesgos, Comité OGA) y matrices de preocupación/influencia.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_MSP.md" download="Plantilla_MSP_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_MSP.docx" download="Plantilla_MSP_FinNova.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=MSP" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 3 · OGA-3</span>
+      <strong>DEA — Documento de Estructuras Arquitectónicas</strong>
+    </div>
+    <p>Especificación de la Capa QIL, contratos gRPC, patrón Broker/Strategy, circuito de contingencia y mitigación de ruido ZNE.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+</div>
+
+---
+
+## 7. Hoja de Ruta y Artefactos Normativos (Fases F1 a F5)
+
+1. **Fase 1 (Definición Estratégica):** Elaboración y aprobación formal de los artefactos `DOE` (Documento de Objetivos Estratégicos) y `DCA` (Diagnóstico de Contexto Arquitectónico). *Compuerta: Aprobación OGA-1.*
+2. **Fase 2 (Modelado y Requisitos):** Especificación del artefacto `MSP` (Mapa de Stakeholders y Preocupaciones) y `MAC` (Modelo de Atributos de Calidad: latencia, resiliencia). *Compuerta: Aprobación OGA-2.*
+3. **Fase 3 (Diseño de la Integración):** Diseño del artefacto `DEA` (Estructuras Arquitectónicas) y `CEP` (Estilos y Patrones Híbridos) aplicando el patrón de co-procesamiento desacoplado con Circuit Knitting. *Compuerta: Aprobación OGA-3.*
+4. **Fase 4 (Evaluación y Validación):** Despliegue del artefacto `BER` (Biblioteca de Elementos Reutilizables y Benchmarking) comparando el tiempo y calidad de aproximación frente a solucionadores clásicos (ILP/Gurobi). *Compuerta: Aprobación OGA-4.*
 5. **Fase 5 (Sistematización y Despliegue):** Consolidación de la Línea Base Arquitectónica (`LBA`) y catalogación de patrones en el repositorio institucional (`CPD`). *Compuerta: Aprobación OGA-5.*
 
 ---
 
-## 6. Referencias Técnicas y Documentación Oficial Consultada
+## 8. Referencias Técnicas y Fuentes Oficiales
 
 - **IBM Quantum / Qiskit Optimization:** [Portfolio Optimization using QAOA and VQE](https://qiskit-community.github.io/qiskit-optimization/tutorials/01_portfolio_optimization.html)
 - **AWS Braket Developer Guide:** [Hybrid Jobs and Quantum Annealing Architectures](https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs.html)
@@ -194,98 +285,252 @@ graph TD
 
 > [!NOTE]
 > **Dictamen Metodológico Definitivo: VIABLE PARA ADOPCIÓN HÍBRIDA PDAEH (Compuerta OGA-1: APROBADA)**
-> Tras evaluar las restricciones operativas de **LogisTech Global**, se dictamina la **viabilidad formal para incorporar optimización combinatoria híbrida**. El problema de ruteo de vehículos con ventanas horarias (CVRPTW) sobre >2.000 nodos satura los solucionadores clásicos de optimización lineal entera (ILP) en horas pico.
+> Tras evaluar las restricciones operativas de **LogisTech Global**, se dictamina la **viabilidad formal para incorporar optimización combinatoria híbrida**. El problema de ruteo de vehículos con ventanas de tiempo (CVRPTW) sobre >2.000 nodos satura los solucionadores clásicos de optimización lineal entera (ILP) en horas pico, mientras que la infraestructura As-Is permite orquestar un co-procesador híbrido desacoplado.
 
 ---
 
 ## 1. Scorecard de Preparación Arquitectónica (PDAEH Readiness Index)
 
+A continuación se resume la evaluación multidimensional de compatibilidad del caso:
+
 | Dimensión Evaluada | Puntuación | Estado | Justificación Metodológica |
 | :--- | :--- | :--- | :--- |
-| **Complejidad Algorítmica (E1/E2)** | 94 / 100 | **Óptimo** | Mapeo a grafo QUBO particionado; recocido cuántico híbrido (D-Wave Leap / QAOA). |
-| **Capacidad de Desacoplamiento (E7)** | 90 / 100 | **Óptimo** | Clúster Kubernetes multirregión con colas RabbitMQ preparadas para procesamiento asíncrono. |
-| **Gobernanza y Cumplimiento (E4/E5)** | 86 / 100 | **Favorable** | Métricas de SLA y huella de carbono incorporadas en compuerta OGA-2. |
-| **Madurez y Absorción NISQ (E6/E10)** | 88 / 100 | **Óptimo** | Equipo con experiencia en analítica geoespacial y pilotos NISQ exploratorios. |
+| **Complejidad Algorítmica (E1/E2)** | 94 / 100 | **Óptimo** | Mapeo CVRP a QUBO / Grafo de Flujo de Red con particionamiento D-Wave Leap Hybrid / Recocido Cuántico. |
+| **Capacidad de Desacoplamiento (E7)** | 90 / 100 | **Óptimo** | Despacho de paquetes desacoplado mediante eventos Kafka; tolera tiempos de respuesta asíncronos de 30 a 60 segundos. |
+| **Gobernanza y Cumplimiento (E4/E5)** | 89 / 100 | **Favorable** | Custodia de direcciones físicas y datos de clientes en perímetro clásico; la QPU solo recibe identificadores de nodos y distancias euclidianas. |
+| **Madurez y Absorción NISQ (E6/E10)** | 82 / 100 | **Viable** | Hibridación clásica (Clustering K-Means / Spark) previa a la resolución cuántica con fallback a metaheurísticas clásicas (LNS). |
 
 ---
 
-## 2. Topología Arquitectónica y Patrón Recomendado (E7 / E8)
+## 2. Benchmarking Industrial: Organizaciones con Desafíos Similares
 
-Se prescribe el patrón **Procesamiento Híbrido Asíncrono de Flujos de Trabajo (Workflow Co-scheduling)** con descomposición clásica en CPU/GPU para agrupamiento de zonas y resolución de la matriz de adyacencia binaria en QPU.
+| Organización de Referencia | Sector / Caso de Uso | Enfoque Algorítmico e Infraestructura Híbrida | Lección Aprendida y Criterio PDAEH |
+| :--- | :--- | :--- | :--- |
+| **Volkswagen Group & D-Wave** | Movilidad y Logística / Optimización del Flujo de Tráfico y Tiempos de Parada en Lisboa | Algoritmo híbrido cuántico de recocido (Quantum Annealing) desacoplado del sistema clásico de navegación vehicular. | El particionamiento en sub-grafos clásicos es clave; ninguna QPU actual resuelve directamente grafos globales de más de 1.000 nodos. |
+| **DHL Supply Chain** | Cadena de Suministro / Optimización 3D de Carga en Contenedores y Asignación de Flota | Hibridación de algoritmos heurísticos clásicos con solucionadores variacionales QAOA y Temple Simulado clásico. | La redundancia con solucionadores clásicos (OR-Tools / Gurobi) es obligatoria para garantizar SLA ante ventanas logísticas estrictas. |
+| **FedEx Dataworks** | Paquetería Global / Ruteo de Envíos Express de Última Milla | Modelado QUBO ejecutado mediante nubes híbridas cuánticas combinadas con motores clásicos de eventos Kafka. | La anonimización y normalización geométrica de coordenadas geográficas previene la exposición de datos operativos estratégicos. |
+
+---
+
+## 3. Diagrama de Arquitectura Híbrida Sugerida (C4 Contenedores)
+
+> [!TIP]
+> **Convención Cromática del Diagrama:**
+> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de LogisTech.
+> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas sugeridas por el marco PDAEH** (no contempladas en la solución original).
 
 ```mermaid
 graph TD
-  A["Servicio de Despacho y Órdenes"] --> B["Preprocesamiento y Clúster Clásico (K-Means / Spark)"]
-  B --> C{"Co-planificador Híbrido"}
-  C -- "Subproblemas Complejos" --> D["Solver Híbrido Cuántico (QPU Annealing)"]
-  C -- "Rutas Lineales Simples" --> E["Solucionador Heurístico Clásico (VRP)"]
-  D --> F["Fusión de Soluciones y Validación de Horarios"]
+  subgraph AS_IS ["1. Plataforma Clásica Existente en LogisTech (As-Is)"]
+    A["Servicio de Despacho y Órdenes\n(Microservicios Spring Boot)"]
+    B["Base de Datos Geoespacial y Rutas\n(PostGIS / PostgreSQL)"]
+    C["Preprocesamiento Clásico de Clústeres\n(Apache Spark / K-Means clásico)"]
+    D["Asignación Final de Flotas y Choferes\n(ERP Logístico Clásico)"]
+  end
+
+  subgraph QIL ["2. Capa de Integración Cuántica PDAEH (QIL) — NUEVAS CAPACIDADES"]
+    E["Transformador QUBO de Grafos de Flujo\n(Reducción de aristas y ventanas horarias)"]:::nuevaCapacidad
+    F{"Co-planificador Híbrido & Strategy\n(Enrutador por complejidad y SLA)"}:::nuevaCapacidad
+    G["Solucionador Cuántico QPU\n(D-Wave Leap Hybrid / QAOA)"]:::nuevaCapacidad
+    H["Solucionador Heurístico Clásico (LNS / OR-Tools)\n(Fallback Automático y Subproblemas Simples)"]:::nuevaCapacidad
+    I["Módulo de Fusión y Verificación de Horarios\n(Control de restricciones duras)"]:::nuevaCapacidad
+  end
+
+  A --> B
+  B --> C
+  C --> E
   E --> F
-  F --> G["Asignación Final de Flota"]
-  
-  style D fill:#e7f0ec,stroke:#18796e,stroke-width:2px
-  style C fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
+  F -- "Subgrafos Combinatorios NP-Hard" --> G
+  F -- "Rutas Simples o Fallback por Falla" --> H
+  G --> I
+  H --> I
+  I --> D
+
+  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
 ---
 
-## 3. Asignación de Roles (PDAEH E6 - Gran Empresa)
-- **AEP:** Arquitecto Empresarial Principal (Custodio del ciclo PDAEH y compuertas OGA).
-- **ASP:** Arquitecto de Solución Principal (Diseño del broker de optimización híbrida).
-- **AIP:** Ingeniero Cloud / DevOps (Infraestructura de colas y pasarela de hardware cuántico).
-- **EQP:** Científico de Algoritmos Cuánticos (Formulación matemática QUBO y benchmarking).
-- **OGA:** Comité ARB de Arquitectura Corporativa.
+## 4. Generación y Descarga de Plantillas Oficiales de Artefactos PDAEH
+
+Descargue las plantillas oficiales para formalizar la iniciativa ante el comité de arquitectura y gobierno OGA:
+
+<div class="artifacts-download-grid">
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 1 · OGA-1</span>
+      <strong>DOE — Documento de Objetivos Estratégicos</strong>
+    </div>
+    <p>Objetivos de optimización de flota CVRPTW, KPIs de ahorro de combustible y reducción de tiempos de despacho.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 3 · OGA-3</span>
+      <strong>DEA — Documento de Estructuras Arquitectónicas</strong>
+    </div>
+    <p>Especificación técnica del Co-planificador Híbrido, particionamiento de grafos y fallback mediante solucionador clásico.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 4 · OGA-4</span>
+      <strong>BER — Biblioteca y Benchmarking Experimental</strong>
+    </div>
+    <p>Protocolo de benchmarking comparativo (Costos computacionales y calidad de ruta QPU vs. OR-Tools clásico).</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_BER.md" download="Plantilla_BER_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_BER.docx" download="Plantilla_BER_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=BER" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+</div>
 
 ---
 
-## 4. Referencias y Documentación Técnica Oficial
-- **D-Wave Systems Documentation:** [Hybrid Solvers for Vehicle Routing Problems](https://docs.dwavesys.com/docs/latest/c_hybrid_1.html)
-- **Google Quantum AI:** [Optimization & Quantum Computing Case Studies](https://quantumai.google/applications/optimization)
-- **ACM Transactions on Mathematical Software:** [Benchmarking Combinatorial Solvers on NISQ Devices](https://dl.acm.org/)
+## 5. Referencias Técnicas y Fuentes Oficiales
+
+- **D-Wave Leap Hybrid Documentation:** [Solving Routing and Graph Partitioning Problems](https://docs.ocean.dwavesys.com/en/stable/examples/cvrp.html)
+- **Volkswagen Software Group:** [Real-time traffic flow optimization using quantum annealers](https://www.volkswagenag.com/en/news/2019/11/quantum-computing-lisbon.html)
+- **IEEE Transactions on Intelligent Transportation Systems:** [Quantum Optimization for Logistics Routing](https://ieeexplore.ieee.org/document/9454312)
 
 *Dictamen formal emitido por el Consultor Metodológico PDAEH bajo especificación formal v1.0.*"#.to_string()
     } else if is_pqc {
-        r#"# EVALUACIÓN Y DICTAMEN METODOLÓGICO PDAEH: MIGRACIÓN CRIPTOGRÁFICA POST-CUÁNTICA (PQC)
+        r#"# EVALUACIÓN Y DICTAMEN METODOLÓGICO PDAEH: CASO SECURNET GLOBAL
 
 > [!NOTE]
 > **Dictamen Metodológico Definitivo: VIABLE PARA ADOPCIÓN HÍBRIDA PDAEH (Compuerta OGA-1: APROBADA)**
-> El caso evaluado atiende a la necesidad crítica de blindar la infraestructura corporativa frente a la amenaza *Harvest Now, Decrypt Later* y la obsolescencia criptográfica clásica por el algoritmo de Shor.
+> Tras evaluar las restricciones de seguridad de **SecurNet Global**, se dictamina la **viabilidad prioritaria para la adopción de Criptografía Post-Cuántica (PQC)**. La amenaza inminente de *Harvest Now, Decrypt Later* (HNDL) expone el cifrado clásico asimétrico (RSA/ECC) ante futuros ordenadores cuánticos criptográficamente relevantes (CRQC). La arquitectura As-Is requiere la incorporación inmediata de esquemas híbridos estándar NIST FIPS 203.
 
 ---
 
 ## 1. Scorecard de Preparación Arquitectónica (PDAEH Readiness Index)
 
+A continuación se resume la evaluación multidimensional de compatibilidad del caso:
+
 | Dimensión Evaluada | Puntuación | Estado | Justificación Metodológica |
 | :--- | :--- | :--- | :--- |
-| **Vulnerabilidad Criptográfica (E1/E2)** | 98 / 100 | **Crítico** | Llaves RSA/ECDSA expuestas a factorizabilidad en tiempo polinomial con algoritmo de Shor. |
-| **Cripto-Agilidad de Pasarela (E7)** | 88 / 100 | **Favorable** | Envoy API Gateways aptos para incorporar capas de transporte híbridas X25519 + ML-KEM. |
-| **Cumplimiento Regulatorio (E4/E5)** | 95 / 100 | **Excelente** | Alineación mandatoria con directivas NIST FIPS 203 y CNSA 2.0. |
-| **Absorción Organizacional (E6/E10)** | 82 / 100 | **Viable** | Roles de ciberseguridad (ASecP) activos en el proceso de rotación de certificados. |
+| **Urgencia Criptográfica (E1/E2)** | 98 / 100 | **Crítico** | Obsolescencia inevitable de RSA-2048 y ECDH frente al algoritmo de Shor; necesidad de migración a redes basadas en retículos (*Lattices*). |
+| **Capacidad de Desacoplamiento (E7)** | 95 / 100 | **Óptimo** | API Gateway centralizado (Envoy / Kong) permite migración progresiva hacia TLS 1.3 híbrido sin reescribir microservicios internos. |
+| **Gobernanza y Cumplimiento (E4/E5)** | 96 / 100 | **Favorable** | Cumplimiento regulatorio directo con estándares NIST (FIPS 203 ML-KEM y FIPS 204 ML-DSA) y directivas CISA / NSA CNSA 2.0. |
+| **Madurez Tecnológica (E6/E10)** | 91 / 100 | **Viable** | Disponibilidad de librerías maduras de código abierto (`liboqs`, BoringSSL PQC) con soporte para esquemas duales clásico-cuánticos. |
 
 ---
 
-## 2. Topología de Pasarela Cripto-Ágil Híbrida (E2 / E7)
+## 2. Benchmarking Industrial: Organizaciones con Desafíos Similares
+
+| Organización de Referencia | Sector / Caso de Uso | Enfoque Híbrido Post-Cuántico Implementado | Lección Aprendida y Criterio PDAEH |
+| :--- | :--- | :--- | :--- |
+| **Cloudflare & Google Chrome** | Infraestructura Web / Implementación de TLS 1.3 Híbrido a Escala Global | Combinación simétrica de intercambio clásico X25519 con ML-KEM-768 (X25519Kyber768Draft00) en el handshake inicial. | El incremento en el tamaño de los paquetes de intercambio de claves (de 32 bytes a ~1.200 bytes) puede generar fragmentación si no se optimiza el MTU. |
+| **HSBC & SandboxAQ** | Banca Global / Protección de Transacciones Interbancarias y Cuentas de Alta Disponibilidad | Despliegue de túneles criptográficos híbridos duales y auditoría criptográfica automatizada del inventario de llaves clásicas. | La interoperabilidad estricta con sistemas legados exige mantener el doble certificado durante el periodo de transición de 3 a 5 años. |
+| **Signal Foundation** | Comunicaciones Seguras / Protocolo PQXDH (Post-Quantum Extended Diffie-Hellman) | Hibridación de curva elíptica Curve25519 con ML-KEM-1024 en el protocolo de establecimiento de sesión extremo a extremo. | La seguridad no debe depender únicamente del algoritmo post-cuántico; la combinación híbrida garantiza que si el nuevo esquema falla, el clásico aún protege. |
+
+---
+
+## 3. Diagrama de Arquitectura Híbrida Sugerida (C4 Contenedores)
+
+> [!TIP]
+> **Convención Cromática del Diagrama:**
+> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de SecurNet.
+> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas de seguridad sugeridas por PDAEH** (no contempladas en la solución original).
 
 ```mermaid
-graph LR
-  Cliente["Cliente / Dispositivo Seguro"] --> TLS{"Negociación TLS 1.3 Híbrida"}
-  TLS -- "Intercambio Clásico" --> C1["ECDH (X25519)"]
-  TLS -- "Intercambio Post-Cuántico" --> C2["NIST FIPS 203 (ML-KEM-768)"]
-  C1 --> KDF["Derivación de Llave Híbrida Combinada"]
-  C2 --> KDF
-  KDF --> Gateway["API Gateway Seguro (Envoy)"]
-  Gateway --> Microservicios["Servicios y Bases de Datos Internas"]
-  
-  style TLS fill:#fff9e8,stroke:#d5a92f,stroke-width:2px
-  style C2 fill:#e7f0ec,stroke:#18796e,stroke-width:2px
+graph TD
+  subgraph CLIENTES ["1. Canales de Acceso Externos"]
+    A["Navegadores Web / Apps Móviles"]
+    B["Sistemas B2B / APIs de Socios"]
+  end
+
+  subgraph EDGE ["2. Capa Perimetral Híbrida PDAEH — NUEVAS CAPACIDADES"]
+    C{"Negociador TLS 1.3 Híbrido\n(Handshake Dual Clásico + PQC)"}:::nuevaCapacidad
+    D["Módulo Clásico ECDH (X25519)\n(Protección probada existente)"]
+    E["Módulo Post-Cuántico NIST FIPS 203 (ML-KEM-768)\n(Protección contra Shor / HNDL)"]:::nuevaCapacidad
+    F["Derivador de Clave Híbrida Combinada (HKDF)\n(K = HKDF(K_clasico || K_pqc))"]:::nuevaCapacidad
+  end
+
+  subgraph INTERNAL ["3. Infraestructura Clásica Existente (As-Is)"]
+    G["API Gateway Envoy / Proxy Reverso"]
+    H["Microservicios Transaccionales Internos"]
+    I["Bases de Datos Relacionales y NoSQL"]
+  end
+
+  A --> C
+  B --> C
+  C --> D
+  C --> E
+  D --> F
+  E --> F
+  F --> G
+  G --> H
+  H --> I
+
+  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
 ---
 
-## 3. Referencias y Documentación Técnica Oficial
-- **NIST Computer Security Resource Center:** [FIPS 203 ML-KEM Standard](https://csrc.nist.gov/projects/post-quantum-cryptography)
-- **Open Quantum Safe (OQS):** [liboqs OpenSSL Integration Guide](https://openquantumsafe.org/)
-- **NSA Cybersecurity Advisory:** [Commercial National Security Algorithm Suite 2.0 (CNSA 2.0)](https://www.nsa.gov/Cybersecurity/Post-Quantum-Cybersecurity-Resources/)
+## 4. Generación y Descarga de Plantillas Oficiales de Artefactos PDAEH
+
+<div class="artifacts-download-grid">
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 1 · OGA-1</span>
+      <strong>DOE — Documento de Objetivos Estratégicos</strong>
+    </div>
+    <p>Inventario de riesgos criptográficos (HNDL), planes de migración PQC y cumplimiento de normativas internacionales NIST.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DOE" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 3 · OGA-3</span>
+      <strong>DEA — Documento de Estructuras Arquitectónicas</strong>
+    </div>
+    <p>Diseño de la topología de terminación TLS híbrida, tamaño de claves, buffers de red y derivación combinada de secretos.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=DEA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <span class="artifact-badge">Fase 5 · OGA-5</span>
+      <strong>LBA — Línea Base Arquitectónica</strong>
+    </div>
+    <p>Aprobación formal del catálogo criptográfico post-cuántico consolidado y acta de gobierno OGA-5 para pase a producción.</p>
+    <div class="artifact-actions">
+      <a href="./assets/descargas/markdown/Plantilla_LBA.md" download="Plantilla_LBA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
+      <a href="./assets/descargas/docx/Plantilla_LBA.docx" download="Plantilla_LBA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
+      <a href="plantilla.html?id=LBA" target="_blank" class="btn-download text-dl">Ver en Línea ↗</a>
+    </div>
+  </div>
+</div>
+
+---
+
+## 5. Referencias Técnicas y Fuentes Oficiales
+
+- **NIST Post-Quantum Cryptography Standardization:** [FIPS 203 ML-KEM Standard](https://csrc.nist.gov/pubs/fips/203/final)
+- **Open Quantum Safe Project:** [liboqs Architecture & Integrations](https://openquantumsafe.org/)
+- **IETF TLS Working Group:** [Hybrid key exchange in TLS 1.3](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/)
 
 *Dictamen formal emitido por el Consultor Metodológico PDAEH bajo especificación formal v1.0.*"#.to_string()
     } else if is_crud || no_quantum {
