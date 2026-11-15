@@ -941,6 +941,25 @@ td.col-reference a {
   margin: 0 auto !important;
 }
 
+/* Fila final de acrónimos estilo tesis doctoral: solo borde superior, sin bordes laterales ni inferior */
+tr.acronym-row td {
+  border-top: 1px solid var(--line, #d8dfdc) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background: #ffffff !important;
+  padding: 10px 14px !important;
+  font-size: 0.84rem !important;
+  color: var(--ink, #1f2a44) !important;
+  text-align: left !important;
+  line-height: 1.5 !important;
+}
+
+tr.acronym-row td strong {
+  color: var(--navy, #0f3b43) !important;
+  font-weight: 700 !important;
+}
+
 
 /* === Optimización de Espaciado Vertical entre Secciones Grandes y Subsecciones === */
 .section {

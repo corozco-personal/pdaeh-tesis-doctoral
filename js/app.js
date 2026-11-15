@@ -247,9 +247,10 @@ function renderMacro(){
 }
 
 let tableNumber = 2; // Inicia en 2 porque Tabla 1 y Tabla 2 son las tablas estáticas de la RSL y exploratorio
-function table(title, headers, rows) {
+function table(title, headers, rows, acronymsText = "") {
   const n = ++tableNumber;
-  return `<section class="numbered-table"><h4>Tabla ${n}. ${esc(title)}</h4><div class="table-shell"><table><thead><tr>${headers.map(h=>`<th>${esc(cleanText(h))}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div></section>`;
+  const acronymsRow = acronymsText ? `<tr class="acronym-row"><td colspan="${headers.length}">${acronymsText}</td></tr>` : "";
+  return `<section class="numbered-table"><h4>Tabla ${n}. ${esc(title)}</h4><div class="table-shell"><table><thead><tr>${headers.map(h=>`<th>${esc(cleanText(h))}</th>`).join("")}</tr></thead><tbody>${rows.join("")}${acronymsRow}</tbody></table></div></section>`;
 }
 function initials(name){return cleanText(name).split(/\s+/).filter(x=>!/[()]/.test(x)).slice(0,2).map(x=>x[0]).join("").toUpperCase()}
 function renderRoles(index=0){
@@ -329,7 +330,14 @@ function renderRoles(index=0){
       En entornos caracterizados por alta complejidad, líneas de negocio diversificadas y marcos regulatorios estrictos, la organización cuenta con capacidad instalada para soportar una <strong>especialización estructurada</strong>. Los 9 roles operan de manera totalmente independiente y formal: AEP corporativo, arquitectos de solución (ASP), integración (AIP), datos (ADP), seguridad y transición post-cuántica (ASecP), portafolio (GPA), equipo cuántico dedicado (ETC), comités ejecutivos (SE) y un <strong>Órgano de Gobierno Arquitectónico (OGA) colegiado e independiente</strong> con autoridad formal sobre la LBA.
     </div>`
   ];
-  $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml) + (orgNotes[index] || "");
+  const roleAcronyms = [
+    "<strong>Acrónimos.</strong> ADP: Arquitecto(a) de Datos y Persistencia; AEP: Arquitecto(a) Empresarial del Proceso; AIP: Arquitecto(a) de Integración y Plataforma; ASecP: Arquitecto(a) de Seguridad y Criptografía Post-Cuántica; ASP: Arquitecto(a) de Solución y Software; ETC: Especialista Tecnológico Cuántico; GPA: Gestor(a) de Portafolio y Alineación Estratégica; OGA: Órgano de Gobierno Arquitectónico; SE: Stakeholder Empresarial.",
+    "<strong>Acrónimos.</strong> ADP: Arquitecto(a) de Datos y Persistencia; AEP: Arquitecto(a) Empresarial del Proceso; AIP: Arquitecto(a) de Integración y Plataforma; ASecP: Arquitecto(a) de Seguridad y Criptografía Post-Cuántica; ASP: Arquitecto(a) de Solución y Software; ETC: Especialista Tecnológico Cuántico; GPA: Gestor(a) de Portafolio y Alineación Estratégica; OGA: Órgano de Gobierno Arquitectónico; SE: Stakeholder Empresarial.",
+    "<strong>Acrónimos.</strong> ADP: Arquitecto(a) de Datos y Persistencia; AEP: Arquitecto(a) Empresarial del Proceso; AIP: Arquitecto(a) de Integración y Plataforma; ASecP: Arquitecto(a) de Seguridad y Criptografía Post-Cuántica; ASP: Arquitecto(a) de Solución y Software; ETC: Especialista Tecnológico Cuántico; GPA: Gestor(a) de Portafolio y Alineación Estratégica; OGA: Órgano de Gobierno Arquitectónico; SE: Stakeholder Empresarial.",
+    "<strong>Acrónimos.</strong> ADP: Arquitecto(a) de Datos y Persistencia; AEP: Arquitecto(a) Empresarial del Proceso; AIP: Arquitecto(a) de Integración y Plataforma; ASecP: Arquitecto(a) de Seguridad y Criptografía Post-Cuántica; ASP: Arquitecto(a) de Solución y Software; ETC: Especialista Tecnológico Cuántico; GPA: Gestor(a) de Portafolio y Alineación Estratégica; OGA: Órgano de Gobierno Arquitectónico; SE: Stakeholder Empresarial."
+  ];
+
+  $("#roleTable").innerHTML = table(labels[index], headers, rowsHtml, roleAcronyms[index]) + (orgNotes[index] || "");
   $$("#roleTabs button").forEach(b => b.onclick = () => renderRoles(+b.dataset.i));
 }
 function renderGovernance() {
@@ -516,6 +524,9 @@ function renderArtifacts() {
         </thead>
         <tbody>
           ${rows}
+          <tr class="acronym-row">
+            <td colspan="4"><strong>Acrónimos.</strong> BER: Bitácora de Evaluación de Ruido; CCA: Catálogo de Criterios de Aceptación; CCID: Catálogo de Componentes de Integración y Datos; CCSE: Catálogo de Componentes de Seguridad; CCTS: Catálogo de Componentes Transversales; CEP: Catálogo de Estilos y Patrones Arquitectónicos; CPD: Catálogo de Patrones de Diseño; DCA: Documento de Contexto y Restricciones de la Arquitectura; DCO: Documento de Componentes Estructurales; DEA: Diseño y Evaluación Algorítmica; DHP: Documento de Hibridación del Proceso; DOCX: Microsoft Word OpenXML Document; DOE: Declaración de Objetivos Empresariales; DPA: Documento de Perspectivas Arquitectónicas; DVA: Documento de Vistas Arquitectónicas; MAC: Modelo de Atributos de Calidad; MAP: Modelo de Abstracción y Perspectivas; MD: Markdown Format; MRC: Marco de Referencia de Componentes; MRR: Marco de Referencia de Elementos Reutilizables; MSP: Matriz de Stakeholders y Preocupaciones; MTA: Marco Teórico y Glosario Arquitectónico; TEX: LaTeX Source Document; VAU: Vocabulario Arquitectónico Unificado.</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -625,6 +636,9 @@ function renderTraceabilityMatrix() {
           </thead>
           <tbody>
             ${rows}
+            <tr class="acronym-row">
+              <td colspan="5"><strong>Acrónimos.</strong> AEP: Arquitecto(a) Empresarial del Proceso; AIP: Arquitecto(a) de Integración y Plataforma; ASecP: Arquitecto(a) de Seguridad y Criptografía Post-Cuántica; ASP: Arquitecto(a) de Solución y Software; BER: Bitácora de Evaluación de Ruido; C4: Context, Containers, Components, Code; CCA: Catálogo de Criterios de Aceptación; CCID: Catálogo de Componentes de Integración y Datos; CCSE: Catálogo de Componentes de Seguridad; CCTS: Catálogo de Componentes Transversales; CEP: Catálogo de Estilos y Patrones Arquitectónicos; CPD: Catálogo de Patrones de Diseño; DCA: Documento de Contexto y Restricciones de la Arquitectura; DCO: Documento de Componentes Estructurales; DEA: Diseño y Evaluación Algorítmica; DHP: Documento de Hibridación del Proceso; DOE: Declaración de Objetivos Empresariales; DPA: Documento de Perspectivas Arquitectónicas; DVA: Documento de Vistas Arquitectónicas; LBA: Línea Base Arquitectónica; MAC: Modelo de Atributos de Calidad; MAP: Modelo de Abstracción y Perspectivas; MRC: Marco de Referencia de Componentes; MRR: Marco de Referencia de Elementos Reutilizables; MSP: Matriz de Stakeholders y Preocupaciones; MTA: Marco Teórico y Glosario Arquitectónico; OGA: Órgano de Gobierno Arquitectónico; PDAEH: Proceso para la Definición de Arquitecturas Empresariales Híbridas; QUBO: Quadratic Unconstrained Binary Optimization; VAU: Vocabulario Arquitectónico Unificado.</td>
+            </tr>
           </tbody>
         </table>
       </div>
