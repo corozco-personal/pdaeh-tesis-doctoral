@@ -1001,7 +1001,7 @@ details.activity,
 }
 
 
-/* === Panel Flotante Depurado de Accesos Rápidos (Estilo Dock) === */
+/* === Widget Flotante de Accesos Rápidos (Estilo Dock / Píldoras macOS) === */
 .evaluator-nav-widget {
   position: fixed;
   bottom: 24px;
@@ -1011,28 +1011,28 @@ details.activity,
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 10px;
 }
 
-/* Disparador superior / inferior de control (Ocultar / Accesos rápidos) */
+/* Disparador de control píldora (Ocultar / Accesos rápidos) */
 .evaluator-dock-trigger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  margin-bottom: 8px;
+  gap: 6px;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--line, #cbd5e1);
-  border-radius: 20px;
+  border: 1px solid rgba(15, 59, 67, 0.18);
+  border-radius: 999px;
   color: var(--navy, #0F3B43);
   font-family: inherit;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(15, 59, 67, 0.1);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 12px rgba(15, 59, 67, 0.12);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
 }
 
@@ -1041,13 +1041,13 @@ details.activity,
   border-color: var(--green, #18796E);
   color: var(--green, #18796E);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(24, 121, 110, 0.2);
+  box-shadow: 0 6px 18px rgba(24, 121, 110, 0.22);
 }
 
 .dock-trigger-icon {
   display: flex;
   align-items: center;
-  transition: transform 0.28s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .evaluator-nav-widget.is-expanded .dock-trigger-icon {
@@ -1058,141 +1058,120 @@ details.activity,
   transform: rotate(180deg);
 }
 
-/* Panel apilado depurado */
-.evaluator-panel-dock {
+/* Pila apilada de botones píldora */
+.evaluator-dock-stack {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(15, 59, 67, 0.12);
-  box-shadow: 0 12px 32px rgba(15, 59, 67, 0.16), 0 2px 6px rgba(0, 0, 0, 0.04);
+  align-items: flex-end;
+  gap: 10px;
   transform-origin: bottom right;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Botones rectangulares estilizados y apilados en el panel */
-.eval-dock-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 236px;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 0.88rem;
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.16s ease;
-  border: 1px solid transparent;
+/* Estilo depurado para los botones píldora flotantes */
+.eval-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 11px 22px !important;
+  border-radius: 999px !important;
+  font-family: inherit !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 4px 16px rgba(15, 59, 67, 0.25) !important;
+  user-select: none !important;
 }
 
-.eval-guide-btn {
-  background: var(--navy, #0F3B43);
-  color: #ffffff;
+.eval-pill-btn:hover {
+  transform: translateY(-2px) scale(1.02) !important;
 }
 
-.eval-guide-btn:hover {
-  background: #18796e;
-  transform: translateX(-2px);
+/* 1. Guía para el Evaluador: Fondo verde azulado oscuro / texto blanco */
+.eval-guide-pill {
+  background: #0f3b43 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-.eval-form-btn {
-  background: #f8fafc;
-  color: var(--navy, #0F3B43);
-  border-color: #e2e8f0;
+.eval-guide-pill:hover {
+  background: #18796e !important;
+  border-color: #18796e !important;
+  box-shadow: 0 6px 20px rgba(24, 121, 110, 0.4) !important;
 }
 
-.eval-form-btn:hover {
-  background: #f3effa;
-  border-color: #7248B9;
-  color: #5E35B1;
-  transform: translateX(-2px);
+/* 2. Evaluar propuesta: Píldora blanca destacada con icono morado Google Forms */
+.eval-form-pill {
+  background: #ffffff !important;
+  color: #0f3b43 !important;
+  border: 1px solid rgba(15, 59, 67, 0.14) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
 }
 
-.eval-advisor-btn {
-  background: #0d292e;
-  color: #e6fffa;
-  border-color: rgba(24, 121, 110, 0.3);
+.eval-form-pill:hover {
+  background: #fdfcff !important;
+  border-color: #7248B9 !important;
+  color: #5E35B1 !important;
+  box-shadow: 0 6px 20px rgba(114, 72, 185, 0.28) !important;
 }
 
-.eval-advisor-btn:hover {
-  background: #18796e;
-  color: #ffffff;
-  transform: translateX(-2px);
+/* 3. PDAEH Advisor: Píldora verde azulada muy oscura con detalles menta */
+.eval-advisor-pill {
+  background: #09252a !important;
+  color: #ffffff !important;
+  border: 1px solid #18796e !important;
+  box-shadow: 0 4px 16px rgba(9, 37, 42, 0.35) !important;
 }
 
-/* Estado Colapsado del Panel */
-.evaluator-nav-widget.is-collapsed .evaluator-panel-dock {
+.eval-advisor-pill:hover {
+  background: #18796e !important;
+  border-color: #18796e !important;
+  box-shadow: 0 6px 20px rgba(24, 121, 110, 0.45) !important;
+}
+
+.eval-pill-btn .eval-btn-icon {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.eval-pill-btn .eval-btn-label {
+  white-space: nowrap !important;
+}
+
+/* Estado Colapsado del Dock */
+.evaluator-nav-widget.is-collapsed .evaluator-dock-stack {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(14px) scale(0.94);
+  transform: translateY(16px) scale(0.9);
   height: 0;
-  padding: 0;
   margin: 0;
-  border: 0;
   overflow: hidden;
 }
 
 .evaluator-nav-widget.is-collapsed .evaluator-dock-trigger {
-  margin-bottom: 0;
-  background: var(--navy, #0F3B43);
+  background: #0f3b43;
   color: #ffffff;
-  border-color: rgba(255,255,255,0.2);
-  box-shadow: 0 4px 16px rgba(15, 59, 67, 0.35);
-  padding: 9px 18px;
-  font-size: 0.86rem;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(15, 59, 67, 0.4);
+  padding: 10px 20px;
+  font-size: 0.9rem;
 }
 
 .evaluator-nav-widget.is-collapsed .evaluator-dock-trigger:hover {
-  background: var(--green, #18796E);
-  border-color: var(--green, #18796E);
+  background: #18796e;
+  border-color: #18796e;
   color: #ffffff;
+  transform: translateY(-2px) scale(1.02);
 }
 
 .evaluator-menu-panel {
-  bottom: 165px !important;
-}
-
-.eval-forms-action-btn {
-  background: #ffffff !important;
-  color: var(--navy, #0F3B43) !important;
-  border: 1px solid var(--line, #e2e8f0) !important;
-  text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
-}
-
-.eval-forms-action-btn:hover {
-  background: #f8fafc !important;
-  border-color: #7248B9 !important;
-  color: #5E35B1 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(114, 72, 185, 0.25) !important;
-}
-
-.eval-advisor-action-btn {
-  background: #09252a !important;
-  color: #e6fffa !important;
-  border: 1px solid #18796e !important;
-  text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(9, 37, 42, 0.35) !important;
-}
-
-.eval-advisor-action-btn:hover {
-  background: #18796e !important;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(24, 121, 110, 0.45) !important;
-}
-
-.evaluator-menu-panel {
-  bottom: 155px !important;
+  bottom: 200px !important;
 }
 
 /* === Estandarización de botones globales estilo 'Descargar paquete' === */
