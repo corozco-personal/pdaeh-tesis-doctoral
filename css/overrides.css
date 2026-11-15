@@ -917,8 +917,28 @@ details.activity .activity-content {
   white-space: normal !important;
 }
 
-#glossaryTables table tr td:first-child * {
+#glossaryTables table tr td:first-child *,
+#glossaryTables table tr th:first-child * {
   text-align: center !important;
+}
+
+/* Centrado forzado para columnas de referencia en tablas de evidencia y estudios */
+#tablaEstudios table td:last-child,
+#tablaEstudios table th:last-child,
+table td:has(> a[href*="#REF-"]),
+table td:has(> .artifact-link[href*="#REF-"]),
+td.col-reference {
+  text-align: center !important;
+  text-align: -webkit-center !important;
+  vertical-align: middle !important;
+}
+
+#tablaEstudios table td:last-child a,
+table td:has(> a[href*="#REF-"]) a,
+td.col-reference a {
+  display: inline-block !important;
+  text-align: center !important;
+  margin: 0 auto !important;
 }
 
 
