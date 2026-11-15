@@ -147,44 +147,43 @@ A partir de la base de conocimiento y referencias de la industria financiera int
 
 > [!TIP]
 > **Convención Cromática del Diagrama:**
-> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de FinNova.
-> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas sugeridas por el marco PDAEH** (no contempladas en la solución original) requeridas para gobernar el ciclo cuántico y asegurar la resiliencia operativa.
+> - **Componentes en tono neutro:** Plataforma y microservicios clásicos existentes (**As-Is** de FinNova).
+> - **Componentes destacados en verde:** **Nuevas capacidades híbridas** sugeridas por PDAEH (Mapeador QUBO, Broker Híbrido, Mitigación de Ruido ZNE y Fallback Clásico).
 
 ```mermaid
-graph TD
-  subgraph AS_IS ["1. Plataforma Clásica Existente en FinNova (As-Is)"]
-    A["Servicio de Portafolio y Cuentas\n(Microservicio Go / REST)"]
-    B["Motor de Series Temporales y Mercado\n(TimescaleDB / Kafka)"]
-    C["Motor Clásico de Riesgo y CVaR\n(Python / NumPy / PostgreSQL)"]
-    D["Servicio de Cumplimiento y Auditoría\n(Spring Boot / Postgres)"]
+flowchart LR
+  subgraph AS_IS ["1. Plataforma Clásica Existente (As-Is)"]
+    direction TB
+    A["Servicios de Portafolio y Mercado"]
+    B["Motor de Riesgo Financiero (CVaR)"]
+    C["Servicio de Auditoría y Cumplimiento"]
+    A --> B
   end
 
-  subgraph QIL ["2. Capa de Integración Cuántica PDAEH (QIL) — NUEVAS CAPACIDADES"]
-    E["Mapeador Matemático QUBO/Ising\n(Transformador de restricciones a matriz Q)"]:::nuevaCapacidad
-    F{"Broker Híbrido & Orquestador\n(Patrón Strategy + Circuit Breaker)"}:::nuevaCapacidad
-    G["Módulo de Mitigación de Ruido ZNE / M3\n(Post-procesamiento estadístico)"]:::nuevaCapacidad
-    H["Gestor de Fallback Contingente Clásico\n(Solucionador Clásico ILP / HPC)"]:::nuevaCapacidad
+  subgraph QIL ["2. Capa Híbrida PDAEH (QIL)"]
+    direction TB
+    D["Mapeador Matemático QUBO / Ising"]:::nuevaCapacidad
+    E{"Broker Híbrido & Circuit Breaker"}:::nuevaCapacidad
+    H["Mitigación de Ruido ZNE / M3"]:::nuevaCapacidad
+    D --> E
+    E --> H
   end
 
-  subgraph EXEC ["3. Entorno de Ejecución Híbrido"]
-    I["Servicio Cloud Cuántico NISQ\n(IBM Quantum / AWS Braket - QAOA)"]:::nuevaCapacidad
-    J["Simulador Cuántico Local / HPC\n(Qiskit Aer / PennyLane)"]:::nuevaCapacidad
+  subgraph EXEC ["3. Ejecución Acelerada"]
+    direction TB
+    F["QPU Cloud NISQ (QAOA)"]:::nuevaCapacidad
+    G["Fallback Clásico (Solucionador ILP)"]:::nuevaCapacidad
   end
 
-  A --> B
-  B --> C
-  C --> E
-  E --> F
-  F -- "Ruta Primaria (Normal)" --> I
-  F -- "Ruta Piloto / Exploratoria" --> J
-  F -. "Fallback en caso de Timeout / Error QPU" .-> H
-  I --> G
-  J --> G
-  H --> G
-  G --> D
-  D --> A
+  B --> D
+  E -- "Ruta QPU" --> F
+  F --> H
+  E -. "Ruta Fallback" .-> G
+  G --> H
+  H --> C
+  C --> A
 
-  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  classDef default fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#0f172a;
   classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
@@ -316,37 +315,42 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 
 > [!TIP]
 > **Convención Cromática del Diagrama:**
-> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de LogisTech.
-> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas sugeridas por el marco PDAEH** (no contempladas en la solución original).
+> - **Componentes en tono neutro:** Plataforma clásica existente (**As-Is** de LogisTech: Spring Boot, PostGIS, Spark).
+> - **Componentes destacados en verde:** **Nuevas capacidades híbridas** sugeridas por PDAEH (Co-planificador Híbrido, Solver QPU, Fallback clásico LNS y Fusión de rutas).
 
 ```mermaid
-graph TD
-  subgraph AS_IS ["1. Plataforma Clásica Existente en LogisTech (As-Is)"]
-    A["Servicio de Despacho y Órdenes\n(Microservicios Spring Boot)"]
-    B["Base de Datos Geoespacial y Rutas\n(PostGIS / PostgreSQL)"]
-    C["Preprocesamiento Clásico de Clústeres\n(Apache Spark / K-Means clásico)"]
-    D["Asignación Final de Flotas y Choferes\n(ERP Logístico Clásico)"]
+flowchart LR
+  subgraph AS_IS ["1. Plataforma Clásica Existente (As-Is)"]
+    direction TB
+    A["Servicio de Despacho y Órdenes"]
+    B["Preprocesamiento Clásico (Spark / K-Means)"]
+    C["Asignación Final de Flotas (ERP)"]
+    A --> B
   end
 
-  subgraph QIL ["2. Capa de Integración Cuántica PDAEH (QIL) — NUEVAS CAPACIDADES"]
-    E["Transformador QUBO de Grafos de Flujo\n(Reducción de aristas y ventanas horarias)"]:::nuevaCapacidad
-    F{"Co-planificador Híbrido & Strategy\n(Enrutador por complejidad y SLA)"}:::nuevaCapacidad
-    G["Solucionador Cuántico QPU\n(D-Wave Leap Hybrid / QAOA)"]:::nuevaCapacidad
-    H["Solucionador Heurístico Clásico (LNS / OR-Tools)\n(Fallback Automático y Subproblemas Simples)"]:::nuevaCapacidad
-    I["Módulo de Fusión y Verificación de Horarios\n(Control de restricciones duras)"]:::nuevaCapacidad
+  subgraph QIL ["2. Capa Híbrida PDAEH (QIL)"]
+    direction TB
+    D["Transformador QUBO de Grafos"]:::nuevaCapacidad
+    E{"Co-planificador Híbrido & Strategy"}:::nuevaCapacidad
+    H["Fusión y Control de Ventanas Horarias"]:::nuevaCapacidad
+    D --> E
+    E --> H
   end
 
-  A --> B
-  B --> C
-  C --> E
-  E --> F
-  F -- "Subgrafos Combinatorios NP-Hard" --> G
-  F -- "Rutas Simples o Fallback por Falla" --> H
-  G --> I
-  H --> I
-  I --> D
+  subgraph EXEC ["3. Solucionadores"]
+    direction TB
+    F["Solver Cuántico (QPU Annealing)"]:::nuevaCapacidad
+    G["Solver Clásico Heurístico (LNS)"]:::nuevaCapacidad
+  end
 
-  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  B --> D
+  E -- "Subgrafos Complejos" --> F
+  F --> H
+  E -. "Rutas Simples / Fallback" .-> G
+  G --> H
+  H --> C
+
+  classDef default fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#0f172a;
   classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
@@ -442,40 +446,41 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 
 > [!TIP]
 > **Convención Cromática del Diagrama:**
-> - **Gris / Azul Neutro (`#f4f6f8`):** Componentes y microservicios clásicos existentes en la plataforma **As-Is** de SecurNet.
-> - **Verde Esmeralda Resaltado (`#18796e` / texto blanco):** **Nuevas capacidades híbridas de seguridad sugeridas por PDAEH** (no contempladas en la solución original).
+> - **Componentes en tono neutro:** Infraestructura clásica existente (**As-Is** de SecurNet: API Gateway, Microservicios y BD).
+> - **Componentes destacados en verde:** **Nuevas capacidades híbridas** sugeridas por PDAEH (Negociación TLS 1.3 híbrida dual, módulo NIST FIPS 203 y derivador de clave combinada HKDF).
 
 ```mermaid
-graph TD
-  subgraph CLIENTES ["1. Canales de Acceso Externos"]
-    A["Navegadores Web / Apps Móviles"]
-    B["Sistemas B2B / APIs de Socios"]
+flowchart LR
+  subgraph ACCESS ["1. Canales y Clientes"]
+    direction TB
+    A["Navegadores y Móviles"]
+    B["Sistemas B2B / APIs"]
   end
 
-  subgraph EDGE ["2. Capa Perimetral Híbrida PDAEH — NUEVAS CAPACIDADES"]
-    C{"Negociador TLS 1.3 Híbrido\n(Handshake Dual Clásico + PQC)"}:::nuevaCapacidad
-    D["Módulo Clásico ECDH (X25519)\n(Protección probada existente)"]
-    E["Módulo Post-Cuántico NIST FIPS 203 (ML-KEM-768)\n(Protección contra Shor / HNDL)"]:::nuevaCapacidad
-    F["Derivador de Clave Híbrida Combinada (HKDF)\n(K = HKDF(K_clasico || K_pqc))"]:::nuevaCapacidad
+  subgraph EDGE ["2. Perímetro Híbrido PDAEH"]
+    direction TB
+    C{"Negociador TLS 1.3 Híbrido"}:::nuevaCapacidad
+    D["Módulo ECDH (X25519)"]
+    E["Módulo NIST FIPS 203 (ML-KEM)"]:::nuevaCapacidad
+    F["Derivador Clave Combinada (HKDF)"]:::nuevaCapacidad
+    C --> D
+    C --> E
+    D --> F
+    E --> F
   end
 
-  subgraph INTERNAL ["3. Infraestructura Clásica Existente (As-Is)"]
-    G["API Gateway Envoy / Proxy Reverso"]
-    H["Microservicios Transaccionales Internos"]
-    I["Bases de Datos Relacionales y NoSQL"]
+  subgraph INTERNAL ["3. Plataforma Clásica"]
+    direction TB
+    G["API Gateway Envoy"]
+    H["Microservicios y Bases de Datos"]
+    G --> H
   end
 
   A --> C
   B --> C
-  C --> D
-  C --> E
-  D --> F
-  E --> F
   F --> G
-  G --> H
-  H --> I
 
-  classDef default fill:#f4f6f8,stroke:#cbd5e1,stroke-width:1px,color:#1e293b;
+  classDef default fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px,color:#0f172a;
   classDef nuevaCapacidad fill:#18796e,stroke:#0f4c45,stroke-width:2px,color:#ffffff;
 ```
 
@@ -997,7 +1002,7 @@ mod tests {
         assert!(output.contains("VIABLE PARA ADOPCIÓN HÍBRIDA PDAEH"));
         assert!(output.contains("Scorecard de Preparación Arquitectónica"));
         assert!(output.contains("Compuerta OGA-1: APROBADA"));
-        assert!(output.contains("Mapeador Matemático QUBO/Ising"));
+        assert!(output.contains("Mapeador Matemático QUBO"));
     }
 
     #[test]
