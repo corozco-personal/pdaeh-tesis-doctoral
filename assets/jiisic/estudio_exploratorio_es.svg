@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1000" width="3800" height="2000" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+<rect width="1900" height="1000" fill="#FFFFFF"/>
+<text x="950.0" y="46.0" font-size="36" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Protocolo para la ejecución del estudio exploratorio</text>
+<text x="950.0" y="80.0" font-size="20" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Revisión de la literatura multivocal (RLM) reducida y adaptada [24], con el marco de ISBE [25]–[27]</text>
+<rect x="24.0" y="104" width="338.4" height="548" fill="#EAF4FD"/>
+<path d="M24.0,186 V118 Q24.0,104 38.0,104 H348.4 Q362.4,104 362.4,118 V186 Z" fill="#CDE4FA"/>
+<rect x="24.0" y="104" width="338.4" height="548" rx="14" fill="none" stroke="#97C6EE" stroke-width="1.8"/>
+<circle cx="64.0" cy="145.0" r="22" fill="#3E74B5"/>
+<text x="64.0" y="152.0" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.1</text>
+<text x="100.0" y="142.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Identificación dirigida</text>
+<text x="100.0" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Fuentes conocidas</text>
+<text x="46.0" y="568.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">Búsqueda en fuentes conocidas: reportes</text>
+<text x="46.0" y="588.5" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">técnicos, documentación oficial, blogs</text>
+<text x="46.0" y="609.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">corporativos y estudios de caso.</text>
+<polygon points="370.4,345.6 380.2,345.6 380.2,339.3 394.2,354.0 380.2,368.7 380.2,362.4 370.4,362.4" fill="#5E6B7E"/>
+<rect x="402.4" y="104" width="338.4" height="548" fill="#EDF8EF"/>
+<path d="M402.4,186 V118 Q402.4,104 416.4,104 H726.8 Q740.8,104 740.8,118 V186 Z" fill="#CDEAD4"/>
+<rect x="402.4" y="104" width="338.4" height="548" rx="14" fill="none" stroke="#8FCDA2" stroke-width="1.8"/>
+<circle cx="442.4" cy="145.0" r="22" fill="#1F6B45"/>
+<text x="442.4" y="152.0" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.2</text>
+<text x="478.4" y="142.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Filtrado y clasificación</text>
+<text x="478.4" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Tipo y nivel de madurez</text>
+<text x="424.4" y="568.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">Cada fuente se categoriza por tipo de estudio</text>
+<text x="424.4" y="588.5" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">y nivel de madurez: SDK, caso de uso o</text>
+<text x="424.4" y="609.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">reporte técnico.</text>
+<polygon points="748.8,345.6 758.6,345.6 758.6,339.3 772.6,354.0 758.6,368.7 758.6,362.4 748.8,362.4" fill="#5E6B7E"/>
+<rect x="780.8" y="104" width="338.4" height="548" fill="#FEF7E6"/>
+<path d="M780.8,186 V118 Q780.8,104 794.8,104 H1105.1999999999998 Q1119.1999999999998,104 1119.1999999999998,118 V186 Z" fill="#FBE5AE"/>
+<rect x="780.8" y="104" width="338.4" height="548" rx="14" fill="none" stroke="#EBC76A" stroke-width="1.8"/>
+<circle cx="820.8" cy="145.0" r="22" fill="#9A6A0E"/>
+<text x="820.8" y="152.0" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.3</text>
+<text x="856.8" y="142.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Análisis cualitativo</text>
+<text x="856.8" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">de contenido [25]</text>
+<text x="802.8" y="568.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">Se codifican las contribuciones, modelos,</text>
+<text x="802.8" y="588.5" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">decisiones y buenas prácticas industriales.</text>
+<polygon points="1127.2,345.6 1137.0,345.6 1137.0,339.3 1151.0,354.0 1137.0,368.7 1137.0,362.4 1127.2,362.4" fill="#5E6B7E"/>
+<rect x="1159.1999999999998" y="104" width="338.4" height="548" fill="#F5F0FD"/>
+<path d="M1159.1999999999998,186 V118 Q1159.1999999999998,104 1173.1999999999998,104 H1483.6 Q1497.6,104 1497.6,118 V186 Z" fill="#E0D4F6"/>
+<rect x="1159.1999999999998" y="104" width="338.4" height="548" rx="14" fill="none" stroke="#BBA8E6" stroke-width="1.8"/>
+<circle cx="1199.2" cy="145.0" r="22" fill="#5B3FA6"/>
+<text x="1199.2" y="152.0" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.4</text>
+<text x="1235.2" y="142.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Síntesis de resultados</text>
+<text x="1235.2" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Categorías específicas</text>
+<text x="1181.2" y="568.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">La información obtenida se agrupa en</text>
+<text x="1181.2" y="588.5" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">categorías específicas.</text>
+<polygon points="1505.6,345.6 1515.4,345.6 1515.4,339.3 1529.4,354.0 1515.4,368.7 1515.4,362.4 1505.6,362.4" fill="#5E6B7E"/>
+<rect x="1537.6" y="104" width="338.4" height="548" fill="#EAF4FD"/>
+<path d="M1537.6,186 V118 Q1537.6,104 1551.6,104 H1862.0 Q1876.0,104 1876.0,118 V186 Z" fill="#CDE4FA"/>
+<rect x="1537.6" y="104" width="338.4" height="548" rx="14" fill="none" stroke="#97C6EE" stroke-width="1.8"/>
+<circle cx="1577.6" cy="145.0" r="22" fill="#3E74B5"/>
+<text x="1577.6" y="152.0" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.5</text>
+<text x="1613.6" y="142.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Integración</text>
+<text x="1613.6" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">con hallazgos académicos</text>
+<text x="1559.6" y="568.0" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">La evidencia industrial se relaciona con el</text>
+<text x="1559.6" y="588.5" font-size="16" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">modelo y los resultados de la RSL.</text>
+<path d="M106.0,316.0 Q167.0,333.3 149.6,309.5" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-dasharray="6 4"/>
+<path d="M280.4,316.0 Q219.4,333.3 236.8,309.5" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-dasharray="6 4"/>
+<path d="M106.0,444.0 Q167.0,400.5 149.6,421.5" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-dasharray="6 4"/>
+<path d="M280.4,444.0 Q219.4,400.5 236.8,421.5" fill="none" stroke="#1F6B45" stroke-width="2.2" stroke-dasharray="6 4"/>
+<circle cx="193.2" cy="369.0" r="42" fill="#CDEAD4" stroke="#1F6B45" stroke-width="2.4"/>
+<circle cx="193.2" cy="369.0" r="33" fill="#FFFFFF" stroke="#8FCDA2" stroke-width="1.5"/>
+<text x="193.2" y="365.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Búsqueda</text>
+<text x="193.2" y="382.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">dirigida</text>
+<polygon points="87.0,229.0 101.0,229.0 107.0,235.0 107.0,255.0 87.0,255.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="101.0,229.0 101.0,235.0 107.0,235.0" fill="#1F6B45"/>
+<line x1="91.0" y1="242.0" x2="103.0" y2="242.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="91.0" y1="248.0" x2="103.0" y2="248.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="105.0,229.0 119.0,229.0 125.0,235.0 125.0,255.0 105.0,255.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="119.0,229.0 119.0,235.0 125.0,235.0" fill="#1F6B45"/>
+<line x1="109.0" y1="242.0" x2="121.0" y2="242.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="109.0" y1="248.0" x2="121.0" y2="248.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="96.0,226.0 110.0,226.0 116.0,232.0 116.0,252.0 96.0,252.0" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="110.0,226.0 110.0,232.0 116.0,232.0" fill="#1F6B45"/>
+<line x1="100.0" y1="239.0" x2="112.0" y2="239.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="100.0" y1="245.0" x2="112.0" y2="245.0" stroke="#1F6B45" stroke-width="1.3"/>
+<text x="106.0" y="270.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Reportes técnicos</text>
+<polygon points="261.4,229.0 275.4,229.0 281.4,235.0 281.4,255.0 261.4,255.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="275.4,229.0 275.4,235.0 281.4,235.0" fill="#1F6B45"/>
+<line x1="265.4" y1="242.0" x2="277.4" y2="242.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="265.4" y1="248.0" x2="277.4" y2="248.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="279.4,229.0 293.4,229.0 299.4,235.0 299.4,255.0 279.4,255.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="293.4,229.0 293.4,235.0 299.4,235.0" fill="#1F6B45"/>
+<line x1="283.4" y1="242.0" x2="295.4" y2="242.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="283.4" y1="248.0" x2="295.4" y2="248.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="270.4,226.0 284.4,226.0 290.4,232.0 290.4,252.0 270.4,252.0" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="284.4,226.0 284.4,232.0 290.4,232.0" fill="#1F6B45"/>
+<line x1="274.4" y1="239.0" x2="286.4" y2="239.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="274.4" y1="245.0" x2="286.4" y2="245.0" stroke="#1F6B45" stroke-width="1.3"/>
+<text x="280.4" y="270.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Documentación</text>
+<text x="280.4" y="286.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">oficial de</text>
+<text x="280.4" y="302.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">plataformas</text>
+<polygon points="87.0,453.0 101.0,453.0 107.0,459.0 107.0,479.0 87.0,479.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="101.0,453.0 101.0,459.0 107.0,459.0" fill="#1F6B45"/>
+<line x1="91.0" y1="466.0" x2="103.0" y2="466.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="91.0" y1="472.0" x2="103.0" y2="472.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="105.0,453.0 119.0,453.0 125.0,459.0 125.0,479.0 105.0,479.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="119.0,453.0 119.0,459.0 125.0,459.0" fill="#1F6B45"/>
+<line x1="109.0" y1="466.0" x2="121.0" y2="466.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="109.0" y1="472.0" x2="121.0" y2="472.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="96.0,450.0 110.0,450.0 116.0,456.0 116.0,476.0 96.0,476.0" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="110.0,450.0 110.0,456.0 116.0,456.0" fill="#1F6B45"/>
+<line x1="100.0" y1="463.0" x2="112.0" y2="463.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="100.0" y1="469.0" x2="112.0" y2="469.0" stroke="#1F6B45" stroke-width="1.3"/>
+<text x="106.0" y="494.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Blogs de</text>
+<text x="106.0" y="510.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">investigación</text>
+<text x="106.0" y="526.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">corporativos</text>
+<polygon points="261.4,453.0 275.4,453.0 281.4,459.0 281.4,479.0 261.4,479.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="275.4,453.0 275.4,459.0 281.4,459.0" fill="#1F6B45"/>
+<line x1="265.4" y1="466.0" x2="277.4" y2="466.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="265.4" y1="472.0" x2="277.4" y2="472.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="279.4,453.0 293.4,453.0 299.4,459.0 299.4,479.0 279.4,479.0" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="293.4,453.0 293.4,459.0 299.4,459.0" fill="#1F6B45"/>
+<line x1="283.4" y1="466.0" x2="295.4" y2="466.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="283.4" y1="472.0" x2="295.4" y2="472.0" stroke="#1F6B45" stroke-width="1.3"/>
+<polygon points="270.4,450.0 284.4,450.0 290.4,456.0 290.4,476.0 270.4,476.0" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.5"/>
+<polygon points="284.4,450.0 284.4,456.0 290.4,456.0" fill="#1F6B45"/>
+<line x1="274.4" y1="463.0" x2="286.4" y2="463.0" stroke="#1F6B45" stroke-width="1.3"/>
+<line x1="274.4" y1="469.0" x2="286.4" y2="469.0" stroke="#1F6B45" stroke-width="1.3"/>
+<text x="280.4" y="494.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Estudios de caso</text>
+<text x="571.6" y="220.0" font-size="18" font-weight="bold" fill="#9A6A0E" text-anchor="middle" font-style="normal">7 fuentes</text>
+<polygon points="463.4,230.0 463.4,234.9 460.2,234.9 467.6,241.9 474.9,234.9 471.8,234.9 471.8,230.0" fill="#B8860B"/>
+<path d="M422.59999999999997,264 V504 Q422.59999999999997,514 432.59999999999997,514 H502.5999999999999 Q512.5999999999999,514 512.5999999999999,504 V264" fill="#FEF7E6" stroke="#EBC76A" stroke-width="2"/>
+<text x="467.6" y="284.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">SDK</text>
+<rect x="430.6" y="300.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="467.6" y="319.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S18</text>
+<text x="467.6" y="336.0" font-size="11.0" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">Qiskit Runtime</text>
+<rect x="430.6" y="352.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="467.6" y="371.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S20</text>
+<text x="467.6" y="388.0" font-size="11.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">TFQ</text>
+<polygon points="567.4,230.0 567.4,234.9 564.2,234.9 571.6,241.9 578.9,234.9 575.8,234.9 575.8,230.0" fill="#B8860B"/>
+<path d="M526.5999999999999,264 V504 Q526.5999999999999,514 536.5999999999999,514 H606.5999999999999 Q616.5999999999999,514 616.5999999999999,504 V264" fill="#FEF7E6" stroke="#EBC76A" stroke-width="2"/>
+<text x="571.6" y="284.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Caso de uso</text>
+<rect x="534.6" y="300.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="571.6" y="319.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S19</text>
+<text x="571.6" y="336.0" font-size="11.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">TFQ + Cirq</text>
+<polygon points="671.4,230.0 671.4,234.9 668.2,234.9 675.6,241.9 682.9,234.9 679.8,234.9 679.8,230.0" fill="#B8860B"/>
+<path d="M630.5999999999999,264 V504 Q630.5999999999999,514 640.5999999999999,514 H710.5999999999999 Q720.5999999999999,514 720.5999999999999,504 V264" fill="#FEF7E6" stroke="#EBC76A" stroke-width="2"/>
+<text x="675.6" y="284.0" font-size="12.0" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Reporte técnico</text>
+<rect x="638.6" y="300.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="675.6" y="319.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S21</text>
+<text x="675.6" y="336.0" font-size="10.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">Azure Quantum</text>
+<rect x="638.6" y="352.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="675.6" y="371.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S22</text>
+<text x="675.6" y="388.0" font-size="10.0" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">MS–Quantinuum</text>
+<rect x="638.6" y="404.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="675.6" y="423.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S23</text>
+<text x="675.6" y="440.0" font-size="11.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">MS hybrid</text>
+<rect x="638.6" y="456.0" width="74.0" height="44.0" rx="8" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.6"/>
+<text x="675.6" y="475.0" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">S24</text>
+<text x="675.6" y="492.0" font-size="11.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">Google</text>
+<polygon points="804.8,234.0 890.8,234.0 912.8,256.0 912.8,504.0 804.8,504.0" fill="#FFFFFF" stroke="#5B3FA6" stroke-width="2.2"/>
+<polygon points="890.8,234.0 890.8,256.0 912.8,256.0" fill="#BBA8E6" stroke="#5B3FA6" stroke-width="1.6"/>
+<line x1="816.8" y1="274.0" x2="900.8" y2="274.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="288.5" x2="900.8" y2="288.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="303.0" x2="900.8" y2="303.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="317.5" x2="900.8" y2="317.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="332.0" x2="900.8" y2="332.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="346.5" x2="900.8" y2="346.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="361.0" x2="900.8" y2="361.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="375.5" x2="900.8" y2="375.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="390.0" x2="900.8" y2="390.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="404.5" x2="900.8" y2="404.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="419.0" x2="900.8" y2="419.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="433.5" x2="900.8" y2="433.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="448.0" x2="900.8" y2="448.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="462.5" x2="900.8" y2="462.5" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="477.0" x2="900.8" y2="477.0" stroke="#D9DEE8" stroke-width="2"/>
+<line x1="816.8" y1="491.5" x2="900.8" y2="491.5" stroke="#D9DEE8" stroke-width="2"/>
+<rect x="814.8" y="298.0" width="88" height="10" rx="3" fill="#E57A86" opacity="0.8"/>
+<path d="M904.8,303.0 C926.8,303.0 926.8,250.0 948.8,250.0" fill="none" stroke="#E57A86" stroke-width="2.2"/>
+<circle cx="952.8" cy="250.0" r="7" fill="#E57A86"/>
+<text x="966.8" y="246.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Mecanismos de</text>
+<text x="966.8" y="263.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">integración</text>
+<text x="966.8" y="280.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">clásico–cuántica</text>
+<rect x="814.8" y="341.5" width="88" height="10" rx="3" fill="#5CB585" opacity="0.8"/>
+<path d="M904.8,346.5 C926.8,346.5 926.8,328.0 948.8,328.0" fill="none" stroke="#5CB585" stroke-width="2.2"/>
+<circle cx="952.8" cy="328.0" r="7" fill="#5CB585"/>
+<text x="966.8" y="324.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Modelos de ejecución</text>
+<text x="966.8" y="341.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">híbrida</text>
+<rect x="814.8" y="399.5" width="88" height="10" rx="3" fill="#F2C766" opacity="0.8"/>
+<path d="M904.8,404.5 C926.8,404.5 926.8,406.0 948.8,406.0" fill="none" stroke="#F2C766" stroke-width="2.2"/>
+<circle cx="952.8" cy="406.0" r="7" fill="#F2C766"/>
+<text x="966.8" y="402.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Decisiones</text>
+<text x="966.8" y="419.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">arquitectónicas</text>
+<text x="966.8" y="436.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">recurrentes</text>
+<rect x="814.8" y="457.5" width="88" height="10" rx="3" fill="#7C9FE0" opacity="0.8"/>
+<path d="M904.8,462.5 C926.8,462.5 926.8,484.0 948.8,484.0" fill="none" stroke="#7C9FE0" stroke-width="2.2"/>
+<circle cx="952.8" cy="484.0" r="7" fill="#7C9FE0"/>
+<text x="966.8" y="480.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Buenas prácticas</text>
+<text x="966.8" y="497.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">documentadas</text>
+<text x="1239.2" y="218.0" font-size="13.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Codificada</text>
+<text x="1399.6" y="218.0" font-size="13.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Agrupada</text>
+<rect x="1179.2" y="232.0" width="120.0" height="280.0" rx="12" fill="#FFFFFF" stroke="#BBA8E6" stroke-width="1.6" stroke-dasharray="5 4"/>
+<circle cx="1215.1" cy="383.1" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1227.2" cy="398.2" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1250.8" cy="262.5" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1194.4" cy="457.0" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1217.1" cy="305.1" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1284.8" cy="364.5" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1270.2" cy="366.0" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1252.0" cy="284.0" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1251.6" cy="464.7" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1241.3" cy="432.8" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1255.0" cy="262.1" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1263.0" cy="395.0" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1220.9" cy="253.8" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1272.8" cy="365.1" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1259.3" cy="467.5" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1258.9" cy="478.1" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1229.5" cy="447.8" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1234.1" cy="481.8" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1274.1" cy="270.6" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1205.7" cy="300.7" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1282.0" cy="355.9" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1250.9" cy="321.9" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1239.9" cy="343.2" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1225.5" cy="393.4" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1247.0" cy="473.9" r="5.5" fill="#E57A86" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1255.9" cy="480.1" r="5.5" fill="#5CB585" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1272.0" cy="495.7" r="5.5" fill="#F2C766" stroke="#FFFFFF" stroke-width="1"/>
+<circle cx="1255.0" cy="287.1" r="5.5" fill="#7C9FE0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="1309.2,349.4 1316.9,349.4 1316.9,344.4 1327.9,356.0 1316.9,367.6 1316.9,362.6 1309.2,362.6" fill="#5E6B7E"/>
+<circle cx="1389.2" cy="286.0" r="29" fill="#FFFFFF" stroke="#E57A86" stroke-width="2.2"/>
+<circle cx="1389.2" cy="286.0" r="4.8" fill="#E57A86"/>
+<circle cx="1397.9" cy="296.9" r="4.8" fill="#E57A86"/>
+<circle cx="1386.1" cy="299.6" r="4.8" fill="#E57A86"/>
+<circle cx="1376.6" cy="292.1" r="4.8" fill="#E57A86"/>
+<circle cx="1376.6" cy="279.9" r="4.8" fill="#E57A86"/>
+<circle cx="1386.1" cy="272.4" r="4.8" fill="#E57A86"/>
+<circle cx="1397.9" cy="275.1" r="4.8" fill="#E57A86"/>
+<circle cx="1389.2" cy="352.0" r="29" fill="#FFFFFF" stroke="#5CB585" stroke-width="2.2"/>
+<circle cx="1389.2" cy="352.0" r="4.8" fill="#5CB585"/>
+<circle cx="1397.9" cy="362.9" r="4.8" fill="#5CB585"/>
+<circle cx="1386.1" cy="365.6" r="4.8" fill="#5CB585"/>
+<circle cx="1376.6" cy="358.1" r="4.8" fill="#5CB585"/>
+<circle cx="1376.6" cy="345.9" r="4.8" fill="#5CB585"/>
+<circle cx="1386.1" cy="338.4" r="4.8" fill="#5CB585"/>
+<circle cx="1397.9" cy="341.1" r="4.8" fill="#5CB585"/>
+<circle cx="1389.2" cy="418.0" r="29" fill="#FFFFFF" stroke="#F2C766" stroke-width="2.2"/>
+<circle cx="1389.2" cy="418.0" r="4.8" fill="#F2C766"/>
+<circle cx="1397.9" cy="428.9" r="4.8" fill="#F2C766"/>
+<circle cx="1386.1" cy="431.6" r="4.8" fill="#F2C766"/>
+<circle cx="1376.6" cy="424.1" r="4.8" fill="#F2C766"/>
+<circle cx="1376.6" cy="411.9" r="4.8" fill="#F2C766"/>
+<circle cx="1386.1" cy="404.4" r="4.8" fill="#F2C766"/>
+<circle cx="1397.9" cy="407.1" r="4.8" fill="#F2C766"/>
+<circle cx="1389.2" cy="484.0" r="29" fill="#FFFFFF" stroke="#7C9FE0" stroke-width="2.2"/>
+<circle cx="1389.2" cy="484.0" r="4.8" fill="#7C9FE0"/>
+<circle cx="1397.9" cy="494.9" r="4.8" fill="#7C9FE0"/>
+<circle cx="1386.1" cy="497.6" r="4.8" fill="#7C9FE0"/>
+<circle cx="1376.6" cy="490.1" r="4.8" fill="#7C9FE0"/>
+<circle cx="1376.6" cy="477.9" r="4.8" fill="#7C9FE0"/>
+<circle cx="1386.1" cy="470.4" r="4.8" fill="#7C9FE0"/>
+<circle cx="1397.9" cy="473.1" r="4.8" fill="#7C9FE0"/>
+<rect x="1557.6" y="208.0" width="132.0" height="34.0" rx="17" fill="#CDE4FA" stroke="#3E74B5" stroke-width="1.5"/>
+<text x="1623.6" y="229.8" font-size="14" font-weight="bold" fill="#3E74B5" text-anchor="middle" font-style="normal">RSL · S1–S17</text>
+<rect x="1708.0" y="208.0" width="148.0" height="34.0" rx="17" fill="#FCE3D2" stroke="#E8793A" stroke-width="1.5"/>
+<text x="1782.0" y="229.8" font-size="14" font-weight="bold" fill="#E8793A" text-anchor="middle" font-style="normal">Industria · S18–S24</text>
+<path d="M1623.6,242.0 C1623.6,260.0 1706.8,260.0 1706.8,278.0" fill="none" stroke="#3E74B5" stroke-width="2.2"/>
+<path d="M1782.0,242.0 C1782.0,260.0 1706.8,260.0 1706.8,278.0" fill="none" stroke="#E8793A" stroke-width="2.2"/>
+<circle cx="1706.8" cy="304.0" r="28" fill="#E0D4F6" stroke="#5B3FA6" stroke-width="2.2"/>
+<text x="1706.8" y="308.0" font-size="12.0" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Contraste</text>
+<text x="1706.8" y="360.0" font-size="13.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Elementos del modelo a ajustar</text>
+<polygon points="1703.2,334.0 1703.2,338.2 1700.5,338.2 1706.8,344.2 1713.1,338.2 1710.4,338.2 1710.4,334.0" fill="#5E6B7E"/>
+<rect x="1571.6" y="372.0" width="270.4" height="32.0" rx="10" fill="#E0D4F6" stroke="#BBA8E6" stroke-width="1.5"/>
+<text x="1706.8" y="392.9" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Atributos de calidad</text>
+<rect x="1571.6" y="412.0" width="270.4" height="32.0" rx="10" fill="#E0D4F6" stroke="#BBA8E6" stroke-width="1.5"/>
+<text x="1706.8" y="432.9" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Estilos arquitectónicos</text>
+<rect x="1571.6" y="452.0" width="270.4" height="32.0" rx="10" fill="#E0D4F6" stroke="#BBA8E6" stroke-width="1.5"/>
+<text x="1706.8" y="472.9" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Patrones de diseño</text>
+<rect x="1557.6" y="486.0" width="298.4" height="50.0" rx="12" fill="#FBE9EB" stroke="#B22A38" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="1706.8" y="507.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Sin propuestas desde la arquitectura</text>
+<text x="1706.8" y="523.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">empresarial</text>
+<rect x="24" y="678" width="640" height="250" fill="#EEF1F6"/>
+<path d="M24,732 V692 Q24,678 38,678 H650 Q664,678 664,692 V732 Z" fill="#DDE3EC"/>
+<rect x="24" y="678" width="640" height="250" rx="14" fill="none" stroke="#B3BFD2" stroke-width="1.8"/>
+<text x="46.0" y="714.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Resultado</text>
+<rect x="52.0" y="754.0" width="250.0" height="140.0" rx="14" fill="#DCEAF9" stroke="#97C6EE" stroke-width="2"/>
+<text x="177.0" y="826.0" font-size="66" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">7</text>
+<text x="177.0" y="864.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">fuentes industriales</text>
+<polygon points="318.0,814.0 332.0,814.0 332.0,805.0 352.0,826.0 332.0,847.0 332.0,838.0 318.0,838.0" fill="#5E6B7E"/>
+<rect x="372.0" y="754.0" width="262.0" height="140.0" rx="14" fill="#CDEAD4" stroke="#8FCDA2" stroke-width="2"/>
+<text x="503.0" y="831.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Insumo de la</text>
+<text x="503.0" y="857.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">armonización</text>
+<rect x="688" y="678" width="1188" height="250" fill="#EEF1F6"/>
+<path d="M688,732 V692 Q688,678 702,678 H1862 Q1876,678 1876,692 V732 Z" fill="#DDE3EC"/>
+<rect x="688" y="678" width="1188" height="250" rx="14" fill="none" stroke="#B3BFD2" stroke-width="1.8"/>
+<text x="710.0" y="714.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Fundamentos metodológicos del estudio exploratorio</text>
+<rect x="710.0" y="754.0" width="217.6" height="140.0" rx="12" fill="#CDE4FA" stroke="#97C6EE" stroke-width="1.8"/>
+<text x="818.8" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">RLM reducida [24]</text>
+<text x="818.8" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Garousi, Felderer &amp; Mäntylä</text>
+<rect x="941.6" y="754.0" width="217.6" height="140.0" rx="12" fill="#CDEAD4" stroke="#8FCDA2" stroke-width="1.8"/>
+<text x="1050.4" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">ISBE [25]–[27]</text>
+<text x="1050.4" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Evidencia: investigación más</text>
+<text x="1050.4" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">práctica</text>
+<rect x="1173.2" y="754.0" width="217.6" height="140.0" rx="12" fill="#FBE5AE" stroke="#EBC76A" stroke-width="1.8"/>
+<text x="1282.0" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Análisis de contenido</text>
+<text x="1282.0" y="813.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">[25]</text>
+<text x="1282.0" y="840.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Análisis cualitativo de la</text>
+<text x="1282.0" y="860.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">evidencia industrial</text>
+<rect x="1404.8" y="754.0" width="217.6" height="140.0" rx="12" fill="#E0D4F6" stroke="#BBA8E6" stroke-width="1.8"/>
+<text x="1513.6" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Sesgos: 7 + 4</text>
+<text x="1513.6" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Tablas 25 y 26, con</text>
+<text x="1513.6" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">mitigación</text>
+<rect x="1636.4" y="754.0" width="217.6" height="140.0" rx="12" fill="#FAD0D5" stroke="#EE9AA2" stroke-width="1.8"/>
+<text x="1745.2" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Hallazgo</text>
+<text x="1745.2" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Convergencia con la RSL; sin</text>
+<text x="1745.2" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">enfoque empresarial</text>
+</svg>

@@ -1,0 +1,540 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1000" width="3800" height="2000" font-family="'Times New Roman', Times, 'Liberation Serif', serif">
+<rect width="1900" height="1000" fill="#FFFFFF"/>
+<text x="950.0" y="46.0" font-size="36" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Systematic Literature Review (SLR) Protocol</text>
+<text x="950.0" y="80.0" font-size="20" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Three phases following Kitchenham et al. [23] and Petersen et al. [55]</text>
+<rect x="24.0" y="104" width="588.0" height="548" fill="#EAF4FD"/>
+<path d="M24.0,186 V118 Q24.0,104 38.0,104 H598.0 Q612.0,104 612.0,118 V186 Z" fill="#CDE4FA"/>
+<rect x="24.0" y="104" width="588.0" height="548" rx="14" fill="none" stroke="#97C6EE" stroke-width="1.8"/>
+<circle cx="64.0" cy="145.0" r="22" fill="#3E74B5"/>
+<text x="64.0" y="154.0" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1</text>
+<text x="100.0" y="142.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Planning phase</text>
+<text x="100.0" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Activities 1.1–1.8</text>
+<text x="46.0" y="568.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">Objectives and questions follow GQM (conceptual and operational levels). Then</text>
+<text x="46.0" y="589.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">come expert grey literature, the search string, six engines, inclusion/exclusion</text>
+<text x="46.0" y="610.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">criteria and relevance criteria.</text>
+<polygon points="622.0,345.6 631.8,345.6 631.8,339.3 645.8,354.0 631.8,368.7 631.8,362.4 622.0,362.4" fill="#5E6B7E"/>
+<rect x="656.0" y="104" width="588.0" height="548" fill="#EDF8EF"/>
+<path d="M656.0,186 V118 Q656.0,104 670.0,104 H1230.0 Q1244.0,104 1244.0,118 V186 Z" fill="#CDEAD4"/>
+<rect x="656.0" y="104" width="588.0" height="548" rx="14" fill="none" stroke="#8FCDA2" stroke-width="1.8"/>
+<circle cx="696.0" cy="145.0" r="22" fill="#1F6B45"/>
+<text x="696.0" y="154.0" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">2</text>
+<text x="732.0" y="142.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Execution phase</text>
+<text x="732.0" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Activities 2.1–2.5</text>
+<text x="678.0" y="568.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">The string runs on six databases plus grey literature. Bubble area is proportional</text>
+<text x="678.0" y="589.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">to the number of studies; three filters reduce 1,212 results to 17 primary studies.</text>
+<polygon points="1254.0,345.6 1263.8,345.6 1263.8,339.3 1277.8,354.0 1263.8,368.7 1263.8,362.4 1254.0,362.4" fill="#5E6B7E"/>
+<rect x="1288.0" y="104" width="588.0" height="548" fill="#FEF7E6"/>
+<path d="M1288.0,186 V118 Q1288.0,104 1302.0,104 H1862.0 Q1876.0,104 1876.0,118 V186 Z" fill="#FBE5AE"/>
+<rect x="1288.0" y="104" width="588.0" height="548" rx="14" fill="none" stroke="#EBC76A" stroke-width="1.8"/>
+<circle cx="1328.0" cy="145.0" r="22" fill="#9A6A0E"/>
+<text x="1328.0" y="154.0" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">3</text>
+<text x="1364.0" y="142.0" font-size="25" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Analysis and documentation</text>
+<text x="1364.0" y="168.0" font-size="17" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="italic">Relevance and answers to RQs</text>
+<text x="1310.0" y="568.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">Each primary study is scored on CC1–CC9 (Table 12) and analyzed quantitatively</text>
+<text x="1310.0" y="589.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">and qualitatively to answer the RQs. Eight biases are documented with their</text>
+<text x="1310.0" y="610.0" font-size="16.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="normal">mitigation.</text>
+<path d="M94.0,260.0 C155.5,260.0 155.5,240.0 217.0,240.0" fill="none" stroke="#3E74B5" stroke-width="2"/>
+<path d="M94.0,322.0 C155.5,322.0 155.5,286.0 217.0,286.0" fill="none" stroke="#1F6B45" stroke-width="2"/>
+<path d="M94.0,322.0 C155.5,322.0 155.5,332.0 217.0,332.0" fill="none" stroke="#1F6B45" stroke-width="2"/>
+<path d="M94.0,384.0 C155.5,384.0 155.5,378.0 217.0,378.0" fill="none" stroke="#9A6A0E" stroke-width="2"/>
+<path d="M94.0,446.0 C155.5,446.0 155.5,424.0 217.0,424.0" fill="none" stroke="#9A6A0E" stroke-width="2"/>
+<path d="M94.0,446.0 C155.5,446.0 155.5,470.0 217.0,470.0" fill="none" stroke="#9A6A0E" stroke-width="2"/>
+<circle cx="72.0" cy="260.0" r="22" fill="#FFFFFF" stroke="#3E74B5" stroke-width="2"/>
+<text x="72.0" y="265.5" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">OI1</text>
+<circle cx="72.0" cy="322.0" r="22" fill="#FFFFFF" stroke="#3E74B5" stroke-width="2"/>
+<text x="72.0" y="327.5" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">OI2</text>
+<circle cx="72.0" cy="384.0" r="22" fill="#FFFFFF" stroke="#3E74B5" stroke-width="2"/>
+<text x="72.0" y="389.5" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">OI3</text>
+<circle cx="72.0" cy="446.0" r="22" fill="#FFFFFF" stroke="#3E74B5" stroke-width="2"/>
+<text x="72.0" y="451.5" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">OI4</text>
+<circle cx="234.0" cy="240.0" r="17" fill="#CDE4FA" stroke="#3E74B5" stroke-width="2"/>
+<text x="234.0" y="244.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI1</text>
+<circle cx="234.0" cy="286.0" r="17" fill="#CDEAD4" stroke="#1F6B45" stroke-width="2"/>
+<text x="234.0" y="290.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI2</text>
+<circle cx="234.0" cy="332.0" r="17" fill="#CDEAD4" stroke="#1F6B45" stroke-width="2"/>
+<text x="234.0" y="336.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI3</text>
+<circle cx="234.0" cy="378.0" r="17" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="2"/>
+<text x="234.0" y="382.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI4</text>
+<circle cx="234.0" cy="424.0" r="17" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="2"/>
+<text x="234.0" y="428.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI5</text>
+<circle cx="234.0" cy="470.0" r="17" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="2"/>
+<text x="234.0" y="474.5" font-size="13" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">PI6</text>
+<text x="72.0" y="212.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Conceptual</text>
+<text x="234.0" y="212.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Operational</text>
+<text x="306.0" y="212.0" font-size="12.5" font-weight="normal" fill="#5E6B7E" text-anchor="middle" font-style="italic">Quantitative</text>
+<circle cx="306.0" cy="274" r="13" fill="#F4F6F9" stroke="#A9B3C2" stroke-width="1.6" stroke-dasharray="4 3"/>
+<line x1="251.0" y1="263.0" x2="292.0" y2="274.0" stroke="#C4CCD8" stroke-width="1.3" stroke-dasharray="3 3"/>
+<circle cx="306.0" cy="364" r="13" fill="#F4F6F9" stroke="#A9B3C2" stroke-width="1.6" stroke-dasharray="4 3"/>
+<line x1="251.0" y1="355.0" x2="292.0" y2="364.0" stroke="#C4CCD8" stroke-width="1.3" stroke-dasharray="3 3"/>
+<circle cx="306.0" cy="454" r="13" fill="#F4F6F9" stroke="#A9B3C2" stroke-width="1.6" stroke-dasharray="4 3"/>
+<line x1="251.0" y1="447.0" x2="292.0" y2="454.0" stroke="#C4CCD8" stroke-width="1.3" stroke-dasharray="3 3"/>
+<text x="306.0" y="534.0" font-size="12" font-weight="normal" fill="#5E6B7E" text-anchor="middle" font-style="italic">not applied</text>
+<circle cx="49.0" cy="514.0" r="5" fill="#CDE4FA" stroke="#3E74B5" stroke-width="1.5"/>
+<text x="59.0" y="518.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">Demographic</text>
+<circle cx="159.0" cy="514.0" r="5" fill="#CDEAD4" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="169.0" y="518.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">Characterization</text>
+<circle cx="49.0" cy="532.0" r="5" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.5"/>
+<text x="59.0" y="536.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">Impacts and challenges</text>
+<rect x="352.0" y="204.0" width="240.0" height="56.0" rx="10" fill="#FFFFFF" stroke="#9A6A0E" stroke-width="1.5"/>
+<circle cx="367.0" cy="219.0" r="11" fill="#9A6A0E"/>
+<text x="367.0" y="223.5" font-size="11.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.3</text>
+<text x="385.0" y="224.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Grey literature</text>
+<polygon points="366.0,234.0 376.0,234.0 382.0,240.0 382.0,254.0 366.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="376.0,234.0 376.0,240.0 382.0,240.0" fill="#9A6A0E"/>
+<line x1="370.0" y1="244.0" x2="378.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="370.0" y1="250.0" x2="378.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="388.0,234.0 398.0,234.0 404.0,240.0 404.0,254.0 388.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="398.0,234.0 398.0,240.0 404.0,240.0" fill="#9A6A0E"/>
+<line x1="392.0" y1="244.0" x2="400.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="392.0" y1="250.0" x2="400.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="410.0,234.0 420.0,234.0 426.0,240.0 426.0,254.0 410.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="420.0,234.0 420.0,240.0 426.0,240.0" fill="#9A6A0E"/>
+<line x1="414.0" y1="244.0" x2="422.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="414.0" y1="250.0" x2="422.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="432.0,234.0 442.0,234.0 448.0,240.0 448.0,254.0 432.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="442.0,234.0 442.0,240.0 448.0,240.0" fill="#9A6A0E"/>
+<line x1="436.0" y1="244.0" x2="444.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="436.0" y1="250.0" x2="444.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="454.0,234.0 464.0,234.0 470.0,240.0 470.0,254.0 454.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="464.0,234.0 464.0,240.0 470.0,240.0" fill="#9A6A0E"/>
+<line x1="458.0" y1="244.0" x2="466.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="458.0" y1="250.0" x2="466.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="476.0,234.0 486.0,234.0 492.0,240.0 492.0,254.0 476.0,254.0" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.3"/>
+<polygon points="486.0,234.0 486.0,240.0 492.0,240.0" fill="#9A6A0E"/>
+<line x1="480.0" y1="244.0" x2="488.0" y2="244.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<line x1="480.0" y1="250.0" x2="488.0" y2="250.0" stroke="#9A6A0E" stroke-width="1.3"/>
+<text x="586.0" y="250.0" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="italic">6 from experts</text>
+<rect x="352.0" y="268.0" width="240.0" height="62.0" rx="10" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.5"/>
+<circle cx="367.0" cy="283.0" r="11" fill="#1F6B45"/>
+<text x="367.0" y="287.5" font-size="11.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.4</text>
+<text x="385.0" y="288.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Search string</text>
+<text x="362.0" y="304.0" font-size="11.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="italic">("quantum software architecture" OR …)</text>
+<text x="362.0" y="321.0" font-size="11.5" font-weight="normal" fill="#34405A" text-anchor="start" font-style="italic">AND (design OR framework OR model …)</text>
+<rect x="352.0" y="338.0" width="240.0" height="84.0" rx="10" fill="#FFFFFF" stroke="#3E74B5" stroke-width="1.5"/>
+<circle cx="367.0" cy="353.0" r="11" fill="#3E74B5"/>
+<text x="367.0" y="357.5" font-size="11.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.5</text>
+<text x="385.0" y="358.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Search engines</text>
+<rect x="360.0" y="364.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="414.0" y="375.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">ACM DL</text>
+<rect x="476.0" y="364.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="530.0" y="375.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Google Scholar</text>
+<rect x="360.0" y="382.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="414.0" y="393.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">IEEE Xplore</text>
+<rect x="476.0" y="382.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="530.0" y="393.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">ScienceDirect</text>
+<rect x="360.0" y="400.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="414.0" y="411.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">Scopus</text>
+<rect x="476.0" y="400.0" width="108.0" height="16.0" rx="8" fill="#EAF4FD" stroke="#97C6EE" stroke-width="1.5"/>
+<text x="530.0" y="411.9" font-size="11.5" font-weight="normal" fill="#1B2B48" text-anchor="middle" font-style="normal">SpringerLink</text>
+<rect x="352.0" y="430.0" width="240.0" height="54.0" rx="10" fill="#FFFFFF" stroke="#5B3FA6" stroke-width="1.5"/>
+<circle cx="367.0" cy="445.0" r="11" fill="#5B3FA6"/>
+<text x="367.0" y="449.5" font-size="11.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.6</text>
+<text x="385.0" y="450.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">CI and CE</text>
+<rect x="364.0" y="454.0" width="100.0" height="22.0" rx="10" fill="#D3EBDB" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="414.0" y="469.2" font-size="12.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">CI1–CI5</text>
+<rect x="474.0" y="454.0" width="108.0" height="22.0" rx="10" fill="#FAD0D5" stroke="#B22A38" stroke-width="1.5"/>
+<text x="528.0" y="469.2" font-size="12.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">CE1–CE7</text>
+<text x="588.0" y="224.0" font-size="1" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal"></text>
+<rect x="352.0" y="492.0" width="240.0" height="50.0" rx="10" fill="#FFFFFF" stroke="#B22A38" stroke-width="1.5"/>
+<circle cx="367.0" cy="507.0" r="11" fill="#B22A38"/>
+<text x="367.0" y="511.5" font-size="11.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-style="normal">1.8</text>
+<text x="385.0" y="512.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Relevance</text>
+<rect x="364.0" y="518.0" width="216.0" height="20.0" rx="10" fill="#FAD0D5" stroke="#B22A38" stroke-width="1.5"/>
+<text x="472.0" y="532.2" font-size="12.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">CC1–CC9 · −1 / 0 / 1</text>
+<text x="875.8" y="216.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Results</text>
+<text x="875.8" y="233.0" font-size="13" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">2.1 string</text>
+<text x="975.2" y="216.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">1st filter</text>
+<text x="975.2" y="233.0" font-size="13" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">no duplicates</text>
+<text x="975.2" y="249.0" font-size="12" font-weight="normal" fill="#B22A38" text-anchor="middle" font-style="italic">CE6</text>
+<text x="1074.8" y="216.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">2nd filter</text>
+<text x="1074.8" y="233.0" font-size="13" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">relevant</text>
+<text x="1074.8" y="249.0" font-size="12" font-weight="normal" fill="#B22A38" text-anchor="middle" font-style="italic">CI · CE</text>
+<text x="1174.2" y="216.0" font-size="14" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">3rd filter</text>
+<text x="1174.2" y="233.0" font-size="13" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">primary</text>
+<text x="1174.2" y="249.0" font-size="12" font-weight="normal" fill="#B22A38" text-anchor="middle" font-style="italic">full text</text>
+<rect x="1126.5" y="258.0" width="95.5" height="238.0" rx="8" fill="#E4F3E8"/>
+<text x="680.0" y="279.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Google Scholar</text>
+<line x1="852.0" y1="274.0" x2="951.5" y2="274.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="274.0" x2="1051.0" y2="274.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="274.0" x2="1150.5" y2="274.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="274.0" r="13.0" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="279.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">784</text>
+<circle cx="951.5" cy="274.0" r="13.0" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="279.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">784</text>
+<circle cx="1051.0" cy="274.0" r="1.969797461876811" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="279.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">18</text>
+<circle cx="1150.5" cy="274.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1166.5" y="279.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">11</text>
+<text x="680.0" y="307.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">ACM DL</text>
+<line x1="852.0" y1="302.0" x2="951.5" y2="302.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="302.0" x2="1051.0" y2="302.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="302.0" x2="1150.5" y2="302.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="302.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="307.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">11</text>
+<circle cx="951.5" cy="302.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="307.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">10</text>
+<circle cx="1051.0" cy="302.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="307.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">2</text>
+<text x="1150.5" y="306.0" font-size="13" font-weight="normal" fill="#5E6B7E" text-anchor="middle" font-style="normal">×</text>
+<text x="1166.5" y="307.0" font-size="14.5" font-weight="normal" fill="#5E6B7E" text-anchor="start" font-style="normal">0</text>
+<text x="680.0" y="335.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">IEEE Xplore</text>
+<line x1="852.0" y1="330.0" x2="951.5" y2="330.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="330.0" x2="1051.0" y2="330.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="330.0" x2="1150.5" y2="330.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="330.0" r="1.7981708393105866" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="335.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">15</text>
+<circle cx="951.5" cy="330.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="335.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">6</text>
+<circle cx="1051.0" cy="330.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="335.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">3</text>
+<text x="1150.5" y="334.0" font-size="13" font-weight="normal" fill="#5E6B7E" text-anchor="middle" font-style="normal">×</text>
+<text x="1166.5" y="335.0" font-size="14.5" font-weight="normal" fill="#5E6B7E" text-anchor="start" font-style="normal">0</text>
+<text x="680.0" y="363.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">ScienceDirect</text>
+<line x1="852.0" y1="358.0" x2="951.5" y2="358.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="358.0" x2="1051.0" y2="358.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="358.0" x2="1150.5" y2="358.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="358.0" r="3.0445250291402144" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="363.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">43</text>
+<circle cx="951.5" cy="358.0" r="1.7981708393105866" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="363.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">15</text>
+<circle cx="1051.0" cy="358.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="363.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">4</text>
+<text x="1150.5" y="362.0" font-size="13" font-weight="normal" fill="#5E6B7E" text-anchor="middle" font-style="normal">×</text>
+<text x="1166.5" y="363.0" font-size="14.5" font-weight="normal" fill="#5E6B7E" text-anchor="start" font-style="normal">0</text>
+<text x="680.0" y="391.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Scopus</text>
+<line x1="852.0" y1="386.0" x2="951.5" y2="386.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="386.0" x2="1051.0" y2="386.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="386.0" x2="1150.5" y2="386.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="386.0" r="8.331309278001523" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="391.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">322</text>
+<circle cx="951.5" cy="386.0" r="8.266372128283683" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="391.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">317</text>
+<circle cx="1051.0" cy="386.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="391.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">8</text>
+<circle cx="1150.5" cy="386.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1166.5" y="391.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">2</text>
+<text x="680.0" y="419.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">SpringerLink</text>
+<line x1="852.0" y1="414.0" x2="951.5" y2="414.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="414.0" x2="1051.0" y2="414.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="414.0" x2="1150.5" y2="414.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="414.0" r="2.5850334541710818" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="868.0" y="419.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">31</text>
+<circle cx="951.5" cy="414.0" r="2.456769074559977" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="967.5" y="419.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">28</text>
+<circle cx="1051.0" cy="414.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1067.0" y="419.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">7</text>
+<circle cx="1150.5" cy="414.0" r="1.6" fill="#8FCDA2" stroke="#1F6B45" stroke-width="1.5"/>
+<text x="1166.5" y="419.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">1</text>
+<text x="680.0" y="447.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Grey literature</text>
+<line x1="852.0" y1="442.0" x2="951.5" y2="442.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="951.5" y1="442.0" x2="1051.0" y2="442.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<line x1="1051.0" y1="442.0" x2="1150.5" y2="442.0" stroke="#D4DAE3" stroke-width="1.5"/>
+<circle cx="852.0" cy="442.0" r="1.6" fill="#F2C766" stroke="#9A6A0E" stroke-width="1.5"/>
+<text x="868.0" y="447.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">6</text>
+<circle cx="951.5" cy="442.0" r="1.6" fill="#F2C766" stroke="#9A6A0E" stroke-width="1.5"/>
+<text x="967.5" y="447.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">3</text>
+<circle cx="1051.0" cy="442.0" r="1.6" fill="#F2C766" stroke="#9A6A0E" stroke-width="1.5"/>
+<text x="1067.0" y="447.0" font-size="14.5" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">3</text>
+<circle cx="1150.5" cy="442.0" r="1.6" fill="#F2C766" stroke="#9A6A0E" stroke-width="1.5"/>
+<text x="1166.5" y="447.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">3</text>
+<line x1="676.0" y1="464.0" x2="1224.0" y2="464.0" stroke="#8FCDA2" stroke-width="1.6"/>
+<text x="680.0" y="484.0" font-size="15.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Total</text>
+<text x="840.0" y="484.0" font-size="17" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">1,212</text>
+<text x="939.5" y="484.0" font-size="17" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">1,164</text>
+<text x="1039.0" y="484.0" font-size="17" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">45</text>
+<text x="1138.5" y="484.0" font-size="17" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">17</text>
+<rect x="676.0" y="500.0" width="162.7" height="34.0" rx="9" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.6"/>
+<text x="692.0" y="522.0" font-size="12.5" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">2.3</text>
+<text x="712.0" y="522.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Apply relevance</text>
+<polygon points="842.7,512.2 848.3,512.2 848.3,508.6 856.3,517.0 848.3,525.4 848.3,521.8 842.7,521.8" fill="#5E6B7E"/>
+<rect x="868.7" y="500.0" width="162.7" height="34.0" rx="9" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.6"/>
+<text x="884.7" y="522.0" font-size="12.5" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">2.4</text>
+<text x="904.7" y="522.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Extract data</text>
+<polygon points="1035.3,512.2 1040.9,512.2 1040.9,508.6 1048.9,517.0 1040.9,525.4 1040.9,521.8 1035.3,521.8" fill="#5E6B7E"/>
+<rect x="1061.3" y="500.0" width="162.7" height="34.0" rx="9" fill="#FFFFFF" stroke="#1F6B45" stroke-width="1.6"/>
+<text x="1077.3" y="522.0" font-size="12.5" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">2.5</text>
+<text x="1097.3" y="522.0" font-size="13.5" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Synthesize</text>
+<rect x="1349.5" y="210.0" width="45.0" height="6.0" rx="3" fill="#5B3FA6"/>
+<text x="1372.0" y="232.0" font-size="12" font-weight="bold" fill="#5B3FA6" text-anchor="middle" font-style="normal">Clarity</text>
+<rect x="1397.5" y="210.0" width="69.0" height="6.0" rx="3" fill="#3E74B5"/>
+<text x="1432.0" y="232.0" font-size="12" font-weight="bold" fill="#3E74B5" text-anchor="middle" font-style="normal">Rigor</text>
+<rect x="1469.5" y="210.0" width="45.0" height="6.0" rx="3" fill="#1F6B45"/>
+<text x="1492.0" y="232.0" font-size="12" font-weight="bold" fill="#1F6B45" text-anchor="middle" font-style="normal">Relev.</text>
+<rect x="1517.5" y="210.0" width="45.0" height="6.0" rx="3" fill="#B22A38"/>
+<text x="1540.0" y="232.0" font-size="12" font-weight="bold" fill="#B22A38" text-anchor="middle" font-style="normal">Credib.</text>
+<text x="1360.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC1</text>
+<text x="1384.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC2</text>
+<text x="1408.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC3</text>
+<text x="1432.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC4</text>
+<text x="1456.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC5</text>
+<text x="1480.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC6</text>
+<text x="1504.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC7</text>
+<text x="1528.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC8</text>
+<text x="1552.0" y="252.0" font-size="9.5" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">CC9</text>
+<rect x="1349.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1541.0" y="261.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="271.5" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S1</text>
+<rect x="1572.0" y="262.5" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="271.5" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1541.0" y="275.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="285.7" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S2</text>
+<rect x="1572.0" y="276.7" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="285.7" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1541.0" y="289.4" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<text x="1342.0" y="299.9" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S3</text>
+<rect x="1572.0" y="290.9" width="25.2" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1601.2" y="299.9" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">6</text>
+<rect x="1349.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1541.0" y="303.6" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<text x="1342.0" y="314.1" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S4</text>
+<rect x="1572.0" y="305.1" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="314.1" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="317.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="328.3" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S5</text>
+<rect x="1572.0" y="319.3" width="25.2" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1601.2" y="328.3" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">6</text>
+<rect x="1349.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="332.0" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<text x="1342.0" y="342.5" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S6</text>
+<rect x="1572.0" y="333.5" width="21.0" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1597.0" y="342.5" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">5</text>
+<rect x="1349.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="346.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="356.7" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S7</text>
+<rect x="1572.0" y="347.7" width="25.2" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1601.2" y="356.7" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">6</text>
+<rect x="1349.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1541.0" y="360.4" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<text x="1342.0" y="370.9" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S8</text>
+<rect x="1572.0" y="361.9" width="29.4" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1605.4" y="370.9" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">7</text>
+<rect x="1349.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1541.0" y="374.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="385.1" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S9</text>
+<rect x="1572.0" y="376.1" width="37.8" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1613.8" y="385.1" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">9</text>
+<rect x="1349.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="388.8" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<text x="1342.0" y="399.3" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S10</text>
+<rect x="1572.0" y="390.3" width="21.0" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1597.0" y="399.3" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">5</text>
+<rect x="1349.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1541.0" y="403.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="413.5" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S11</text>
+<rect x="1572.0" y="404.5" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="413.5" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1541.0" y="417.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="427.7" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S12</text>
+<rect x="1572.0" y="418.7" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="427.7" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1541.0" y="431.4" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="441.9" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S13</text>
+<rect x="1572.0" y="432.9" width="29.4" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1605.4" y="441.9" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">7</text>
+<rect x="1349.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1541.0" y="445.6" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<text x="1342.0" y="456.1" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S14</text>
+<rect x="1572.0" y="447.1" width="33.6" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1609.6" y="456.1" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">8</text>
+<rect x="1349.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="459.8" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<text x="1342.0" y="470.3" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S15</text>
+<rect x="1572.0" y="461.3" width="16.8" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1592.8" y="470.3" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">4</text>
+<rect x="1349.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1421.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="474.0" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<text x="1342.0" y="484.5" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S16</text>
+<rect x="1572.0" y="475.5" width="21.0" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1597.0" y="484.5" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">5</text>
+<rect x="1349.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1373.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1397.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<rect x="1421.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1445.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1469.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1493.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#5CB585"/>
+<rect x="1517.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#E57A86"/>
+<rect x="1541.0" y="488.2" width="22.0" height="12.2" rx="2" fill="#F2C766"/>
+<text x="1342.0" y="498.7" font-size="12" font-weight="normal" fill="#2E3A55" text-anchor="end" font-style="normal">S17</text>
+<rect x="1572.0" y="489.7" width="21.0" height="9.2" rx="2" fill="#5B3FA6"/>
+<text x="1597.0" y="498.7" font-size="11" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">5</text>
+<rect x="1348.0" y="509.4" width="13.0" height="12.0" rx="2" fill="#5CB585"/>
+<text x="1366.0" y="519.4" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">Yes (1)</text>
+<rect x="1417.9" y="509.4" width="13.0" height="12.0" rx="2" fill="#F2C766"/>
+<text x="1435.9" y="519.4" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">Partial (0)</text>
+<rect x="1502.2" y="509.4" width="13.0" height="12.0" rx="2" fill="#E57A86"/>
+<text x="1520.2" y="519.4" font-size="12.5" font-weight="normal" fill="#2E3A55" text-anchor="start" font-style="normal">No (−1)</text>
+<text x="1654.0" y="218.0" font-size="14.5" font-weight="bold" fill="#2E3A55" text-anchor="start" font-style="normal">Answers</text>
+<rect x="1654.0" y="230.0" width="202.0" height="30.0" rx="15" fill="#CDE4FA" stroke="#3E74B5" stroke-width="1.6"/>
+<text x="1668.0" y="250.0" font-size="13.5" font-weight="bold" fill="#3E74B5" text-anchor="start" font-style="normal">PI1</text>
+<text x="1704.0" y="250.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Research types</text>
+<rect x="1654.0" y="268.0" width="202.0" height="30.0" rx="15" fill="#CDEAD4" stroke="#1F6B45" stroke-width="1.6"/>
+<text x="1668.0" y="288.0" font-size="13.5" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">PI2</text>
+<text x="1704.0" y="288.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Solution types</text>
+<rect x="1654.0" y="306.0" width="202.0" height="30.0" rx="15" fill="#CDEAD4" stroke="#1F6B45" stroke-width="1.6"/>
+<text x="1668.0" y="326.0" font-size="13.5" font-weight="bold" fill="#1F6B45" text-anchor="start" font-style="normal">PI3</text>
+<text x="1704.0" y="326.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Architecture types</text>
+<rect x="1654.0" y="344.0" width="202.0" height="30.0" rx="15" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.6"/>
+<text x="1668.0" y="364.0" font-size="13.5" font-weight="bold" fill="#9A6A0E" text-anchor="start" font-style="normal">PI4</text>
+<text x="1704.0" y="364.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Impact vs. classical</text>
+<rect x="1654.0" y="382.0" width="202.0" height="30.0" rx="15" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.6"/>
+<text x="1668.0" y="402.0" font-size="13.5" font-weight="bold" fill="#9A6A0E" text-anchor="start" font-style="normal">PI5</text>
+<text x="1704.0" y="402.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Challenges</text>
+<rect x="1654.0" y="420.0" width="202.0" height="30.0" rx="15" fill="#FBE5AE" stroke="#9A6A0E" stroke-width="1.6"/>
+<text x="1668.0" y="440.0" font-size="13.5" font-weight="bold" fill="#9A6A0E" text-anchor="start" font-style="normal">PI6</text>
+<text x="1704.0" y="440.0" font-size="13" font-weight="normal" fill="#1B2B48" text-anchor="start" font-style="normal">Future work</text>
+<rect x="1654.0" y="466.0" width="202.0" height="66.0" rx="12" fill="#FBE9EB" stroke="#B22A38" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="1755.0" y="489.0" font-size="14.5" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">8 biases and limitations</text>
+<text x="1755.0" y="509.0" font-size="13" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">with mitigation strategy</text>
+<rect x="24" y="678" width="640" height="250" fill="#EEF1F6"/>
+<path d="M24,732 V692 Q24,678 38,678 H650 Q664,678 664,692 V732 Z" fill="#DDE3EC"/>
+<rect x="24" y="678" width="640" height="250" rx="14" fill="none" stroke="#B3BFD2" stroke-width="1.8"/>
+<text x="46.0" y="714.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Result</text>
+<rect x="52.0" y="754.0" width="250.0" height="140.0" rx="14" fill="#DCEAF9" stroke="#97C6EE" stroke-width="2"/>
+<text x="177.0" y="826.0" font-size="66" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">17</text>
+<text x="177.0" y="864.0" font-size="19" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="normal">primary studies</text>
+<polygon points="318.0,814.0 332.0,814.0 332.0,805.0 352.0,826.0 332.0,847.0 332.0,838.0 318.0,838.0" fill="#5E6B7E"/>
+<rect x="372.0" y="754.0" width="262.0" height="140.0" rx="14" fill="#CDEAD4" stroke="#8FCDA2" stroke-width="2"/>
+<text x="503.0" y="831.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Input to the</text>
+<text x="503.0" y="857.0" font-size="21" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">harmonization</text>
+<rect x="688" y="678" width="1188" height="250" fill="#EEF1F6"/>
+<path d="M688,732 V692 Q688,678 702,678 H1862 Q1876,678 1876,692 V732 Z" fill="#DDE3EC"/>
+<rect x="688" y="678" width="1188" height="250" rx="14" fill="none" stroke="#B3BFD2" stroke-width="1.8"/>
+<text x="710.0" y="714.0" font-size="26" font-weight="bold" fill="#1B2B48" text-anchor="start" font-style="normal">Methodological foundations of the SLR</text>
+<rect x="710.0" y="754.0" width="217.6" height="140.0" rx="12" fill="#CDE4FA" stroke="#97C6EE" stroke-width="1.8"/>
+<text x="818.8" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Kitchenham et al. [23]</text>
+<text x="818.8" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">SLR guidelines</text>
+<rect x="941.6" y="754.0" width="217.6" height="140.0" rx="12" fill="#CDEAD4" stroke="#8FCDA2" stroke-width="1.8"/>
+<text x="1050.4" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Petersen et al. [55]</text>
+<text x="1050.4" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Systematic mapping studies</text>
+<rect x="1173.2" y="754.0" width="217.6" height="140.0" rx="12" fill="#FBE5AE" stroke="#EBC76A" stroke-width="1.8"/>
+<text x="1282.0" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">GQM [56]</text>
+<text x="1282.0" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Goals and questions</text>
+<text x="1282.0" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">(conceptual and operational</text>
+<text x="1282.0" y="857.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">levels)</text>
+<rect x="1404.8" y="754.0" width="217.6" height="140.0" rx="12" fill="#E0D4F6" stroke="#BBA8E6" stroke-width="1.8"/>
+<text x="1513.6" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">SMART [57]</text>
+<text x="1513.6" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Validation of the research</text>
+<text x="1513.6" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">objectives</text>
+<rect x="1636.4" y="754.0" width="217.6" height="140.0" rx="12" fill="#FAD0D5" stroke="#EE9AA2" stroke-width="1.8"/>
+<text x="1745.2" y="790.0" font-size="19" font-weight="bold" fill="#1B2B48" text-anchor="middle" font-style="normal">Wieringa [61]</text>
+<text x="1745.2" y="817.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">Research-type classification</text>
+<text x="1745.2" y="837.0" font-size="16" font-weight="normal" fill="#2E3A55" text-anchor="middle" font-style="italic">(RQ1)</text>
+</svg>

@@ -502,10 +502,14 @@ p,
   text-align: center !important;
 }
 
-.harmony-process-figure .harmony-process-image { display: none; }
-html[lang="es"] .harmony-process-figure .language-es { display: block; }
+.harmony-process-figure .harmony-process-image,
+.i18n-switchable-figure .i18n-switchable-image { display: none; }
+html[lang="es"] .harmony-process-figure .language-es,
+html[lang="es"] .i18n-switchable-figure .language-es { display: block; }
 html[lang="en"] .harmony-process-figure .language-en,
-html[lang="fr"] .harmony-process-figure .language-en { display: block; }
+html[lang="fr"] .harmony-process-figure .language-en,
+html[lang="en"] .i18n-switchable-figure .language-en,
+html[lang="fr"] .i18n-switchable-figure .language-en { display: block; }
 
 .advisor-entry { background:#f6faf8; }
 .advisor-entry-link { display:flex;justify-content:space-between;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:6px;padding:1.4rem 1.6rem;text-decoration:none;color:var(--ink); }
