@@ -697,10 +697,10 @@
     </div>
   </header>
 
-  <!-- Matriz Diferencial PDAEH vs TOGAF -->
+  <!-- Matriz Diferencial PDAEH vs Marcos Clásicos de Referencia -->
   <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.6rem 1.8rem;margin:1.5rem 0 2rem;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;margin-bottom:1rem;">
-      <h3 style="margin:0;font-size:1.2rem;color:var(--navy);font-weight:700;">Matriz comparativa: marcos clásicos (TOGAF) vs. PDAEH</h3>
+      <h3 style="margin:0;font-size:1.2rem;color:var(--navy);font-weight:700;">Matriz comparativa: marcos clásicos vs. PDAEH</h3>
       <span style="font-size:0.82rem;font-weight:700;padding:3px 10px;background:#eef5f3;color:var(--green);border-radius:12px;border:1px solid #c2dbd4;">Diferenciación arquitectónica</span>
     </div>
 
@@ -708,41 +708,101 @@
       <table>
         <thead>
           <tr>
-            <th style="width:22%;text-align:center !important;vertical-align:middle !important;">Dimensión analizada</th>
-            <th style="width:39%;text-align:center !important;vertical-align:middle !important;">Marcos clásicos (Ej. TOGAF ADM)</th>
-            <th style="width:39%;text-align:center !important;vertical-align:middle !important;">Proceso propuesto (PDAEH)</th>
+            <th style="width:20%;text-align:center !important;vertical-align:middle !important;">Dimensión analizada</th>
+            <th style="width:42%;text-align:center !important;vertical-align:middle !important;">Marcos clásicos de referencia (TOGAF, Zachman, ISO/IEC 42010, COMPETISOFT, SWEBOK)</th>
+            <th style="width:38%;text-align:center !important;vertical-align:middle !important;">Proceso propuesto (PDAEH)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Paradigma tecnológico</td>
-            <td style="text-align:justify;">Orientado primordialmente a sistemas computacionales clásicos y deterministas (on-premise, microservicios, nube tradicional).</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Coexistencia híbrida nativa:</strong> Modela y gobierna explícitamente la articulación simbiótica entre computación clásica (CPU/GPU) y coprocesadores cuánticos (QPU).</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Paradigma tecnológico</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF (ADM):</strong> Concebido y estructurado para sistemas corporativos deterministas, computación en la nube convencional y arquitecturas multicapa clásicas (CPU/GPU).</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> Ontología de clasificación empresarial cuyas primitivas y artefactos modelan exclusivamente recursos e inventarios de TI clásicos (redes, nodos, aplicaciones deterministas).</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Establece el estándar conceptual para la descripción de arquitecturas mediante vistas y puntos de vista, pero sin considerar la variabilidad probabilística ni el desacoplamiento de cómputo NISQ.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT (ISO/IEC 12207 / 29110):</strong> Estandariza flujos de procesos e ingeniería de software asumiendo entornos y plataformas de desarrollo deterministas y secuenciales.</li>
+                <li><strong>SWEBOK (ISO/IEC 24773):</strong> Delimita las áreas de conocimiento de la ingeniería de software clásica sobre plataformas de cómputo determinista sin taxonomía de coexistencia cuántica.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Coexistencia híbrida nativa:</strong> Modela y gobierna explícitamente la articulación simbiótica entre computación clásica (CPU/GPU) y coprocesadores cuánticos (QPU), formalizando la orquestación y el intercambio de estado cuántico-clásico.
+            </td>
           </tr>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Gobernanza y compuertas</td>
-            <td style="text-align:justify;">Comités de arquitectura (ARB) enfocados en estándares corporativos tradicionales y deuda técnica convencional.</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Gobernanza OGA con compuertas formales:</strong> 5 puntos de control auditable (OGA-1 a OGA-5) y 7 actividades de revisión transversal sobre Líneas Base Arquitectónicas incrementales (LBA).</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Gobernanza y compuertas</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF:</strong> Opera mediante Comités de Arquitectura (Architecture Review Board - ARB) y Architecture Contracts enfocados en conformidad corporativa y control de cambios en ciclos cerrados tradicionales.</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> No prescribe compuertas procesales ni mecanismos de verificación secuencial; es una ontología estática de dos dimensiones sin dinámica de evaluación de artefactos.</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Define el marco formal de correspondencia y consistencia entre vistas, sin prescribir compuertas operacionales de aprobación o auditoría durante el ciclo de vida.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT:</strong> Define mecanismos de verificación y control al interior de actividades mediante roles y productos de trabajo, pero sin compuertas transversales orientadas a activos no convencionales.</li>
+                <li><strong>SWEBOK:</strong> Documenta áreas de gestión de configuración y calidad sin formalizar compuertas colegiadas específicas para transición tecnológica emergente.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Gobernanza OGA con compuertas formales:</strong> 5 compuertas auditables de control (OGA-1 a OGA-5) y 7 actividades de revisión transversal sobre Líneas Base Arquitectónicas incrementales (LBA), asegurando trazabilidad integral antes de transicionar de fase.
+            </td>
           </tr>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Restricciones de hardware y madurez</td>
-            <td style="text-align:justify;">Asume disponibilidad de hardware determinista, altamente estable y con tolerancia a fallos estándar.</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Realismo NISQ:</strong> Incorpora formalmente la mitigación de errores cuánticos, tiempos de coherencia, fidelidad de cúbits y evaluación de ventaja cuántica real en E10 (BER) y E6 (DEA).</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Restricciones de hardware y madurez</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF:</strong> Asume total disponibilidad de infraestructura de cómputo determinista, tolerante a fallos y con métricas de capacidad estándar (SLA, ancho de banda, almacenamiento).</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> Trata la capa de infraestructura física (nodo de red y hardware) como un componente completamente abstracto, disponible y predecible.</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Modela las preocupaciones del sistema (system concerns), pero carece de perfiles o extensiones normativas para restricciones de física de estado sólido o ruido NISQ.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT:</strong> Asume infraestructura de compilación, ejecución y despliegue estándar, sin criterios para la selección ni validación de hardware probabilístico.</li>
+                <li><strong>SWEBOK:</strong> Fundamenta los requerimientos de plataforma en métricas operativas convencionales (tiempo de respuesta, disponibilidad, throughput) sin modelar errores cuánticos.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Realismo NISQ:</strong> Incorpora formalmente la mitigación de errores cuánticos, tiempos de coherencia, fidelidad de compuertas/cúbits y evaluación objetiva de ventaja cuántica real en los elementos E10 (Bitácora de Evaluación de Ruido - BER) y E6 (Diseño y Evaluación Algorítmica - DEA).
+            </td>
           </tr>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Seguridad y criptografía</td>
-            <td style="text-align:justify;">Modelos basados en criptografía asimétrica tradicional (RSA, ECC) sin contemplar el riesgo de descifrado cuántico.</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Transición Postcuántica (PQC):</strong> Rol dedicado (ASecP) y artefactos específicos para gobernar la migración segura hacia algoritmos resistentes al cómputo cuántico.</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Seguridad y criptografía</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF:</strong> Aborda la seguridad como una dimensión corporativa transversal basada en criptografía asimétrica estándar (RSA, ECC, PKI) sin contemplar la amenaza del día Q ("Harvest Now, Decrypt Later").</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> La celda de seguridad en la columna "Why" (Motivación) se limita a políticas y controles de cumplimiento clásicos.</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Provee mecanismos para capturar la seguridad como preocupación (concern), pero sin directrices criptográficas o de agilidad algorítmica.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT:</strong> Enfocado en aseguramiento de calidad del software y trazabilidad documental tradicional, sin pautas sobre criptografía avanzada o migración de algoritmos.</li>
+                <li><strong>SWEBOK:</strong> Cubre seguridad en el ciclo de vida del software conforme a estándares criptográficos clásicos sin pautas de resistencia postcuántica.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Transición Postcuántica (PQC):</strong> Rol dedicado (Arquitecto de Seguridad Postcuántica - ASecP) y artefactos específicos para gobernar el inventario criptográfico, la agilidad algorítmica y la migración segura hacia estándares resistentes (ML-KEM, ML-DSA).
+            </td>
           </tr>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Patrones y componentes</td>
-            <td style="text-align:justify;">Catálogos maduros consolidados tras décadas de práctica (capas, EDA, SOA, microservicios).</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Patrones y estilos híbridos emergentes:</strong> Catálogo sistemático de 3 estilos arquitectónicos (E7) y 5 patrones de diseño híbrido (E8) para resolver la variabilidad de interacción.</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Patrones y componentes</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF:</strong> Promueve catálogos clásicos de Building Blocks (ABB y SBB) orientados a SOA, microservicios y patrones empresariales consolidados.</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> Define relaciones estáticas entre componentes de software, datos y funciones funcionales mediante matrices de integración clásica.</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Define reglas para relacionar elementos y describir puntos de vista, pero no suministra un catálogo de patrones o estilos híbridos.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT:</strong> Define la estructura de tareas y productos de desarrollo sin profundizar en patrones tecnológicos o de acoplamiento de coprocesadores.</li>
+                <li><strong>SWEBOK:</strong> Documenta patrones de diseño de software clásicos (GoF, arquitectónicos en capas, cliente-servidor) sin patrones de interacción cuántico-clásica.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Patrones y estilos híbridos emergentes:</strong> Catálogo sistemático de 3 estilos arquitectónicos híbridos (E7: Aceleración por Descarga, Orquestación de Flujos Cuánticos, Co-procesamiento Cuántico Estrecho) y 5 patrones de diseño híbrido (E8: Quantum Gate Delegation, Hybrid Data Wrapper, Error Mitigation Filter, Hybrid Job Orchestrator, Variational Loop Coordinator).
+            </td>
           </tr>
           <tr>
-            <td style="font-weight:700;color:var(--navy);vertical-align:middle;">Adaptabilidad por escala</td>
-            <td style="text-align:justify;">Estructuras de roles pesadas diseñadas para grandes corporaciones que resultan costosas o inviables en etapas tempranas.</td>
-            <td style="text-align:justify;background:#f8faf9;"><strong>Segmentación organizacional proporcional:</strong> Modelos formalmente adaptados para Microempresas/Startups (fusión en AEP), PyMEs (diferenciación progresiva) y Corporaciones (especialización plena).</td>
+            <td style="font-weight:700;color:var(--navy);vertical-align:top;padding-top:1rem;">Adaptabilidad por escala</td>
+            <td style="text-align:left;vertical-align:top;">
+              <ul style="margin:0;padding-left:1.2rem;line-height:1.55;font-size:0.9rem;">
+                <li style="margin-bottom:0.5rem;"><strong>TOGAF:</strong> Requiere una estructura organizacional madura y pesada (Architecture Capability Framework), de difícil y costosa implementación para empresas pequeñas o startups.</li>
+                <li style="margin-bottom:0.5rem;"><strong>Zachman Framework:</strong> Su completitud holística (matriz de 36 celdas) demanda un esfuerzo documental elevado, típicamente inviable en equipos reducidos o en etapas exploratorias.</li>
+                <li style="margin-bottom:0.5rem;"><strong>ISO/IEC/IEEE 42010:</strong> Altamente flexible en notación pero abstracto, requiriendo un esfuerzo considerable de contextualización y adaptación operacional para cada organización.</li>
+                <li style="margin-bottom:0.5rem;"><strong>COMPETISOFT:</strong> Diseñado específicamente para PyMEs y pequeñas empresas de software iberoamericanas, pero enfocado exclusivamente en desarrollo tradicional clásico.</li>
+                <li><strong>SWEBOK:</strong> Cuerpo de conocimiento de referencia disciplinar sin pautas de adaptación estructural según la escala o madurez de la entidad.</li>
+              </ul>
+            </td>
+            <td style="text-align:justify;background:#f8faf9;vertical-align:top;padding-top:1rem;">
+              <strong>Segmentación organizacional proporcional:</strong> Modelos formalmente adaptados para Microempresas/Startups (fusión de roles en AEP), PyMEs (diferenciación progresiva con delegación OGA simplificada) y Corporaciones (especialización plena de los 7 roles y comité OGA formal), equilibrando rigor y agilidad.
+            </td>
           </tr>
         </tbody>
       </table>
