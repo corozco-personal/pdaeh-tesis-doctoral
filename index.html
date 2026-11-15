@@ -904,8 +904,19 @@
 <script src="js/app.js?v=1794683594"></script>
 
 <!-- Guía Rápida del Evaluador (Acceso directo a las 6 secciones del Formulario) -->
-<aside id="evaluatorNav" class="evaluator-nav-widget" aria-label="Acceso para evaluadores">
-  <div class="evaluator-widget-buttons">
+<aside id="evaluatorNav" class="evaluator-nav-widget is-expanded" aria-label="Acceso para evaluadores">
+  <!-- Botón Píldora Trigger para Contraer / Expandir el Stack -->
+  <button id="evaluatorStackTrigger" type="button" class="evaluator-stack-trigger" aria-expanded="true" title="Ocultar accesos rápidos de evaluación">
+    <span class="stack-trigger-icon">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </span>
+    <span class="stack-trigger-label">Accesos del Evaluador</span>
+  </button>
+
+  <!-- Contenedor del Stack de Botones Flotantes -->
+  <div id="evaluatorWidgetButtons" class="evaluator-widget-buttons">
     <button id="evaluatorToggleBtn" type="button" class="evaluator-toggle-btn" title="Abrir índice de navegación temática">
       <svg class="eval-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
@@ -989,6 +1000,10 @@
   var btn = document.getElementById('evaluatorToggleBtn');
   var menu = document.getElementById('evaluatorMenu');
   var close = document.getElementById('evaluatorCloseBtn');
+  var widget = document.getElementById('evaluatorNav');
+  var stackTrigger = document.getElementById('evaluatorStackTrigger');
+
+  // Control de apertura/cierre del modal de guía temática
   if(btn && menu && close){
     btn.addEventListener('click', function(e){
       e.stopPropagation();
@@ -1009,6 +1024,26 @@
     document.addEventListener('click', function(e){
       if(!menu.hidden && !menu.contains(e.target) && e.target !== btn){
         menu.hidden = true;
+      }
+    });
+  }
+
+  // Control estilo stack/dock de Mac (minimizar / expandir botones flotantes)
+  if(widget && stackTrigger){
+    stackTrigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isExpanded = widget.classList.contains('is-expanded');
+      if(isExpanded){
+        widget.classList.remove('is-expanded');
+        widget.classList.add('is-collapsed');
+        stackTrigger.setAttribute('aria-expanded', 'false');
+        stackTrigger.setAttribute('title', 'Mostrar accesos del Evaluador');
+        if(menu) menu.hidden = true;
+      } else {
+        widget.classList.remove('is-collapsed');
+        widget.classList.add('is-expanded');
+        stackTrigger.setAttribute('aria-expanded', 'true');
+        stackTrigger.setAttribute('title', 'Ocultar accesos del Evaluador');
       }
     });
   }

@@ -1007,6 +1007,80 @@ details.activity,
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  transform-origin: bottom right;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Disparador estilo pill para colapsar/expandir el stack de Mac */
+.evaluator-stack-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-left: auto;
+  margin-top: 8px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 20px;
+  color: var(--navy, #0F3B43);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.evaluator-stack-trigger:hover {
+  background: #ffffff;
+  border-color: var(--green, #18796E);
+  color: var(--green, #18796E);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.stack-trigger-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+/* Estado Expandido: el icono apunta hacia abajo para invitar a colapsar */
+.evaluator-nav-widget.is-expanded .stack-trigger-icon {
+  transform: rotate(0deg);
+}
+
+/* Estado Colapsado: efecto stack plegado hacia la esquina inferior */
+.evaluator-nav-widget.is-collapsed .evaluator-widget-buttons {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.92);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.evaluator-nav-widget.is-collapsed .stack-trigger-icon {
+  transform: rotate(180deg);
+}
+
+.evaluator-nav-widget.is-collapsed .evaluator-stack-trigger {
+  background: var(--navy, #0F3B43);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 14px rgba(15, 59, 67, 0.35);
+  padding: 8px 16px;
+  font-size: 0.82rem;
+}
+
+.evaluator-nav-widget.is-collapsed .evaluator-stack-trigger:hover {
+  background: var(--green, #18796E);
+  border-color: var(--green, #18796E);
+  color: #ffffff;
 }
 
 .eval-forms-action-btn {
