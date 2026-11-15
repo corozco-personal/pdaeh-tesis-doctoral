@@ -155,3 +155,6 @@ El agente no es un simple modelo de texto, sino un **Consultor de Arquitectura H
 
 4. **Descarga Directa de Plantillas Oficiales de Artefactos:**
    - Facilita enlaces de descarga directa para los artefactos clave del proceso (`.MD`, `.DOCX` y enlace web interactivo a `plantilla.html?id=XXX`), por ejemplo `Plantilla_DOE.md`, `Plantilla_DCA.md`, `Plantilla_MSP.md`, `Plantilla_DEA.md`, etc., para que el equipo pueda iniciar inmediatamente la formalización ante el comité OGA.
+
+
+- **Formato de Tablas:** Cuando generes tablas Markdown, los encabezados de las columnas deben estar siempre centrados mediante la sintaxis `:---:` en la fila divisoria (por ejemplo: `| :---: | :---: | :---: | :---: |`).

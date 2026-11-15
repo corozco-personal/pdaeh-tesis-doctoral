@@ -112,7 +112,7 @@ pub fn evaluate_offline_rules(content: &str) -> String {
 A continuación se resume la evaluación multidimensional de compatibilidad del caso:
 
 | Dimensión Evaluada | Puntuación | Estado | Justificación Metodológica |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **Complejidad Algorítmica (E1/E2)** | 96 / 100 | **Óptimo** | Formulación QUBO / Hamiltoniano de Ising sobre estados discretos. Algoritmo QAOA / Recocido Cuántico. |
 | **Capacidad de Desacoplamiento (E7)** | 92 / 100 | **Óptimo** | Arquitectura de microservicios con Kafka y Redis apta para el patrón de Co-procesamiento Híbrido Desacoplado. |
 | **Gobernanza y Cumplimiento (E4/E5)** | 88 / 100 | **Favorable** | Custodia clásica estricta de datos financieros; la QPU solo recibe matrices matemáticas sin PII. |
@@ -123,7 +123,7 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 ## 2. Caracterización del Caso y Evaluación de Variables Arquitectónicas
 
 | Variable Evaluada | Entrada Declarada en Perfil | Dictamen Metodológico PDAEH |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | **Tamaño Organizacional** | PYME (20 - 200 empleados) | Capacidad de adopción ágil. Se activa la estructura de roles compacta: CTO como AEP, Consultor Cuántico externo como EQP y Comité Colegiado como OGA. |
 | **Problema / Caso de Uso** | Rebalanceo dinámico de portafolio y optimización de carteras bajo riesgo CVaR | Problema de optimización combinatoria multiobjetivo NP-hard (>1.200 activos). Ventaja potencial en muestreo de configuraciones de mínima energía. |
 | **Arquitectura Tecnológica As-Is** | Microservicios (Kafka, PostgreSQL, TimescaleDB, Redis, K8s) | Excelente base para la Capa de Integración Cuántica (QIL). Permite la separación entre el motor transaccional y el optimizador variacional. |
@@ -136,7 +136,7 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 A partir de la base de conocimiento y referencias de la industria financiera internacional, se identifican las siguientes implementaciones análogas de co-procesamiento híbrido:
 
 | Organización de Referencia | Sector / Caso de Uso | Enfoque Algorítmico e Infraestructura Híbrida | Lección Aprendida y Criterio PDAEH |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **BBVA & Multiverse Computing** | Banca y Gestión de Inversiones / Optimización de Carteras con Restricciones de Liquidez | Algoritmo híbrido clásico-cuántico VQE / QAOA combinado con computación clásica HPC y D-Wave Advantage. | El preprocesamiento clásico y la reducción de dimensionalidad son obligatorios para no saturar los qubits físicos NISQ. |
 | **JPMorgan Chase & QC Ware** | Banca de Inversión / Selección de Activos y Estrategias Hedging | Co-procesamiento con QPU basada en compuertas (Gate-based) y optimizadores clásicos COBYLA / SPSA. | Es imprescindible contar con un fallback clásico determinista si la latencia de cola en la nube cuántica supera el SLA de negocio. |
 | **Goldman Sachs & AWS Braket** | Mercados de Capitales / Simulación Monte Carlo y Riesgo Financiero | Aceleración cuántica mediante estimación de fase cuántica (QPE) y algoritmos variacionales asistidos por CPU clásica. | La custodia y anonimización de datos de mercado deben resolverse en el perímetro clásico antes de remitir circuitos a la nube. |
@@ -193,7 +193,7 @@ graph TD
 ## 5. Asignación Metodológica de Roles (PDAEH E6 - Escala PYME)
 
 | Rol Metodológico | Denominación en FinNova | Responsabilidad Clave en el Proceso |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | **AEP (Arquitecto Empresarial Principal)** | CTO / Líder de Arquitectura | Liderar la definición del artefacto DOE y custodiar la compuerta OGA-1. |
 | **ASP (Arquitecto de Solución Principal)** | Ingeniero de Software Principal | Diseñar la Capa de Integración Cuántica (QIL) y el patrón Broker/Mediador. |
 | **EQP (Especialista Cuántico)** | Consultor Cuántico Externo (PhD) | Formular el Hamiltoniano de costo y calibrar los hiperparámetros de QAOA. |
@@ -294,7 +294,7 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
 A continuación se resume la evaluación multidimensional de compatibilidad del caso:
 
 | Dimensión Evaluada | Puntuación | Estado | Justificación Metodológica |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **Complejidad Algorítmica (E1/E2)** | 94 / 100 | **Óptimo** | Mapeo CVRP a QUBO / Grafo de Flujo de Red con particionamiento D-Wave Leap Hybrid / Recocido Cuántico. |
 | **Capacidad de Desacoplamiento (E7)** | 90 / 100 | **Óptimo** | Despacho de paquetes desacoplado mediante eventos Kafka; tolera tiempos de respuesta asíncronos de 30 a 60 segundos. |
 | **Gobernanza y Cumplimiento (E4/E5)** | 89 / 100 | **Favorable** | Custodia de direcciones físicas y datos de clientes en perímetro clásico; la QPU solo recibe identificadores de nodos y distancias euclidianas. |
@@ -305,7 +305,7 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 ## 2. Benchmarking Industrial: Organizaciones con Desafíos Similares
 
 | Organización de Referencia | Sector / Caso de Uso | Enfoque Algorítmico e Infraestructura Híbrida | Lección Aprendida y Criterio PDAEH |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **Volkswagen Group & D-Wave** | Movilidad y Logística / Optimización del Flujo de Tráfico y Tiempos de Parada en Lisboa | Algoritmo híbrido cuántico de recocido (Quantum Annealing) desacoplado del sistema clásico de navegación vehicular. | El particionamiento en sub-grafos clásicos es clave; ninguna QPU actual resuelve directamente grafos globales de más de 1.000 nodos. |
 | **DHL Supply Chain** | Cadena de Suministro / Optimización 3D de Carga en Contenedores y Asignación de Flota | Hibridación de algoritmos heurísticos clásicos con solucionadores variacionales QAOA y Temple Simulado clásico. | La redundancia con solucionadores clásicos (OR-Tools / Gurobi) es obligatoria para garantizar SLA ante ventanas logísticas estrictas. |
 | **FedEx Dataworks** | Paquetería Global / Ruteo de Envíos Express de Última Milla | Modelado QUBO ejecutado mediante nubes híbridas cuánticas combinadas con motores clásicos de eventos Kafka. | La anonimización y normalización geométrica de coordenadas geográficas previene la exposición de datos operativos estratégicos. |
@@ -420,7 +420,7 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
 A continuación se resume la evaluación multidimensional de compatibilidad del caso:
 
 | Dimensión Evaluada | Puntuación | Estado | Justificación Metodológica |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **Urgencia Criptográfica (E1/E2)** | 98 / 100 | **Crítico** | Obsolescencia inevitable de RSA-2048 y ECDH frente al algoritmo de Shor; necesidad de migración a redes basadas en retículos (*Lattices*). |
 | **Capacidad de Desacoplamiento (E7)** | 95 / 100 | **Óptimo** | API Gateway centralizado (Envoy / Kong) permite migración progresiva hacia TLS 1.3 híbrido sin reescribir microservicios internos. |
 | **Gobernanza y Cumplimiento (E4/E5)** | 96 / 100 | **Favorable** | Cumplimiento regulatorio directo con estándares NIST (FIPS 203 ML-KEM y FIPS 204 ML-DSA) y directivas CISA / NSA CNSA 2.0. |
@@ -431,7 +431,7 @@ A continuación se resume la evaluación multidimensional de compatibilidad del 
 ## 2. Benchmarking Industrial: Organizaciones con Desafíos Similares
 
 | Organización de Referencia | Sector / Caso de Uso | Enfoque Híbrido Post-Cuántico Implementado | Lección Aprendida y Criterio PDAEH |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | **Cloudflare & Google Chrome** | Infraestructura Web / Implementación de TLS 1.3 Híbrido a Escala Global | Combinación simétrica de intercambio clásico X25519 con ML-KEM-768 (X25519Kyber768Draft00) en el handshake inicial. | El incremento en el tamaño de los paquetes de intercambio de claves (de 32 bytes a ~1.200 bytes) puede generar fragmentación si no se optimiza el MTU. |
 | **HSBC & SandboxAQ** | Banca Global / Protección de Transacciones Interbancarias y Cuentas de Alta Disponibilidad | Despliegue de túneles criptográficos híbridos duales y auditoría criptográfica automatizada del inventario de llaves clásicas. | La interoperabilidad estricta con sistemas legados exige mantener el doble certificado durante el periodo de transición de 3 a 5 años. |
 | **Signal Foundation** | Comunicaciones Seguras / Protocolo PQXDH (Post-Quantum Extended Diffie-Hellman) | Hibridación de curva elíptica Curve25519 con ML-KEM-1024 en el protocolo de establecimiento de sesión extremo a extremo. | La seguridad no debe depender únicamente del algoritmo post-cuántico; la combinación híbrida garantiza que si el nuevo esquema falla, el clásico aún protege. |
@@ -547,7 +547,7 @@ graph TD
 A continuación se detalla la evaluación formal de las cuatro variables metodológicas fundamentales de la Fase 1 (Definición Estratégica, Elementos E1 y E2):
 
 | Variable Evaluada | Entrada Declarada en Perfil | Dictamen Metodológico PDAEH |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | **Tamaño Organizacional** | PYME (20 – 200 empleados) | Enfoque primordial en deuda técnica y retorno de inversión a corto plazo. No se justifica destinar recursos humanos ni financieros a computación cuántica NISQ. |
 | **Problema / Caso de Uso** | CRUD de facturas y clientes (40 req/s) | Problema transaccional clásico (Clase P). No presenta espacios de búsqueda combinatoria exponencial, simulación molecular ni optimización estocástica. |
 | **Arquitectura Tecnológica As-Is** | REST + PostgreSQL + Redis (120 ms) | Desempeño óptimo y plenamente operativo. La latencia y confiabilidad requeridas se alcanzan con escalamiento horizontal y optimización de base de datos. |

@@ -855,7 +855,7 @@
     color: var(--navy, #152b43);
     font-weight: 700;
     padding: 0.65rem 0.9rem;
-    text-align: left;
+    text-align: center !important;
     border: 1px solid var(--line, #d8e1dd);
     vertical-align: middle;
     line-height: 1.35;

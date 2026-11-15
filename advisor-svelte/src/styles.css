@@ -18,7 +18,7 @@
 .bubble blockquote{margin:1rem 0;padding:.8rem 1.1rem;border-left:4px solid var(--green);background:rgba(24,121,110,.07);border-radius:0 8px 8px 0;font-size:.92rem;line-height:1.6}
 .bubble blockquote p{margin:0}
 .bubble table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.88rem;background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-.bubble th{background:#e7f0ec;color:var(--navy);font-weight:700;padding:.7rem .9rem;text-align:left;border-bottom:2px solid var(--line)}
+.bubble th{background:#e7f0ec;color:var(--navy);font-weight:700;padding:.7rem .9rem;text-align:center;border-bottom:2px solid var(--line)}
 .bubble td{padding:.65rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
 .bubble tr:last-child td{border-bottom:none}
 .bubble tr:nth-child(even) td{background:#fafcfb}
@@ -207,7 +207,7 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
   color: var(--navy, #152b43) !important;
   font-weight: 700 !important;
   padding: 0.65rem 0.9rem !important;
-  text-align: left !important;
+  text-align: center !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   box-sizing: border-box !important;
   line-height: 1.35 !important;
