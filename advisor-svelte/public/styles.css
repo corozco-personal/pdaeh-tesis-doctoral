@@ -182,18 +182,19 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
 
 /* === Estilos de Tabla y Tipografía Ultra-Compacta de Alta Fidelidad === */
 
-/* Tablas con alineación geométrica estricta de columnas */
+
+/* Tablas con alineación geométrica y proporciones óptimas */
 .bubble table {
   width: 100% !important;
   max-width: 100% !important;
   border-collapse: collapse !important;
   table-layout: auto !important;
-  margin: 0.8rem 0 !important;
+  margin: 0.9rem 0 !important;
   font-size: 0.88rem !important;
   background: #ffffff !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   border-radius: 6px !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
   overflow: hidden !important;
 }
 
@@ -205,27 +206,43 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
   background: #e7f0ec !important;
   color: var(--navy, #152b43) !important;
   font-weight: 700 !important;
-  padding: 0.55rem 0.8rem !important;
+  padding: 0.65rem 0.9rem !important;
   text-align: left !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   box-sizing: border-box !important;
   line-height: 1.35 !important;
-  vertical-align: bottom !important;
+  vertical-align: middle !important;
 }
 
 .bubble tbody td {
-  padding: 0.55rem 0.8rem !important;
+  padding: 0.65rem 0.9rem !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   vertical-align: top !important;
-  line-height: 1.42 !important;
+  line-height: 1.45 !important;
   box-sizing: border-box !important;
-  word-break: normal !important;
   background: #ffffff !important;
+  word-break: normal !important;
 }
 
 .bubble tbody tr:nth-child(even) td {
-  background: #f9fbfb !important;
+  background: #f8faf9 !important;
 }
+
+/* Reglas específicas para tablas de 4 columnas (Scorecard de Preparación) */
+.bubble table tr > *:nth-child(2) {
+  white-space: nowrap !important;
+  min-width: 95px !important;
+}
+
+.bubble table tr > *:nth-child(3) {
+  white-space: nowrap !important;
+  min-width: 95px !important;
+}
+
+.bubble table tr > *:first-child {
+  min-width: 150px !important;
+}
+
 
 /* Callouts compactos en español institucional */
 .bubble blockquote.callout {

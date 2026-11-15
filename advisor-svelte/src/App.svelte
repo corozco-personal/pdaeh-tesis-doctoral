@@ -839,42 +839,58 @@
     line-height: 1.45 !important;
   }
 
-  .bubble :global(table) {
+    .bubble :global(table) {
     width: 100%;
     border-collapse: collapse;
     table-layout: auto;
-    margin: 0.8rem 0;
-    font-size: 0.86rem;
+    margin: 0.9rem 0;
+    font-size: 0.88rem;
     background: #fff;
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--line, #d8e1dd);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   }
 
   .bubble :global(th) {
     background: #e7f0ec;
     color: var(--navy, #152b43);
     font-weight: 700;
-    padding: 0.55rem 0.8rem;
+    padding: 0.65rem 0.9rem;
     text-align: left;
     border: 1px solid var(--line, #d8e1dd);
-    vertical-align: bottom;
+    vertical-align: middle;
     line-height: 1.35;
   }
 
   .bubble :global(td) {
-    padding: 0.55rem 0.8rem;
+    padding: 0.65rem 0.9rem;
     border: 1px solid var(--line, #d8e1dd);
     vertical-align: top;
-    line-height: 1.42;
+    line-height: 1.45;
     background: #ffffff;
+    word-break: normal;
   }
 
   .bubble :global(tbody tr:nth-child(even) td) {
-    background: #f9fbfb;
+    background: #f8faf9;
   }
 
-  .bubble :global(blockquote) {
+  .bubble :global(table tr > *:nth-child(2)) {
+    white-space: nowrap;
+    min-width: 95px;
+  }
+
+  .bubble :global(table tr > *:nth-child(3)) {
+    white-space: nowrap;
+    min-width: 95px;
+  }
+
+  .bubble :global(table tr > *:first-child) {
+    min-width: 150px;
+  }
+
+.bubble :global(blockquote) {
     margin: 0.8rem 0;
     padding: 0.7rem 1rem;
     border-left: 4px solid var(--green, #18796e);
