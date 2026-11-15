@@ -105,6 +105,9 @@
       return `<blockquote class="callout ${info.cls}"><p><strong>${info.label}:</strong> `;
     });
 
+    html = html.replace(/<table>/gi, '<div class="table-responsive"><table>');
+    html = html.replace(/<\/table>/gi, '</table></div>');
+
     return DOMPurify.sanitize(html, {
       USE_PROFILES: { html: true },
       FORBID_TAGS: ["style", "form", "input", "button", "iframe", "object", "embed"],
@@ -837,55 +840,57 @@
     line-height: 1.45 !important;
   }
 
-    .bubble :global(table) {
+    .bubble :global(.table-responsive) {
     width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
+    overflow-x: auto;
     margin: 0.9rem 0;
-    font-size: 0.88rem;
-    background: #fff;
     border-radius: 6px;
-    overflow: hidden;
     border: 1px solid var(--line, #d8e1dd);
     box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    background: #fff;
+  }
+
+  .bubble :global(table) {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin: 0;
+    font-size: 0.88rem;
+    background: #fff;
+    border: none;
+  }
+
+  .bubble :global(thead tr) {
+    background: #e7f0ec;
   }
 
   .bubble :global(th) {
     background: #e7f0ec;
     color: var(--navy, #152b43);
     font-weight: 700;
-    padding: 0.65rem 0.9rem;
+    padding: 0.6rem 0.85rem;
     text-align: center !important;
     border: 1px solid var(--line, #d8e1dd);
     vertical-align: middle;
     line-height: 1.35;
+    white-space: normal;
+    word-break: normal;
   }
 
   .bubble :global(td) {
-    padding: 0.65rem 0.9rem;
+    padding: 0.6rem 0.85rem;
     border: 1px solid var(--line, #d8e1dd);
     vertical-align: top;
     line-height: 1.45;
     background: #ffffff;
+    white-space: normal;
     word-break: normal;
+    overflow-wrap: break-word;
   }
 
   .bubble :global(tbody tr:nth-child(even) td) {
     background: #f8faf9;
-  }
-
-  .bubble :global(table tr > *:nth-child(2)) {
-    white-space: nowrap;
-    min-width: 95px;
-  }
-
-  .bubble :global(table tr > *:nth-child(3)) {
-    white-space: nowrap;
-    min-width: 95px;
-  }
-
-  .bubble :global(table tr > *:first-child) {
-    min-width: 150px;
   }
 
 .bubble :global(blockquote) {

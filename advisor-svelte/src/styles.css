@@ -183,19 +183,26 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
 /* === Estilos de Tabla y Tipografía Ultra-Compacta de Alta Fidelidad === */
 
 
-/* Tablas con alineación geométrica y proporciones óptimas */
+/* Tablas con contenedor responsivo y proporciones equilibradas */
+.bubble .table-responsive {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: 0.9rem 0 !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--line, #d8e1dd) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
+  background: #ffffff !important;
+}
+
 .bubble table {
   width: 100% !important;
-  max-width: 100% !important;
+  min-width: 600px !important;
   border-collapse: collapse !important;
   table-layout: auto !important;
-  margin: 0.9rem 0 !important;
+  margin: 0 !important;
   font-size: 0.88rem !important;
   background: #ffffff !important;
-  border: 1px solid var(--line, #d8e1dd) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
-  overflow: hidden !important;
+  border: none !important;
 }
 
 .bubble thead tr {
@@ -206,41 +213,30 @@ main { height: calc(100vh - 72px) !important; min-height: 0 !important; overflow
   background: #e7f0ec !important;
   color: var(--navy, #152b43) !important;
   font-weight: 700 !important;
-  padding: 0.65rem 0.9rem !important;
+  padding: 0.6rem 0.85rem !important;
   text-align: center !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   box-sizing: border-box !important;
   line-height: 1.35 !important;
   vertical-align: middle !important;
+  white-space: normal !important;
+  word-break: normal !important;
 }
 
 .bubble tbody td {
-  padding: 0.65rem 0.9rem !important;
+  padding: 0.6rem 0.85rem !important;
   border: 1px solid var(--line, #d8e1dd) !important;
   vertical-align: top !important;
   line-height: 1.45 !important;
   box-sizing: border-box !important;
   background: #ffffff !important;
+  white-space: normal !important;
   word-break: normal !important;
+  overflow-wrap: break-word !important;
 }
 
 .bubble tbody tr:nth-child(even) td {
   background: #f8faf9 !important;
-}
-
-/* Reglas específicas para tablas de 4 columnas (Scorecard de Preparación) */
-.bubble table tr > *:nth-child(2) {
-  white-space: nowrap !important;
-  min-width: 95px !important;
-}
-
-.bubble table tr > *:nth-child(3) {
-  white-space: nowrap !important;
-  min-width: 95px !important;
-}
-
-.bubble table tr > *:first-child {
-  min-width: 150px !important;
 }
 
 
