@@ -479,52 +479,43 @@
   <section class="subsection" id="convencion-nomenclatura" style="padding-top:2.5rem;border-top:1px solid var(--line);">
   <h3 style="margin:0 0 0.8rem;font-size:1.55rem;font-family:Newsreader,serif;color:var(--ink);">Convención formal de codificación de actividades del proceso</h3>
   <p style="margin:0 0 1.2rem;line-height:1.75;font-size:1.02rem;text-align:justify;">
-    Para asegurar una trazabilidad unívoca y rigurosa en todas las fases y niveles de granularidad del proceso PDAEH, cada actividad sigue una nomenclatura formal estructurada bajo el patrón <code>Fx.Ey.Az</code>, la cual codifica la pertenencia de fase, el elemento arquitectónico origen y la secuencia de ejecución:
+    Cuando una actividad contribuye a múltiples elementos estructurales, esta se asocia a un elemento principal para efectos de identificación. La relación con los demás elementos se representa explícitamente en el diagrama utilizando la notación de conjuntos; por ejemplo, para una actividad que contribuye a los elementos <em>Ej</em>, <em>Ek</em> y <em>En</em> se utiliza la representación descrita a continuación:
   </p>
 
   <!-- Ecuación / Diagrama visual formal con underbraces -->
   <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.6rem 2rem;margin:1.4rem 0 1.6rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
     <div style="font-family:'Courier New',Courier,monospace;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:0.12em;margin-bottom:0.8rem;display:flex;align-items:center;justify-content:center;gap:0.35rem;flex-wrap:wrap;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#eef5f3;border-radius:6px;border:1.5px solid #a8cfc4;color:var(--green);font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Fase del proceso">Fx</span><span style="color:var(--muted);font-weight:700;margin:0 0.15rem;">.</span><span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#f3f0fa;border-radius:6px;border:1.5px solid #c4b5fd;color:#6d28d9;font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Elemento arquitectónico">Ey</span><span style="color:var(--muted);font-weight:700;margin:0 0.15rem;">.</span><span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#fbf3e6;border-radius:6px;border:1.5px solid #fcd34d;color:#b45309;font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Secuencia de actividad">Az</span>
-      <span style="color:var(--muted);font-weight:400;font-size:1.45rem;margin:0 0.25rem;">[</span><span style="display:inline-flex;align-items:center;justify-content:center;height:2.6rem;padding:0 0.75rem;background:#eff6ff;border-radius:6px;border:1.5px solid #bfdbfe;color:#1d4ed8;font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Notación de elementos copartícipes">{Ej, Ek}</span><span style="color:var(--muted);font-weight:400;font-size:1.45rem;margin:0 0.25rem;">]</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#eef5f3;border-radius:6px;border:1.5px solid #a8cfc4;color:var(--green);font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Fase actual del proceso">Fi</span><span style="color:var(--muted);font-weight:700;margin:0 0.15rem;">.</span><span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#f3f0fa;border-radius:6px;border:1.5px solid #c4b5fd;color:#6d28d9;font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Elemento principal asociado">Ej</span><span style="color:var(--muted);font-weight:700;margin:0 0.15rem;">.</span><span style="display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;height:2.6rem;padding:0 0.65rem;background:#fbf3e6;border-radius:6px;border:1.5px solid #fcd34d;color:#b45309;font-size:1.45rem;font-weight:700;box-sizing:border-box;" title="Actividad m-ésima del proceso">Am</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;height:2.6rem;padding:0 0.75rem;background:#eff6ff;border-radius:6px;border:1.5px solid #bfdbfe;color:#1d4ed8;font-size:1.45rem;font-weight:700;box-sizing:border-box;margin-left:0.3rem;" title="Elementos adicionales asociados">{Ek, En}</span>
     </div>
 
     <!-- Estructura visual de llaves inferiores (underbraces) -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem;margin-top:1.2rem;text-align:left;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:1rem;margin-top:1.2rem;text-align:left;">
       <div style="background:#f9fbfa;border:1px solid #c2dbd4;border-top:3px solid var(--green);padding:0.9rem 1.1rem;border-radius:4px;">
-        <code style="font-weight:700;color:var(--green);font-size:1.05rem;">Fx</code>
+        <code style="font-weight:700;color:var(--green);font-size:1.05rem;">Fi</code>
         <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Fase del proceso</div>
-        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Indica la pertenencia a una de las 5 fases consecutivas (<code>F1</code> a <code>F5</code>), derivadas mediante la matriz DSM.</p>
+        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Representa la fase actual del proceso.</p>
       </div>
 
       <div style="background:#faf8fd;border:1px solid #d4c7ed;border-top:3px solid #7c3aed;padding:0.9rem 1.1rem;border-radius:4px;">
-        <code style="font-weight:700;color:#7c3aed;font-size:1.05rem;">Ey</code>
-        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Elemento estructural</div>
-        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Identifica el elemento principal armonizado (<code>E1</code> a <code>E10</code>) cuyo producto u objetivo rector gobierna la actividad.</p>
+        <code style="font-weight:700;color:#7c3aed;font-size:1.05rem;">Ej</code>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Elemento principal</div>
+        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Representa el elemento principal asociado con la actividad.</p>
       </div>
 
       <div style="background:#fdf9f3;border:1px solid #edd7b4;border-top:3px solid #d97706;padding:0.9rem 1.1rem;border-radius:4px;">
-        <code style="font-weight:700;color:#d97706;font-size:1.05rem;">Az</code>
-        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Número de actividad</div>
-        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Secuencia correlativa y ordenada de la tarea operativa dentro del elemento (<code>A1</code>, <code>A2</code>, <code>A3</code>...).</p>
+        <code style="font-weight:700;color:#d97706;font-size:1.05rem;">Am</code>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Actividad del proceso</div>
+        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Representa la actividad <em>m-ésima</em> del proceso asociada al elemento <em>Ej</em>.</p>
       </div>
 
-      <div style="background:#f4f6f8;border:1px solid #cbd5e1;border-top:3px solid #475569;padding:0.9rem 1.1rem;border-radius:4px;">
-        <code style="font-weight:700;color:#475569;font-size:1.05rem;">{Ej, Ek}</code>
-        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Articulación conjunta</div>
-        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Especifica actividades compuestas que integran o consolidan artefactos de múltiples elementos simultáneamente.</p>
-      </div>
       <div style="background:#f0f7ff;border:1px solid #bfdbfe;border-top:3px solid #2563eb;padding:0.9rem 1.1rem;border-radius:4px;">
-        <code style="font-weight:700;color:#1d4ed8;font-size:1.05rem;">{Ej, Ek}</code>
-        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Coparticipación / Cierre</div>
-        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Especificación opcional de elementos copartícipes en actividades de consolidación mancomunada y entrega al OGA.</p>
+        <code style="font-weight:700;color:#1d4ed8;font-size:1.05rem;">&#123;Ek, En&#125;</code>
+        <div style="font-size:0.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin:0.2rem 0;">Elementos adicionales</div>
+        <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.5;">Representa elementos adicionales asociados con la actividad <em>Ej</em>.</p>
       </div>
     </div>
   </div>
-
-  <p style="margin:0 0 1rem;line-height:1.75;font-size:0.98rem;text-align:justify;">
-    <strong>Casos donde se incluye la notación <code>{Ej, Ek}</code>:</strong> Esta especificación entre llaves se emplea de manera sistemática en las actividades de cierre de cada fase (como <code>F1.E1.A4 {E2}</code>, <code>F2.E4.A4 {E3}</code>, <code>F3.E6.A6 {E5}</code>, <code>F4.E9.A6 {E10}</code> y <code>F5.E7.A6 {E8}</code>). En estos puntos, la actividad tiene como propósito consolidar, verificar e integrar de forma mancomunada los artefactos generados por ambos elementos de la fase (por ejemplo, el <em>DOE</em> de E1 junto con el <em>DCA</em> de E2 en F1) para su empaquetamiento y remisión al Órgano de Gobierno Arquitectónico (OGA), o para ejecutar los ajustes conjuntos dictaminados en el acta de revisión.
-  </p>
 </section>
 </section>
 
@@ -671,7 +662,7 @@
         <div style="font-weight:700;color:#16a34a;font-size:0.98rem;margin:0.2rem 0 0.5rem;">Plantilla de Actividad (Operativo)</div>
         <p style="margin:0 0 0.6rem;font-size:0.86rem;color:var(--ink-light);line-height:1.5;text-align:justify;">Formaliza el trabajo procedimental y técnico detallado.</p>
         <ul style="margin:0;padding-left:1.1rem;font-size:0.82rem;color:var(--ink);line-height:1.5;">
-          <li><strong>Código:</strong> Notación unívoca Fx.Ey.Az [{Ej, Ek}].</li>
+          <li><strong>Código:</strong> Notación unívoca Fi.Ej.Am {Ek, En}.</li>
           <li><strong>Definición:</strong> Nombre, objetivo y descripción.</li>
           <li><strong>Flujo de trabajo:</strong> Entradas y salidas concretas.</li>
           <li><strong>Ejecución:</strong> Rol responsable y herramientas.</li>
