@@ -69,16 +69,7 @@
     </a>
   </div>
 
-  <!-- Llamado a la acción con párrafo y botón al final del card -->
-  <div style="border-top:1px solid var(--line);padding-top:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;">
-    <p style="margin:0;font-size:0.95rem;line-height:1.65;color:var(--ink);max-width:760px;text-align:justify;">
-      Cuando el lector considere que ha examinado el material con suficiente profundidad y contexto metodológico, se le invita a diligenciar el instrumento oficial de validación por juicio de expertos:
-    </p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXia-amNQ_jEGeEQ1BzjTzgt6-cP2Mn_icd1X_1deXeLsX2g/viewform" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.55rem;padding:10px 20px;background:var(--green);color:#ffffff;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.92rem;box-shadow:0 2px 6px rgba(24,121,110,0.28);white-space:nowrap;transition:background 0.2s ease;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      <span>Abrir formulario de evaluación (Google Forms)</span>
-    </a>
-  </div>
+
 </div>
 
 <div class="research-publications-card" aria-labelledby="researchPublicationsTitle">
@@ -899,11 +890,23 @@
 <script src="js/app.js?v=1794683594"></script>
 
 <!-- Guía Rápida del Evaluador (Acceso directo a las 6 secciones del Formulario) -->
-<aside id="evaluatorNav" class="evaluator-nav-widget" aria-label="Guía rápida para evaluadores">
-  <button id="evaluatorToggleBtn" type="button" class="evaluator-toggle-btn" title="Abrir índice para responder el Formulario de Evaluación">
-    <span class="eval-btn-icon">📋</span>
-    <span class="eval-btn-label">Guía para el Evaluador</span>
-  </button>
+<aside id="evaluatorNav" class="evaluator-nav-widget" aria-label="Acceso para evaluadores">
+  <div class="evaluator-widget-buttons">
+    <button id="evaluatorToggleBtn" type="button" class="evaluator-toggle-btn" title="Abrir índice de navegación temática">
+      <span class="eval-btn-icon">📋</span>
+      <span class="eval-btn-label">Guía para el Evaluador</span>
+    </button>
+    <a id="evaluatorFormsBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSdXia-amNQ_jEGeEQ1BzjTzgt6-cP2Mn_icd1X_1deXeLsX2g/viewform" target="_blank" rel="noopener noreferrer" class="evaluator-toggle-btn eval-forms-action-btn" title="Diligenciar instrumento oficial en Google Forms">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;">
+      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" fill="#7248B9"/>
+      <path d="M14 2V8H20" fill="#5E35B1"/>
+      <path d="M9 13H15M9 17H13" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="8" cy="13" r="0.8" fill="white"/>
+      <circle cx="8" cy="17" r="0.8" fill="white"/>
+    </svg>
+      <span class="eval-btn-label">Evaluar propuesta</span>
+    </a>
+  </div>
   <div id="evaluatorMenu" class="evaluator-menu-panel" hidden>
     <div class="eval-menu-header">
       <div>
@@ -950,11 +953,7 @@
         </a>
       </li>
     </ul>
-    <div class="eval-menu-footer">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXia-amNQ_jEGeEQ1BzjTzgt6-cP2Mn_icd1X_1deXeLsX2g/viewform" target="_blank" rel="noopener noreferrer" class="eval-form-direct-btn">
-        <span>Abrir Google Form ↗</span>
-      </a>
-    </div>
+
   </div>
 </aside>
 

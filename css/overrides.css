@@ -985,3 +985,32 @@ details.activity,
 .activity[open] summary::after {
   content: "−" !important;
 }
+
+
+/* Botones en columna del widget flotante de evaluación */
+.evaluator-widget-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.eval-forms-action-btn {
+  background: #ffffff !important;
+  color: var(--navy, #0F3B43) !important;
+  border: 1px solid var(--line, #e2e8f0) !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+.eval-forms-action-btn:hover {
+  background: #f8fafc !important;
+  border-color: #7248B9 !important;
+  color: #5E35B1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(114, 72, 185, 0.25) !important;
+}
+
+.evaluator-menu-panel {
+  bottom: 105px !important;
+}
