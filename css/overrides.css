@@ -1033,3 +1033,48 @@ details.activity,
 .evaluator-menu-panel {
   bottom: 155px !important;
 }
+
+/* === Estandarización de botones globales estilo 'Descargar paquete' === */
+.btn-pdaeh-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  padding: 8px 16px !important;
+  border-radius: 5px !important;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  border: 1px solid var(--line, #d8dfdc) !important;
+  background: #ffffff !important;
+  color: var(--ink, #193238) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.btn-pdaeh-action:hover {
+  background: #f4f8f6 !important;
+  border-color: var(--green, #18796e) !important;
+  color: var(--green, #18796e) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08) !important;
+}
+
+.btn-pdaeh-action.primary-action {
+  background: var(--navy, #123b43) !important;
+  color: #ffffff !important;
+  border-color: var(--navy, #123b43) !important;
+}
+
+.btn-pdaeh-action.primary-action:hover {
+  background: var(--green, #18796e) !important;
+  border-color: var(--green, #18796e) !important;
+  color: #ffffff !important;
+}
+
+.btn-pdaeh-action svg {
+  flex-shrink: 0 !important;
+}

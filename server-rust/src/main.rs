@@ -213,9 +213,9 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     </div>
     <p>Formaliza los objetivos estratégicos de optimización de carteras, hipótesis de ventaja híbrida y criterios de éxito del negocio.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_FinNova.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_FinNova.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -226,9 +226,9 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     </div>
     <p>Caracteriza la arquitectura As-Is (microservicios, Kafka, Postgres), capacidades existentes y restricciones de desacoplamiento.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DCA.md" download="Plantilla_DCA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DCA.docx" download="Plantilla_DCA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DCA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DCA.md" download="Plantilla_DCA_FinNova.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DCA.docx" download="Plantilla_DCA_FinNova.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DCA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -239,9 +239,9 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     </div>
     <p>Mapeo de actores clave (CTO, Gestor de Portafolio, Oficial de Riesgos, Comité OGA) y matrices de preocupación/influencia.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_MSP.md" download="Plantilla_MSP_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_MSP.docx" download="Plantilla_MSP_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=MSP" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_MSP.md" download="Plantilla_MSP_FinNova.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_MSP.docx" download="Plantilla_MSP_FinNova.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=MSP" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -252,9 +252,9 @@ Como agente metodológico activo, puede descargar directamente las plantillas no
     </div>
     <p>Especificación de la Capa QIL, contratos gRPC, patrón Broker/Strategy, circuito de contingencia y mitigación de ruido ZNE.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_FinNova.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_FinNova.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_FinNova.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_FinNova.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 </div>
@@ -368,9 +368,9 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     </div>
     <p>Objetivos de optimización de flota CVRPTW, KPIs de ahorro de combustible y reducción de tiempos de despacho.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_LogisTech.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_LogisTech.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -381,9 +381,9 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     </div>
     <p>Especificación técnica del Co-planificador Híbrido, particionamiento de grafos y fallback mediante solucionador clásico.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_LogisTech.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_LogisTech.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -394,9 +394,9 @@ Descargue las plantillas oficiales para formalizar la iniciativa ante el comité
     </div>
     <p>Protocolo de benchmarking comparativo (Costos computacionales y calidad de ruta QPU vs. OR-Tools clásico).</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_BER.md" download="Plantilla_BER_LogisTech.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_BER.docx" download="Plantilla_BER_LogisTech.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=BER" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_BER.md" download="Plantilla_BER_LogisTech.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_BER.docx" download="Plantilla_BER_LogisTech.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=BER" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 </div>
@@ -496,9 +496,9 @@ flowchart LR
     </div>
     <p>Inventario de riesgos criptográficos (HNDL), planes de migración PQC y cumplimiento de normativas internacionales NIST.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DOE.md" download="Plantilla_DOE_SecurNet.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DOE.docx" download="Plantilla_DOE_SecurNet.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DOE" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -509,9 +509,9 @@ flowchart LR
     </div>
     <p>Diseño de la topología de terminación TLS híbrida, tamaño de claves, buffers de red y derivación combinada de secretos.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_DEA.md" download="Plantilla_DEA_SecurNet.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_DEA.docx" download="Plantilla_DEA_SecurNet.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=DEA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 
@@ -522,9 +522,9 @@ flowchart LR
     </div>
     <p>Aprobación formal del catálogo criptográfico post-cuántico consolidado y acta de gobierno OGA-5 para pase a producción.</p>
     <div class="artifact-actions">
-      <a href="./assets/descargas/markdown/Plantilla_LBA.md" download="Plantilla_LBA_SecurNet.md" class="btn-download primary-dl">Descargar .MD</a>
-      <a href="./assets/descargas/docx/Plantilla_LBA.docx" download="Plantilla_LBA_SecurNet.docx" class="btn-download">Descargar .DOCX</a>
-      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=LBA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl">Ver en Línea ↗</a>
+      <a href="./assets/descargas/markdown/Plantilla_LBA.md" download="Plantilla_LBA_SecurNet.md" class="btn-download primary-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span>Descargar .MD</span></a>
+      <a href="./assets/descargas/docx/Plantilla_LBA.docx" download="Plantilla_LBA_SecurNet.docx" class="btn-download"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> <span>Descargar .DOCX</span></a>
+      <a href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/plantilla.html?id=LBA" target="_blank" rel="noopener noreferrer" class="btn-download text-dl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Ver en Línea</span></a>
     </div>
   </div>
 </div>

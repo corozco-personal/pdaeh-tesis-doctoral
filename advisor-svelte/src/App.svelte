@@ -303,7 +303,7 @@
   <a class="brand" href="./index.html">
     <span>P</span>
     <strong>PDAEH</strong>
-    <small>Advisor v2.0 (Svelte Core)</small>
+    <small>Advisor v2.0</small>
   </a>
   <a class="portal-link" href="https://corozco-personal.github.io/pdaeh-tesis-doctoral/" target="_blank" rel="noopener noreferrer">
     Ir al marco metodológico completo ↗
@@ -313,10 +313,10 @@
 <main>
   <!-- Panel Izquierdo: Configuración del Perfil -->
   <aside class="context-panel" aria-labelledby="contextTitle">
-    <p class="eyebrow">Agente metodológico de alta velocidad</p>
-    <h1 id="contextTitle">Diagnóstico PDAEH reactivo y ultra-fluido</h1>
+    <p class="eyebrow">Asistencia Metodológica Especializada</p>
+    <h1 id="contextTitle">Diagnóstico Arquitectónico PDAEH</h1>
     <p class="lead">
-      El motor del Advisor corre sobre Svelte compilado sin sobrecarga de Virtual DOM, eliminando por completo trabas, congelamientos y latencias de renderizado.
+      Herramienta de asistencia para la caracterización de organizaciones, evaluación de idoneidad híbrida y recomendación de estructuras conforme al marco PDAEH.
     </p>
 
     <!-- Escenarios 1-Clic -->
@@ -380,7 +380,7 @@
         <span class="status-dot" aria-hidden="true"></span>
         <div>
           <h2 id="chatTitle">Conversación con PDAEH Advisor</h2>
-          <p>Motor reactivo de alto rendimiento (Svelte)</p>
+          <p>Asistente metodológico interactivo</p>
         </div>
       </div>
       <div class="chat-actions-group">
@@ -646,30 +646,37 @@
   .primary {
     width: 100%;
     margin-top: 1.25rem;
-    padding: 0.85rem;
-    border: 0;
-    border-radius: 6px;
-    background: var(--green, #18796e);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--navy, #152b43);
+    border-radius: 4px;
+    background: var(--navy, #152b43);
     color: #fff;
     font-weight: 700;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     cursor: pointer;
-    transition: background 0.15s;
-    display: flex;
+    transition: all 0.15s ease;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
 
   .primary:hover:not(:disabled) {
-    background: #11695f;
+    background: var(--green, #18796e);
+    border-color: var(--green, #18796e);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   }
 
   .primary:disabled {
     opacity: 0.55;
     cursor: not-allowed;
     background: #879893 !important;
+    border-color: #879893 !important;
+    transform: none;
+    box-shadow: none;
   }
 
   .method-note {
@@ -736,23 +743,28 @@
   }
 
   .text-button {
-    border: 0;
-    background: transparent;
-    color: var(--green, #18796e);
+    border: 1px solid var(--line, #d8e1dd);
+    background: #ffffff;
+    color: var(--ink, #1d2b39);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
-    padding: 0.4rem 0.6rem;
+    padding: 0.45rem 0.75rem;
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    transition: background 0.15s;
+    transition: all 0.15s ease;
     font-family: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   }
 
   .text-button:hover {
-    background: rgba(24,121,110,0.08);
+    background: #f4f8f6;
+    border-color: var(--green, #18796e);
+    color: var(--green, #18796e);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
   }
 
   .messages {
@@ -989,27 +1001,34 @@
 
   .composer button {
     align-self: end;
-    border: 0;
-    border-radius: 6px;
+    border: 1px solid var(--navy, #152b43);
+    border-radius: 4px;
     padding: 0.65rem 1.1rem;
     background: var(--navy, #152b43);
     color: #fff;
     font-weight: 700;
+    font-size: 0.85rem;
     cursor: pointer;
     font-family: inherit;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    transition: background 0.15s;
+    transition: all 0.15s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
 
   .composer button:hover:not(:disabled) {
-    background: #0f1f31;
+    background: var(--green, #18796e);
+    border-color: var(--green, #18796e);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   }
 
   .composer button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 
   .privacy, .error {

@@ -4,7 +4,10 @@
   <script src="js/locales.js?v=1.2.0"></script>
   <script src="js/i18n.js?v=3.1.4"></script>
 </head>
-<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="#evaluacion-global">Aporte</a><a href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;">PDAEH Advisor ↗</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger" id="searchTrigger" type="button">Buscar</button> </header>
+<body> <a class="skip" href="#contenido">Saltar al contenido</a> <header class="topbar"> <a class="brand" href="#informacion-general"><span class="brand-mark">P</span><span><strong>PDAEH</strong><small>Arquitectura empresarial híbrida</small></span></a> <nav aria-label="Contenido principal"><a href="#informacion-general">Proyecto</a><a href="#revision">Origen</a><a href="#modelo">Modelo</a><a href="#proceso">Proceso</a><a href="#fases">Fases</a><a href="#artefactos">Artefactos</a><a href="#evaluacion-global">Aporte</a><a href="https://pdaeh-tesis-doctoral.onrender.com/" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;">PDAEH Advisor ↗</a><a href="declaracion-ia.html" style="color:var(--green);font-weight:700;">Declaración de IA</a></nav> <button class="search-trigger btn-pdaeh-action" id="searchTrigger" type="button">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  <span>Buscar</span>
+</button> </header>
 
   <nav class="breadcrumb-bar" aria-label="Miga de pan">
     <div class="breadcrumb-nav">
@@ -33,8 +36,14 @@
       <h3 style="margin:0.35rem 0 0;font-size:1.45rem;font-family:Newsreader,serif;color:var(--ink);">Guía de navegación y protocolo de evaluación metodológica</h3>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-      <button type="button" onclick="window.print()" class="print-button" style="cursor:pointer;font-size:0.85rem;padding:7px 14px;">Imprimir ficha</button>
-      <a href="assets/descargas/pdaeh-plantillas-completas.zip" download class="artifact-link" style="padding:7px 14px;background:var(--navy);color:#fff;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.85rem;">Descargar paquete (.ZIP)</a>
+      <button type="button" onclick="window.print()" class="btn-pdaeh-action" style="cursor:pointer;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span>Imprimir ficha</span>
+      </button>
+      <a href="assets/descargas/pdaeh-plantillas-completas.zip" download class="btn-pdaeh-action primary-action">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Descargar paquete (.ZIP)</span>
+      </a>
     </div>
   </div>
 
@@ -597,8 +606,9 @@
         <p style="color:var(--ink-light);font-size:0.95rem;margin:0;">
           A continuación se presenta el catálogo de los 15 artefactos del proceso, detallando su razón de ser, su relevancia en la toma de decisiones y enlaces directos para consulta interactiva o descarga en formatos editables (<strong>.MD</strong>, <strong>.DOCX</strong> y <strong>.TEX</strong>).
         </p>
-        <a href="assets/descargas/pdaeh-plantillas-completas.zip" download class="artifact-link" style="padding:7px 16px;background:var(--navy);color:#fff;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.85rem;white-space:nowrap;">
-          Descargar todas las plantillas (.ZIP)
+        <a href="assets/descargas/pdaeh-plantillas-completas.zip" download class="btn-pdaeh-action primary-action">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar todas las plantillas (.ZIP)</span>
         </a>
       </div>
     </div>
