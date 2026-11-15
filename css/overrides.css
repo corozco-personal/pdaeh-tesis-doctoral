@@ -543,10 +543,12 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 220px !important;
+  gap: 10px;
+  width: auto !important;
+  min-width: 228px !important;
+  white-space: nowrap !important;
   box-sizing: border-box !important;
-  padding: 10px 16px;
+  padding: 11px 20px !important;
   background: var(--navy, #0F3B43);
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.15);
@@ -557,6 +559,14 @@ html[lang="fr"] .harmony-process-figure .language-en { display: block; }
   box-shadow: 0 4px 14px rgba(15, 59, 67, 0.35);
   transition: all 0.2s ease;
   text-align: center;
+}
+
+.eval-btn-icon {
+  flex-shrink: 0 !important;
+}
+
+.eval-btn-label {
+  white-space: nowrap !important;
 }
 .evaluator-toggle-btn:hover {
   background: var(--green, #18796E);
