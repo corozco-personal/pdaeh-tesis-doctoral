@@ -1294,3 +1294,33 @@ details.activity,
   fill: #f5f3ff !important;
   transition: all 0.2s ease;
 }
+
+/* Corrección de contraste estricto en el encabezado del modal de actividades/artefactos */
+#activityDetailModal .modal-header,
+#activityDetailModal > div:first-child {
+  background: #0f2723 !important;
+  color: #ffffff !important;
+}
+
+#activityDetailModal #modalActivityTitle {
+  color: #ffffff !important;
+  font-family: Newsreader, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+#activityDetailModal #modalActivityCode {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+}
+
+#activityDetailModal #btnCloseActivityModal {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.18) !important;
+}
+#activityDetailModal #btnCloseActivityModal:hover {
+  background: rgba(255,255,255,0.35) !important;
+}

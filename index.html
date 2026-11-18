@@ -592,9 +592,15 @@
 
     <!-- Vista Opción 1: BPMN Nativo con bpmn-js (Zoom, Pan, Nodos interactivos) -->
     <div id="pocContainerBpmn" style="display:block;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;font-size:0.82rem;color:var(--muted);">
-        <span>💡 <em>Arrastra para moverte, usa rueda del ratón/trackpad para zoom o haz click en cualquier actividad para abrir su ficha.</em></span>
-        <button id="btnResetBpmnZoom" type="button" style="padding:4px 10px;font-size:0.78rem;background:#fff;border:1px solid var(--line);border-radius:4px;cursor:pointer;">Restablecer zoom</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.6rem;margin-bottom:0.6rem;font-size:0.82rem;color:var(--muted);">
+        <span>💡 <em>Arrastra para explorar el diagrama, usa la rueda para zoom o haz click en cualquier actividad (verde) o artefacto (morado).</em></span>
+        <button id="btnResetBpmnZoom" type="button" style="display:inline-flex;align-items:center;gap:0.35rem;padding:5px 12px;font-size:0.8rem;font-weight:600;color:var(--ink);background:#ffffff;border:1px solid #c2dbd4;border-radius:20px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 0.15s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)';" onmouseout="this.style.borderColor='#c2dbd4';this.style.color='var(--ink)';">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          <span>Restablecer zoom</span>
+        </button>
       </div>
       <div id="bpmnCanvas" style="width:100%;height:380px;background:#fbfcfb;border:1px solid var(--line);border-radius:6px;overflow:hidden;position:relative;"></div>
     </div>
@@ -1083,7 +1089,7 @@
 </footer>
 
 <script src="js/thesis-content.js?v=1.0.9"></script>
-<script src="js/app.js?v=20261118c"></script>
+<script src="js/app.js?v=20261118d"></script>
 
 <!-- Guía Rápida del Evaluador (Acceso directo a las 6 secciones del Formulario) -->
 <aside id="evaluatorNav" class="evaluator-nav-widget is-expanded" aria-label="Acceso para evaluadores">

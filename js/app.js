@@ -2237,6 +2237,11 @@ function setupInteractiveGovernanceDiagram() {
       const eventBus = viewerInstance.get("eventBus");
       const elementRegistry = viewerInstance.get("elementRegistry");
 
+      // Guardar límites naturales del diagrama (bounding box) para restringir el paneo
+      const defaultViewbox = Object.assign({}, view.viewbox());
+      const minZoom = defaultViewbox.scale * 0.95; // Evita alejar más allá de la vista completa
+      const maxZoom = defaultViewbox.scale * 2.8;  // Zoom máximo legible
+
       // Botón restablecer zoom
       const btnReset = document.getElementById("btnResetBpmnZoom");
       if (btnReset) {
@@ -2244,6 +2249,67 @@ function setupInteractiveGovernanceDiagram() {
           view.zoom("fit-viewport");
         };
       }
+
+      // Restricción de límites: no permitir arrastrar fuera del diagrama
+      let isAdjusting = false;
+      eventBus.on("canvas.viewbox.changed", (e) => {
+        if (isAdjusting) return;
+        const vb = e.viewbox;
+        if (!vb || !defaultViewbox.inner) return;
+
+        let needsAdjustment = false;
+        let newScale = vb.scale;
+        
+        // Limitar zoom mínimo y máximo
+        if (newScale < minZoom) {
+          newScale = minZoom;
+          needsAdjustment = true;
+        } else if (newScale > maxZoom) {
+          newScale = maxZoom;
+          needsAdjustment = true;
+        }
+
+        // Limitar desplazamiento horizontal y vertical dentro de los bordes del diagrama
+        const marginX = defaultViewbox.inner.width * 0.15;
+        const marginY = defaultViewbox.inner.height * 0.15;
+
+        const minX = defaultViewbox.inner.x - marginX;
+        const maxX = defaultViewbox.inner.x + defaultViewbox.inner.width + marginX - vb.width;
+        const minY = defaultViewbox.inner.y - marginY;
+        const maxY = defaultViewbox.inner.y + defaultViewbox.inner.height + marginY - vb.height;
+
+        let newX = vb.x;
+        let newY = vb.y;
+
+        if (minX <= maxX) {
+          if (newX < minX) { newX = minX; needsAdjustment = true; }
+          else if (newX > maxX) { newX = maxX; needsAdjustment = true; }
+        } else {
+          // Si el viewport es más ancho que el diagrama, mantenerlo centrado
+          newX = defaultViewbox.inner.x - (vb.width - defaultViewbox.inner.width) / 2;
+          needsAdjustment = true;
+        }
+
+        if (minY <= maxY) {
+          if (newY < minY) { newY = minY; needsAdjustment = true; }
+          else if (newY > maxY) { newY = maxY; needsAdjustment = true; }
+        } else {
+          // Si el viewport es más alto que el diagrama, mantenerlo centrado
+          newY = defaultViewbox.inner.y - (vb.height - defaultViewbox.inner.height) / 2;
+          needsAdjustment = true;
+        }
+
+        if (needsAdjustment) {
+          isAdjusting = true;
+          view.viewbox({
+            x: newX,
+            y: newY,
+            width: vb.width,
+            height: vb.height
+          });
+          isAdjusting = false;
+        }
+      });
 
       // Estilizar cursor de tareas interactivas
       Object.keys(bpmnIdToActivityCode).forEach(id => {
