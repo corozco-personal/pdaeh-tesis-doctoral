@@ -1977,7 +1977,90 @@ function setupInteractiveGovernanceDiagram() {
     "Gateway_0nan39s": "Fx.OGA.A7"
   };
 
+  // Mapeo entre elementos DataObject / artefactos del BPMN y plantillas de artefactos
+  const bpmnDataObjects = {
+    "DataObjectReference_1nxneyy": {
+      name: "LBA-Fx inicial",
+      code: "LBA",
+      isTemplate: true,
+      phaseCode: "LBA",
+      label: "Línea Base Arquitectónica (versión preliminar de fase)",
+      desc: "Paquete de artefactos arquitectónicos estructurados y consolidados por el Arquitecto Empresarial del Proceso (AEP) al culminar las actividades de la fase, radicado para revisión y control del Órgano de Gobierno Arquitectónico."
+    },
+    "DataObjectReference_0z7loav": {
+      name: "LBA-Fx actualizado / aprobado",
+      code: "LBA",
+      isTemplate: true,
+      phaseCode: "LBA",
+      label: "Línea Base Arquitectónica (versión formal aprobada)",
+      desc: "Estado final auditable y versionado de la arquitectura de la fase tras la aprobación colegiada del OGA, el cual habilita formalmente el avance hacia la siguiente fase del proceso PDAEH."
+    },
+    "DataObjectReference_1bkoiru": {
+      name: "Acta de decisión emitida por el OGA",
+      code: "ACTA-OGA",
+      isTemplate: false,
+      phaseCode: "OGA",
+      label: "Acta formal de decisión y deliberación del OGA",
+      desc: "Documento oficial emanado del Órgano de Gobierno Arquitectónico que registra la asistencia de los revisores, la votación colegiada, el dictamen (Aprobado, Aprobado con observaciones, o Rechazado) y las directrices o ajustes necesarios."
+    }
+  };
+
   let currentSelectedCode = null;
+
+  function showArtifactModal(obj) {
+    currentSelectedCode = null;
+    modalCode.textContent = obj.code;
+    modalCode.style.background = "#7c3aed";
+    modalCode.style.color = "#ffffff";
+    modalTitle.textContent = obj.label || obj.name;
+
+    const info = artifactInfo[obj.code];
+    const templateLink = obj.isTemplate ? `<a href="plantilla.html?id=${obj.code}" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:7px 16px;background:var(--green);color:#ffffff;text-decoration:none;font-weight:700;font-size:0.88rem;border-radius:4px;box-shadow:0 2px 6px rgba(24,121,110,0.25);"><span>Consultar plantilla oficial (${obj.code})</span> <span aria-hidden="true">↗</span></a>` : '';
+
+    modalBody.innerHTML = `
+      <div style="background:#f5f3ff;border-left:4px solid #7c3aed;padding:1rem 1.3rem;border-radius:4px;margin-bottom:1.4rem;">
+        <strong style="color:#7c3aed;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;display:block;margin-bottom:0.35rem;">Descripción del producto de trabajo</strong>
+        <p style="margin:0;font-size:1.02rem;color:var(--ink);line-height:1.65;text-align:justify;">${esc(obj.desc)}</p>
+      </div>
+
+      ${info ? `
+      <div style="display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1.4rem;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:1rem 1.2rem;">
+          <h5 style="margin:0 0 0.4rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">¿Qué es este artefacto?</h5>
+          <p style="margin:0 0 0.8rem;font-size:0.92rem;color:var(--ink);line-height:1.6;text-align:justify;">${esc(info.queEs)}</p>
+          <h5 style="margin:0 0 0.4rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">¿Para qué sirve en el proceso PDAEH?</h5>
+          <p style="margin:0;font-size:0.92rem;color:var(--ink);line-height:1.6;text-align:justify;">${esc(info.paraQueSirve)}</p>
+        </div>
+      </div>
+      ` : ''}
+
+      ${templateLink ? `
+      <div style="background:#f8faf9;border:1px solid #d8dfdc;border-radius:6px;padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;">
+        <div>
+          <strong style="font-size:0.92rem;color:var(--navy);display:block;">Plantilla normalizada de la tesis doctoral</strong>
+          <span style="font-size:0.84rem;color:var(--muted);">Accede a la estructura formal de campos, ejemplos ilustrativos y descargas en Word / LaTeX / Markdown.</span>
+        </div>
+        ${templateLink}
+      </div>
+      ` : `
+      <div style="background:#f8faf9;border:1px solid var(--line);border-radius:6px;padding:0.9rem 1.1rem;font-size:0.88rem;color:var(--muted);">
+        <strong>Nota de gobierno:</strong> Este documento corresponde a un registro formal de compuerta emitido directamente por el Órgano de Gobierno Arquitectónico durante la sesión de deliberación.
+      </div>
+      `}
+    `;
+
+    if (btnScrollToList) {
+      btnScrollToList.style.display = obj.isTemplate ? "inline-block" : "none";
+      btnScrollToList.textContent = "Ver en catálogo de artefactos →";
+      btnScrollToList.onclick = () => {
+        modal.close();
+        const artSection = document.getElementById("artefactos");
+        if (artSection) artSection.scrollIntoView({ behavior: "smooth" });
+      };
+    }
+
+    modal.showModal();
+  }
 
   function showActivityModal(code) {
     const act = ogaDetails[code];
@@ -1985,6 +2068,8 @@ function setupInteractiveGovernanceDiagram() {
     currentSelectedCode = code;
 
     modalCode.textContent = act.code;
+    modalCode.style.background = "rgba(255,255,255,0.18)";
+    modalCode.style.color = "#ffffff";
     modalTitle.textContent = act.name;
 
     modalBody.innerHTML = `
@@ -2024,6 +2109,25 @@ function setupInteractiveGovernanceDiagram() {
         <p style="margin:0;font-size:0.9rem;color:var(--ink);">${esc(act.validacion)}</p>
       </div>
     `;
+
+    if (btnScrollToList) {
+      btnScrollToList.style.display = "inline-block";
+      btnScrollToList.textContent = "Ver en la lista desplegable ↓";
+      btnScrollToList.onclick = () => {
+        modal.close();
+        if (!currentSelectedCode) return;
+        const detailsList = Array.from(document.querySelectorAll("#ogaSteps details.activity"));
+        const act = ogaDetails[currentSelectedCode];
+        if (act && detailsList[act.index]) {
+          const targetDetail = detailsList[act.index];
+          targetDetail.open = true;
+          targetDetail.scrollIntoView({ behavior: "smooth", block: "center" });
+          targetDetail.style.outline = "2px solid var(--green)";
+          targetDetail.style.transition = "outline 0.3s ease";
+          setTimeout(() => { targetDetail.style.outline = "none"; }, 2500);
+        }
+      };
+    }
 
     modal.showModal();
   }
@@ -2158,12 +2262,34 @@ function setupInteractiveGovernanceDiagram() {
         }
       });
 
-      // Manejar click nativo en elementos del diagrama
+      // Estilizar cursor y hover para artefactos (DataObjects)
+      Object.keys(bpmnDataObjects).forEach(id => {
+        const el = elementRegistry.get(id);
+        if (el) {
+          const gfx = view.getGraphics(el);
+          if (gfx) {
+            gfx.style.cursor = "pointer";
+            gfx.addEventListener("mouseenter", () => {
+              view.addMarker(id, "highlight-artifact");
+            });
+            gfx.addEventListener("mouseleave", () => {
+              view.removeMarker(id, "highlight-artifact");
+            });
+          }
+        }
+      });
+
+      // Manejar click nativo en elementos del diagrama (Actividades y Artefactos)
       eventBus.on("element.click", (event) => {
         const elId = event.element.id;
         const code = bpmnIdToActivityCode[elId];
         if (code) {
           showActivityModal(code);
+          return;
+        }
+        const artObj = bpmnDataObjects[elId];
+        if (artObj) {
+          showArtifactModal(artObj);
         }
       });
 

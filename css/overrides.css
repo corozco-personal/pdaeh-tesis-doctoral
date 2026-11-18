@@ -1285,3 +1285,12 @@ details.activity,
   background: rgba(18, 59, 67, 0.65);
   backdrop-filter: blur(4px);
 }
+
+/* Resaltado interactivo para artefactos (DataObjects) en BPMN Viewer */
+.highlight-artifact:not(.djs-connection) .djs-visual > path,
+.highlight-artifact:not(.djs-connection) .djs-visual > rect {
+  stroke: #7c3aed !important;
+  stroke-width: 2.5px !important;
+  fill: #f5f3ff !important;
+  transition: all 0.2s ease;
+}
