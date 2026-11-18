@@ -2262,7 +2262,7 @@ function setupInteractiveGovernanceDiagram() {
         }
       });
 
-      // Estilizar cursor y hover para artefactos (DataObjects)
+      // Estilizar cursor y hover para artefactos (DataObjects) y sus etiquetas
       Object.keys(bpmnDataObjects).forEach(id => {
         const el = elementRegistry.get(id);
         if (el) {
@@ -2277,19 +2277,57 @@ function setupInteractiveGovernanceDiagram() {
             });
           }
         }
+        // Si el DataObject tiene etiqueta externa (label)
+        const labelEl = elementRegistry.get(id + "_label");
+        if (labelEl) {
+          const labelGfx = view.getGraphics(labelEl);
+          if (labelGfx) {
+            labelGfx.style.cursor = "pointer";
+            labelGfx.addEventListener("mouseenter", () => {
+              view.addMarker(id, "highlight-artifact");
+            });
+            labelGfx.addEventListener("mouseleave", () => {
+              view.removeMarker(id, "highlight-artifact");
+            });
+          }
+        }
       });
 
       // Manejar click nativo en elementos del diagrama (Actividades y Artefactos)
       eventBus.on("element.click", (event) => {
-        const elId = event.element.id;
+        let el = event.element;
+        if (!el) return;
+
+        // Si se hace click en el label de un artefacto o tarea
+        let elId = el.id;
+        if (el.labelTarget) {
+          elId = el.labelTarget.id;
+        } else if (elId.endsWith("_label")) {
+          elId = elId.replace("_label", "");
+        }
+
         const code = bpmnIdToActivityCode[elId];
         if (code) {
           showActivityModal(code);
           return;
         }
+
         const artObj = bpmnDataObjects[elId];
         if (artObj) {
           showArtifactModal(artObj);
+          return;
+        }
+
+        // Búsqueda por correspondencia de nombre si el ID no coincidiera
+        if (el.businessObject && el.businessObject.name) {
+          const bName = el.businessObject.name.toLowerCase();
+          const matchedKey = Object.keys(bpmnDataObjects).find(k => {
+            const item = bpmnDataObjects[k];
+            return bName.includes(item.code.toLowerCase()) || item.name.toLowerCase().includes(bName);
+          });
+          if (matchedKey) {
+            showArtifactModal(bpmnDataObjects[matchedKey]);
+          }
         }
       });
 
