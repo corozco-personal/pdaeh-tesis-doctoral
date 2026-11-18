@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="es">
 <head> <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="description" content="Proceso para la Definición de Arquitecturas Empresariales Híbridas PDAEH"> <title>PDAEH: Un proceso gobernable para asistir la definición de arquitecturas empresariales híbridas clásico-cuánticas</title> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css?v=1794683594"><link rel="stylesheet" href="css/overrides.css?v=1794683594"><link rel="stylesheet" href="css/rsl.css"><link rel="stylesheet" href="css/vector-figures.css">
+  <link rel="stylesheet" href="vendor/bpmn-js.css">
+  <script src="vendor/bpmn-navigated-viewer.production.min.js"></script>
   <script src="js/locales.js?v=1.2.0"></script>
   <script src="js/i18n.js?v=3.1.4"></script>
 </head>
@@ -559,7 +561,66 @@
 
 <section class="section phases-section" id="fases"><header class="section-header"><p class="section-number">Caracterización de las fases</p><h2>Fases del proceso</h2><p>Cada fase se abre en una página independiente para presentar sin saturación sus elementos, diagramas, actividades, tareas, artefactos, responsables y puntos de validación.</p></header><figure class="wide-figure macro-figure"><img src="assets/jiisic/fases_pdaeh_entradas_salidas.svg" alt="Entradas, proceso y salidas de las cinco fases"><figcaption>Vista general de las entradas, el propósito y las salidas de las cinco fases.</figcaption></figure>
 
-<section class="subsection" id="actividad-transversal"><h3>Actividad transversal: revisión de líneas base</h3><p>Al finalizar cada fase, el Arquitecto Empresarial del Proceso remite los artefactos al Órgano de Gobierno Arquitectónico. La aprobación habilita la siguiente fase; las observaciones activan un ciclo de ajuste y nueva revisión.</p><figure class="wide-figure macro-figure"><img src="assets/jiisic/flujo_fases_linea_base.svg" alt="Flujo de fases y consolidación de líneas base"><figcaption>Vista macro de la progresión entre fases y la consolidación incremental de las líneas base arquitectónicas.</figcaption></figure> <div class="transversal-io"><article><h4>Entradas</h4><ul><li>Paquete de artefactos generado en la fase.</li><li>Línea base arquitectónica de la fase.</li><li>Criterios de aceptación e indicadores de cumplimiento.</li><li>Observaciones pendientes de revisiones anteriores, cuando existan.</li></ul></article><article><h4>Salidas</h4><ul><li>Acta de aprobación o decisión formal del OGA.</li><li>Observaciones, recomendaciones y ajustes requeridos.</li><li>Línea base aprobada y versionada.</li><li>Autorización para continuar con la siguiente fase o cierre del proceso.</li></ul></article></div> <figure class="wide-figure"><img src="assets/figures/figura-25.png" alt="Flujo de actividades del OGA al finalizar cada fase"><figcaption>Flujo de actividades llevadas a cabo por el OGA al finalizar cada fase.</figcaption></figure><div class="activities" id="ogaSteps"></div> </section>
+<section class="subsection" id="actividad-transversal">
+  <h3>Actividad transversal: revisión de líneas base</h3>
+  <p>Al finalizar cada fase, el Arquitecto Empresarial del Proceso remite los artefactos al Órgano de Gobierno Arquitectónico. La aprobación habilita la siguiente fase; las observaciones activan un ciclo de ajuste y nueva revisión.</p>
+  <figure class="wide-figure macro-figure">
+    <img src="assets/jiisic/flujo_fases_linea_base.svg" alt="Flujo de fases y consolidación de líneas base">
+    <figcaption>Vista macro de la progresión entre fases y la consolidación incremental de las líneas base arquitectónicas.</figcaption>
+  </figure>
+  
+  <div class="transversal-io">
+    <article><h4>Entradas</h4><ul><li>Paquete de artefactos generado en la fase.</li><li>Línea base arquitectónica de la fase.</li><li>Criterios de aceptación e indicadores de cumplimiento.</li><li>Observaciones pendientes de revisiones anteriores, cuando existan.</li></ul></article>
+    <article><h4>Salidas</h4><ul><li>Acta de aprobación o decisión formal del OGA.</li><li>Observaciones, recomendaciones y ajustes requeridos.</li><li>Línea base aprobada y versionada.</li><li>Autorización para continuar con la siguiente fase o cierre del proceso.</li></ul></article>
+  </div>
+
+  <!-- Contenedor de Prueba de Concepto: Diagrama Dinámico e Interactivo con selector de vistas -->
+  <div class="interactive-diagram-poc" style="background:#ffffff;border:1px solid var(--line);border-radius:8px;padding:1.4rem;margin:1.8rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;border-bottom:1px solid #eef2f0;padding-bottom:1rem;">
+      <div>
+        <span style="display:inline-block;background:#eef5f3;color:var(--green);font-size:0.75rem;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:12px;letter-spacing:0.05em;margin-bottom:0.3rem;">Prueba de Concepto Interactiva</span>
+        <h4 style="margin:0;font-size:1.2rem;color:var(--navy);font-family:Newsreader,serif;font-weight:600;">Diagrama interactivo de actividades del OGA</h4>
+        <p style="margin:0.2rem 0 0;font-size:0.88rem;color:var(--muted);">Haz click sobre cualquier actividad del diagrama para inspeccionar su ficha técnica detallada sin necesidad de ir a la lista.</p>
+      </div>
+      
+      <!-- Selector de Implementación -->
+      <div class="poc-view-switcher" style="display:inline-flex;background:#f3f6f5;padding:3px;border-radius:24px;border:1px solid var(--line);">
+        <button id="btnPocOption1" class="poc-tab-btn active" type="button" style="padding:6px 14px;border:none;background:var(--green);color:#fff;border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Opción 1: BPMN Nativo (Camunda / bpmn-js)</button>
+        <button id="btnPocOption2" class="poc-tab-btn" type="button" style="padding:6px 14px;border:none;background:transparent;color:var(--ink-light);border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Opción 2: Imagen Original + Hotspots</button>
+      </div>
+    </div>
+
+    <!-- Vista Opción 1: BPMN Nativo con bpmn-js (Zoom, Pan, Nodos interactivos) -->
+    <div id="pocContainerBpmn" style="display:block;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;font-size:0.82rem;color:var(--muted);">
+        <span>💡 <em>Arrastra para moverte, usa rueda del ratón/trackpad para zoom o haz click en cualquier actividad para abrir su ficha.</em></span>
+        <button id="btnResetBpmnZoom" type="button" style="padding:4px 10px;font-size:0.78rem;background:#fff;border:1px solid var(--line);border-radius:4px;cursor:pointer;">Restablecer zoom</button>
+      </div>
+      <div id="bpmnCanvas" style="width:100%;height:380px;background:#fbfcfb;border:1px solid var(--line);border-radius:6px;overflow:hidden;position:relative;"></div>
+    </div>
+
+    <!-- Vista Opción 2: Hotspots vectoriales sobre el PNG original -->
+    <div id="pocContainerOverlay" style="display:none;">
+      <div style="margin-bottom:0.6rem;font-size:0.82rem;color:var(--muted);">
+        <span>💡 <em>Pasa el cursor sobre las actividades y haz click en cualquiera para ver su detalle en la ventana emergente interactiva.</em></span>
+      </div>
+      <div style="position:relative;width:100%;max-width:100%;overflow:hidden;border-radius:6px;border:1px solid var(--line);background:#fff;">
+        <img src="assets/figures/figura-25.png" alt="Flujo de actividades del OGA" style="width:100%;height:auto;display:block;">
+        
+        <!-- Hotspots interactivos alineados con cada cajita de actividad -->
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A1" style="position:absolute;left:15.5%;top:21.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A1: Recepción y registro de artefactos"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A2" style="position:absolute;left:27.8%;top:21.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A2: Convocatoria y agenda de sesión de revisión"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A3" style="position:absolute;left:27.8%;top:60.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A3: Revisión individual de artefactos por miembros"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A4" style="position:absolute;left:39.0%;top:60.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A4: Sesión formal de deliberación y votación"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A5" style="position:absolute;left:47.8%;top:21.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A5: Emisión del acta de aprobación y notificación al AEP"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A6" style="position:absolute;left:57.4%;top:60.5%;width:9.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A6: Documentación de observaciones y envío al AEP"></div>
+        <div class="bpmn-hotspot" data-activity-id="Fx.OGA.A7" style="position:absolute;left:68.2%;top:60.5%;width:5.5%;height:17%;cursor:pointer;border-radius:8px;transition:all 0.2s;" title="Click para ver Fx.OGA.A7: Consolidación de resultados"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activities" id="ogaSteps"></div>
+</section>
 
   <!-- Línea de Vida Metodológica y Compuertas OGA -->
   <div style="background:#ffffff;border:1px solid var(--line);border-radius:6px;padding:1.4rem 1.6rem;margin:1.8rem 0;box-shadow:0 1px 4px rgba(0,0,0,0.02);">
@@ -996,6 +1057,25 @@
   </div>
 </section>
 </main>
+
+<!-- Modal emergente para detalle de actividad BPMN interactiva -->
+<dialog id="activityDetailModal" style="border:none;border-radius:10px;padding:0;max-width:680px;width:92%;box-shadow:0 15px 40px rgba(0,0,0,0.25);background:#ffffff;">
+  <div style="background:#0f2723;color:#ffffff;padding:1.2rem 1.6rem;display:flex;justify-content:space-between;align-items:center;border-top-left-radius:10px;border-top-right-radius:10px;">
+    <div>
+      <span id="modalActivityCode" style="display:inline-block;background:rgba(255,255,255,0.18);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:0.85rem;font-weight:700;letter-spacing:0.04em;">Fx.OGA.A1</span>
+      <h3 id="modalActivityTitle" style="margin:0.35rem 0 0;font-size:1.25rem;font-weight:700;color:#ffffff;font-family:Newsreader,serif;">Nombre de la actividad</h3>
+    </div>
+    <button id="btnCloseActivityModal" type="button" aria-label="Cerrar modal" style="background:rgba(255,255,255,0.15);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
+  </div>
+  <div id="modalActivityBody" style="padding:1.5rem 1.8rem;max-height:70vh;overflow-y:auto;line-height:1.65;font-size:0.95rem;color:var(--ink);">
+    <!-- Contenido dinámico inyectado por JS -->
+  </div>
+  <div style="padding:0.9rem 1.6rem;background:#f8faf9;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+    <span style="font-size:0.82rem;color:var(--muted);">Proceso PDAEH · Órgano de Gobierno Arquitectónico</span>
+    <button id="btnModalScrollToList" type="button" style="padding:6px 14px;border:1px solid var(--green);background:transparent;color:var(--green);font-size:0.82rem;font-weight:600;border-radius:4px;cursor:pointer;">Ver en la lista desplegable ↓</button>
+  </div>
+</dialog>
+
 <footer style="margin-top:4rem;padding:2rem 1.5rem;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:0.9rem;">
   <p><strong>PDAEH</strong> — Proceso para la Definición de Arquitecturas Empresariales Híbridas Clásicas-Cuánticas</p>
   <p style="margin-top:0.4rem;">Tesis Doctoral en Ciencias de la Computación — Universidad del Cauca</p>

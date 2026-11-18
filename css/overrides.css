@@ -1264,3 +1264,24 @@ details.activity,
 .btn-pdaeh-action svg {
   flex-shrink: 0 !important;
 }
+
+/* Estilos de la Prueba de Concepto para Diagramas BPMN Interactivos */
+.highlight-activity:not(.djs-connection) .djs-visual > rect,
+.highlight-activity:not(.djs-connection) .djs-visual > circle,
+.highlight-activity:not(.djs-connection) .djs-visual > polygon {
+  stroke: #18796e !important;
+  stroke-width: 3px !important;
+  fill: #e8f5f1 !important;
+  transition: all 0.2s ease;
+}
+
+.bpmn-hotspot:hover {
+  background-color: rgba(24, 121, 110, 0.22) !important;
+  outline: 2px solid #18796e !important;
+  box-shadow: 0 4px 12px rgba(24, 121, 110, 0.25) !important;
+}
+
+#activityDetailModal::backdrop {
+  background: rgba(18, 59, 67, 0.65);
+  backdrop-filter: blur(4px);
+}

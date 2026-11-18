@@ -1865,5 +1865,319 @@ function setupDynamicBreadcrumbs() {
   });
 }
 
-renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupSearch();setupDynamicBreadcrumbs();
+// -------------------------------------------------------------
+// Prueba de Concepto: Diagrama BPMN Dinámico e Interactivo (OGA)
+// -------------------------------------------------------------
+function setupInteractiveGovernanceDiagram() {
+  const modal = document.getElementById("activityDetailModal");
+  const modalCode = document.getElementById("modalActivityCode");
+  const modalTitle = document.getElementById("modalActivityTitle");
+  const modalBody = document.getElementById("modalActivityBody");
+  const btnClose = document.getElementById("btnCloseActivityModal");
+  const btnScrollToList = document.getElementById("btnModalScrollToList");
+
+  if (!modal) return;
+
+  // Datos estructurados de las 7 actividades del OGA
+  const ogaDetails = {
+    "Fx.OGA.A1": {
+      index: 0,
+      code: "Fx.OGA.A1",
+      name: "Recepción y registro de artefactos",
+      desc: "Actividad en la cual el OGA recibe el paquete de artefactos generados en la fase correspondiente por parte del Arquitecto Empresarial del Proceso (AEP).",
+      opDesc: "Garantiza la recepción formal, el registro cronológico y la verificación de integridad de los documentos y modelos arquitectónicos entregados al culminar la fase.",
+      entradas: ["Artefactos completados por el AEP al cierre de la fase (LBA preliminar)."],
+      salidas: ["Registro formal de radicación de artefactos en el repositorio del OGA."],
+      responsable: "OGA: Órgano de Gobierno Arquitectónico (con apoyo de secretaría técnica).",
+      herramientas: "Repositorio documental corporativo y libro de registro de radicaciones.",
+      validacion: "Verificación de completitud formal de todos los artefactos requeridos para la fase."
+    },
+    "Fx.OGA.A2": {
+      index: 1,
+      code: "Fx.OGA.A2",
+      name: "Convocatoria y agenda de sesión de revisión",
+      desc: "Actividad orientada a coordinar la sesión de evaluación, definiendo fecha, participantes, alcance y criterios a considerar durante el análisis de los artefactos.",
+      opDesc: "El OGA convoca formalmente a los revisores multidisciplinarios, distribuye el material radicado y establece la agenda de trabajo de la compuerta.",
+      entradas: ["Registro de radicación de artefactos y disponibilidad de miembros del comité."],
+      salidas: ["Agenda formal de revisión, convocatoria oficial y criterios de análisis."],
+      responsable: "OGA: Órgano de Gobierno Arquitectónico (coordinador del comité).",
+      herramientas: "Calendario corporativo y sistema de gestión de convocatorias.",
+      validacion: "Quórum reglamentario confirmado y envío previo del paquete de revisión."
+    },
+    "Fx.OGA.A3": {
+      index: 2,
+      code: "Fx.OGA.A3",
+      name: "Revisión individual de artefactos por miembros",
+      desc: "Actividad en la que cada miembro del OGA analiza los artefactos de manera independiente, evaluando su coherencia, alineación con los objetivos estratégicos y cumplimiento de criterios arquitectónicos definidos.",
+      opDesc: "Cada especialista evalúa de forma autónoma los artefactos técnicos, organizacionales y conceptuales según su área de pericia, registrando hallazgos e inquietudes.",
+      entradas: ["Paquete de artefactos versionados y criterios metodológicos de aceptación."],
+      salidas: ["Hojas individuales de hallazgos, inconsistencias y evaluación técnica preliminar."],
+      responsable: "Miembros individuales del OGA y expertos temáticos asignados.",
+      herramientas: "Rúbrica de evaluación arquitectónica y matriz de verificación de criterios.",
+      validacion: "Consolidación de informes individuales antes de la sesión de deliberación."
+    },
+    "Fx.OGA.A4": {
+      index: 3,
+      code: "Fx.OGA.A4",
+      name: "Sesión formal de deliberación y votación",
+      desc: "Actividad colaborativa en la que los miembros del OGA discuten los hallazgos identificados, contrastan criterios y emiten una decisión conjunta respecto a la aprobación o rechazo de los artefactos.",
+      opDesc: "Punto neurálgico de la compuerta donde se debaten las discrepancias, se analizan los riesgos cuántico-clásicos y se vota colegiadamente la decisión de aprobación.",
+      entradas: ["Hojas de hallazgos individuales y propuestas técnicas del AEP/ASP."],
+      salidas: ["Decisión conjunta formal (Aprobado, Aprobado con observaciones, o Rechazado)."],
+      responsable: "Órgano de Gobierno Arquitectónico (pleno del comité).",
+      herramientas: "Acta de sesión, sistema de votación y rúbrica de consenso.",
+      validacion: "Decisión formal registrada con firmas de los miembros participantes."
+    },
+    "Fx.OGA.A5": {
+      index: 4,
+      code: "Fx.OGA.A5",
+      name: "Emisión del acta de aprobación y notificación al AEP",
+      desc: "Actividad que formaliza la decisión de aprobación, documentando los resultados de la evaluación y notificando al AEP para continuar con el flujo del proceso.",
+      opDesc: "En caso de resultado afirmativo, se formaliza el acta oficial de aprobación de la compuerta OGA y se autoriza la apertura de la fase consecutiva.",
+      entradas: ["Votación afirmativa del OGA en la sesión de deliberación."],
+      salidas: ["Acta formal de aprobación de la Línea Base Arquitectónica y autorización de avance."],
+      responsable: "OGA: Órgano de Gobierno Arquitectónico.",
+      herramientas: "Plantilla oficial de acta de aprobación y firma digital corporativa.",
+      validacion: "Firma formal del acta y emisión de la autorización de avance de fase."
+    },
+    "Fx.OGA.A6": {
+      index: 5,
+      code: "Fx.OGA.A6",
+      name: "Documentación de observaciones y envío al AEP",
+      desc: "Actividad orientada a consolidar las observaciones, recomendaciones o ajustes requeridos en caso de no aprobación, las cuales son comunicadas al Arquitecto Empresarial del Proceso para su incorporación en el flujo principal.",
+      opDesc: "Si se identifican no conformidades o inconsistencias, se documenta el pliego de ajustes requeridos y se activa un ciclo corto de corrección para el AEP.",
+      entradas: ["Observaciones, no conformidades o solicitudes de ajuste acordadas en la sesión."],
+      salidas: ["Documento de observaciones consolidado remitido al AEP para ajuste en ciclo corto."],
+      responsable: "OGA: Órgano de Gobierno Arquitectónico.",
+      herramientas: "Formulario de control de no conformidades y repositorio de observaciones.",
+      validacion: "Aceptación del plan de ajuste y plazo máximo de reentrega acordado."
+    },
+    "Fx.OGA.A7": {
+      index: 6,
+      code: "Fx.OGA.A7",
+      name: "Consolidación de resultados",
+      desc: "Actividad final en la que se integran los resultados del proceso de evaluación, asegurando la trazabilidad entre los artefactos revisados, la decisión tomada y las acciones derivadas.",
+      opDesc: "Cierra el ciclo de revisión de la compuerta, garantizando que la Línea Base Arquitectónica (LBA) quede formalmente versionada e integrada en el acervo institucional.",
+      entradas: ["Acta de aprobación o documento de observaciones resuelto por el equipo."],
+      salidas: ["Línea Base Arquitectónica integral versionada e incorporada al portafolio corporativo."],
+      responsable: "OGA: Órgano de Gobierno Arquitectónico.",
+      herramientas: "Línea Base Arquitectónica (plantilla LBA) y repositorio de arquitectura.",
+      validacion: "Versionado auditable de la LBA publicado en el repositorio de gobierno."
+    }
+  };
+
+  // Mapeo entre elementos Camunda BPMN XML y códigos de actividad
+  const bpmnIdToActivityCode = {
+    "Activity_0b1p9ep": "Fx.OGA.A1",
+    "Activity_1wdvm5s": "Fx.OGA.A2",
+    "Activity_0iwkjts": "Fx.OGA.A3",
+    "Activity_07f19pr": "Fx.OGA.A4",
+    "Activity_0kvav8n": "Fx.OGA.A5",
+    "Activity_1qvvdo6": "Fx.OGA.A6",
+    "Gateway_0nan39s": "Fx.OGA.A7"
+  };
+
+  let currentSelectedCode = null;
+
+  function showActivityModal(code) {
+    const act = ogaDetails[code];
+    if (!act) return;
+    currentSelectedCode = code;
+
+    modalCode.textContent = act.code;
+    modalTitle.textContent = act.name;
+
+    modalBody.innerHTML = `
+      <div style="background:#f4f9f7;border-left:4px solid var(--green);padding:0.9rem 1.2rem;border-radius:4px;margin-bottom:1.4rem;">
+        <strong style="color:var(--green);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;display:block;margin-bottom:0.25rem;">Propósito y alcance</strong>
+        <p style="margin:0;font-size:1.02rem;color:var(--ink);line-height:1.6;text-align:justify;">${esc(act.desc)}</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.2rem;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:0.9rem 1.1rem;">
+          <h5 style="margin:0 0 0.5rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">Entradas de la actividad</h5>
+          <ul class="structured-list" style="margin:0;padding-left:1.1rem;font-size:0.9rem;line-height:1.5;">
+            ${act.entradas.map(e => `<li>${esc(e)}</li>`).join("")}
+          </ul>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:0.9rem 1.1rem;">
+          <h5 style="margin:0 0 0.5rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">Salidas y artefactos</h5>
+          <ul class="structured-list" style="margin:0;padding-left:1.1rem;font-size:0.9rem;line-height:1.5;">
+            ${act.salidas.map(s => `<li>${esc(s)}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.2rem;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:0.9rem 1.1rem;">
+          <h5 style="margin:0 0 0.4rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">Responsable</h5>
+          <p style="margin:0;font-size:0.9rem;color:var(--ink);">${esc(act.responsable)}</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:0.9rem 1.1rem;">
+          <h5 style="margin:0 0 0.4rem;font-size:0.85rem;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;">Herramientas y mecanismos</h5>
+          <p style="margin:0;font-size:0.9rem;color:var(--ink);">${esc(act.herramientas)}</p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--line);border-left:4px solid #7c3aed;border-radius:6px;padding:0.9rem 1.1rem;">
+        <h5 style="margin:0 0 0.4rem;font-size:0.85rem;color:#7c3aed;text-transform:uppercase;letter-spacing:0.04em;">Punto de validación de compuerta</h5>
+        <p style="margin:0;font-size:0.9rem;color:var(--ink);">${esc(act.validacion)}</p>
+      </div>
+    `;
+
+    modal.showModal();
+  }
+
+  if (btnClose) {
+    btnClose.onclick = () => modal.close();
+  }
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.close();
+  };
+
+  if (btnScrollToList) {
+    btnScrollToList.onclick = () => {
+      modal.close();
+      if (!currentSelectedCode) return;
+      const detailsList = Array.from(document.querySelectorAll("#ogaSteps details.activity"));
+      const act = ogaDetails[currentSelectedCode];
+      if (act && detailsList[act.index]) {
+        const targetDetail = detailsList[act.index];
+        targetDetail.open = true;
+        targetDetail.scrollIntoView({ behavior: "smooth", block: "center" });
+        targetDetail.style.outline = "2px solid var(--green)";
+        targetDetail.style.transition = "outline 0.3s ease";
+        setTimeout(() => { targetDetail.style.outline = "none"; }, 2500);
+      }
+    };
+  }
+
+  // Configurar Hotspots de la Opción 2
+  const hotspots = document.querySelectorAll(".bpmn-hotspot");
+  hotspots.forEach(hs => {
+    hs.addEventListener("mouseenter", () => {
+      hs.style.backgroundColor = "rgba(46, 125, 90, 0.22)";
+      hs.style.boxShadow = "0 0 0 2px var(--green)";
+    });
+    hs.addEventListener("mouseleave", () => {
+      hs.style.backgroundColor = "transparent";
+      hs.style.boxShadow = "none";
+    });
+    hs.addEventListener("click", () => {
+      const code = hs.dataset.activityId;
+      if (code) showActivityModal(code);
+    });
+  });
+
+  // Configurar Switcher entre Opción 1 y Opción 2
+  const btnOpt1 = document.getElementById("btnPocOption1");
+  const btnOpt2 = document.getElementById("btnPocOption2");
+  const contBpmn = document.getElementById("pocContainerBpmn");
+  const contOverlay = document.getElementById("pocContainerOverlay");
+
+  let viewerInstance = null;
+  let bpmnLoaded = false;
+
+  function setView(isOption1) {
+    if (isOption1) {
+      btnOpt1.classList.add("active");
+      btnOpt1.style.background = "var(--green)";
+      btnOpt1.style.color = "#fff";
+
+      btnOpt2.classList.remove("active");
+      btnOpt2.style.background = "transparent";
+      btnOpt2.style.color = "var(--ink-light)";
+
+      contBpmn.style.display = "block";
+      contOverlay.style.display = "none";
+
+      if (!bpmnLoaded) initBpmnViewer();
+    } else {
+      btnOpt2.classList.add("active");
+      btnOpt2.style.background = "var(--green)";
+      btnOpt2.style.color = "#fff";
+
+      btnOpt1.classList.remove("active");
+      btnOpt1.style.background = "transparent";
+      btnOpt1.style.color = "var(--ink-light)";
+
+      contBpmn.style.display = "none";
+      contOverlay.style.display = "block";
+    }
+  }
+
+  if (btnOpt1 && btnOpt2) {
+    btnOpt1.onclick = () => setView(true);
+    btnOpt2.onclick = () => setView(false);
+  }
+
+  // Inicializar visor BPMN Nativo (Opción 1)
+  async function initBpmnViewer() {
+    const canvas = document.getElementById("bpmnCanvas");
+    if (!canvas || typeof BpmnJS === "undefined") return;
+
+    try {
+      viewerInstance = new BpmnJS({
+        container: "#bpmnCanvas"
+      });
+
+      const resp = await fetch("assets/diagramas/pdaeh_oga.bpmn");
+      const xml = await resp.text();
+
+      await viewerInstance.importXML(xml);
+      bpmnLoaded = true;
+
+      const view = viewerInstance.get("canvas");
+      view.zoom("fit-viewport");
+
+      const eventBus = viewerInstance.get("eventBus");
+      const elementRegistry = viewerInstance.get("elementRegistry");
+
+      // Botón restablecer zoom
+      const btnReset = document.getElementById("btnResetBpmnZoom");
+      if (btnReset) {
+        btnReset.onclick = () => {
+          view.zoom("fit-viewport");
+        };
+      }
+
+      // Estilizar cursor de tareas interactivas
+      Object.keys(bpmnIdToActivityCode).forEach(id => {
+        const el = elementRegistry.get(id);
+        if (el) {
+          const gfx = view.getGraphics(el);
+          if (gfx) {
+            gfx.style.cursor = "pointer";
+            gfx.addEventListener("mouseenter", () => {
+              view.addMarker(id, "highlight-activity");
+            });
+            gfx.addEventListener("mouseleave", () => {
+              view.removeMarker(id, "highlight-activity");
+            });
+          }
+        }
+      });
+
+      // Manejar click nativo en elementos del diagrama
+      eventBus.on("element.click", (event) => {
+        const elId = event.element.id;
+        const code = bpmnIdToActivityCode[elId];
+        if (code) {
+          showActivityModal(code);
+        }
+      });
+
+    } catch (err) {
+      console.warn("No se pudo cargar el visor BPMN nativo:", err);
+      // Fallback a Opción 2 si hay error de red
+      setView(false);
+    }
+  }
+
+  // Inicializar visor BPMN en carga
+  initBpmnViewer();
+}
+
+renderResearch();renderMacro();renderRoles();renderGovernance();renderPhases();renderTraceabilityMatrix();renderArtifacts();renderGlossary();setupSearch();setupDynamicBreadcrumbs();setupInteractiveGovernanceDiagram();
 window.PDAEH={data,cleanText,splitItems,list,indicatorList,artifactLink,richArtifactItem,elementCode,elementNames,phaseNames,artifactCodes,artifactNames,field,esc};
+
