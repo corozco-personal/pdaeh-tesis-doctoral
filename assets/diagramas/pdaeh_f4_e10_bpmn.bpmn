@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F4-E10-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collaboration_F4_E10">
+    <participant id="Pool_F4_E10" name="F4.E10: Elementos Reutilizables" processRef="Process_F4_E10" />
+  </collaboration>
+  <process id="Process_F4_E10" isExecutable="false">
+    <laneSet id="LaneSet_F4_E10">
+      <lane id="Lane_ASecP_ETC_E10" name="Arquitecto de Seguridad del Proceso (ASecP) / Especialista Tecnológico Cuántico (ETC)">
+        <flowNodeRef>A4_E10</flowNodeRef>
+      </lane>
+      <lane id="Lane_AIP_ADP_E10" name="Arquitecto de Integración del Proceso (AIP) / Arquitecto de Datos del Proceso (ADP)">
+        <flowNodeRef>A3_E10</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASP_E10" name="Arquitecto de Solución del Proceso (ASP)">
+        <flowNodeRef>A2_E10</flowNodeRef>
+      </lane>
+      <lane id="Lane_AEP_E10" name="Arquitecto Empresarial del Proceso (AEP)">
+        <flowNodeRef>StartEvent_E10</flowNodeRef>
+        <flowNodeRef>A1_E10</flowNodeRef>
+        <flowNodeRef>Gateway_E10_split</flowNodeRef>
+        <flowNodeRef>Gateway_E10_join</flowNodeRef>
+        <flowNodeRef>A5_E10</flowNodeRef>
+        <flowNodeRef>EndEvent_E10</flowNodeRef>
+      </lane>
+    </laneSet>
+    <sequenceFlow id="SF_E10_A3_A4" sourceRef="A3_E10" targetRef="A4_E10" />
+    <sequenceFlow id="SF_E10_A5_end" sourceRef="A5_E10" targetRef="EndEvent_E10" />
+    <sequenceFlow id="SF_E10_join_A5" sourceRef="Gateway_E10_join" targetRef="A5_E10" />
+    <sequenceFlow id="SF_E10_A4_join" sourceRef="A4_E10" targetRef="Gateway_E10_join" />
+    <sequenceFlow id="SF_E10_A3_join" sourceRef="A3_E10" targetRef="Gateway_E10_join" />
+    <sequenceFlow id="SF_E10_A2_join" sourceRef="A2_E10" targetRef="Gateway_E10_join" />
+    <sequenceFlow id="SF_E10_A2_A3" sourceRef="A2_E10" targetRef="A3_E10" />
+    <sequenceFlow id="SF_E10_split_A4" sourceRef="Gateway_E10_split" targetRef="A4_E10" />
+    <sequenceFlow id="SF_E10_split_A3" sourceRef="Gateway_E10_split" targetRef="A3_E10" />
+    <sequenceFlow id="SF_E10_split_A2" sourceRef="Gateway_E10_split" targetRef="A2_E10" />
+    <sequenceFlow id="SF_E10_A1_split" sourceRef="A1_E10" targetRef="Gateway_E10_split" />
+    <sequenceFlow id="SF_E10_start_A1" sourceRef="StartEvent_E10" targetRef="A1_E10" />
+    <dataObjectReference id="DataObjectReference_1qbg0lx" name="CCTS" dataObjectRef="DataObject_0sru6tu" />
+    <dataObject id="DataObject_0sru6tu" />
+    <dataObjectReference id="DataObjectReference_ERSE" name="ERSE" dataObjectRef="DataObject_ERSE" />
+    <dataObject id="DataObject_ERSE" name="Elementos Reutilizables de Seguridad" />
+    <userTask id="A4_E10" name="F4.E10.A4: Especificación de elementos reutilizables de seguridad">
+      <incoming>SF_E10_split_A4</incoming>
+      <incoming>SF_E10_A3_A4</incoming>
+      <outgoing>SF_E10_A4_join</outgoing>
+      <property id="Property_A4_E10" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E10_A4_MRR">
+        <sourceRef>DataObjectReference_MRR</sourceRef>
+        <targetRef>Property_A4_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_10kdlup">
+        <sourceRef>DataObjectReference_0db7bul</sourceRef>
+        <targetRef>Property_A4_E10</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E10_A4_ERSE">
+        <targetRef>DataObjectReference_ERSE</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DataObjectReference_BER_v1" name="BER" dataObjectRef="DataObject_BER_v1" />
+    <dataObject id="DataObject_BER_v1" name="BER-v1 (Biblioteca de Elementos Reutilizables)" />
+    <dataObjectReference id="DataObjectReference_ERID" name="ERID" dataObjectRef="DataObject_ERID" />
+    <dataObject id="DataObject_ERID" name="Elementos Reutilizables de Integración y Datos" />
+    <dataObjectReference id="DataObjectReference_MRR" name="MRR" dataObjectRef="DataObject_MRR" />
+    <dataObject id="DataObject_MRR" name="Marco de Referencia de Reutilización" />
+    <userTask id="A3_E10" name="F4.E10.A3: Especificación de elementos reutilizables de integración y datos">
+      <incoming>SF_E10_split_A3</incoming>
+      <incoming>SF_E10_A2_A3</incoming>
+      <outgoing>SF_E10_A3_A4</outgoing>
+      <outgoing>SF_E10_A3_join</outgoing>
+      <property id="Property_A3_E10" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E10_A3_MRR">
+        <sourceRef>DataObjectReference_MRR</sourceRef>
+        <targetRef>Property_A3_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1j0uehk">
+        <sourceRef>DataObjectReference_0ixvih8</sourceRef>
+        <targetRef>Property_A3_E10</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E10_A3_ERID">
+        <targetRef>DataObjectReference_ERID</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="EndEvent_E10" name="Fin">
+      <incoming>SF_E10_A5_end</incoming>
+    </endEvent>
+    <dataObjectReference id="DataObjectReference_ERTS" name="ERTS" dataObjectRef="DataObject_ERTS" />
+    <dataObject id="DataObject_ERTS" name="Elementos Reutilizables Transversales de Solución" />
+    <userTask id="A5_E10" name="F4.E10.A5: Consolidación de la biblioteca de elementos reutilizables">
+      <incoming>SF_E10_join_A5</incoming>
+      <outgoing>SF_E10_A5_end</outgoing>
+      <property id="Property_A5_E10" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E10_A5_ERTS">
+        <sourceRef>DataObjectReference_ERTS</sourceRef>
+        <targetRef>Property_A5_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E10_A5_ERID">
+        <sourceRef>DataObjectReference_ERID</sourceRef>
+        <targetRef>Property_A5_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E10_A5_ERSE">
+        <sourceRef>DataObjectReference_ERSE</sourceRef>
+        <targetRef>Property_A5_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_066dlp5">
+        <sourceRef>DataObjectReference_0vvfnpt</sourceRef>
+        <targetRef>Property_A5_E10</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E10_A5_BER">
+        <targetRef>DataObjectReference_BER_v1</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E10_join" name="Consolidación de elementos reutilizables">
+      <incoming>SF_E10_A2_join</incoming>
+      <incoming>SF_E10_A3_join</incoming>
+      <incoming>SF_E10_A4_join</incoming>
+      <outgoing>SF_E10_join_A5</outgoing>
+    </parallelGateway>
+    <userTask id="A2_E10" name="F4.E10.A2: Especificación de elementos reutilizables de la solución">
+      <incoming>SF_E10_split_A2</incoming>
+      <outgoing>SF_E10_A2_A3</outgoing>
+      <outgoing>SF_E10_A2_join</outgoing>
+      <property id="Property_A2_E10" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E10_A2_MRR">
+        <sourceRef>DataObjectReference_MRR</sourceRef>
+        <targetRef>Property_A2_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1flmh2o">
+        <sourceRef>DataObjectReference_1qbg0lx</sourceRef>
+        <targetRef>Property_A2_E10</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E10_A2_ERTS">
+        <targetRef>DataObjectReference_ERTS</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E10_split" name="Especificación de elementos reutilizables por rol">
+      <incoming>SF_E10_A1_split</incoming>
+      <outgoing>SF_E10_split_A2</outgoing>
+      <outgoing>SF_E10_split_A3</outgoing>
+      <outgoing>SF_E10_split_A4</outgoing>
+    </parallelGateway>
+    <userTask id="A1_E10" name="F4.E10.A1: Definición del marco de elementos reutilizables">
+      <incoming>SF_E10_start_A1</incoming>
+      <outgoing>SF_E10_A1_split</outgoing>
+      <property id="Property_0giren6" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1f379y9">
+        <sourceRef>DataObjectReference_0jgf74b</sourceRef>
+        <targetRef>Property_0giren6</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E10_A1_MRR">
+        <targetRef>DataObjectReference_MRR</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <startEvent id="StartEvent_E10" name="Inicio">
+      <outgoing>SF_E10_start_A1</outgoing>
+    </startEvent>
+    <dataObjectReference id="DataObjectReference_0ixvih8" name="CCID" dataObjectRef="DataObject_1idi3jn" />
+    <dataObject id="DataObject_1idi3jn" />
+    <dataObjectReference id="DataObjectReference_0db7bul" name="CCSE" dataObjectRef="DataObject_12xlmr2" />
+    <dataObject id="DataObject_12xlmr2" />
+    <dataObjectReference id="DataObjectReference_0vvfnpt" name="DCO" dataObjectRef="DataObject_1m0khgp" />
+    <dataObject id="DataObject_1m0khgp" />
+    <dataObjectReference id="DataObjectReference_0jgf74b" name="DCO" dataObjectRef="DataObject_0kwvjn5" />
+    <dataObject id="DataObject_0kwvjn5" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F4_E10">
+    <bpmndi:BPMNPlane id="BPMNPlane_F4_E10" bpmnElement="Collaboration_F4_E10">
+      <bpmndi:BPMNShape id="Sh_Pool_F4_E10" bpmnElement="Pool_F4_E10" isHorizontal="true">
+        <dc:Bounds x="130" y="100" width="1280" height="970" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_E10" bpmnElement="Lane_AEP_E10" isHorizontal="true">
+        <dc:Bounds x="160" y="100" width="1250" height="270" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASP_E10" bpmnElement="Lane_ASP_E10" isHorizontal="true">
+        <dc:Bounds x="160" y="370" width="1250" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AIP_ADP_E10" bpmnElement="Lane_AIP_ADP_E10" isHorizontal="true">
+        <dc:Bounds x="160" y="530" width="1250" height="260" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASecP_ETC_E10" bpmnElement="Lane_ASecP_ETC_E10" isHorizontal="true">
+        <dc:Bounds x="160" y="790" width="1250" height="280" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvent_E10" bpmnElement="StartEvent_E10">
+        <dc:Bounds x="212" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="218" y="285" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A1_E10" bpmnElement="A1_E10">
+        <dc:Bounds x="310" y="220" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E10_split" bpmnElement="Gateway_E10_split">
+        <dc:Bounds x="575" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="557" y="175" width="86" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A2_E10" bpmnElement="A2_E10">
+        <dc:Bounds x="720" y="400" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E10_join" bpmnElement="Gateway_E10_join">
+        <dc:Bounds x="985" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="968" y="175" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A5_E10" bpmnElement="A5_E10">
+        <dc:Bounds x="1110" y="220" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ERTS" bpmnElement="DataObjectReference_ERTS">
+        <dc:Bounds x="1072" y="435" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1075" y="412" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvent_E10" bpmnElement="EndEvent_E10">
+        <dc:Bounds x="1342" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1353" y="285" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A3_E10" bpmnElement="A3_E10">
+        <dc:Bounds x="720" y="620" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_MRR" bpmnElement="DataObjectReference_MRR">
+        <dc:Bounds x="492" y="655" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="467" y="715" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ERID" bpmnElement="DataObjectReference_ERID">
+        <dc:Bounds x="1072" y="655" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1075" y="635" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_BER_v1" bpmnElement="DataObjectReference_BER_v1">
+        <dc:Bounds x="1312" y="140" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1318" y="117" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A4_E10" bpmnElement="A4_E10">
+        <dc:Bounds x="720" y="895" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ERSE" bpmnElement="DataObjectReference_ERSE">
+        <dc:Bounds x="1072" y="925" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1075" y="902" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1exdsuw" bpmnElement="DataObjectReference_1qbg0lx">
+        <dc:Bounds x="692" y="285" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="694" y="341" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1dc8xk4" bpmnElement="DataObjectReference_0ixvih8">
+        <dc:Bounds x="642" y="545" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="646" y="601" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0rpbjmx" bpmnElement="DataObjectReference_0db7bul">
+        <dc:Bounds x="642" y="815" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="644" y="871" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kq7923" bpmnElement="DataObjectReference_0vvfnpt">
+        <dc:Bounds x="1222" y="435" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1227" y="412" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1u5ns0a" bpmnElement="DataObjectReference_0jgf74b">
+        <dc:Bounds x="377" y="140" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="382" y="117" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_start_A1" bpmnElement="SF_E10_start_A1">
+        <di:waypoint x="248" y="260" />
+        <di:waypoint x="310" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A1_split" bpmnElement="SF_E10_A1_split">
+        <di:waypoint x="480" y="260" />
+        <di:waypoint x="575" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_split_A2" bpmnElement="SF_E10_split_A2">
+        <di:waypoint x="600" y="285" />
+        <di:waypoint x="600" y="440" />
+        <di:waypoint x="720" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_split_A3" bpmnElement="SF_E10_split_A3">
+        <di:waypoint x="600" y="285" />
+        <di:waypoint x="600" y="660" />
+        <di:waypoint x="720" y="660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_split_A4" bpmnElement="SF_E10_split_A4">
+        <di:waypoint x="600" y="285" />
+        <di:waypoint x="600" y="935" />
+        <di:waypoint x="720" y="935" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A2_A3" bpmnElement="SF_E10_A2_A3">
+        <di:waypoint x="810" y="480" />
+        <di:waypoint x="810" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A2_join" bpmnElement="SF_E10_A2_join">
+        <di:waypoint x="900" y="440" />
+        <di:waypoint x="1010" y="440" />
+        <di:waypoint x="1010" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A3_join" bpmnElement="SF_E10_A3_join">
+        <di:waypoint x="900" y="660" />
+        <di:waypoint x="1010" y="660" />
+        <di:waypoint x="1010" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A4_join" bpmnElement="SF_E10_A4_join">
+        <di:waypoint x="900" y="935" />
+        <di:waypoint x="1010" y="935" />
+        <di:waypoint x="1010" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_join_A5" bpmnElement="SF_E10_join_A5">
+        <di:waypoint x="1035" y="260" />
+        <di:waypoint x="1110" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A5_end" bpmnElement="SF_E10_A5_end">
+        <di:waypoint x="1290" y="260" />
+        <di:waypoint x="1342" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E10_A3_A4" bpmnElement="SF_E10_A3_A4">
+        <di:waypoint x="810" y="700" />
+        <di:waypoint x="810" y="895" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E10_A1_MRR" bpmnElement="DOA_E10_A1_MRR">
+        <di:waypoint x="380" y="300" />
+        <di:waypoint x="380" y="680" />
+        <di:waypoint x="492" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A2_MRR" bpmnElement="DIA_E10_A2_MRR">
+        <di:waypoint x="510" y="655" />
+        <di:waypoint x="510" y="460" />
+        <di:waypoint x="720" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E10_A2_ERTS" bpmnElement="DOA_E10_A2_ERTS">
+        <di:waypoint x="900" y="461" />
+        <di:waypoint x="1072" y="461" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A3_MRR" bpmnElement="DIA_E10_A3_MRR">
+        <di:waypoint x="528" y="680" />
+        <di:waypoint x="720" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E10_A3_ERID" bpmnElement="DOA_E10_A3_ERID">
+        <di:waypoint x="900" y="680" />
+        <di:waypoint x="1072" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A4_MRR" bpmnElement="DIA_E10_A4_MRR">
+        <di:waypoint x="510" y="705" />
+        <di:waypoint x="510" y="950" />
+        <di:waypoint x="720" y="950" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E10_A4_ERSE" bpmnElement="DOA_E10_A4_ERSE">
+        <di:waypoint x="900" y="950" />
+        <di:waypoint x="1070" y="950" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A5_ERTS" bpmnElement="DIA_E10_A5_ERTS">
+        <di:waypoint x="1108" y="460" />
+        <di:waypoint x="1150" y="460" />
+        <di:waypoint x="1150" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A5_ERID" bpmnElement="DIA_E10_A5_ERID">
+        <di:waypoint x="1108" y="680" />
+        <di:waypoint x="1150" y="680" />
+        <di:waypoint x="1150" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E10_A5_ERSE" bpmnElement="DIA_E10_A5_ERSE">
+        <di:waypoint x="1108" y="950" />
+        <di:waypoint x="1150" y="950" />
+        <di:waypoint x="1150" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E10_A5_BER" bpmnElement="DOA_E10_A5_BER">
+        <di:waypoint x="1220" y="220" />
+        <di:waypoint x="1220" y="165" />
+        <di:waypoint x="1312" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1flmh2o_di" bpmnElement="DataInputAssociation_1flmh2o">
+        <di:waypoint x="728" y="310" />
+        <di:waypoint x="810" y="310" />
+        <di:waypoint x="810" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1j0uehk_di" bpmnElement="DataInputAssociation_1j0uehk">
+        <di:waypoint x="678" y="570" />
+        <di:waypoint x="790" y="570" />
+        <di:waypoint x="790" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_10kdlup_di" bpmnElement="DataInputAssociation_10kdlup">
+        <di:waypoint x="678" y="840" />
+        <di:waypoint x="785" y="840" />
+        <di:waypoint x="785" y="895" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_066dlp5_di" bpmnElement="DataInputAssociation_066dlp5">
+        <di:waypoint x="1222" y="460" />
+        <di:waypoint x="1180" y="460" />
+        <di:waypoint x="1180" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1f379y9_di" bpmnElement="DataInputAssociation_1f379y9">
+        <di:waypoint x="413" y="165" />
+        <di:waypoint x="440" y="165" />
+        <di:waypoint x="440" y="220" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

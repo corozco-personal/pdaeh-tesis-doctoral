@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F2-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F2">
+    <participant id="Pool_F2" name="F2.E3. Nivel de abstracción arquitectónica" processRef="Process_F2" />
+  </collaboration>
+  <process id="Process_F2" name="Proceso F2 — Fundamentación Conceptual" isExecutable="true">
+    <laneSet id="LaneSet_F2">
+      <lane id="Lane_SE_GPA_F2" name="Stakeholder empresarial (SE) / Gestor de portafolio (GPA)">
+        <flowNodeRef>Task_F2_SE_abs</flowNodeRef>
+        <flowNodeRef>Gateway_F2_abs_gw</flowNodeRef>
+      </lane>
+      <lane id="Lane_AEP_F2" name="Arquitecto empresarial del proceso (AEP)">
+        <flowNodeRef>StartEvent_F2</flowNodeRef>
+        <flowNodeRef>Task_F2_E3_A1</flowNodeRef>
+        <flowNodeRef>Task_F2_E3_A3</flowNodeRef>
+        <flowNodeRef>Event_1mfnma9</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_F2" name="Inicio">
+      <documentation>
+        Inicio de F2 — Fundamentación Conceptual.
+        Precondición: Línea Base F1 aprobada por el OGA.
+        Artefactos disponibles: DOA-v1, MTA-v1, DCA-v1, SMP-v1.
+      </documentation>
+      <outgoing>SF_F2_start_par</outgoing>
+    </startEvent>
+    <dataObjectReference id="DOR_DPV" name="DPV inicial" dataObjectRef="DO_DPV" />
+    <dataObject id="DO_DPV" name="DPV-v1" />
+    <userTask id="Task_F2_SE_abs" name="F2.E3.A2 Validación de perspectivas y niveles de abstracción" camunda:assignee="SE">
+      <documentation>
+        Entrada: DPV-v1.
+        Los stakeholders (SE/GPA) revisan el DPV-v1 evaluando:
+          (1) Suficiencia de las perspectivas para comunicar la arquitectura
+              a distintas audiencias organizacionales.
+          (2) Adecuación de los niveles de abstracción a los objetivos
+              estratégicos del DOA-v1.
+          (3) Correspondencia entre las vistas definidas y las preocupaciones
+              documentadas en SMP-v1.
+          (4) Claridad y comprensibilidad de los criterios de uso de cada vista.
+        Resultado: autorización para formalizar (F2.E3.A3) o devolución al
+        AEP con observaciones para revisión.
+      </documentation>
+      <incoming>SF_F2_E3A1_SE</incoming>
+      <outgoing>SF_F2_SE_abs_gw</outgoing>
+      <property id="Prop_SE_abs" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_SE_abs_DPV">
+        <sourceRef>DOR_DPV</sourceRef>
+        <targetRef>Prop_SE_abs</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1o96wap">
+        <targetRef>DataObjectReference_0fi2i31</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_DOA_F1" name="DOA" dataObjectRef="DO_DOA_F1" />
+    <dataObject id="DO_DOA_F1" name="DOA-v1" />
+    <dataObjectReference id="DOR_MTA_F1" name="MTA" dataObjectRef="DO_MTA_F1" />
+    <dataObject id="DO_MTA_F1" name="MTA-v1" />
+    <userTask id="Task_F2_E3_A1" name="F2.E3.A1 Definición de perspectivas y vistas arquitectónicas" camunda:assignee="AEP">
+      <documentation>
+        Entradas: DOA-v1, MTA-v1.
+        Tareas:
+          T1 Identificar perspectivas arquitectónicas relevantes para el modelo
+             híbrido clásico-cuántico (negocio, datos, aplicación, tecnología,
+             integración cuántica).
+          T2 Definir las vistas arquitectónicas asociadas a cada perspectiva
+             y delimitar su alcance y audiencia.
+          T3 Establecer los niveles de abstracción requeridos por vista,
+             diferenciando entre nivel conceptual, lógico y físico.
+          T4 Verificar la cobertura de las perspectivas respecto a los objetivos
+             arquitectónicos del DOA-v1.
+          T5 Documentar el inventario de perspectivas, vistas y niveles en DPV-v1.
+        Salida: DPV-v1 (Documento de Perspectivas y Vistas).
+      </documentation>
+      <incoming>SF_F2_abs_no</incoming>
+      <incoming>SF_F2_start_par</incoming>
+      <outgoing>SF_F2_E3A1_SE</outgoing>
+      <property id="Prop_E3A1" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E3A1_DOA">
+        <sourceRef>DOR_DOA_F1</sourceRef>
+        <targetRef>Prop_E3A1</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E3A1_MTA">
+        <sourceRef>DOR_MTA_F1</sourceRef>
+        <targetRef>Prop_E3A1</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E3A1_DPV">
+        <sourceRef>Task_F2_E3_A1</sourceRef>
+        <targetRef>DOR_DPV</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DataObjectReference_0fi2i31" name="DPV actualizado" dataObjectRef="DataObject_0c16uea" />
+    <dataObject id="DataObject_0c16uea" />
+    <sequenceFlow id="SF_F2_start_par" sourceRef="StartEvent_F2" targetRef="Task_F2_E3_A1" />
+    <sequenceFlow id="SF_F2_abs_yes" name="sí" sourceRef="Gateway_F2_abs_gw" targetRef="Task_F2_E3_A3">
+      <conditionExpression>Perspectivas aprobadas</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SF_F2_E3A1_SE" sourceRef="Task_F2_E3_A1" targetRef="Task_F2_SE_abs" />
+    <sequenceFlow id="SF_F2_SE_abs_gw" sourceRef="Task_F2_SE_abs" targetRef="Gateway_F2_abs_gw" />
+    <sequenceFlow id="SF_F2_abs_no" name="no" sourceRef="Gateway_F2_abs_gw" targetRef="Task_F2_E3_A1">
+      <conditionExpression>Requiere ajustes</conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="Gateway_F2_abs_gw" name="¿Las perspectivas y niveles de abstracción son aprobados?">
+      <incoming>SF_F2_SE_abs_gw</incoming>
+      <outgoing>SF_F2_abs_yes</outgoing>
+      <outgoing>SF_F2_abs_no</outgoing>
+    </exclusiveGateway>
+    <userTask id="Task_F2_E3_A3" name="F2.E3.A3 Formalización del modelo de abstracción arquitectónica" camunda:assignee="AEP">
+      <documentation>
+        Entradas: DPV-v1 validado, MTA-v1.
+        Tareas:
+          T1 Redactar la descripción formal de cada nivel de abstracción
+             (propósito, criterios de aplicación, relación con otras vistas)
+             y documentar en DNA-v1.
+          T2 Establecer correspondencias explícitas entre las vistas del
+             DNA-v1 y los objetivos arquitectónicos del DOA-v1.
+          T3 Actualizar la Matriz de Trazabilidad a MTA-v2 incorporando
+             los vínculos entre perspectivas, vistas y objetivos.
+          T4 Validar la consistencia interna del modelo de abstracción
+             (sin solapamientos, sin vacíos de cobertura).
+        Salidas: DNA-v1 (Documento de Niveles de Abstracción), MTA-v2.
+      </documentation>
+      <incoming>SF_F2_abs_yes</incoming>
+      <outgoing>Flow_1cbm5it</outgoing>
+      <property id="Prop_E3A3" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E3A3_MTA1">
+        <sourceRef>DOR_MTA_F1</sourceRef>
+        <targetRef>Prop_E3A3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_0jd39z2">
+        <sourceRef>DataObjectReference_0fi2i31</sourceRef>
+        <targetRef>Prop_E3A3</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E3A3_DNA">
+        <sourceRef>Task_F2_E3_A3</sourceRef>
+        <targetRef>DOR_DNA</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DOA_E3A3_MTA2">
+        <sourceRef>Task_F2_E3_A3</sourceRef>
+        <targetRef>DOR_MTA_F2</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="Event_1mfnma9" name="Fin">
+      <documentation>
+        Línea Base F2 aprobada por el OGA.
+        Artefactos publicados: DNA-v1, DVA-v1, MTA-v2.
+        La fase F3 — Especificación de Calidad puede iniciarse.
+      </documentation>
+      <incoming>Flow_1cbm5it</incoming>
+      <property id="Property_1muyuom" name="__targetRef_placeholder" />
+    </endEvent>
+    <dataObjectReference id="DOR_MTA_F2" name="MTA actualizado" dataObjectRef="DO_MTA_F2" />
+    <dataObject id="DO_MTA_F2" name="MTA-v2" />
+    <sequenceFlow id="Flow_1cbm5it" sourceRef="Task_F2_E3_A3" targetRef="Event_1mfnma9" />
+    <dataObjectReference id="DOR_DNA" name="DNA" dataObjectRef="DO_DNA" />
+    <dataObject id="DO_DNA" name="DNA-v1" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiag_F2v1">
+    <bpmndi:BPMNPlane id="BPMNPlane_F2v1" bpmnElement="Collab_F2">
+      <bpmndi:BPMNShape id="Sh_Pool_F2" bpmnElement="Pool_F2" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="790" height="620" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP" bpmnElement="Lane_AEP_F2" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="760" height="400" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_SE" bpmnElement="Lane_SE_GPA_F2" isHorizontal="true">
+        <dc:Bounds x="190" y="480" width="760" height="220" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Start" bpmnElement="StartEvent_F2">
+        <dc:Bounds x="242" y="247" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="248" y="287" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DPV" bpmnElement="DOR_DPV" isHorizontal="false">
+        <dc:Bounds x="302" y="360" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="295" y="420" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SE_abs" bpmnElement="Task_F2_SE_abs">
+        <dc:Bounds x="350" y="550" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DOA" bpmnElement="DOR_DOA_F1" isHorizontal="false">
+        <dc:Bounds x="362" y="125" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="368" y="99" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_MTA1" bpmnElement="DOR_MTA_F1" isHorizontal="false">
+        <dc:Bounds x="452" y="125" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="459" y="99" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E3A1" bpmnElement="Task_F2_E3_A1">
+        <dc:Bounds x="350" y="225" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1eozqn7" bpmnElement="DataObjectReference_0fi2i31" isHorizontal="false">
+        <dc:Bounds x="552" y="395" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="531" y="455" width="82" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWabs" bpmnElement="Gateway_F2_abs_gw" isMarkerVisible="true">
+        <dc:Bounds x="605" y="565" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="585" y="620" width="90" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E3A3" bpmnElement="Task_F2_E3_A3">
+        <dc:Bounds x="690" y="215" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1hn7jr2" bpmnElement="Event_1mfnma9">
+        <dc:Bounds x="892" y="237" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="902" y="277" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_MTA2" bpmnElement="DOR_MTA_F2" isHorizontal="false">
+        <dc:Bounds x="702" y="360" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="680" y="420" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DNA" bpmnElement="DOR_DNA" isHorizontal="false">
+        <dc:Bounds x="812" y="360" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="818" y="420" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_start_par" bpmnElement="SF_F2_start_par">
+        <di:waypoint x="278" y="265" />
+        <di:waypoint x="350" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_abs_yes" bpmnElement="SF_F2_abs_yes">
+        <di:waypoint x="655" y="590" />
+        <di:waypoint x="770" y="590" />
+        <di:waypoint x="770" y="295" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="740" y="601" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E3A1_SE" bpmnElement="SF_F2_E3A1_SE">
+        <di:waypoint x="430" y="305" />
+        <di:waypoint x="430" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SE_gw" bpmnElement="SF_F2_SE_abs_gw">
+        <di:waypoint x="510" y="590" />
+        <di:waypoint x="605" y="590" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_abs_no" bpmnElement="SF_F2_abs_no">
+        <di:waypoint x="630" y="565" />
+        <di:waypoint x="630" y="265" />
+        <di:waypoint x="510" y="265" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="643" y="358" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cbm5it_di" bpmnElement="Flow_1cbm5it">
+        <di:waypoint x="850" y="255" />
+        <di:waypoint x="892" y="255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_MTA1_E3A3" bpmnElement="DIA_E3A3_MTA1">
+        <di:waypoint x="488" y="150" />
+        <di:waypoint x="720" y="150" />
+        <di:waypoint x="720" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0jd39z2_di" bpmnElement="DataInputAssociation_0jd39z2">
+        <di:waypoint x="570" y="395" />
+        <di:waypoint x="570" y="230" />
+        <di:waypoint x="690" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_DPV_SE" bpmnElement="DIA_SE_abs_DPV">
+        <di:waypoint x="340" y="385" />
+        <di:waypoint x="390" y="385" />
+        <di:waypoint x="390" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1o96wap_di" bpmnElement="DataOutputAssociation_1o96wap">
+        <di:waypoint x="460" y="550" />
+        <di:waypoint x="460" y="420" />
+        <di:waypoint x="552" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_DOA_E3A1" bpmnElement="DIA_E3A1_DOA">
+        <di:waypoint x="380" y="175" />
+        <di:waypoint x="380" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_MTA1_E3A1" bpmnElement="DIA_E3A1_MTA">
+        <di:waypoint x="470" y="175" />
+        <di:waypoint x="470" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_E3A1_DPV" bpmnElement="DOA_E3A1_DPV">
+        <di:waypoint x="350" y="285" />
+        <di:waypoint x="321" y="285" />
+        <di:waypoint x="321" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_E3A3_DNA" bpmnElement="DOA_E3A3_DNA">
+        <di:waypoint x="830" y="295" />
+        <di:waypoint x="830" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_E3A3_MTA2" bpmnElement="DOA_E3A3_MTA2">
+        <di:waypoint x="720" y="295" />
+        <di:waypoint x="720" y="360" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

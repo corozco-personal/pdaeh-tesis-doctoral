@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F5-E7-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collaboration_F5_E7">
+    <participant id="Pool_F5_E7" name="F5.E7: Estilos y Patrones Arquitectónicos" processRef="Process_F5_E7" />
+  </collaboration>
+  <process id="Process_F5_E7" isExecutable="false">
+    <laneSet id="LaneSet_F5_E7">
+      <lane id="Lane_AEP_E7" name="Arquitecto Empresarial del Proceso">
+        <flowNodeRef>StartEvent_E7</flowNodeRef>
+        <flowNodeRef>A1_E7</flowNodeRef>
+        <flowNodeRef>Gateway_E7_split</flowNodeRef>
+        <flowNodeRef>Gateway_E7_join</flowNodeRef>
+        <flowNodeRef>A5_E7</flowNodeRef>
+        <flowNodeRef>EndEvent_E7</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASP_E7" name="Arquitecto de Solución del Proceso">
+        <flowNodeRef>A2_E7</flowNodeRef>
+      </lane>
+      <lane id="Lane_AIP_ADP_E7" name="Arquitecto de Integración / Datos del Proceso">
+        <flowNodeRef>A3_E7</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASecP_ETC_E7" name="Arquitecto de Seguridad / Especialista Tecnológico Cuántico">
+        <flowNodeRef>A4_E7</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_E7" name="Inicio">
+      <outgoing>SF_E7_start_A1</outgoing>
+    </startEvent>
+    <userTask id="A1_E7" name="F5.E7.A1: Definición del marco de estilos arquitectónicos">
+      <incoming>SF_E7_start_A1</incoming>
+      <outgoing>SF_E7_A1_split</outgoing>
+      <property id="Property_A1_E7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E7_A1_LBA">
+        <sourceRef>DataObjectReference_LBA_F4_E7</sourceRef>
+        <targetRef>Property_A1_E7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E7_A1_MEP">
+        <targetRef>DataObjectReference_MEP</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E7_split" name="Especificación de estilos por rol">
+      <incoming>SF_E7_A1_split</incoming>
+      <outgoing>SF_E7_split_A2</outgoing>
+      <outgoing>SF_E7_split_A3</outgoing>
+      <outgoing>SF_E7_split_A4</outgoing>
+    </parallelGateway>
+    <userTask id="A2_E7" name="F5.E7.A2: Especificación de estilos transversales de la solución">
+      <incoming>SF_E7_split_A2</incoming>
+      <outgoing>SF_E7_A2_join</outgoing>
+      <property id="Property_A2_E7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E7_A2_MEP">
+        <sourceRef>DataObjectReference_MEP</sourceRef>
+        <targetRef>Property_A2_E7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E7_A2_ESTA">
+        <targetRef>DataObjectReference_ESTA</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A3_E7" name="F5.E7.A3: Especificación de estilos de integración cuántico-clásicos">
+      <incoming>SF_E7_split_A3</incoming>
+      <outgoing>SF_E7_A3_join</outgoing>
+      <property id="Property_A3_E7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E7_A3_MEP">
+        <sourceRef>DataObjectReference_MEP</sourceRef>
+        <targetRef>Property_A3_E7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E7_A3_ECIA">
+        <targetRef>DataObjectReference_ECIA</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E7_join" name="Consolidación de catálogo de estilos">
+      <incoming>SF_E7_A2_join</incoming>
+      <incoming>SF_E7_A3_join</incoming>
+      <incoming>SF_E7_A4_join</incoming>
+      <outgoing>SF_E7_join_A5</outgoing>
+    </parallelGateway>
+    <userTask id="A5_E7" name="F5.E7.A5: Consolidación de estilos arquitectónicos">
+      <incoming>SF_E7_join_A5</incoming>
+      <outgoing>SF_E7_A5_end</outgoing>
+      <property id="Property_A5_E7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E7_A5_ESTA">
+        <sourceRef>DataObjectReference_ESTA</sourceRef>
+        <targetRef>Property_A5_E7</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E7_A5_ECIA">
+        <sourceRef>DataObjectReference_ECIA</sourceRef>
+        <targetRef>Property_A5_E7</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E7_A5_ESPA">
+        <sourceRef>DataObjectReference_ESPA</sourceRef>
+        <targetRef>Property_A5_E7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E7_A5_CEP">
+        <targetRef>DataObjectReference_CEP_v1</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="EndEvent_E7" name="Fin">
+      <incoming>SF_E7_A5_end</incoming>
+    </endEvent>
+    <dataObjectReference id="DataObjectReference_MEP" name="MEP" dataObjectRef="DataObject_MEP" />
+    <dataObject id="DataObject_MEP" name="Marco de Estilos y Patrones" />
+    <dataObjectReference id="DataObjectReference_ESTA" name="ESTA" dataObjectRef="DataObject_ESTA" />
+    <dataObject id="DataObject_ESTA" name="Estilos Transversales de Solución y Arquitectura" />
+    <dataObjectReference id="DataObjectReference_ECIA" name="ECIA" dataObjectRef="DataObject_ECIA" />
+    <dataObject id="DataObject_ECIA" name="Estilos de Integración y Datos Cuántico-Clásicos" />
+    <dataObjectReference id="DataObjectReference_CEP_v1" name="CEP" dataObjectRef="DataObject_CEP_v1" />
+    <dataObject id="DataObject_CEP_v1" name="CEP-v1 (Catálogo de Estilos y Patrones)" />
+    <sequenceFlow id="SF_E7_start_A1" sourceRef="StartEvent_E7" targetRef="A1_E7" />
+    <sequenceFlow id="SF_E7_A1_split" sourceRef="A1_E7" targetRef="Gateway_E7_split" />
+    <sequenceFlow id="SF_E7_split_A2" sourceRef="Gateway_E7_split" targetRef="A2_E7" />
+    <sequenceFlow id="SF_E7_split_A3" sourceRef="Gateway_E7_split" targetRef="A3_E7" />
+    <sequenceFlow id="SF_E7_split_A4" sourceRef="Gateway_E7_split" targetRef="A4_E7" />
+    <sequenceFlow id="SF_E7_A2_join" sourceRef="A2_E7" targetRef="Gateway_E7_join" />
+    <sequenceFlow id="SF_E7_A3_join" sourceRef="A3_E7" targetRef="Gateway_E7_join" />
+    <sequenceFlow id="SF_E7_A4_join" sourceRef="A4_E7" targetRef="Gateway_E7_join" />
+    <sequenceFlow id="SF_E7_join_A5" sourceRef="Gateway_E7_join" targetRef="A5_E7" />
+    <sequenceFlow id="SF_E7_A5_end" sourceRef="A5_E7" targetRef="EndEvent_E7" />
+    <dataObjectReference id="DataObjectReference_LBA_F4_E7" name="LBA-F4" dataObjectRef="DataObject_LBA_F4_E7" />
+    <dataObject id="DataObject_LBA_F4_E7" name="Línea Base de Arquitectura Fase 4" />
+    <userTask id="A4_E7" name="F5.E7.A4: Especificación de estilos de seguridad clásicos y poscuánticos">
+      <incoming>SF_E7_split_A4</incoming>
+      <outgoing>SF_E7_A4_join</outgoing>
+      <property id="Property_A4_E7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E7_A4_MEP">
+        <sourceRef>DataObjectReference_MEP</sourceRef>
+        <targetRef>Property_A4_E7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E7_A4_ESPA">
+        <targetRef>DataObjectReference_ESPA</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DataObjectReference_ESPA" name="ESPA" dataObjectRef="DataObject_ESPA" />
+    <dataObject id="DataObject_ESPA" name="Estilos de Seguridad Clásicos y Poscuánticos" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F5_E7">
+    <bpmndi:BPMNPlane id="BPMNPlane_F5_E7" bpmnElement="Collaboration_F5_E7">
+      <bpmndi:BPMNShape id="Sh_Pool_F5_E7" bpmnElement="Pool_F5_E7" isHorizontal="true">
+        <dc:Bounds x="130" y="40" width="1260" height="830" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASecP_ETC_E7" bpmnElement="Lane_ASecP_ETC_E7" isHorizontal="true">
+        <dc:Bounds x="160" y="630" width="1230" height="240" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AIP_ADP_E7" bpmnElement="Lane_AIP_ADP_E7" isHorizontal="true">
+        <dc:Bounds x="160" y="460" width="1230" height="170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASP_E7" bpmnElement="Lane_ASP_E7" isHorizontal="true">
+        <dc:Bounds x="160" y="300" width="1230" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_E7" bpmnElement="Lane_AEP_E7" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="1230" height="260" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvent_E7" bpmnElement="StartEvent_E7">
+        <dc:Bounds x="212" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="215" width="29" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A1_E7" bpmnElement="A1_E7">
+        <dc:Bounds x="310" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E7_split" bpmnElement="Gateway_E7_split">
+        <dc:Bounds x="565" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="547" y="126" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A2_E7" bpmnElement="A2_E7">
+        <dc:Bounds x="710" y="330" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A3_E7" bpmnElement="A3_E7">
+        <dc:Bounds x="710" y="490" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E7_join" bpmnElement="Gateway_E7_join">
+        <dc:Bounds x="965" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="948" y="120" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A5_E7" bpmnElement="A5_E7">
+        <dc:Bounds x="1090" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvent_E7" bpmnElement="EndEvent_E7">
+        <dc:Bounds x="1322" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1333" y="215" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_MEP" bpmnElement="DataObjectReference_MEP">
+        <dc:Bounds x="467" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="471" y="582" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ESTA" bpmnElement="DataObjectReference_ESTA">
+        <dc:Bounds x="1052" y="365" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1055" y="342" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ECIA" bpmnElement="DataObjectReference_ECIA">
+        <dc:Bounds x="1052" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1056" y="503" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CEP_v1" bpmnElement="DataObjectReference_CEP_v1">
+        <dc:Bounds x="1292" y="325" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1297" y="302" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_LBA_F4_E7" bpmnElement="DataObjectReference_LBA_F4_E7">
+        <dc:Bounds x="272" y="85" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="271" y="62" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A4_E7" bpmnElement="A4_E7">
+        <dc:Bounds x="710" y="705" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_ESPA" bpmnElement="DataObjectReference_ESPA">
+        <dc:Bounds x="1052" y="735" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1055" y="712" width="29" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_start_A1" bpmnElement="SF_E7_start_A1">
+        <di:waypoint x="248" y="190" />
+        <di:waypoint x="310" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_A1_split" bpmnElement="SF_E7_A1_split">
+        <di:waypoint x="480" y="190" />
+        <di:waypoint x="565" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_split_A2" bpmnElement="SF_E7_split_A2">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="370" />
+        <di:waypoint x="710" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_split_A3" bpmnElement="SF_E7_split_A3">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="530" />
+        <di:waypoint x="710" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_split_A4" bpmnElement="SF_E7_split_A4">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="745" />
+        <di:waypoint x="710" y="745" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_A2_join" bpmnElement="SF_E7_A2_join">
+        <di:waypoint x="880" y="370" />
+        <di:waypoint x="990" y="370" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_A3_join" bpmnElement="SF_E7_A3_join">
+        <di:waypoint x="880" y="530" />
+        <di:waypoint x="990" y="530" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_A4_join" bpmnElement="SF_E7_A4_join">
+        <di:waypoint x="880" y="745" />
+        <di:waypoint x="990" y="745" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_join_A5" bpmnElement="SF_E7_join_A5">
+        <di:waypoint x="1015" y="190" />
+        <di:waypoint x="1090" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E7_A5_end" bpmnElement="SF_E7_A5_end">
+        <di:waypoint x="1260" y="190" />
+        <di:waypoint x="1322" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A1_LBA" bpmnElement="DIA_E7_A1_LBA">
+        <di:waypoint x="308" y="110" />
+        <di:waypoint x="395" y="110" />
+        <di:waypoint x="395" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E7_A1_MEP" bpmnElement="DOA_E7_A1_MEP">
+        <di:waypoint x="395" y="230" />
+        <di:waypoint x="395" y="550" />
+        <di:waypoint x="467" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A2_MEP" bpmnElement="DIA_E7_A2_MEP">
+        <di:waypoint x="485" y="525" />
+        <di:waypoint x="485" y="390" />
+        <di:waypoint x="710" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E7_A2_ESTA" bpmnElement="DOA_E7_A2_ESTA">
+        <di:waypoint x="880" y="391" />
+        <di:waypoint x="1052" y="391" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A3_MEP" bpmnElement="DIA_E7_A3_MEP">
+        <di:waypoint x="503" y="550" />
+        <di:waypoint x="710" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E7_A3_ECIA" bpmnElement="DOA_E7_A3_ECIA">
+        <di:waypoint x="880" y="545" />
+        <di:waypoint x="1052" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A4_MEP" bpmnElement="DIA_E7_A4_MEP">
+        <di:waypoint x="485" y="575" />
+        <di:waypoint x="485" y="760" />
+        <di:waypoint x="710" y="760" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E7_A4_ESPA" bpmnElement="DOA_E7_A4_ESPA">
+        <di:waypoint x="880" y="760" />
+        <di:waypoint x="1052" y="760" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A5_ESTA" bpmnElement="DIA_E7_A5_ESTA">
+        <di:waypoint x="1088" y="390" />
+        <di:waypoint x="1130" y="390" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A5_ECIA" bpmnElement="DIA_E7_A5_ECIA">
+        <di:waypoint x="1088" y="550" />
+        <di:waypoint x="1130" y="550" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E7_A5_ESPA" bpmnElement="DIA_E7_A5_ESPA">
+        <di:waypoint x="1088" y="760" />
+        <di:waypoint x="1130" y="760" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E7_A5_CEP" bpmnElement="DOA_E7_A5_CEP">
+        <di:waypoint x="1200" y="230" />
+        <di:waypoint x="1200" y="350" />
+        <di:waypoint x="1292" y="350" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

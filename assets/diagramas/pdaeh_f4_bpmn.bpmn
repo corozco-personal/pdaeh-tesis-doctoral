@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F4-general-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F4">
+    <participant id="Pool_F4" name="F4 — Materialización Arquitectónica (E9 → E10)" processRef="Process_F4" />
+    <participant id="Pool_OGA_F2" name="Órgano de Gobierno Arquitectónico (OGA)" processRef="Process_OGA_F2" />
+  </collaboration>
+  <process id="Process_F4" name="Proceso F4 — Materialización Arquitectónica" isExecutable="false">
+    <laneSet id="LaneSet_F4">
+      <lane id="Lane_AEP_F4" name="Arquitecto empresarial del proceso (AEP) /  Arquitectos Especialistas (ASP / AIP / ADP / ASecP / ETC)">
+        <flowNodeRef>StartEvent_F4</flowNodeRef>
+        <flowNodeRef>CA_F4_E9</flowNodeRef>
+        <flowNodeRef>CA_F4_E10</flowNodeRef>
+        <flowNodeRef>Task_F4_send</flowNodeRef>
+        <flowNodeRef>Task_F4_adjust</flowNodeRef>
+        <flowNodeRef>EndEvent_F4</flowNodeRef>
+        <flowNodeRef>Gateway_F4_approval</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_F4" name="Inicio F4">
+      <documentation>
+        Inicio de F4 — Materialización Arquitectónica.
+        Precondición: Línea Base F3 aprobada por el OGA.
+        Artefactos disponibles: DEA-v1, MAQ-v1, MTA-v4.
+        Flujo: E9 (Componentes estructurales) → E10 (Elementos reutilizables).
+      </documentation>
+      <outgoing>SF_F4_start_E9</outgoing>
+    </startEvent>
+    <callActivity id="CA_F4_E9" name="F4.E9. Componentes estructurales" calledElement="Process_F4_E9">
+      <documentation>
+        Subproceso E9. Detalle en PDAEH_f4_E9_bpmn.xml.
+        Roles: AEP, ASP, AIP/ADP, ASecP/ETC.
+        Entradas: DEA-v1, MAQ-v1, MTA-v4.
+        Salidas: DCO-v1 (Documento de Componentes Organizacionales), MTA-v5 (parcial).
+      </documentation>
+      <incoming>SF_F4_start_E9</incoming>
+      <outgoing>SF_F4_E9_E10</outgoing>
+      <property id="Prop_CA_E9" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_CA_E9_LBA">
+        <sourceRef>DOR_LBA_F3</sourceRef>
+        <targetRef>Prop_CA_E9</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_CA_E9_DCO">
+        <sourceRef>CA_F4_E9</sourceRef>
+        <targetRef>DOR_DCO</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <callActivity id="CA_F4_E10" name="F4.E10. Elementos reutilizables" calledElement="Process_F4_E10">
+      <documentation>
+        Subproceso E10. Detalle en PDAEH_f4_E10_bpmn.xml.
+        Roles: AEP, ASP, AIP/ADP, ASecP/ETC.
+        Entradas: DCO-v1, MTA-v5 (parcial), DEA-v1.
+        Salidas: BER-v1 (Biblioteca de Elementos Reutilizables), MTA-v5 (final).
+      </documentation>
+      <incoming>SF_F4_E9_E10</incoming>
+      <outgoing>SF_F4_E10_send</outgoing>
+      <property id="Prop_CA_E10" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_CA_E10_LBA">
+        <sourceRef>DOR_LBA_F3</sourceRef>
+        <targetRef>Prop_CA_E10</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_0rf6lzi">
+        <sourceRef>DOR_DCO</sourceRef>
+        <targetRef>Prop_CA_E10</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_CA_E10_BER">
+        <sourceRef>CA_F4_E10</sourceRef>
+        <targetRef>DOR_BER</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <sendTask id="Task_F4_send" name="F4.E9.A6 {E10} Preparación y envío de artefactos al OGA" camunda:type="external" camunda:topic="OGA_Review_F4">
+      <documentation>
+        El AEP consolida DCO-v1, BER-v1 y MTA-v5 en la LBA-F4 y envía al OGA para revisión formal.
+      </documentation>
+      <incoming>SF_F4_E10_send</incoming>
+      <incoming>SF_F4_no_resend</incoming>
+      <outgoing>SF_F4_send_adjust</outgoing>
+      <property id="Prop_send_F4" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_send_DCO">
+        <sourceRef>DOR_DCO</sourceRef>
+        <targetRef>Prop_send_F4</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_send_BER">
+        <sourceRef>DOR_BER</sourceRef>
+        <targetRef>Prop_send_F4</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_send_LBA_F4i">
+        <sourceRef>Task_F4_send</sourceRef>
+        <targetRef>DOR_LBA_F4i</targetRef>
+      </dataOutputAssociation>
+    </sendTask>
+    <sequenceFlow id="SF_F4_start_E9" sourceRef="StartEvent_F4" targetRef="CA_F4_E9" />
+    <sequenceFlow id="SF_F4_E9_E10" sourceRef="CA_F4_E9" targetRef="CA_F4_E10" />
+    <sequenceFlow id="SF_F4_E10_send" sourceRef="CA_F4_E10" targetRef="Task_F4_send" />
+    <sequenceFlow id="SF_F4_no_resend" name="no" sourceRef="Gateway_F4_approval" targetRef="Task_F4_send">
+      <conditionExpression>Requiere ajustes y reenvío</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SF_F4_send_adjust" name="La transición ocurre cuando se recibe la respuesta del OGA" sourceRef="Task_F4_send" targetRef="Task_F4_adjust" />
+    <sequenceFlow id="SF_F4_adjust_gw" sourceRef="Task_F4_adjust" targetRef="Gateway_F4_approval" />
+    <userTask id="Task_F4_adjust" name="F4.E9.A7 {E10} Ajustar artefactos según observaciones del OGA" camunda:assignee="AEP">
+      <documentation>
+        El AEP incorpora las observaciones del OGA sobre DCO-v1 y/o BER-v1 según aplique,
+        y actualiza la MTA-v5 con los cambios realizados antes del reenvío.
+      </documentation>
+      <incoming>SF_F4_send_adjust</incoming>
+      <outgoing>SF_F4_adjust_gw</outgoing>
+      <property id="Prop_adjust_F4" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_adjust_LBA_F4i">
+        <sourceRef>DOR_LBA_F4i</sourceRef>
+        <targetRef>Prop_adjust_F4</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_adjust_LBA_F4a">
+        <sourceRef>Task_F4_adjust</sourceRef>
+        <targetRef>DOR_LBA_F4a</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_LBA_F4a" name="LBA-F4 aprobada" dataObjectRef="DO_LBA_F4a" />
+    <dataObject id="DO_LBA_F4a" name="LBA-F4 aprobada" />
+    <dataObjectReference id="DOR_DCO" name="DCO" dataObjectRef="DO_DCO" />
+    <dataObject id="DO_DCO" name="DCO-v1 (Documento de Componentes)" />
+    <dataObjectReference id="DOR_LBA_F3" name="LBA-F3" dataObjectRef="DO_LBA_F3" />
+    <dataObject id="DO_LBA_F3" name="DEA-v1 / MAQ-v1 / MTA-v4" />
+    <dataObjectReference id="DOR_LBA_F4i" name="LBA-F4&#10;inicial" dataObjectRef="DO_LBA_F4i" />
+    <dataObject id="DO_LBA_F4i" name="LBA-F4 inicial" />
+    <dataObjectReference id="DOR_BER" name="BER" dataObjectRef="DO_BER" />
+    <dataObject id="DO_BER" name="BER-v1 (Biblioteca de Elementos Reutilizables)" />
+    <endEvent id="EndEvent_F4" name="Fin">
+      <documentation>
+        Fin de F4. LBA-F4 aprobada.
+        Artefactos: DCO-v1, BER-v1, MTA-v5.
+        F5 — Sistematización del diseño puede iniciarse.
+      </documentation>
+      <incoming>SF_F4_approval_yes</incoming>
+    </endEvent>
+    <exclusiveGateway id="Gateway_F4_approval" name="¿OGA aprueba los artefactos?">
+      <incoming>SF_F4_adjust_gw</incoming>
+      <outgoing>SF_F4_approval_yes</outgoing>
+      <outgoing>SF_F4_no_resend</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SF_F4_approval_yes" name="Sí" sourceRef="Gateway_F4_approval" targetRef="EndEvent_F4">
+      <conditionExpression>OGA aprueba LBA-F4</conditionExpression>
+    </sequenceFlow>
+  </process>
+  <process id="Process_OGA_F2" name="Proceso OGA — Revisión F2" isExecutable="false">
+    <laneSet id="LaneSet_19burgr">
+      <lane id="Lane_OGA_F2" name="OGA — Órgano de Gobierno Arquitectónico">
+        <flowNodeRef>Activity_0iwkjts</flowNodeRef>
+        <flowNodeRef>Activity_07f19pr</flowNodeRef>
+        <flowNodeRef>Gateway_17ie309</flowNodeRef>
+        <flowNodeRef>Event_0f3xrhd</flowNodeRef>
+        <flowNodeRef>Activity_0b1p9ep</flowNodeRef>
+        <flowNodeRef>Activity_1wdvm5s</flowNodeRef>
+        <flowNodeRef>Activity_0kvav8n</flowNodeRef>
+        <flowNodeRef>Event_0eupdqb</flowNodeRef>
+        <flowNodeRef>Activity_1qvvdo6</flowNodeRef>
+        <flowNodeRef>Gateway_0nan39s</flowNodeRef>
+      </lane>
+    </laneSet>
+    <dataObjectReference id="DataObjectReference_1nxneyy" name="LBA-F4 inicial" dataObjectRef="DataObject_1g5sp4p" />
+    <dataObject id="DataObject_1g5sp4p" />
+    <userTask id="Activity_0iwkjts" name="3. Revisión individual de artefactos por miembros" camunda:assignee="Miembros_OGA">
+      <documentation>Cada miembro del OGA revisa de forma individual los artefactos recibidos evaluando: (1) alineación con el plan estratégico institucional, (2) completitud y coherencia del DOA-v1, (3) suficiencia del contexto documentado en DCA-v1, (4) cobertura del mapa de stakeholders SMP-v1, (5) trazabilidad de la matriz MTA-v1.</documentation>
+      <incoming>Flow_0fcwfiz</incoming>
+      <outgoing>Flow_0rz7vg9</outgoing>
+      <property id="Property_0sje3tz" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0rhjuco">
+        <sourceRef>DataObjectReference_1nxneyy</sourceRef>
+        <targetRef>Property_0sje3tz</targetRef>
+      </dataInputAssociation>
+    </userTask>
+    <userTask id="Activity_07f19pr" name="4. Sesión formal de deliberación y votación" camunda:assignee="Miembros_OGA">
+      <documentation>El OGA se reúne formalmente. Los miembros exponen sus observaciones, se debate y se alcanza una decisión por votación o consenso: (A) Aprobado sin condiciones, (B) Aprobado con observaciones menores (el AEP las incorpora sin nueva revisión), (C) Requiere ajustes sustanciales y nueva revisión.</documentation>
+      <incoming>Flow_0rz7vg9</incoming>
+      <outgoing>Flow_1i1n136</outgoing>
+    </userTask>
+    <exclusiveGateway id="Gateway_17ie309" name="¿Aprueba los artefactos?">
+      <incoming>Flow_1i1n136</incoming>
+      <outgoing>Flow_1j7g6ji</outgoing>
+      <outgoing>Flow_1hpy63l</outgoing>
+    </exclusiveGateway>
+    <startEvent id="Event_0f3xrhd" name="Recepción de artefactos">
+      <outgoing>Flow_0i7zpzt</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_0oulnjy" />
+    </startEvent>
+    <userTask id="Activity_0b1p9ep" name="1. Recepción y registro de artefactos" camunda:assignee="Secretaria_OGA">
+      <documentation>La coordinación del OGA acusa recibo del paquete enviado por el AEP (DOA-v1, DCA-v1, SMP-v1, MTA-v1), lo registra en la bitácora de revisiones y distribuye a los miembros del comité.</documentation>
+      <incoming>Flow_0i7zpzt</incoming>
+      <outgoing>Flow_1lrgpjx</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0ho874j">
+        <targetRef>DataObjectReference_1nxneyy</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="Activity_1wdvm5s" name="2. Convocatoria y agenda de sesión de revisión" camunda:assignee="Secretaria_OGA">
+      <documentation>Se convoca la sesión formal del OGA, se establece la agenda de revisión y se confirma quórum. Plazo típico: 5 días hábiles desde la recepción.</documentation>
+      <incoming>Flow_1lrgpjx</incoming>
+      <outgoing>Flow_0fcwfiz</outgoing>
+    </userTask>
+    <userTask id="Activity_0kvav8n" name="5. Emisión del acta de aprobación y notificación al AEP" camunda:assignee="Secretaria_OGA">
+      <documentation>El OGA emite el acta formal de aprobación (DOA-v1.0), la firma y notifica al AEP. La Línea Base F1 queda autorizada para publicación en el repositorio corporativo.</documentation>
+      <incoming>Flow_1j7g6ji</incoming>
+      <outgoing>Flow_0q5y7aa</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_00w6fh4">
+        <targetRef>DataObjectReference_1bkoiru</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="Event_0eupdqb" name="Decisión notificada al AEP">
+      <incoming>Flow_1p2ltcq</incoming>
+      <property id="Property_0zefsgy" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0i9tl72">
+        <sourceRef>DataObjectReference_0z7loav</sourceRef>
+        <targetRef>Property_0zefsgy</targetRef>
+      </dataInputAssociation>
+      <messageEventDefinition id="MessageEventDefinition_1wn247o" />
+    </endEvent>
+    <userTask id="Activity_1qvvdo6" name="6. Documentación de observaciones y envío al AEP" camunda:assignee="Secretaria_OGA">
+      <documentation>El OGA documenta formalmente las observaciones y las envía al AEP con un plazo de respuesta. Cada observación indica el artefacto afectado, el criterio incumplido y la acción correctiva requerida.</documentation>
+      <incoming>Flow_1hpy63l</incoming>
+      <outgoing>Flow_0hod7mh</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_1k48vai">
+        <targetRef>DataObjectReference_1bkoiru</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_0nan39s" name="7. Consolida los resultados">
+      <incoming>Flow_0q5y7aa</incoming>
+      <incoming>Flow_0hod7mh</incoming>
+      <outgoing>Flow_1p2ltcq</outgoing>
+    </parallelGateway>
+    <dataObjectReference id="DataObjectReference_1bkoiru" name="Acta de decisión  emitida por el OGA" dataObjectRef="DataObject_0hy4bl3" />
+    <dataObject id="DataObject_0hy4bl3" />
+    <dataObjectReference id="DataObjectReference_0z7loav" name="LBA-F4 actualizado" dataObjectRef="DataObject_0r7y7md" />
+    <dataObject id="DataObject_0r7y7md" />
+    <sequenceFlow id="Flow_0fcwfiz" sourceRef="Activity_1wdvm5s" targetRef="Activity_0iwkjts" />
+    <sequenceFlow id="Flow_0rz7vg9" sourceRef="Activity_0iwkjts" targetRef="Activity_07f19pr" />
+    <sequenceFlow id="Flow_1i1n136" sourceRef="Activity_07f19pr" targetRef="Gateway_17ie309" />
+    <sequenceFlow id="Flow_1j7g6ji" name="si" sourceRef="Gateway_17ie309" targetRef="Activity_0kvav8n">
+      <conditionExpression>Aprobado</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1hpy63l" name="no" sourceRef="Gateway_17ie309" targetRef="Activity_1qvvdo6">
+      <conditionExpression>Requiere ajustes</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0i7zpzt" sourceRef="Event_0f3xrhd" targetRef="Activity_0b1p9ep" />
+    <sequenceFlow id="Flow_1lrgpjx" sourceRef="Activity_0b1p9ep" targetRef="Activity_1wdvm5s" />
+    <sequenceFlow id="Flow_0q5y7aa" sourceRef="Activity_0kvav8n" targetRef="Gateway_0nan39s" />
+    <sequenceFlow id="Flow_1p2ltcq" sourceRef="Gateway_0nan39s" targetRef="Event_0eupdqb" />
+    <sequenceFlow id="Flow_0hod7mh" sourceRef="Activity_1qvvdo6" targetRef="Gateway_0nan39s" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F4">
+    <bpmndi:BPMNPlane id="BPMNPlane_F4" bpmnElement="Collab_F4">
+      <bpmndi:BPMNShape id="Sh_Pool_F4" bpmnElement="Pool_F4" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1600" height="390" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_F4" bpmnElement="Lane_AEP_F4" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1570" height="390" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvent_F4" bpmnElement="StartEvent_F4">
+        <dc:Bounds x="242" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="325" width="42" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CA_F4_E9" bpmnElement="CA_F4_E9">
+        <dc:Bounds x="340" y="260" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CA_F4_E10" bpmnElement="CA_F4_E10">
+        <dc:Bounds x="610" y="260" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Task_F4_send" bpmnElement="Task_F4_send">
+        <dc:Bounds x="880" y="260" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Task_F4_adjust" bpmnElement="Task_F4_adjust">
+        <dc:Bounds x="1220" y="260" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DOR_LBA_F4a" bpmnElement="DOR_LBA_F4a">
+        <dc:Bounds x="1402" y="125" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1378" y="182" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DOR_DCO" bpmnElement="DOR_DCO">
+        <dc:Bounds x="542" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="546" y="212" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DOR_LBA_F3" bpmnElement="DOR_LBA_F3">
+        <dc:Bounds x="322" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="321" y="215" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DOR_LBA_F4i" bpmnElement="DOR_LBA_F4i">
+        <dc:Bounds x="1122" y="125" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1121" y="182" width="38" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DOR_BER" bpmnElement="DOR_BER">
+        <dc:Bounds x="732" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="738" y="131" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvent_F4" bpmnElement="EndEvent_F4">
+        <dc:Bounds x="1632" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1642" y="315" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_F4_approval" bpmnElement="Gateway_F4_approval" isMarkerVisible="true">
+        <dc:Bounds x="1535" y="265" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1523" y="227.5" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_start_E9" bpmnElement="SF_F4_start_E9">
+        <di:waypoint x="278" y="300" />
+        <di:waypoint x="340" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_E9_E10" bpmnElement="SF_F4_E9_E10">
+        <di:waypoint x="540" y="300" />
+        <di:waypoint x="610" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_E10_send" bpmnElement="SF_F4_E10_send">
+        <di:waypoint x="810" y="300" />
+        <di:waypoint x="880" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_no_resend" bpmnElement="SF_F4_no_resend">
+        <di:waypoint x="1560" y="315" />
+        <di:waypoint x="1560" y="430" />
+        <di:waypoint x="980" y="430" />
+        <di:waypoint x="980" y="340" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1252" y="412" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_send_adjust" bpmnElement="SF_F4_send_adjust">
+        <di:waypoint x="1080" y="300" />
+        <di:waypoint x="1220" y="300" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1108" y="315" width="85" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_adjust_gw" bpmnElement="SF_F4_adjust_gw">
+        <di:waypoint x="1420" y="292" />
+        <di:waypoint x="1537" y="292" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_F4_approval_yes" bpmnElement="SF_F4_approval_yes">
+        <di:waypoint x="1585" y="290" />
+        <di:waypoint x="1632" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1600" y="272" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_0vxyg0z" bpmnElement="Pool_OGA_F2" isHorizontal="true">
+        <dc:Bounds x="160" y="520" width="1605" height="420" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1kmthu3" bpmnElement="Lane_OGA_F2" isHorizontal="true">
+        <dc:Bounds x="190" y="520" width="1575" height="420" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kn8zvt" bpmnElement="DataObjectReference_1nxneyy" isHorizontal="false">
+        <dc:Bounds x="460" y="805" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="445" y="863" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ztliv0" bpmnElement="Activity_0iwkjts">
+        <dc:Bounds x="620" y="790" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kvn2rb" bpmnElement="Activity_07f19pr">
+        <dc:Bounds x="835" y="790" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0o2lr46" bpmnElement="Gateway_17ie309" isMarkerVisible="true">
+        <dc:Bounds x="1055" y="810" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1042" y="858" width="66" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0scuq5u" bpmnElement="Event_0f3xrhd">
+        <dc:Bounds x="267" y="592" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="251" y="632" width="68" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1osuky8" bpmnElement="Activity_0b1p9ep">
+        <dc:Bounds x="395" y="570" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_01qqb6p" bpmnElement="Activity_1wdvm5s">
+        <dc:Bounds x="620" y="570" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1gqt1ug" bpmnElement="Activity_0kvav8n">
+        <dc:Bounds x="992" y="570" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_103p529" bpmnElement="Event_0eupdqb">
+        <dc:Bounds x="1565" y="592" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1533" y="557" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0990dyg" bpmnElement="Activity_1qvvdo6">
+        <dc:Bounds x="1185" y="790" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_19q0tnw" bpmnElement="Gateway_0nan39s" isMarkerVisible="true">
+        <dc:Bounds x="1440" y="810" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1421" y="857" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xkrsr0" bpmnElement="DataObjectReference_1bkoiru" isHorizontal="false">
+        <dc:Bounds x="1267" y="685" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1174" y="697" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0v47iaw" bpmnElement="DataObjectReference_0z7loav" isHorizontal="false">
+        <dc:Bounds x="1667" y="685" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1658" y="746" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_0dfreir" bpmnElement="Flow_0fcwfiz">
+        <di:waypoint x="703" y="650" />
+        <di:waypoint x="703" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_12knk2f" bpmnElement="Flow_0rz7vg9">
+        <di:waypoint x="785" y="830" />
+        <di:waypoint x="835" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0i36zls" bpmnElement="Flow_1i1n136">
+        <di:waypoint x="1000" y="830" />
+        <di:waypoint x="1055" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_17j8djr" bpmnElement="Flow_1j7g6ji">
+        <di:waypoint x="1075" y="810" />
+        <di:waypoint x="1075" y="650" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1086" y="727" width="8" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1os9ze2" bpmnElement="Flow_1hpy63l">
+        <di:waypoint x="1095" y="830" />
+        <di:waypoint x="1185" y="830" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1134" y="812" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_17107km" bpmnElement="Flow_0i7zpzt">
+        <di:waypoint x="303" y="610" />
+        <di:waypoint x="395" y="610" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_062jvo6" bpmnElement="Flow_1lrgpjx">
+        <di:waypoint x="560" y="610" />
+        <di:waypoint x="620" y="610" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_015rzsk" bpmnElement="Flow_0q5y7aa">
+        <di:waypoint x="1157" y="600" />
+        <di:waypoint x="1460" y="600" />
+        <di:waypoint x="1460" y="810" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0x0otaj" bpmnElement="Flow_1p2ltcq">
+        <di:waypoint x="1480" y="830" />
+        <di:waypoint x="1583" y="830" />
+        <di:waypoint x="1583" y="628" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1v6ykux" bpmnElement="Flow_0hod7mh">
+        <di:waypoint x="1350" y="830" />
+        <di:waypoint x="1440" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_CA_E9_LBA" bpmnElement="DIA_CA_E9_LBA">
+        <di:waypoint x="360" y="180" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_CA_E9_DCO" bpmnElement="DOA_CA_E9_DCO">
+        <di:waypoint x="480" y="260" />
+        <di:waypoint x="480" y="180" />
+        <di:waypoint x="542" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_CA_E10_LBA" bpmnElement="DIA_CA_E10_LBA">
+        <di:waypoint x="340" y="155" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="710" y="120" />
+        <di:waypoint x="710" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_CA_E10_BER" bpmnElement="DOA_CA_E10_BER">
+        <di:waypoint x="750" y="260" />
+        <di:waypoint x="750" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_send_DCO" bpmnElement="DIA_send_DCO">
+        <di:waypoint x="560" y="155" />
+        <di:waypoint x="560" y="100" />
+        <di:waypoint x="980" y="100" />
+        <di:waypoint x="980" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_send_BER" bpmnElement="DIA_send_BER">
+        <di:waypoint x="768" y="180" />
+        <di:waypoint x="910" y="180" />
+        <di:waypoint x="910" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_send_LBA_F4i" bpmnElement="DOA_send_LBA_F4i">
+        <di:waypoint x="1030" y="260" />
+        <di:waypoint x="1030" y="150" />
+        <di:waypoint x="1122" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_adjust_LBA_F4i" bpmnElement="DIA_adjust_LBA_F4i">
+        <di:waypoint x="1158" y="150" />
+        <di:waypoint x="1260" y="150" />
+        <di:waypoint x="1260" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_adjust_LBA_F4a" bpmnElement="DOA_adjust_LBA_F4a">
+        <di:waypoint x="1310" y="260" />
+        <di:waypoint x="1310" y="150" />
+        <di:waypoint x="1402" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0wvuzow" bpmnElement="DataOutputAssociation_0ho874j">
+        <di:waypoint x="478" y="650" />
+        <di:waypoint x="478" y="800" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1gzktqn" bpmnElement="DataInputAssociation_0rhjuco">
+        <di:waypoint x="496" y="830" />
+        <di:waypoint x="620" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0rjygmu" bpmnElement="DataOutputAssociation_00w6fh4">
+        <di:waypoint x="1157" y="630" />
+        <di:waypoint x="1285" y="630" />
+        <di:waypoint x="1285" y="685" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0i9tl72_di" bpmnElement="DataInputAssociation_0i9tl72">
+        <di:waypoint x="1687" y="685" />
+        <di:waypoint x="1687" y="660" />
+        <di:waypoint x="1599" y="618" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0llqmwa" bpmnElement="DataOutputAssociation_1k48vai">
+        <di:waypoint x="1285" y="790" />
+        <di:waypoint x="1285" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0rf6lzi_di" bpmnElement="DataInputAssociation_0rf6lzi">
+        <di:waypoint x="578" y="180" />
+        <di:waypoint x="650" y="180" />
+        <di:waypoint x="650" y="260" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

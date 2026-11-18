@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F2-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F2">
+    <participant id="Pool_F2" name="F2.E4. Vocabulario arquitectónico" processRef="Process_F2" />
+  </collaboration>
+  <process id="Process_F2" name="Proceso F2 — Fundamentación Conceptual" isExecutable="true">
+    <laneSet id="LaneSet_F2">
+      <lane id="Lane_SE_GPA_F2" name="Stakeholder empresarial (SE) / Gestor de portafolio (GPA)">
+        <flowNodeRef>Task_F2_SE_vocab</flowNodeRef>
+        <flowNodeRef>Gateway_F2_vocab_gw</flowNodeRef>
+        <flowNodeRef>Event_18qz6ti</flowNodeRef>
+      </lane>
+      <lane id="Lane_AEP_F2" name="Arquitecto empresarial del proceso (AEP)">
+        <flowNodeRef>Task_F2_E4_A1</flowNodeRef>
+        <flowNodeRef>StartEvent_F2</flowNodeRef>
+        <flowNodeRef>Task_F2_E4_A2</flowNodeRef>
+      </lane>
+    </laneSet>
+    <userTask id="Task_F2_E4_A1" name="F2.E4.A1 Recopilación de análisis terminológico" camunda:assignee="AEP">
+      <documentation>
+        Entradas: DOA-v1, DCA-v1, SMP-v1.
+        Tareas:
+          T1 Extraer términos clave presentes en los artefactos de F1
+             (DOA-v1, DCA-v1, SMP-v1) y en la base conceptual del modelo.
+          T2 Identificar términos especializados del dominio cuántico, híbrido
+             y de arquitectura empresarial relevantes para el proceso.
+          T3 Detectar ambigüedades, sinónimos y términos con definiciones
+             inconsistentes entre fuentes.
+          T4 Clasificar los términos por categoría semántica: negocio,
+             tecnológico-clásico, tecnológico-cuántico, organizacional,
+             normativo/estándar.
+        Salida: ITA-v1 (Inventario de Términos Arquitectónicos).
+      </documentation>
+      <incoming>SF_F2_start_par</incoming>
+      <outgoing>SF_F2_E4A1_E4A2</outgoing>
+      <property id="Prop_E4A1" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E4A1_DCA">
+        <sourceRef>DOR_DCA_SMP</sourceRef>
+        <targetRef>Prop_E4A1</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E4A1_DOA">
+        <sourceRef>DOR_DOA_F1</sourceRef>
+        <targetRef>Prop_E4A1</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E4A1_ITA">
+        <sourceRef>Task_F2_E4_A1</sourceRef>
+        <targetRef>DOR_ITA</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_DCA_SMP" name="DCA" dataObjectRef="DO_DCA_SMP" />
+    <dataObject id="DO_DCA_SMP" name="DCA-v1 / SMP-v1" />
+    <dataObjectReference id="DOR_DOA_F1" name="DOA" dataObjectRef="DO_DOA_F1" />
+    <dataObject id="DO_DOA_F1" name="DOA-v1" />
+    <dataObjectReference id="DOR_ITA" name="ITA" dataObjectRef="DO_ITA" />
+    <dataObject id="DO_ITA" name="ITA-v1" />
+    <startEvent id="StartEvent_F2" name="Inicio">
+      <documentation>
+        Inicio de F2 — Fundamentación Conceptual.
+        Precondición: Línea Base F1 aprobada por el OGA.
+        Artefactos disponibles: DOA-v1, MTA-v1, DCA-v1, SMP-v1.
+      </documentation>
+      <outgoing>SF_F2_start_par</outgoing>
+    </startEvent>
+    <userTask id="Task_F2_E4_A2" name="F2.E4.A2 Construcción del vocabulario arquitectónico unificado" camunda:assignee="AEP">
+      <documentation>
+        Entrada: ITA-v1.
+        Tareas:
+          T1 Redactar definiciones precisas para cada término, asegurando
+             coherencia con ISO/IEC/IEEE 42010:2022, TOGAF y vocabulario
+             cuántico emergente.
+          T2 Establecer relaciones semánticas entre términos (sinonimia,
+             hiponimia, dependencia conceptual, equivalencia clásico-cuántica).
+          T3 Incorporar ejemplos de uso contextualizado en arquitecturas
+             híbridas clásico-cuánticas para cada término relevante.
+          T4 Incluir referencias cruzadas a los artefactos de F1 y F2 donde
+             cada término es utilizado.
+          T5 Documentar el vocabulario consolidado en DVA-v1.
+        Salida: DVA-v1 (Diccionario de Vocabulario Arquitectónico, borrador).
+      </documentation>
+      <incoming>SF_F2_E4A1_E4A2</incoming>
+      <incoming>SF_F2_vocab_no</incoming>
+      <outgoing>SF_F2_E4A2_SE</outgoing>
+      <property id="Prop_E4A2" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E4A2_ITA">
+        <sourceRef>DOR_ITA</sourceRef>
+        <targetRef>Prop_E4A2</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E4A2_DVA">
+        <sourceRef>Task_F2_E4_A2</sourceRef>
+        <targetRef>DOR_DVA</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="Task_F2_SE_vocab" name="F2.E4.A3 Validación del vocabulario arquitectónico" camunda:assignee="SE">
+      <documentation>
+        Entrada: DVA-v1 (borrador).
+        Los stakeholders (SE/GPA) revisan el DVA-v1 evaluando:
+          (1) Comprensibilidad de las definiciones para audiencias no técnicas.
+          (2) Alineación del vocabulario con la terminología de negocio
+              establecida en la organización.
+          (3) Adecuación de los términos cuánticos para su uso en
+              documentación arquitectónica empresarial.
+          (4) Ausencia de ambigüedades o definiciones contradictorias.
+          (5) Suficiencia de los ejemplos de uso aportados.
+        Resultado: autorización para continuar (join → envío OGA) o
+        devolución al AEP para revisión del DVA-v1.
+      </documentation>
+      <incoming>SF_F2_E4A2_SE</incoming>
+      <outgoing>SF_F2_SE_vocab_gw</outgoing>
+      <property id="Prop_SE_vocab" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_SE_vocab_DVA">
+        <sourceRef>DOR_DVA</sourceRef>
+        <targetRef>Prop_SE_vocab</targetRef>
+      </dataInputAssociation>
+    </userTask>
+    <exclusiveGateway id="Gateway_F2_vocab_gw" name="¿El vocabulario arquitectónico es aprobado?">
+      <incoming>SF_F2_SE_vocab_gw</incoming>
+      <outgoing>SF_F2_vocab_no</outgoing>
+      <outgoing>Flow_1gnyqod</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Event_18qz6ti" name="Fin">
+      <documentation>
+        Línea Base F2 aprobada por el OGA.
+        Artefactos publicados: DNA-v1, DVA-v1, MTA-v2.
+        La fase F3 — Especificación de Calidad puede iniciarse.
+      </documentation>
+      <incoming>Flow_1gnyqod</incoming>
+      <property id="Property_0ye14a4" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0okv9gm">
+        <sourceRef>DataObjectReference_152mtsf</sourceRef>
+        <targetRef>Property_0ye14a4</targetRef>
+      </dataInputAssociation>
+    </endEvent>
+    <dataObjectReference id="DOR_DVA" name="DVA inicial" dataObjectRef="DO_DVA" />
+    <dataObject id="DO_DVA" name="DVA-v1" />
+    <sequenceFlow id="SF_F2_start_par" sourceRef="StartEvent_F2" targetRef="Task_F2_E4_A1" />
+    <sequenceFlow id="SF_F2_E4A1_E4A2" sourceRef="Task_F2_E4_A1" targetRef="Task_F2_E4_A2" />
+    <sequenceFlow id="SF_F2_vocab_no" name="no" sourceRef="Gateway_F2_vocab_gw" targetRef="Task_F2_E4_A2">
+      <conditionExpression>Requiere ajustes</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SF_F2_E4A2_SE" sourceRef="Task_F2_E4_A2" targetRef="Task_F2_SE_vocab" />
+    <sequenceFlow id="SF_F2_SE_vocab_gw" sourceRef="Task_F2_SE_vocab" targetRef="Gateway_F2_vocab_gw" />
+    <sequenceFlow id="Flow_1gnyqod" name="si" sourceRef="Gateway_F2_vocab_gw" targetRef="Event_18qz6ti" />
+    <dataObjectReference id="DataObjectReference_152mtsf" name="DVA" dataObjectRef="DataObject_0icb19d" />
+    <dataObject id="DataObject_0icb19d" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiag_F2v1">
+    <bpmndi:BPMNPlane id="BPMNPlane_F2v1" bpmnElement="Collab_F2">
+      <bpmndi:BPMNShape id="Sh_Pool_F2" bpmnElement="Pool_F2" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="830" height="750" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_SE" bpmnElement="Lane_SE_GPA_F2" isHorizontal="true">
+        <dc:Bounds x="190" y="500" width="800" height="330" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP" bpmnElement="Lane_AEP_F2" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="800" height="420" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E4A1" bpmnElement="Task_F2_E4_A1">
+        <dc:Bounds x="330" y="220" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DCA" bpmnElement="DOR_DCA_SMP" isHorizontal="false">
+        <dc:Bounds x="342" y="360" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="348" y="420" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DOA" bpmnElement="DOR_DOA_F1" isHorizontal="false">
+        <dc:Bounds x="432" y="360" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="438" y="420" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_ITA" bpmnElement="DOR_ITA" isHorizontal="false">
+        <dc:Bounds x="392" y="120" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="402" y="103" width="17" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Start" bpmnElement="StartEvent_F2">
+        <dc:Bounds x="252" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="258" y="282" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E4A2" bpmnElement="Task_F2_E4_A2">
+        <dc:Bounds x="540" y="220" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SE_vocab" bpmnElement="Task_F2_SE_vocab">
+        <dc:Bounds x="540" y="710" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWvoc" bpmnElement="Gateway_F2_vocab_gw" isMarkerVisible="true">
+        <dc:Bounds x="780" y="725" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="763" y="785" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1c9et68" bpmnElement="Event_18qz6ti">
+        <dc:Bounds x="912" y="732" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="922" y="772" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DVA" bpmnElement="DOR_DVA" isHorizontal="false">
+        <dc:Bounds x="722" y="410" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="714" y="463" width="52" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0rej6l8" bpmnElement="DataObjectReference_152mtsf" isHorizontal="false">
+        <dc:Bounds x="912" y="635" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="916" y="614" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_start_par" bpmnElement="SF_F2_start_par">
+        <di:waypoint x="288" y="260" />
+        <di:waypoint x="330" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E4A1_A2" bpmnElement="SF_F2_E4A1_E4A2">
+        <di:waypoint x="490" y="260" />
+        <di:waypoint x="540" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_voc_no" bpmnElement="SF_F2_vocab_no">
+        <di:waypoint x="805" y="725" />
+        <di:waypoint x="805" y="260" />
+        <di:waypoint x="700" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="818" y="545" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E4A2_SE" bpmnElement="SF_F2_E4A2_SE">
+        <di:waypoint x="620" y="300" />
+        <di:waypoint x="620" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SEv_gw" bpmnElement="SF_F2_SE_vocab_gw">
+        <di:waypoint x="700" y="750" />
+        <di:waypoint x="780" y="750" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gnyqod_di" bpmnElement="Flow_1gnyqod">
+        <di:waypoint x="830" y="750" />
+        <di:waypoint x="912" y="750" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="867" y="732" width="8" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_DCA_E4A1" bpmnElement="DIA_E4A1_DCA">
+        <di:waypoint x="360" y="360" />
+        <di:waypoint x="360" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_DOA_E4A1" bpmnElement="DIA_E4A1_DOA">
+        <di:waypoint x="450" y="360" />
+        <di:waypoint x="450" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_E4A1_ITA" bpmnElement="DOA_E4A1_ITA">
+        <di:waypoint x="410" y="220" />
+        <di:waypoint x="410" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_ITA_E4A2" bpmnElement="DIA_E4A2_ITA">
+        <di:waypoint x="428" y="145" />
+        <di:waypoint x="580" y="145" />
+        <di:waypoint x="580" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_E4A2_DVA" bpmnElement="DOA_E4A2_DVA">
+        <di:waypoint x="700" y="280" />
+        <di:waypoint x="740" y="280" />
+        <di:waypoint x="740" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DA_DVA_SEv" bpmnElement="DIA_SE_vocab_DVA">
+        <di:waypoint x="722" y="435" />
+        <di:waypoint x="660" y="435" />
+        <di:waypoint x="660" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0okv9gm_di" bpmnElement="DataInputAssociation_0okv9gm">
+        <di:waypoint x="930" y="685" />
+        <di:waypoint x="930" y="732" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

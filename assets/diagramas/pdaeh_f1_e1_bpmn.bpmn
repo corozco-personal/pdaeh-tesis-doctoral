@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F1-v2" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F1">
+    <participant id="Pool_F1" name="F1.E1: Objetivo de la arquitectura." processRef="Process_F1" />
+  </collaboration>
+  <process id="Process_F1" name="Proceso F1 — Definición Estratégica" isExecutable="true">
+    <laneSet id="LaneSet_F1">
+      <lane id="Lane_SE_GPA" name="SE / GPA: Stakeholder empresarial / gestor de portafolio">
+        <flowNodeRef>Gateway_1wwcpkd</flowNodeRef>
+        <flowNodeRef>Task_F1_SE_review_obj</flowNodeRef>
+      </lane>
+      <lane id="Lane_AEP" name="AEP. Arquitecto empresarial del proceso">
+        <flowNodeRef>Task_F1_E1_A1</flowNodeRef>
+        <flowNodeRef>Task_F1_E1_A2</flowNodeRef>
+        <flowNodeRef>StartEvent_F1</flowNodeRef>
+        <flowNodeRef>EndEvent_F1</flowNodeRef>
+      </lane>
+    </laneSet>
+    <dataObject id="DO_LBA_F1" name="Línea Base F1" />
+    <dataObjectReference id="DOR_LBA_F1" name="Línea Base F1" dataObjectRef="DO_LBA_F1" />
+    <userTask id="Task_F1_E1_A1" name="F1.E1.A1 Análisis de objetivos estratégicos" camunda:assignee="AEP">
+      <documentation>Entradas: Plan Estratégico, Catálogo iniciativas. Tareas: T1 Revisar plan, T2 Identificar iniciativas con componente cuántico, T3 Extraer y clasificar objetivos, T4 Priorizar (MoSCoW). Salida: LOE-v1.</documentation>
+      <incoming>Flow_0z2lsdi</incoming>
+      <incoming>SF_start_to_parallel</incoming>
+      <outgoing>SF_E1A1_to_SE</outgoing>
+      <property id="Property_1522knv" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_002">
+        <sourceRef>DOR_PlanEstrategico</sourceRef>
+        <targetRef>Property_1522knv</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1hg2vmu">
+        <sourceRef>DataObjectReference_0da45u2</sourceRef>
+        <targetRef>Property_1522knv</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_004">
+        <sourceRef>Task_F1_E1_A1</sourceRef>
+        <targetRef>DOR_LOE</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <exclusiveGateway id="Gateway_1wwcpkd" name="¿Los objetivos son aprobados?">
+      <incoming>SF_SE_to_E1A2</incoming>
+      <outgoing>Flow_0c8lmpx</outgoing>
+      <outgoing>Flow_0z2lsdi</outgoing>
+    </exclusiveGateway>
+    <userTask id="Task_F1_SE_review_obj" name="F1.E1.A2: Validación de objetivos priorizados" camunda:assignee="SE">
+      <documentation>Stakeholders validan priorización y alineación con intereses del negocio.</documentation>
+      <incoming>SF_E1A1_to_SE</incoming>
+      <outgoing>SF_SE_to_E1A2</outgoing>
+      <property id="Property_1mwz0xx" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_001">
+        <sourceRef>DOR_LOE</sourceRef>
+        <targetRef>Property_1mwz0xx</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1us3k1k">
+        <targetRef>DataObjectReference_102y0q9</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_LOE" name="DOE inicial" dataObjectRef="DO_LOE" />
+    <dataObject id="DO_LOE" name="LOE-v1 Listado priorizado de objetivos" />
+    <userTask id="Task_F1_E1_A2" name="F1.E1.A3 Formulación de objetivos arquitectónicos" camunda:assignee="AEP">
+      <documentation>Entradas: LOE-v1 validado. Tareas: T1 Reformular objetivos (SMART), T2 Asignar indicadores, T3 Trazabilidad negocio-arquitectura, T4 Documentar supuestos. Salidas: DOA-v1, MTA-v1.</documentation>
+      <incoming>Flow_0c8lmpx</incoming>
+      <outgoing>Flow_05e9qeu</outgoing>
+      <property id="Property_15ymtf7" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1q6za4p">
+        <sourceRef>DataObjectReference_102y0q9</sourceRef>
+        <targetRef>Property_15ymtf7</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_007">
+        <sourceRef>Task_F1_E1_A2</sourceRef>
+        <targetRef>DOR_MTA</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1x9n22n">
+        <targetRef>DataObjectReference_02j9v16</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_PlanEstrategico" name="Plan estratégico institucional" dataObjectRef="DO_PlanEstrategico" />
+    <dataObject id="DO_PlanEstrategico" name="Plan Estratégico Institucional" />
+    <dataObjectReference id="DataObjectReference_0da45u2" name="Catálogo de iniciativas" dataObjectRef="DataObject_1em52yi" />
+    <dataObject id="DataObject_1em52yi" />
+    <startEvent id="StartEvent_F1" name="Inicio">
+      <outgoing>SF_start_to_parallel</outgoing>
+    </startEvent>
+    <endEvent id="EndEvent_F1" name="Fin">
+      <incoming>Flow_05e9qeu</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0z2lsdi" name="no" sourceRef="Gateway_1wwcpkd" targetRef="Task_F1_E1_A1" />
+    <sequenceFlow id="SF_start_to_parallel" sourceRef="StartEvent_F1" targetRef="Task_F1_E1_A1" />
+    <sequenceFlow id="SF_E1A1_to_SE" sourceRef="Task_F1_E1_A1" targetRef="Task_F1_SE_review_obj" />
+    <sequenceFlow id="SF_SE_to_E1A2" sourceRef="Task_F1_SE_review_obj" targetRef="Gateway_1wwcpkd" />
+    <sequenceFlow id="Flow_0c8lmpx" name="si" sourceRef="Gateway_1wwcpkd" targetRef="Task_F1_E1_A2" />
+    <sequenceFlow id="Flow_05e9qeu" sourceRef="Task_F1_E1_A2" targetRef="EndEvent_F1" />
+    <dataObjectReference id="DataObjectReference_102y0q9" name="DOE aprobado" dataObjectRef="DataObject_0gbbtlf" />
+    <dataObject id="DataObject_0gbbtlf" />
+    <dataObjectReference id="DataObjectReference_02j9v16" name="DOE" dataObjectRef="DataObject_0o625gv" />
+    <dataObject id="DataObject_0o625gv" />
+    <dataObjectReference id="DOR_MTA" name="MTA" dataObjectRef="DO_MTA" />
+    <dataObject id="DO_MTA" name="MTA-v1 Matriz de trazabilidad" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F1v2">
+    <bpmndi:BPMNPlane id="BPMNPlane_F1v2" bpmnElement="Collab_F1">
+      <bpmndi:BPMNShape id="Sh_Pool_F1" bpmnElement="Pool_F1" isHorizontal="true">
+        <dc:Bounds x="190" y="100" width="750" height="730" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_L_AEP" bpmnElement="Lane_AEP" isHorizontal="true">
+        <dc:Bounds x="220" y="100" width="720" height="510" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_L_SE" bpmnElement="Lane_SE_GPA" isHorizontal="true">
+        <dc:Bounds x="220" y="610" width="720" height="220" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E1A1" bpmnElement="Task_F1_E1_A1">
+        <dc:Bounds x="420" y="270" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1dbmj1i" bpmnElement="Gateway_1wwcpkd" isMarkerVisible="true">
+        <dc:Bounds x="720" y="670" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="760" y="646" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SE_rev" bpmnElement="Task_F1_SE_review_obj">
+        <dc:Bounds x="420" y="650" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_LOE" bpmnElement="DOR_LOE" isHorizontal="false">
+        <dc:Bounds x="527" y="455" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="562" y="443" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E1A2" bpmnElement="Task_F1_E1_A2">
+        <dc:Bounds x="660" y="270" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_Plan" bpmnElement="DOR_PlanEstrategico" isHorizontal="false">
+        <dc:Bounds x="382" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="359" y="122" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_15q6ucz" bpmnElement="DataObjectReference_0da45u2" isHorizontal="false">
+        <dc:Bounds x="562" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="547" y="122" width="60" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SE_F1" bpmnElement="StartEvent_F1">
+        <dc:Bounds x="280" y="292" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="286" y="332" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EE_F1" bpmnElement="EndEvent_F1">
+        <dc:Bounds x="882" y="292" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="892" y="332" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1r84njp" bpmnElement="DataObjectReference_102y0q9" isHorizontal="false">
+        <dc:Bounds x="622" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="603" y="583" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1fegbek" bpmnElement="DataObjectReference_02j9v16" isHorizontal="false">
+        <dc:Bounds x="852" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="858" y="213" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_MTA" bpmnElement="DOR_MTA" isHorizontal="false">
+        <dc:Bounds x="662" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="669" y="213" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0z2lsdi_di" bpmnElement="Flow_0z2lsdi">
+        <di:waypoint x="740" y="710" />
+        <di:waypoint x="740" y="760" />
+        <di:waypoint x="380" y="760" />
+        <di:waypoint x="380" y="330" />
+        <di:waypoint x="420" y="330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="543" y="743" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_sp" bpmnElement="SF_start_to_parallel">
+        <di:waypoint x="316" y="310" />
+        <di:waypoint x="420" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_1A1SE" bpmnElement="SF_E1A1_to_SE">
+        <di:waypoint x="500" y="350" />
+        <di:waypoint x="500" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_SE1A2" bpmnElement="SF_SE_to_E1A2">
+        <di:waypoint x="580" y="690" />
+        <di:waypoint x="720" y="690" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c8lmpx_di" bpmnElement="Flow_0c8lmpx">
+        <di:waypoint x="740" y="670" />
+        <di:waypoint x="740" y="350" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="746" y="538" width="8" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05e9qeu_di" bpmnElement="Flow_05e9qeu">
+        <di:waypoint x="820" y="310" />
+        <di:waypoint x="882" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_002" bpmnElement="DIA_002">
+        <di:waypoint x="418" y="180" />
+        <di:waypoint x="470" y="180" />
+        <di:waypoint x="470" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1hg2vmu_di" bpmnElement="DataInputAssociation_1hg2vmu">
+        <di:waypoint x="562" y="180" />
+        <di:waypoint x="520" y="180" />
+        <di:waypoint x="520" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_004" bpmnElement="DOA_004">
+        <di:waypoint x="545" y="350" />
+        <di:waypoint x="545" y="455" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_001" bpmnElement="DIA_001">
+        <di:waypoint x="540" y="505" />
+        <di:waypoint x="540" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1us3k1k_di" bpmnElement="DataOutputAssociation_1us3k1k">
+        <di:waypoint x="560" y="650" />
+        <di:waypoint x="560" y="545" />
+        <di:waypoint x="622" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1q6za4p_di" bpmnElement="DataInputAssociation_1q6za4p">
+        <di:waypoint x="658" y="550" />
+        <di:waypoint x="690" y="550" />
+        <di:waypoint x="690" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_007" bpmnElement="DOA_007">
+        <di:waypoint x="740" y="270" />
+        <di:waypoint x="740" y="180" />
+        <di:waypoint x="698" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1x9n22n_di" bpmnElement="DataOutputAssociation_1x9n22n">
+        <di:waypoint x="770" y="270" />
+        <di:waypoint x="770" y="180" />
+        <di:waypoint x="850" y="180" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

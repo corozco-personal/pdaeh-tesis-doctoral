@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F5-E8-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collaboration_F5_E8">
+    <participant id="Pool_F5_E8" name="F5.E8: Patrones de Diseño" processRef="Process_F5_E8" />
+  </collaboration>
+  <process id="Process_F5_E8" isExecutable="false">
+    <laneSet id="LaneSet_F5_E8">
+      <lane id="Lane_AEP_E8" name="Arquitecto Empresarial del Proceso">
+        <flowNodeRef>StartEvent_E8</flowNodeRef>
+        <flowNodeRef>A1_E8</flowNodeRef>
+        <flowNodeRef>Gateway_E8_split</flowNodeRef>
+        <flowNodeRef>Gateway_E8_join</flowNodeRef>
+        <flowNodeRef>A5_E8</flowNodeRef>
+        <flowNodeRef>EndEvent_E8</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASP_E8" name="Arquitecto de Solución del Proceso">
+        <flowNodeRef>A2_E8</flowNodeRef>
+      </lane>
+      <lane id="Lane_AIP_ADP_E8" name="Arquitecto de Integración / Datos del Proceso">
+        <flowNodeRef>A3_E8</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASecP_ETC_E8" name="Arquitecto de Seguridad / Especialista Tecnológico Cuántico">
+        <flowNodeRef>A4_E8</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_E8" name="Inicio">
+      <outgoing>SF_E8_start_A1</outgoing>
+    </startEvent>
+    <userTask id="A1_E8" name="F5.E8.A1: Definición del marco de patrones de diseño">
+      <incoming>SF_E8_start_A1</incoming>
+      <outgoing>SF_E8_A1_split</outgoing>
+      <property id="Property_A1_E8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E8_A1_CEP">
+        <sourceRef>DataObjectReference_CEP_in</sourceRef>
+        <targetRef>Property_A1_E8</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E8_A1_LBA">
+        <sourceRef>DataObjectReference_LBA_F4_E8</sourceRef>
+        <targetRef>Property_A1_E8</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E8_A1_MPD">
+        <targetRef>DataObjectReference_MPD</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E8_split" name="Especificación de patrones por rol">
+      <incoming>SF_E8_A1_split</incoming>
+      <outgoing>SF_E8_split_A2</outgoing>
+      <outgoing>SF_E8_split_A3</outgoing>
+      <outgoing>SF_E8_split_A4</outgoing>
+    </parallelGateway>
+    <userTask id="A2_E8" name="F5.E8.A2: Especificación de patrones de diseño transversales de la solución">
+      <incoming>SF_E8_split_A2</incoming>
+      <outgoing>SF_E8_A2_join</outgoing>
+      <property id="Property_A2_E8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E8_A2_MPD">
+        <sourceRef>DataObjectReference_MPD</sourceRef>
+        <targetRef>Property_A2_E8</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E8_A2_PDTS">
+        <targetRef>DataObjectReference_PDTS</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A3_E8" name="F5.E8.A3: Especificación de patrones de integración y datos cuántico-clásicos">
+      <incoming>SF_E8_split_A3</incoming>
+      <outgoing>SF_E8_A3_join</outgoing>
+      <property id="Property_A3_E8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E8_A3_MPD">
+        <sourceRef>DataObjectReference_MPD</sourceRef>
+        <targetRef>Property_A3_E8</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E8_A3_PDID">
+        <targetRef>DataObjectReference_PDID</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E8_join" name="Consolidación de catálogo de patrones">
+      <incoming>SF_E8_A2_join</incoming>
+      <incoming>SF_E8_A3_join</incoming>
+      <incoming>SF_E8_A4_join</incoming>
+      <outgoing>SF_E8_join_A5</outgoing>
+    </parallelGateway>
+    <userTask id="A5_E8" name="F5.E8.A5: Consolidación del catálogo de patrones de diseño">
+      <incoming>SF_E8_join_A5</incoming>
+      <outgoing>SF_E8_A5_end</outgoing>
+      <property id="Property_A5_E8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E8_A5_PDTS">
+        <sourceRef>DataObjectReference_PDTS</sourceRef>
+        <targetRef>Property_A5_E8</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E8_A5_PDID">
+        <sourceRef>DataObjectReference_PDID</sourceRef>
+        <targetRef>Property_A5_E8</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E8_A5_PDSC">
+        <sourceRef>DataObjectReference_PDSC</sourceRef>
+        <targetRef>Property_A5_E8</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E8_A5_CPD">
+        <targetRef>DataObjectReference_CPD_v1</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DOA_E8_A5_MTA">
+        <targetRef>DataObjectReference_MTA_v6_E8</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="EndEvent_E8" name="Fin">
+      <incoming>SF_E8_A5_end</incoming>
+    </endEvent>
+    <dataObjectReference id="DataObjectReference_MPD" name="MPD" dataObjectRef="DataObject_MPD" />
+    <dataObject id="DataObject_MPD" name="Marco de Patrones de Diseño" />
+    <dataObjectReference id="DataObjectReference_PDTS" name="PDTS" dataObjectRef="DataObject_PDTS" />
+    <dataObject id="DataObject_PDTS" name="Patrones de Diseño Transversales de Solución" />
+    <dataObjectReference id="DataObjectReference_PDID" name="PDID" dataObjectRef="DataObject_PDID" />
+    <dataObject id="DataObject_PDID" name="Patrones de Diseño de Integración y Datos" />
+    <dataObjectReference id="DataObjectReference_MTA_v6_E8" name="MTA actualizado" dataObjectRef="DataObject_MTA_v6_E8" />
+    <dataObject id="DataObject_MTA_v6_E8" name="MTA-v6 (final)" />
+    <sequenceFlow id="SF_E8_start_A1" sourceRef="StartEvent_E8" targetRef="A1_E8" />
+    <sequenceFlow id="SF_E8_A1_split" sourceRef="A1_E8" targetRef="Gateway_E8_split" />
+    <sequenceFlow id="SF_E8_split_A2" sourceRef="Gateway_E8_split" targetRef="A2_E8" />
+    <sequenceFlow id="SF_E8_split_A3" sourceRef="Gateway_E8_split" targetRef="A3_E8" />
+    <sequenceFlow id="SF_E8_split_A4" sourceRef="Gateway_E8_split" targetRef="A4_E8" />
+    <sequenceFlow id="SF_E8_A2_join" sourceRef="A2_E8" targetRef="Gateway_E8_join" />
+    <sequenceFlow id="SF_E8_A3_join" sourceRef="A3_E8" targetRef="Gateway_E8_join" />
+    <sequenceFlow id="SF_E8_A4_join" sourceRef="A4_E8" targetRef="Gateway_E8_join" />
+    <sequenceFlow id="SF_E8_join_A5" sourceRef="Gateway_E8_join" targetRef="A5_E8" />
+    <sequenceFlow id="SF_E8_A5_end" sourceRef="A5_E8" targetRef="EndEvent_E8" />
+    <dataObjectReference id="DataObjectReference_LBA_F4_E8" name="LBA-F4" dataObjectRef="DataObject_LBA_F4_E8" />
+    <dataObject id="DataObject_LBA_F4_E8" name="Línea Base de Arquitectura Fase 4" />
+    <dataObjectReference id="DataObjectReference_CEP_in" name="CEP" dataObjectRef="DataObject_CEP_in" />
+    <dataObject id="DataObject_CEP_in" name="CEP-v1 (Catálogo de Estilos y Patrones)" />
+    <userTask id="A4_E8" name="F5.E8.A4: Especificación de patrones de diseño de seguridad clásicos y cuánticos">
+      <incoming>SF_E8_split_A4</incoming>
+      <outgoing>SF_E8_A4_join</outgoing>
+      <property id="Property_A4_E8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E8_A4_MPD">
+        <sourceRef>DataObjectReference_MPD</sourceRef>
+        <targetRef>Property_A4_E8</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E8_A4_PDSC">
+        <targetRef>DataObjectReference_PDSC</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DataObjectReference_PDSC" name="PDSC" dataObjectRef="DataObject_PDSC" />
+    <dataObject id="DataObject_PDSC" name="Patrones de Diseño de Seguridad Clásicos y Cuánticos" />
+    <dataObjectReference id="DataObjectReference_CPD_v1" name="CPD" dataObjectRef="DataObject_CPD_v1" />
+    <dataObject id="DataObject_CPD_v1" name="CPD-v1 (Catálogo de Patrones de Diseño)" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F5_E8">
+    <bpmndi:BPMNPlane id="BPMNPlane_F5_E8" bpmnElement="Collaboration_F5_E8">
+      <bpmndi:BPMNShape id="Sh_Pool_F5_E8" bpmnElement="Pool_F5_E8" isHorizontal="true">
+        <dc:Bounds x="130" y="50" width="1260" height="830" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASecP_ETC_E8" bpmnElement="Lane_ASecP_ETC_E8" isHorizontal="true">
+        <dc:Bounds x="160" y="630" width="1230" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AIP_ADP_E8" bpmnElement="Lane_AIP_ADP_E8" isHorizontal="true">
+        <dc:Bounds x="160" y="460" width="1230" height="170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASP_E8" bpmnElement="Lane_ASP_E8" isHorizontal="true">
+        <dc:Bounds x="160" y="300" width="1230" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_E8" bpmnElement="Lane_AEP_E8" isHorizontal="true">
+        <dc:Bounds x="160" y="50" width="1230" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvent_E8" bpmnElement="StartEvent_E8">
+        <dc:Bounds x="212" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="215" width="29" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A1_E8" bpmnElement="A1_E8">
+        <dc:Bounds x="310" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E8_split" bpmnElement="Gateway_E8_split">
+        <dc:Bounds x="565" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="547" y="136" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A2_E8" bpmnElement="A2_E8">
+        <dc:Bounds x="710" y="330" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A3_E8" bpmnElement="A3_E8">
+        <dc:Bounds x="710" y="490" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E8_join" bpmnElement="Gateway_E8_join">
+        <dc:Bounds x="965" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="948" y="120" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A5_E8" bpmnElement="A5_E8">
+        <dc:Bounds x="1090" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvent_E8" bpmnElement="EndEvent_E8">
+        <dc:Bounds x="1322" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1333" y="215" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_MPD" bpmnElement="DataObjectReference_MPD">
+        <dc:Bounds x="467" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="497" y="582" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_PDTS" bpmnElement="DataObjectReference_PDTS">
+        <dc:Bounds x="1052" y="365" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1055" y="342" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_PDID" bpmnElement="DataObjectReference_PDID">
+        <dc:Bounds x="1052" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1056" y="503" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_MTA_v6_E8" bpmnElement="DataObjectReference_MTA_v6_E8">
+        <dc:Bounds x="1292" y="105" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1269" y="82" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_LBA_F4_E8" bpmnElement="DataObjectReference_LBA_F4_E8">
+        <dc:Bounds x="252" y="85" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="251" y="62" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CEP_in" bpmnElement="DataObjectReference_CEP_in">
+        <dc:Bounds x="252" y="325" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="258" y="382" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A4_E8" bpmnElement="A4_E8">
+        <dc:Bounds x="710" y="700" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_PDSC" bpmnElement="DataObjectReference_PDSC">
+        <dc:Bounds x="1052" y="730" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1054" y="707" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CPD_v1" bpmnElement="DataObjectReference_CPD_v1">
+        <dc:Bounds x="1292" y="345" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1298" y="322" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_start_A1" bpmnElement="SF_E8_start_A1">
+        <di:waypoint x="248" y="190" />
+        <di:waypoint x="310" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_A1_split" bpmnElement="SF_E8_A1_split">
+        <di:waypoint x="480" y="190" />
+        <di:waypoint x="565" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_split_A2" bpmnElement="SF_E8_split_A2">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="370" />
+        <di:waypoint x="710" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_split_A3" bpmnElement="SF_E8_split_A3">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="530" />
+        <di:waypoint x="710" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_split_A4" bpmnElement="SF_E8_split_A4">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="740" />
+        <di:waypoint x="710" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_A2_join" bpmnElement="SF_E8_A2_join">
+        <di:waypoint x="880" y="370" />
+        <di:waypoint x="990" y="370" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_A3_join" bpmnElement="SF_E8_A3_join">
+        <di:waypoint x="880" y="530" />
+        <di:waypoint x="990" y="530" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_A4_join" bpmnElement="SF_E8_A4_join">
+        <di:waypoint x="880" y="740" />
+        <di:waypoint x="990" y="740" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_join_A5" bpmnElement="SF_E8_join_A5">
+        <di:waypoint x="1015" y="190" />
+        <di:waypoint x="1090" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E8_A5_end" bpmnElement="SF_E8_A5_end">
+        <di:waypoint x="1260" y="190" />
+        <di:waypoint x="1322" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A1_CEP" bpmnElement="DIA_E8_A1_CEP">
+        <di:waypoint x="270" y="325" />
+        <di:waypoint x="270" y="210" />
+        <di:waypoint x="310" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A1_LBA" bpmnElement="DIA_E8_A1_LBA">
+        <di:waypoint x="288" y="110" />
+        <di:waypoint x="400" y="110" />
+        <di:waypoint x="400" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A1_MPD" bpmnElement="DOA_E8_A1_MPD">
+        <di:waypoint x="395" y="230" />
+        <di:waypoint x="395" y="550" />
+        <di:waypoint x="467" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A2_MPD" bpmnElement="DIA_E8_A2_MPD">
+        <di:waypoint x="485" y="525" />
+        <di:waypoint x="485" y="390" />
+        <di:waypoint x="710" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A2_PDTS" bpmnElement="DOA_E8_A2_PDTS">
+        <di:waypoint x="880" y="391" />
+        <di:waypoint x="1052" y="391" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A3_MPD" bpmnElement="DIA_E8_A3_MPD">
+        <di:waypoint x="503" y="550" />
+        <di:waypoint x="710" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A3_PDID" bpmnElement="DOA_E8_A3_PDID">
+        <di:waypoint x="880" y="545" />
+        <di:waypoint x="1052" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A4_MPD" bpmnElement="DIA_E8_A4_MPD">
+        <di:waypoint x="485" y="575" />
+        <di:waypoint x="485" y="755" />
+        <di:waypoint x="710" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A4_PDSC" bpmnElement="DOA_E8_A4_PDSC">
+        <di:waypoint x="880" y="755" />
+        <di:waypoint x="1052" y="755" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A5_PDTS" bpmnElement="DIA_E8_A5_PDTS">
+        <di:waypoint x="1088" y="390" />
+        <di:waypoint x="1130" y="390" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A5_PDID" bpmnElement="DIA_E8_A5_PDID">
+        <di:waypoint x="1088" y="550" />
+        <di:waypoint x="1130" y="550" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E8_A5_PDSC" bpmnElement="DIA_E8_A5_PDSC">
+        <di:waypoint x="1088" y="755" />
+        <di:waypoint x="1130" y="755" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A5_CPD" bpmnElement="DOA_E8_A5_CPD">
+        <di:waypoint x="1200" y="230" />
+        <di:waypoint x="1200" y="370" />
+        <di:waypoint x="1292" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E8_A5_MTA" bpmnElement="DOA_E8_A5_MTA">
+        <di:waypoint x="1180" y="150" />
+        <di:waypoint x="1180" y="130" />
+        <di:waypoint x="1292" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

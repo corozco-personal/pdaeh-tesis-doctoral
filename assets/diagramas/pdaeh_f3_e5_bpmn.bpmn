@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="http://www.activiti.org/test" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collaboration_F3_E5">
+    <participant id="Pool_F3_E5" name="F3-E5: Estructuras Arquitectónicas" processRef="Process_F3_E5" />
+  </collaboration>
+  <process id="Process_F3_E5" isExecutable="false">
+    <laneSet id="LaneSet_F3_E5">
+      <lane id="Lane_ASecP_ETC_E5" name="Arquitecto de Seguridad / Especialista Tecnológico Cuántico">
+        <flowNodeRef>A4_E5</flowNodeRef>
+      </lane>
+      <lane id="Lane_AIP_ADP_E5" name="Arquitecto de Integración / Datos del Proceso">
+        <flowNodeRef>A3_E5</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASP_E5" name="Arquitecto de Solución del Proceso">
+        <flowNodeRef>A2_E5</flowNodeRef>
+      </lane>
+      <lane id="Lane_AEP_E5" name="Arquitecto Empresarial del Proceso">
+        <flowNodeRef>StartEvent_E5</flowNodeRef>
+        <flowNodeRef>A1_E5</flowNodeRef>
+        <flowNodeRef>A5_E5</flowNodeRef>
+        <flowNodeRef>Gateway_11auly9</flowNodeRef>
+        <flowNodeRef>Gateway_0grmz1k</flowNodeRef>
+        <flowNodeRef>EndEvent_E5</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_E5" name="Inicio E5">
+      <outgoing>SF_Start_A1</outgoing>
+    </startEvent>
+    <userTask id="A1_E5" name="F3.A5.A1: Definición del marco de estructuras arquitectónicas">
+      <incoming>SF_Start_A1</incoming>
+      <outgoing>Flow_1s5gju0</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_1hjxreq">
+        <targetRef>DataObjectReference_0kl6jal</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A3_E5" name="F3.A5.A3: Especificación de estructuras de integración y datos">
+      <incoming>SF_A2_A3</incoming>
+      <incoming>Flow_0sjpdpr</incoming>
+      <outgoing>SF_A3_A4</outgoing>
+      <outgoing>Flow_1jojxv8</outgoing>
+      <property id="Property_1y8meib" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1x10skn">
+        <sourceRef>DataObjectReference_0kl6jal</sourceRef>
+        <targetRef>Property_1y8meib</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1e6l8gi">
+        <targetRef>DataObjectReference_0y207fg</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A5_E5" name="F3.A5.A5: Consolidación  estructuras arquitectónicas">
+      <incoming>Flow_0r9yk3x</incoming>
+      <outgoing>Flow_1rsqlry</outgoing>
+      <property id="Property_1kkeku2" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0gtb6we">
+        <sourceRef>DataObjectReference_0pdd1q4</sourceRef>
+        <targetRef>Property_1kkeku2</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_09zmu3s">
+        <sourceRef>DataObjectReference_0y207fg</sourceRef>
+        <targetRef>Property_1kkeku2</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_0fm282o">
+        <sourceRef>DataObjectReference_1du08qt</sourceRef>
+        <targetRef>Property_1kkeku2</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1b55tnn">
+        <targetRef>DataObj_DEA_v1</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_0owtdtf">
+        <targetRef>DataObjectReference_1ucscok</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_11auly9" name="especificación de estructuras arquitectónicas por rol">
+      <incoming>Flow_1s5gju0</incoming>
+      <outgoing>Flow_0hp36t4</outgoing>
+      <outgoing>Flow_0sjpdpr</outgoing>
+      <outgoing>Flow_0d1suri</outgoing>
+    </parallelGateway>
+    <userTask id="A2_E5" name="F3.A5.A2: Especificación de estructuras transversales en la solución">
+      <incoming>Flow_0hp36t4</incoming>
+      <outgoing>SF_A2_A3</outgoing>
+      <outgoing>Flow_1q77mbc</outgoing>
+      <property id="Property_1l6iyxj" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_16aru1v">
+        <sourceRef>DataObjectReference_0kl6jal</sourceRef>
+        <targetRef>Property_1l6iyxj</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1txh4jd">
+        <targetRef>DataObjectReference_0pdd1q4</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A4_E5" name="F3.A5.A4: Especificación de estructuras de seguridad">
+      <incoming>SF_A3_A4</incoming>
+      <incoming>Flow_0d1suri</incoming>
+      <outgoing>Flow_1e9ikw0</outgoing>
+      <property id="Property_0nrnshh" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0jb0ahq">
+        <sourceRef>DataObjectReference_0kl6jal</sourceRef>
+        <targetRef>Property_0nrnshh</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1tb5jd0">
+        <targetRef>DataObjectReference_1du08qt</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_0grmz1k" name="consolidación de artefactos resultantes">
+      <incoming>Flow_1q77mbc</incoming>
+      <incoming>Flow_1jojxv8</incoming>
+      <incoming>Flow_1e9ikw0</incoming>
+      <outgoing>Flow_0r9yk3x</outgoing>
+    </parallelGateway>
+    <dataObjectReference id="DataObjectReference_0kl6jal" name="DEA" dataObjectRef="DataObject_135v6hz" />
+    <dataObject id="DataObject_135v6hz" />
+    <dataObjectReference id="DataObjectReference_0y207fg" name="EEID" dataObjectRef="DataObject_186hi5u" />
+    <dataObject id="DataObject_186hi5u" />
+    <dataObjectReference id="DataObjectReference_1du08qt" name="EESec" dataObjectRef="DataObject_0cj68yz" />
+    <dataObject id="DataObject_0cj68yz" />
+    <dataObjectReference id="DataObjectReference_0pdd1q4" name="EETS" dataObjectRef="DataObject_1did03w" />
+    <dataObject id="DataObject_1did03w" />
+    <sequenceFlow id="SF_Start_A1" sourceRef="StartEvent_E5" targetRef="A1_E5" />
+    <sequenceFlow id="Flow_1s5gju0" sourceRef="A1_E5" targetRef="Gateway_11auly9" />
+    <sequenceFlow id="SF_A2_A3" sourceRef="A2_E5" targetRef="A3_E5" />
+    <sequenceFlow id="Flow_0sjpdpr" sourceRef="Gateway_11auly9" targetRef="A3_E5" />
+    <sequenceFlow id="SF_A3_A4" sourceRef="A3_E5" targetRef="A4_E5" />
+    <sequenceFlow id="Flow_1jojxv8" sourceRef="A3_E5" targetRef="Gateway_0grmz1k" />
+    <sequenceFlow id="Flow_0r9yk3x" sourceRef="Gateway_0grmz1k" targetRef="A5_E5" />
+    <sequenceFlow id="Flow_0hp36t4" sourceRef="Gateway_11auly9" targetRef="A2_E5" />
+    <sequenceFlow id="Flow_0d1suri" sourceRef="Gateway_11auly9" targetRef="A4_E5" />
+    <sequenceFlow id="Flow_1q77mbc" sourceRef="A2_E5" targetRef="Gateway_0grmz1k" />
+    <sequenceFlow id="Flow_1e9ikw0" sourceRef="A4_E5" targetRef="Gateway_0grmz1k" />
+    <dataObjectReference id="DataObj_DEA_v1" name="DEA" dataObjectRef="DO_DEA_v1" />
+    <dataObject id="DO_DEA_v1" />
+    <dataObjectReference id="DataObjectReference_1ucscok" name="MTA actualizado" dataObjectRef="DataObject_1tatphm" />
+    <dataObject id="DataObject_1tatphm" />
+    <sequenceFlow id="Flow_1rsqlry" sourceRef="A5_E5" targetRef="EndEvent_E5" />
+    <endEvent id="EndEvent_E5" name="Fin">
+      <incoming>Flow_1rsqlry</incoming>
+    </endEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F3_E5">
+    <bpmndi:BPMNPlane id="BPMNPlane_F3_E5" bpmnElement="Collaboration_F3_E5">
+      <bpmndi:BPMNShape id="Shape_Pool_F3_E5" bpmnElement="Pool_F3_E5" isHorizontal="true">
+        <omgdc:Bounds x="130" y="80" width="1290" height="830" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_AEP_E5" bpmnElement="Lane_AEP_E5" isHorizontal="true">
+        <omgdc:Bounds x="160" y="80" width="1260" height="280" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_ASP_E5" bpmnElement="Lane_ASP_E5" isHorizontal="true">
+        <omgdc:Bounds x="160" y="360" width="1260" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_AIP_ADP_E5" bpmnElement="Lane_AIP_ADP_E5" isHorizontal="true">
+        <omgdc:Bounds x="160" y="520" width="1260" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_ASecP_ETC_E5" bpmnElement="Lane_ASecP_ETC_E5" isHorizontal="true">
+        <omgdc:Bounds x="160" y="680" width="1260" height="230" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_E5" bpmnElement="StartEvent_E5">
+        <omgdc:Bounds x="212" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="210" y="285" width="43" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A1_E5" bpmnElement="A1_E5">
+        <omgdc:Bounds x="300" y="220" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A3_E5" bpmnElement="A3_E5">
+        <omgdc:Bounds x="700" y="560" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A5_E5" bpmnElement="A5_E5">
+        <omgdc:Bounds x="1100" y="220" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_11auly9_di" bpmnElement="Gateway_11auly9">
+        <omgdc:Bounds x="555" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="538" y="173" width="85" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A2_E5" bpmnElement="A2_E5">
+        <omgdc:Bounds x="700" y="400" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_A4_E5" bpmnElement="A4_E5">
+        <omgdc:Bounds x="700" y="730" width="160" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kh70bp" bpmnElement="Gateway_0grmz1k">
+        <omgdc:Bounds x="945" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="930" y="180" width="82" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0m4x96n" bpmnElement="DataObjectReference_0kl6jal">
+        <omgdc:Bounds x="462" y="595" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="428" y="633" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1l0ryo6" bpmnElement="DataObjectReference_0y207fg">
+        <omgdc:Bounds x="1052" y="595" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1055" y="576" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0me0l0l" bpmnElement="DataObjectReference_1du08qt">
+        <omgdc:Bounds x="1052" y="815" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1052" y="796" width="34" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1fkrs3q" bpmnElement="DataObjectReference_0pdd1q4">
+        <omgdc:Bounds x="1052" y="435" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1055" y="416" width="29" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObj_DEA_v1" bpmnElement="DataObj_DEA_v1">
+        <omgdc:Bounds x="1292" y="125" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1298" y="101" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_03butvn" bpmnElement="DataObjectReference_1ucscok">
+        <omgdc:Bounds x="1292" y="385" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1269" y="443" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_E5" bpmnElement="EndEvent_E5">
+        <omgdc:Bounds x="1352" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1362" y="285" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_SF_Start_A1" bpmnElement="SF_Start_A1">
+        <omgdi:waypoint x="248" y="260" />
+        <omgdi:waypoint x="300" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1s5gju0_di" bpmnElement="Flow_1s5gju0">
+        <omgdi:waypoint x="460" y="260" />
+        <omgdi:waypoint x="555" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_A2_A3" bpmnElement="SF_A2_A3">
+        <omgdi:waypoint x="780" y="480" />
+        <omgdi:waypoint x="780" y="560" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sjpdpr_di" bpmnElement="Flow_0sjpdpr">
+        <omgdi:waypoint x="580" y="285" />
+        <omgdi:waypoint x="580" y="600" />
+        <omgdi:waypoint x="700" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SF_A3_A4" bpmnElement="SF_A3_A4">
+        <omgdi:waypoint x="780" y="640" />
+        <omgdi:waypoint x="780" y="730" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jojxv8_di" bpmnElement="Flow_1jojxv8">
+        <omgdi:waypoint x="860" y="600" />
+        <omgdi:waypoint x="970" y="600" />
+        <omgdi:waypoint x="970" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0r9yk3x_di" bpmnElement="Flow_0r9yk3x">
+        <omgdi:waypoint x="995" y="260" />
+        <omgdi:waypoint x="1100" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hp36t4_di" bpmnElement="Flow_0hp36t4">
+        <omgdi:waypoint x="580" y="285" />
+        <omgdi:waypoint x="580" y="440" />
+        <omgdi:waypoint x="700" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0d1suri_di" bpmnElement="Flow_0d1suri">
+        <omgdi:waypoint x="580" y="285" />
+        <omgdi:waypoint x="580" y="770" />
+        <omgdi:waypoint x="700" y="770" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1q77mbc_di" bpmnElement="Flow_1q77mbc">
+        <omgdi:waypoint x="860" y="440" />
+        <omgdi:waypoint x="970" y="440" />
+        <omgdi:waypoint x="970" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1e9ikw0_di" bpmnElement="Flow_1e9ikw0">
+        <omgdi:waypoint x="860" y="770" />
+        <omgdi:waypoint x="970" y="770" />
+        <omgdi:waypoint x="970" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rsqlry_di" bpmnElement="Flow_1rsqlry">
+        <omgdi:waypoint x="1260" y="260" />
+        <omgdi:waypoint x="1352" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1hjxreq_di" bpmnElement="DataOutputAssociation_1hjxreq">
+        <omgdi:waypoint x="380" y="300" />
+        <omgdi:waypoint x="380" y="620" />
+        <omgdi:waypoint x="462" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1x10skn_di" bpmnElement="DataInputAssociation_1x10skn">
+        <omgdi:waypoint x="498" y="620" />
+        <omgdi:waypoint x="700" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1e6l8gi_di" bpmnElement="DataOutputAssociation_1e6l8gi">
+        <omgdi:waypoint x="860" y="620" />
+        <omgdi:waypoint x="1050" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0gtb6we_di" bpmnElement="DataInputAssociation_0gtb6we">
+        <omgdi:waypoint x="1088" y="460" />
+        <omgdi:waypoint x="1130" y="460" />
+        <omgdi:waypoint x="1130" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_09zmu3s_di" bpmnElement="DataInputAssociation_09zmu3s">
+        <omgdi:waypoint x="1088" y="620" />
+        <omgdi:waypoint x="1130" y="620" />
+        <omgdi:waypoint x="1130" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0fm282o_di" bpmnElement="DataInputAssociation_0fm282o">
+        <omgdi:waypoint x="1088" y="840" />
+        <omgdi:waypoint x="1130" y="840" />
+        <omgdi:waypoint x="1130" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1b55tnn_di" bpmnElement="DataOutputAssociation_1b55tnn">
+        <omgdi:waypoint x="1180" y="220" />
+        <omgdi:waypoint x="1180" y="145" />
+        <omgdi:waypoint x="1292" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0owtdtf_di" bpmnElement="DataOutputAssociation_0owtdtf">
+        <omgdi:waypoint x="1180" y="300" />
+        <omgdi:waypoint x="1180" y="420" />
+        <omgdi:waypoint x="1292" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_16aru1v_di" bpmnElement="DataInputAssociation_16aru1v">
+        <omgdi:waypoint x="480" y="595" />
+        <omgdi:waypoint x="480" y="460" />
+        <omgdi:waypoint x="700" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1txh4jd_di" bpmnElement="DataOutputAssociation_1txh4jd">
+        <omgdi:waypoint x="860" y="460" />
+        <omgdi:waypoint x="1052" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0jb0ahq_di" bpmnElement="DataInputAssociation_0jb0ahq">
+        <omgdi:waypoint x="480" y="645" />
+        <omgdi:waypoint x="480" y="790" />
+        <omgdi:waypoint x="700" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1tb5jd0_di" bpmnElement="DataOutputAssociation_1tb5jd0">
+        <omgdi:waypoint x="780" y="810" />
+        <omgdi:waypoint x="780" y="840" />
+        <omgdi:waypoint x="1050" y="840" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

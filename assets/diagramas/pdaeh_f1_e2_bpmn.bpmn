@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F1-v2" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F1">
+    <participant id="Pool_F1" name="F1.E2: Contexto de la arquitectura." processRef="Process_F1" />
+  </collaboration>
+  <process id="Process_F1" name="Proceso F1 — Definición Estratégica" isExecutable="true">
+    <laneSet id="LaneSet_F1">
+      <lane id="Lane_AEP" name="AEP: Arquitecto empresarial del proceso">
+        <flowNodeRef>StartEvent_F1</flowNodeRef>
+        <flowNodeRef>Task_F1_E2_A1</flowNodeRef>
+        <flowNodeRef>Task_F1_E2_A3</flowNodeRef>
+        <flowNodeRef>Task_F1_E2_A2</flowNodeRef>
+        <flowNodeRef>Event_005imw0</flowNodeRef>
+      </lane>
+    </laneSet>
+    <dataObject id="DO_LBA_F1" name="Línea Base F1" />
+    <dataObjectReference id="DOR_LBA_F1" name="Línea Base F1" dataObjectRef="DO_LBA_F1" />
+    <startEvent id="StartEvent_F1" name="Inicio">
+      <outgoing>Flow_17zpcc8</outgoing>
+    </startEvent>
+    <userTask id="Task_F1_E2_A1" name="F1.E2.A1 Levantamiento del estado actual (AS-IS)" camunda:assignee="AEP">
+      <documentation>Entradas: Inventario AS-IS. Tareas: T1 Documentar arquitectura actual, T2 Identificar capacidades con potencial híbrido, T3 Registrar deuda técnica.</documentation>
+      <incoming>Flow_17zpcc8</incoming>
+      <outgoing>SF_E2A1_to_E2A2</outgoing>
+      <property id="Property_15krot0" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_008">
+        <sourceRef>DOR_ASIS</sourceRef>
+        <targetRef>Property_15krot0</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1twwz34">
+        <targetRef>DataObjectReference_1y5t2zs</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DOR_ASIS" name="Inventario AS-IS" dataObjectRef="DO_ASIS" />
+    <dataObject id="DO_ASIS" name="Inventario AS-IS" />
+    <userTask id="Task_F1_E2_A3" name="F1.E2.A3 Mapeo de stakeholders y preocupaciones" camunda:assignee="AEP">
+      <documentation>Tareas: T1 Identificar partes interesadas, T2 Mapear preocupaciones arquitectónicas, T3 Consolidar DCA-v1 y SMP-v1. Salidas: DCA-v1, SMP-v1.</documentation>
+      <incoming>SF_E2A2_to_E2A3</incoming>
+      <outgoing>Flow_11i10dh</outgoing>
+      <property id="Property_05qnnv3" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0pv2e75">
+        <sourceRef>DataObjectReference_1x21mn9</sourceRef>
+        <targetRef>Property_05qnnv3</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_009">
+        <sourceRef>Task_F1_E2_A3</sourceRef>
+        <targetRef>DOR_DCA</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1u4y76l">
+        <targetRef>DataObjectReference_1j8tio7</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="Task_F1_E2_A2" name="F1.E2.A2 Análisis de restricciones y condicionantes" camunda:assignee="AEP">
+      <documentation>Tareas: T1 Restricciones organizacionales, T2 Restricciones regulatorias, T3 Restricciones tecnológicas, T4 Clasificar por impacto arquitectónico.</documentation>
+      <incoming>SF_E2A1_to_E2A2</incoming>
+      <outgoing>SF_E2A2_to_E2A3</outgoing>
+      <property id="Property_1tpg7uo" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_10cab3x">
+        <sourceRef>DataObjectReference_1y5t2zs</sourceRef>
+        <targetRef>Property_1tpg7uo</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_0zgo1hd">
+        <targetRef>DataObjectReference_1x21mn9</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="Event_005imw0" name="Fin">
+      <incoming>Flow_11i10dh</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_17zpcc8" sourceRef="StartEvent_F1" targetRef="Task_F1_E2_A1" />
+    <sequenceFlow id="SF_E2A1_to_E2A2" sourceRef="Task_F1_E2_A1" targetRef="Task_F1_E2_A2" />
+    <sequenceFlow id="SF_E2A2_to_E2A3" sourceRef="Task_F1_E2_A2" targetRef="Task_F1_E2_A3" />
+    <sequenceFlow id="Flow_11i10dh" sourceRef="Task_F1_E2_A3" targetRef="Event_005imw0" />
+    <dataObjectReference id="DataObjectReference_1y5t2zs" name="DCA inicial" dataObjectRef="DataObject_175rv4j" />
+    <dataObject id="DataObject_175rv4j" />
+    <dataObjectReference id="DataObjectReference_1x21mn9" name="DCA refinado" dataObjectRef="DataObject_1o6n1k5" />
+    <dataObject id="DataObject_1o6n1k5" />
+    <dataObjectReference id="DataObjectReference_1j8tio7" name="DCA" dataObjectRef="DataObject_1tqjv1s" />
+    <dataObject id="DataObject_1tqjv1s" />
+    <dataObjectReference id="DOR_DCA" name="MSP" dataObjectRef="DO_DCA" />
+    <dataObject id="DO_DCA" name="DCA-v1 Declaración de Contexto" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F1v2">
+    <bpmndi:BPMNPlane id="BPMNPlane_F1v2" bpmnElement="Collab_F1">
+      <bpmndi:BPMNShape id="Sh_Pool_F1" bpmnElement="Pool_F1" isHorizontal="true">
+        <dc:Bounds x="155" y="100" width="955" height="280" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_L_AEP" bpmnElement="Lane_AEP" isHorizontal="true">
+        <dc:Bounds x="185" y="100" width="925" height="280" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SE_F1" bpmnElement="StartEvent_F1">
+        <dc:Bounds x="245" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="251" y="312" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E2A1" bpmnElement="Task_F1_E2_A1">
+        <dc:Bounds x="345" y="250" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_ASIS" bpmnElement="DOR_ASIS" isHorizontal="false">
+        <dc:Bounds x="407" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="385" y="121" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E2A3" bpmnElement="Task_F1_E2_A3">
+        <dc:Bounds x="805" y="250" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_E2A2" bpmnElement="Task_F1_E2_A2">
+        <dc:Bounds x="575" y="250" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_005imw0_di" bpmnElement="Event_005imw0">
+        <dc:Bounds x="1047" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1057" y="315" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wt8r5e" bpmnElement="DataObjectReference_1y5t2zs" isHorizontal="false">
+        <dc:Bounds x="542" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="531" y="126" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1bu20gl" bpmnElement="DataObjectReference_1x21mn9" isHorizontal="false">
+        <dc:Bounds x="762" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="746" y="126" width="66" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0xp9s6n" bpmnElement="DataObjectReference_1j8tio7" isHorizontal="false">
+        <dc:Bounds x="982" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="985" y="126" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DO_DCA" bpmnElement="DOR_DCA" isHorizontal="false">
+        <dc:Bounds x="882" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="885" y="126" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_17zpcc8_di" bpmnElement="Flow_17zpcc8">
+        <di:waypoint x="281" y="290" />
+        <di:waypoint x="345" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_2A12A2" bpmnElement="SF_E2A1_to_E2A2">
+        <di:waypoint x="505" y="290" />
+        <di:waypoint x="575" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_2A22A3" bpmnElement="SF_E2A2_to_E2A3">
+        <di:waypoint x="735" y="290" />
+        <di:waypoint x="805" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11i10dh_di" bpmnElement="Flow_11i10dh">
+        <di:waypoint x="965" y="290" />
+        <di:waypoint x="1047" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_008" bpmnElement="DIA_008">
+        <di:waypoint x="425" y="195" />
+        <di:waypoint x="425" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1twwz34_di" bpmnElement="DataOutputAssociation_1twwz34">
+        <di:waypoint x="470" y="250" />
+        <di:waypoint x="470" y="170" />
+        <di:waypoint x="542" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0pv2e75_di" bpmnElement="DataInputAssociation_0pv2e75">
+        <di:waypoint x="798" y="170" />
+        <di:waypoint x="840" y="170" />
+        <di:waypoint x="840" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DA_009" bpmnElement="DOA_009">
+        <di:waypoint x="900" y="250" />
+        <di:waypoint x="900" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1u4y76l_di" bpmnElement="DataOutputAssociation_1u4y76l">
+        <di:waypoint x="940" y="250" />
+        <di:waypoint x="940" y="175" />
+        <di:waypoint x="982" y="175" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_10cab3x_di" bpmnElement="DataInputAssociation_10cab3x">
+        <di:waypoint x="578" y="170" />
+        <di:waypoint x="655" y="170" />
+        <di:waypoint x="655" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0zgo1hd_di" bpmnElement="DataOutputAssociation_0zgo1hd">
+        <di:waypoint x="690" y="250" />
+        <di:waypoint x="690" y="170" />
+        <di:waypoint x="760" y="170" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F4-E9-v1" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collaboration_F4_E9">
+    <participant id="Pool_F4_E9" name="F4.E9: Componentes Estructurales" processRef="Process_F4_E9" />
+  </collaboration>
+  <process id="Process_F4_E9" isExecutable="false">
+    <laneSet id="LaneSet_F4_E9">
+      <lane id="Lane_AEP_E9" name="Arquitecto Empresarial del Proceso">
+        <flowNodeRef>StartEvent_E9</flowNodeRef>
+        <flowNodeRef>A1_E9</flowNodeRef>
+        <flowNodeRef>Gateway_E9_split</flowNodeRef>
+        <flowNodeRef>Gateway_E9_join</flowNodeRef>
+        <flowNodeRef>A5_E9</flowNodeRef>
+        <flowNodeRef>EndEvent_E9</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASP_E9" name="Arquitecto de Solución del Proceso">
+        <flowNodeRef>A2_E9</flowNodeRef>
+      </lane>
+      <lane id="Lane_AIP_ADP_E9" name="Arquitecto de Integración / Datos del Proceso">
+        <flowNodeRef>A3_E9</flowNodeRef>
+      </lane>
+      <lane id="Lane_ASecP_ETC_E9" name="Arquitecto de Seguridad / Especialista Tecnológico Cuántico">
+        <flowNodeRef>A4_E9</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_E9" name="Inicio E9">
+      <outgoing>SF_E9_start_A1</outgoing>
+    </startEvent>
+    <userTask id="A1_E9" name="F4.E9.A1: Definición del marco de componentes estructurales">
+      <incoming>SF_E9_start_A1</incoming>
+      <outgoing>SF_E9_A1_split</outgoing>
+      <dataOutputAssociation id="DOA_E9_A1_MRC">
+        <targetRef>DataObjectReference_MRC</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E9_split" name="Especificación de componentes estructurales por rol">
+      <incoming>SF_E9_A1_split</incoming>
+      <outgoing>SF_E9_split_A2</outgoing>
+      <outgoing>SF_E9_split_A3</outgoing>
+      <outgoing>SF_E9_split_A4</outgoing>
+    </parallelGateway>
+    <userTask id="A2_E9" name="F4.E9.A2: Especificación de componentes transversales de la solución">
+      <incoming>SF_E9_split_A2</incoming>
+      <outgoing>SF_E9_A2_join</outgoing>
+      <property id="Property_A2_E9" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E9_A2_MRC">
+        <sourceRef>DataObjectReference_MRC</sourceRef>
+        <targetRef>Property_A2_E9</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E9_A2_CCTS">
+        <targetRef>DataObjectReference_CCTS</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A3_E9" name="F4.E9.A3: Especificación de componentes de integración y datos">
+      <incoming>SF_E9_split_A3</incoming>
+      <outgoing>SF_E9_A3_join</outgoing>
+      <property id="Property_A3_E9" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E9_A3_MRC">
+        <sourceRef>DataObjectReference_MRC</sourceRef>
+        <targetRef>Property_A3_E9</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E9_A3_CCID">
+        <targetRef>DataObjectReference_CCID</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="A4_E9" name="F4.E9.A4: Especificación de componentes de seguridad clásicos y cuánticos">
+      <incoming>SF_E9_split_A4</incoming>
+      <outgoing>SF_E9_A4_join</outgoing>
+      <property id="Property_A4_E9" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E9_A4_MRC">
+        <sourceRef>DataObjectReference_MRC</sourceRef>
+        <targetRef>Property_A4_E9</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E9_A4_CCSE">
+        <targetRef>DataObjectReference_CCSE</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_E9_join" name="Consolidación de catálogo de componentes">
+      <incoming>SF_E9_A2_join</incoming>
+      <incoming>SF_E9_A3_join</incoming>
+      <incoming>SF_E9_A4_join</incoming>
+      <outgoing>SF_E9_join_A5</outgoing>
+    </parallelGateway>
+    <userTask id="A5_E9" name="F4.E9.A5: Consolidación del catálogo de componentes">
+      <incoming>SF_E9_join_A5</incoming>
+      <outgoing>SF_E9_A5_end</outgoing>
+      <property id="Property_A5_E9" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_E9_A5_CCTS">
+        <sourceRef>DataObjectReference_CCTS</sourceRef>
+        <targetRef>Property_A5_E9</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E9_A5_CCID">
+        <sourceRef>DataObjectReference_CCID</sourceRef>
+        <targetRef>Property_A5_E9</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_E9_A5_CCSE">
+        <sourceRef>DataObjectReference_CCSE</sourceRef>
+        <targetRef>Property_A5_E9</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_E9_A5_DCO">
+        <targetRef>DataObjectReference_DCO_v1</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <dataObjectReference id="DataObjectReference_MRC" name="MRC" dataObjectRef="DataObject_MRC" />
+    <dataObject id="DataObject_MRC" name="Marco de Referencia de Componentes" />
+    <dataObjectReference id="DataObjectReference_CCTS" name="CCTS" dataObjectRef="DataObject_CCTS" />
+    <dataObject id="DataObject_CCTS" name="Componentes y Conectores Transversales de Solución" />
+    <dataObjectReference id="DataObjectReference_CCID" name="CCID" dataObjectRef="DataObject_CCID" />
+    <dataObject id="DataObject_CCID" name="Componentes de Integración y Datos" />
+    <dataObjectReference id="DataObjectReference_CCSE" name="CCSE" dataObjectRef="DataObject_CCSE" />
+    <dataObject id="DataObject_CCSE" name="Componentes de Seguridad" />
+    <dataObjectReference id="DataObjectReference_DCO_v1" name="DCO" dataObjectRef="DataObject_DCO_v1" />
+    <dataObject id="DataObject_DCO_v1" name="DCO-v1 (Documento de Componentes Organizacionales)" />
+    <sequenceFlow id="SF_E9_start_A1" sourceRef="StartEvent_E9" targetRef="A1_E9" />
+    <sequenceFlow id="SF_E9_A5_end" sourceRef="A5_E9" targetRef="EndEvent_E9" />
+    <sequenceFlow id="SF_E9_A1_split" sourceRef="A1_E9" targetRef="Gateway_E9_split" />
+    <sequenceFlow id="SF_E9_split_A2" sourceRef="Gateway_E9_split" targetRef="A2_E9" />
+    <sequenceFlow id="SF_E9_split_A3" sourceRef="Gateway_E9_split" targetRef="A3_E9" />
+    <sequenceFlow id="SF_E9_split_A4" sourceRef="Gateway_E9_split" targetRef="A4_E9" />
+    <sequenceFlow id="SF_E9_A2_join" sourceRef="A2_E9" targetRef="Gateway_E9_join" />
+    <sequenceFlow id="SF_E9_A3_join" sourceRef="A3_E9" targetRef="Gateway_E9_join" />
+    <sequenceFlow id="SF_E9_A4_join" sourceRef="A4_E9" targetRef="Gateway_E9_join" />
+    <sequenceFlow id="SF_E9_join_A5" sourceRef="Gateway_E9_join" targetRef="A5_E9" />
+    <endEvent id="EndEvent_E9" name="Fin">
+      <incoming>SF_E9_A5_end</incoming>
+    </endEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_F4_E9">
+    <bpmndi:BPMNPlane id="BPMNPlane_F4_E9" bpmnElement="Collaboration_F4_E9">
+      <bpmndi:BPMNShape id="Sh_Pool_F4_E9" bpmnElement="Pool_F4_E9" isHorizontal="true">
+        <dc:Bounds x="130" y="80" width="1260" height="770" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_E9" bpmnElement="Lane_AEP_E9" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1230" height="220" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASP_E9" bpmnElement="Lane_ASP_E9" isHorizontal="true">
+        <dc:Bounds x="160" y="300" width="1230" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AIP_ADP_E9" bpmnElement="Lane_AIP_ADP_E9" isHorizontal="true">
+        <dc:Bounds x="160" y="460" width="1230" height="170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_ASecP_ETC_E9" bpmnElement="Lane_ASecP_ETC_E9" isHorizontal="true">
+        <dc:Bounds x="160" y="630" width="1230" height="220" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvent_E9" bpmnElement="StartEvent_E9">
+        <dc:Bounds x="212" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="209" y="215" width="43" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A1_E9" bpmnElement="A1_E9">
+        <dc:Bounds x="310" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E9_split" bpmnElement="Gateway_E9_split">
+        <dc:Bounds x="565" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="547" y="105" width="86" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A2_E9" bpmnElement="A2_E9">
+        <dc:Bounds x="710" y="330" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A3_E9" bpmnElement="A3_E9">
+        <dc:Bounds x="710" y="490" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A4_E9" bpmnElement="A4_E9">
+        <dc:Bounds x="710" y="665" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Gateway_E9_join" bpmnElement="Gateway_E9_join">
+        <dc:Bounds x="965" y="165" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="948" y="120" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_A5_E9" bpmnElement="A5_E9">
+        <dc:Bounds x="1090" y="150" width="170" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_MRC" bpmnElement="DataObjectReference_MRC">
+        <dc:Bounds x="467" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="431" y="573" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CCTS" bpmnElement="DataObjectReference_CCTS">
+        <dc:Bounds x="1052" y="365" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1055" y="342" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CCID" bpmnElement="DataObjectReference_CCID">
+        <dc:Bounds x="1052" y="525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1056" y="503" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_CCSE" bpmnElement="DataObjectReference_CCSE">
+        <dc:Bounds x="1052" y="695" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1054" y="672" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DataObjectReference_DCO_v1" bpmnElement="DataObjectReference_DCO_v1">
+        <dc:Bounds x="1292" y="325" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1297" y="302" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvent_E9" bpmnElement="EndEvent_E9">
+        <dc:Bounds x="1322" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1333" y="215" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_start_A1" bpmnElement="SF_E9_start_A1">
+        <di:waypoint x="248" y="190" />
+        <di:waypoint x="310" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_A5_end" bpmnElement="SF_E9_A5_end">
+        <di:waypoint x="1260" y="190" />
+        <di:waypoint x="1322" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_A1_split" bpmnElement="SF_E9_A1_split">
+        <di:waypoint x="480" y="190" />
+        <di:waypoint x="565" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_split_A2" bpmnElement="SF_E9_split_A2">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="370" />
+        <di:waypoint x="710" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_split_A3" bpmnElement="SF_E9_split_A3">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="530" />
+        <di:waypoint x="710" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_split_A4" bpmnElement="SF_E9_split_A4">
+        <di:waypoint x="590" y="215" />
+        <di:waypoint x="590" y="705" />
+        <di:waypoint x="710" y="705" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_A2_join" bpmnElement="SF_E9_A2_join">
+        <di:waypoint x="880" y="370" />
+        <di:waypoint x="990" y="370" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_A3_join" bpmnElement="SF_E9_A3_join">
+        <di:waypoint x="880" y="530" />
+        <di:waypoint x="990" y="530" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_A4_join" bpmnElement="SF_E9_A4_join">
+        <di:waypoint x="880" y="705" />
+        <di:waypoint x="990" y="705" />
+        <di:waypoint x="990" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_SF_E9_join_A5" bpmnElement="SF_E9_join_A5">
+        <di:waypoint x="1015" y="190" />
+        <di:waypoint x="1090" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E9_A1_MRC" bpmnElement="DOA_E9_A1_MRC">
+        <di:waypoint x="395" y="230" />
+        <di:waypoint x="395" y="550" />
+        <di:waypoint x="467" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A2_MRC" bpmnElement="DIA_E9_A2_MRC">
+        <di:waypoint x="485" y="525" />
+        <di:waypoint x="485" y="390" />
+        <di:waypoint x="710" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E9_A2_CCTS" bpmnElement="DOA_E9_A2_CCTS">
+        <di:waypoint x="880" y="391" />
+        <di:waypoint x="1052" y="391" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A3_MRC" bpmnElement="DIA_E9_A3_MRC">
+        <di:waypoint x="503" y="550" />
+        <di:waypoint x="710" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E9_A3_CCID" bpmnElement="DOA_E9_A3_CCID">
+        <di:waypoint x="880" y="545" />
+        <di:waypoint x="1052" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A4_MRC" bpmnElement="DIA_E9_A4_MRC">
+        <di:waypoint x="485" y="575" />
+        <di:waypoint x="485" y="720" />
+        <di:waypoint x="710" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E9_A4_CCSE" bpmnElement="DOA_E9_A4_CCSE">
+        <di:waypoint x="880" y="720" />
+        <di:waypoint x="1052" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A5_CCTS" bpmnElement="DIA_E9_A5_CCTS">
+        <di:waypoint x="1088" y="390" />
+        <di:waypoint x="1130" y="390" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A5_CCID" bpmnElement="DIA_E9_A5_CCID">
+        <di:waypoint x="1088" y="550" />
+        <di:waypoint x="1130" y="550" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DIA_E9_A5_CCSE" bpmnElement="DIA_E9_A5_CCSE">
+        <di:waypoint x="1088" y="720" />
+        <di:waypoint x="1130" y="720" />
+        <di:waypoint x="1130" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DOA_E9_A5_DCO" bpmnElement="DOA_E9_A5_DCO">
+        <di:waypoint x="1200" y="230" />
+        <di:waypoint x="1200" y="350" />
+        <di:waypoint x="1292" y="350" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="PDAEH-F3-general-v2" targetNamespace="http://pdaeh.org/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.1">
+  <collaboration id="Collab_F3">
+    <participant id="Pool_F3" name="F3 — Configuración Estructural (E6 → E5)" processRef="Process_F3" />
+    <participant id="Pool_OGA_F2" name="Órgano de Gobierno Arquitectónico (OGA)" processRef="Process_OGA_F2" />
+    <messageFlow id="Flow_14s7pxe" sourceRef="Event_0eupdqb" targetRef="Task_F3_adjust" />
+  </collaboration>
+  <process id="Process_F3" name="Proceso F3 — Configuración Estructural" isExecutable="false">
+    <laneSet id="LaneSet_F3">
+      <lane id="Lane_AEP_F3" name="Arquitecto empresarial del proceso (AEP) /                         Arquitectos Especialistas (ASP / AIP / ADP / ASecP / ETC)">
+        <flowNodeRef>StartEvent_F3</flowNodeRef>
+        <flowNodeRef>CA_F3_E6</flowNodeRef>
+        <flowNodeRef>CA_F3_E5</flowNodeRef>
+        <flowNodeRef>Task_F3_send</flowNodeRef>
+        <flowNodeRef>Task_F3_adjust</flowNodeRef>
+        <flowNodeRef>Gateway_F3_approval</flowNodeRef>
+        <flowNodeRef>EndEvent_F3</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="StartEvent_F3" name="Inicio F3">
+      <documentation>
+        Inicio de F3 — Configuración Estructural.
+        Precondición: Línea Base F2 aprobada por el OGA.
+        Artefactos disponibles: DNA-v1, DVA-v1, MTA-v2, DOA-v1.
+        Flujo: E6 (Atributos de calidad) → E5 (Estructuras arquitectónicas).
+      </documentation>
+      <outgoing>SF_F3_start_E6</outgoing>
+    </startEvent>
+    <callActivity id="CA_F3_E6" name="F3.E6. Atributos de calidad" calledElement="Process_F3_E6">
+      <documentation>
+        Subproceso E6. Detalle en PDAEH_f3_E6_bpmn.xml.
+        Roles: AEP, ASP, AIP/ADP, ASecP/ETC, SE/GPA.
+        Entradas: DNA-v1, DVA-v1, DOA-v1.
+        Salidas: IAQ-v1 (rendimiento, escalabilidad, mantenibilidad, facilidad de pruebas,
+          interoperabilidad, capacidad de integración, calidad de datos, seguridad,
+          resiliencia post-cuántica), MAQ-v1, MTA-v3.
+      </documentation>
+      <incoming>SF_F3_start_E6</incoming>
+      <outgoing>SF_F3_E6_E5</outgoing>
+      <property id="Prop_CA_E6" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_CA_E6_DNA">
+        <sourceRef>DOR_DNA_F3</sourceRef>
+        <targetRef>Prop_CA_E6</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_CA_E6_IAQ">
+        <sourceRef>CA_F3_E6</sourceRef>
+        <targetRef>DOR_IAQ</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <callActivity id="CA_F3_E5" name="F3.E5. Estructuras arquitectónicas" calledElement="Process_F3_E5">
+      <documentation>
+        Subproceso E5. Detalle en PDAEH_f3_E5_bpmn.xml.
+        Roles: AEP, ASP, AIP/ADP, ASecP/ETC, SE/GPA.
+        Entradas: IAQ-v1, MAQ-v1, DNA-v1, MTA-v3.
+        Salidas: DEA-v1 (estructuras de solución, integración, datos,
+          seguridad y cuánticas; patrones de escalabilidad, mantenibilidad,
+          facilidad de pruebas y capacidad de integración), MTA-v4.
+      </documentation>
+      <incoming>SF_F3_E6_E5</incoming>
+      <outgoing>SF_F3_E5_send</outgoing>
+      <property id="Prop_CA_E5" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_CA_E5_IAQ">
+        <sourceRef>DOR_IAQ</sourceRef>
+        <targetRef>Prop_CA_E5</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_0l9w4sv">
+        <sourceRef>DOR_DNA_F3</sourceRef>
+        <targetRef>Prop_CA_E5</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_1gli698">
+        <targetRef>DataObjectReference_17j4ewu</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <sendTask id="Task_F3_send" name="F3.E6.A6 {E5} Preparación y envío de artefactos al OGA" camunda:type="external" camunda:topic="OGA_Review_F3">
+      <documentation>
+        El AEP consolida IAQ-v1, MAQ-v1, DEA-v1 y MTA-v4 en la LBA-F3 y envía al OGA.
+      </documentation>
+      <incoming>SF_F3_E5_send</incoming>
+      <incoming>SF_F3_no_resend</incoming>
+      <outgoing>SF_F3_send_adjust</outgoing>
+      <property id="Prop_send_F3" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_send_IAQ">
+        <sourceRef>DOR_IAQ</sourceRef>
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_send_MAQ">
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_send_DEA">
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DIA_send_MTA4">
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_054dn0z">
+        <sourceRef>DataObjectReference_17j4ewu</sourceRef>
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1xe44j1">
+        <sourceRef>DOR_IAQ</sourceRef>
+        <targetRef>Prop_send_F3</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_send_LBA_F3i">
+        <sourceRef>Task_F3_send</sourceRef>
+        <targetRef>DOR_LBA_F3i</targetRef>
+      </dataOutputAssociation>
+    </sendTask>
+    <userTask id="Task_F3_adjust" name="F3.E6.A7 {E5} Ajustar artefactos según observaciones del OGA" camunda:assignee="AEP">
+      <documentation>
+        El AEP incorpora observaciones del OGA sobre IAQ-v1, MAQ-v1 y/o DEA-v1 según aplique.
+      </documentation>
+      <incoming>SF_F3_send_adjust</incoming>
+      <outgoing>SF_F3_adjust_gw</outgoing>
+      <property id="Prop_adjust_F3" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DIA_adjust_LBA_F3i">
+        <sourceRef>DOR_LBA_F3i</sourceRef>
+        <targetRef>Prop_adjust_F3</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DOA_adjust_LBA_F3a">
+        <sourceRef>Task_F3_adjust</sourceRef>
+        <targetRef>DOR_LBA_F3a</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <exclusiveGateway id="Gateway_F3_approval" name="¿OGA aprueba los artefactos?">
+      <incoming>SF_F3_adjust_gw</incoming>
+      <outgoing>SF_F3_approval_yes</outgoing>
+      <outgoing>SF_F3_no_resend</outgoing>
+    </exclusiveGateway>
+    <endEvent id="EndEvent_F3" name="Fin">
+      <documentation>
+        Fin de F3. LBA-F3 aprobada. Artefactos: IAQ-v1, MAQ-v1, DEA-v1, MTA-v4.
+        F4 — Materialización arquitectónica puede iniciarse.
+      </documentation>
+      <incoming>SF_F3_approval_yes</incoming>
+    </endEvent>
+    <dataObjectReference id="DOR_DNA_F3" name="LBA-F2" dataObjectRef="DO_DNA_F3" />
+    <dataObject id="DO_DNA_F3" name="DNA-v1 (desde F2.E3)" />
+    <dataObjectReference id="DOR_IAQ" name="DAC" dataObjectRef="DO_IAQ" />
+    <dataObject id="DO_IAQ" name="IAQ-v1 (Inventario de Atributos de Calidad)" />
+    <dataObjectReference id="DataObjectReference_17j4ewu" name="DEA" dataObjectRef="DataObject_0ufma1n" />
+    <dataObject id="DataObject_0ufma1n" />
+    <sequenceFlow id="SF_F3_start_E6" sourceRef="StartEvent_F3" targetRef="CA_F3_E6" />
+    <sequenceFlow id="SF_F3_E6_E5" sourceRef="CA_F3_E6" targetRef="CA_F3_E5" />
+    <sequenceFlow id="SF_F3_E5_send" sourceRef="CA_F3_E5" targetRef="Task_F3_send" />
+    <sequenceFlow id="SF_F3_no_resend" name="no" sourceRef="Gateway_F3_approval" targetRef="Task_F3_send">
+      <conditionExpression>Requiere ajustes y reenvío</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SF_F3_send_adjust" name="La transición ocurre cuando se recibe la respuesta del OGA" sourceRef="Task_F3_send" targetRef="Task_F3_adjust" />
+    <sequenceFlow id="SF_F3_adjust_gw" sourceRef="Task_F3_adjust" targetRef="Gateway_F3_approval" />
+    <sequenceFlow id="SF_F3_approval_yes" name="Sí" sourceRef="Gateway_F3_approval" targetRef="EndEvent_F3">
+      <conditionExpression>OGA aprueba LBA-F3</conditionExpression>
+    </sequenceFlow>
+    <dataObjectReference id="DOR_LBA_F3a" name="LBA-F3 aprobado" dataObjectRef="DO_LBA_F3a" />
+    <dataObject id="DO_LBA_F3a" name="LBA-F3 aprobada" />
+    <dataObjectReference id="DOR_LBA_F3i" name="LBA-F3&#10;inicial" dataObjectRef="DO_LBA_F3i" />
+    <dataObject id="DO_LBA_F3i" name="LBA-F3 inicial" />
+  </process>
+  <process id="Process_OGA_F2" name="Proceso OGA — Revisión F2" isExecutable="false">
+    <laneSet id="LaneSet_19burgr">
+      <lane id="Lane_OGA_F2" name="OGA — Órgano de Gobierno Arquitectónico">
+        <flowNodeRef>Activity_0iwkjts</flowNodeRef>
+        <flowNodeRef>Activity_07f19pr</flowNodeRef>
+        <flowNodeRef>Gateway_17ie309</flowNodeRef>
+        <flowNodeRef>Event_0f3xrhd</flowNodeRef>
+        <flowNodeRef>Activity_0b1p9ep</flowNodeRef>
+        <flowNodeRef>Activity_1wdvm5s</flowNodeRef>
+        <flowNodeRef>Activity_0kvav8n</flowNodeRef>
+        <flowNodeRef>Event_0eupdqb</flowNodeRef>
+        <flowNodeRef>Activity_1qvvdo6</flowNodeRef>
+        <flowNodeRef>Gateway_0nan39s</flowNodeRef>
+      </lane>
+    </laneSet>
+    <dataObjectReference id="DataObjectReference_1nxneyy" name="LBA-F3 inicial" dataObjectRef="DataObject_0sz0tsl" />
+    <dataObject id="DataObject_0sz0tsl" />
+    <userTask id="Activity_0iwkjts" name="3. Revisión individual de artefactos por miembros" camunda:assignee="Miembros_OGA">
+      <documentation>Cada miembro del OGA revisa de forma individual los artefactos recibidos evaluando: (1) alineación con el plan estratégico institucional, (2) completitud y coherencia del DOA-v1, (3) suficiencia del contexto documentado en DCA-v1, (4) cobertura del mapa de stakeholders SMP-v1, (5) trazabilidad de la matriz MTA-v1.</documentation>
+      <incoming>Flow_0fcwfiz</incoming>
+      <outgoing>Flow_0rz7vg9</outgoing>
+      <property id="Property_0sje3tz" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0rhjuco">
+        <sourceRef>DataObjectReference_1nxneyy</sourceRef>
+        <targetRef>Property_0sje3tz</targetRef>
+      </dataInputAssociation>
+    </userTask>
+    <userTask id="Activity_07f19pr" name="4. Sesión formal de deliberación y votación" camunda:assignee="Miembros_OGA">
+      <documentation>El OGA se reúne formalmente. Los miembros exponen sus observaciones, se debate y se alcanza una decisión por votación o consenso: (A) Aprobado sin condiciones, (B) Aprobado con observaciones menores (el AEP las incorpora sin nueva revisión), (C) Requiere ajustes sustanciales y nueva revisión.</documentation>
+      <incoming>Flow_0rz7vg9</incoming>
+      <outgoing>Flow_1i1n136</outgoing>
+    </userTask>
+    <exclusiveGateway id="Gateway_17ie309" name="¿Aprueba los artefactos?">
+      <incoming>Flow_1i1n136</incoming>
+      <outgoing>Flow_1j7g6ji</outgoing>
+      <outgoing>Flow_1hpy63l</outgoing>
+    </exclusiveGateway>
+    <startEvent id="Event_0f3xrhd" name="Recepción de artefactos">
+      <outgoing>Flow_0i7zpzt</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_0oulnjy" />
+    </startEvent>
+    <userTask id="Activity_0b1p9ep" name="1. Recepción y registro de artefactos" camunda:assignee="Secretaria_OGA">
+      <documentation>La coordinación del OGA acusa recibo del paquete enviado por el AEP (DOA-v1, DCA-v1, SMP-v1, MTA-v1), lo registra en la bitácora de revisiones y distribuye a los miembros del comité.</documentation>
+      <incoming>Flow_0i7zpzt</incoming>
+      <outgoing>Flow_1lrgpjx</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0ho874j">
+        <targetRef>DataObjectReference_1nxneyy</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <userTask id="Activity_1wdvm5s" name="2. Convocatoria y agenda de sesión de revisión" camunda:assignee="Secretaria_OGA">
+      <documentation>Se convoca la sesión formal del OGA, se establece la agenda de revisión y se confirma quórum. Plazo típico: 5 días hábiles desde la recepción.</documentation>
+      <incoming>Flow_1lrgpjx</incoming>
+      <outgoing>Flow_0fcwfiz</outgoing>
+    </userTask>
+    <userTask id="Activity_0kvav8n" name="5. Emisión del acta de aprobación y notificación al AEP" camunda:assignee="Secretaria_OGA">
+      <documentation>El OGA emite el acta formal de aprobación (DOA-v1.0), la firma y notifica al AEP. La Línea Base F1 queda autorizada para publicación en el repositorio corporativo.</documentation>
+      <incoming>Flow_1j7g6ji</incoming>
+      <outgoing>Flow_0q5y7aa</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_00w6fh4">
+        <targetRef>DataObjectReference_1bkoiru</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <endEvent id="Event_0eupdqb" name="Decisión notificada al AEP">
+      <incoming>Flow_1p2ltcq</incoming>
+      <property id="Property_0zefsgy" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0i9tl72">
+        <sourceRef>DataObjectReference_0z7loav</sourceRef>
+        <targetRef>Property_0zefsgy</targetRef>
+      </dataInputAssociation>
+      <messageEventDefinition id="MessageEventDefinition_1wn247o" />
+    </endEvent>
+    <userTask id="Activity_1qvvdo6" name="6. Documentación de observaciones y envío al AEP" camunda:assignee="Secretaria_OGA">
+      <documentation>El OGA documenta formalmente las observaciones y las envía al AEP con un plazo de respuesta. Cada observación indica el artefacto afectado, el criterio incumplido y la acción correctiva requerida.</documentation>
+      <incoming>Flow_1hpy63l</incoming>
+      <outgoing>Flow_0hod7mh</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_1k48vai">
+        <targetRef>DataObjectReference_1bkoiru</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <parallelGateway id="Gateway_0nan39s" name="7. Consolida los resultados">
+      <incoming>Flow_0q5y7aa</incoming>
+      <incoming>Flow_0hod7mh</incoming>
+      <outgoing>Flow_1p2ltcq</outgoing>
+    </parallelGateway>
+    <dataObjectReference id="DataObjectReference_1bkoiru" name="Acta de decisión  emitida por el OGA" dataObjectRef="DataObject_1uex3rs" />
+    <dataObject id="DataObject_1uex3rs" />
+    <dataObjectReference id="DataObjectReference_0z7loav" name="LBA-F3 actualizado" dataObjectRef="DataObject_0avk1lp" />
+    <dataObject id="DataObject_0avk1lp" />
+    <sequenceFlow id="Flow_0fcwfiz" sourceRef="Activity_1wdvm5s" targetRef="Activity_0iwkjts" />
+    <sequenceFlow id="Flow_0rz7vg9" sourceRef="Activity_0iwkjts" targetRef="Activity_07f19pr" />
+    <sequenceFlow id="Flow_1i1n136" sourceRef="Activity_07f19pr" targetRef="Gateway_17ie309" />
+    <sequenceFlow id="Flow_1j7g6ji" name="si" sourceRef="Gateway_17ie309" targetRef="Activity_0kvav8n">
+      <conditionExpression>Aprobado</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1hpy63l" name="no" sourceRef="Gateway_17ie309" targetRef="Activity_1qvvdo6">
+      <conditionExpression>Requiere ajustes</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0i7zpzt" sourceRef="Event_0f3xrhd" targetRef="Activity_0b1p9ep" />
+    <sequenceFlow id="Flow_1lrgpjx" sourceRef="Activity_0b1p9ep" targetRef="Activity_1wdvm5s" />
+    <sequenceFlow id="Flow_0q5y7aa" sourceRef="Activity_0kvav8n" targetRef="Gateway_0nan39s" />
+    <sequenceFlow id="Flow_1p2ltcq" sourceRef="Gateway_0nan39s" targetRef="Event_0eupdqb" />
+    <sequenceFlow id="Flow_0hod7mh" sourceRef="Activity_1qvvdo6" targetRef="Gateway_0nan39s" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiag_F3_v2">
+    <bpmndi:BPMNPlane id="BPMNPlane_F3_v2" bpmnElement="Collab_F3">
+      <bpmndi:BPMNShape id="Sh_Pool_F3" bpmnElement="Pool_F3" isHorizontal="true">
+        <dc:Bounds x="155" y="80" width="1605" height="380" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Lane_AEP_F3" bpmnElement="Lane_AEP_F3" isHorizontal="true">
+        <dc:Bounds x="185" y="80" width="1575" height="380" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Start_F3" bpmnElement="StartEvent_F3">
+        <dc:Bounds x="282" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="274" y="315" width="42" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CA_F3_E6" bpmnElement="CA_F3_E6" isExpanded="false">
+        <dc:Bounds x="380" y="250" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CA_F3_E5" bpmnElement="CA_F3_E5" isExpanded="false">
+        <dc:Bounds x="680" y="250" width="200" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Task_F3_send" bpmnElement="Task_F3_send">
+        <dc:Bounds x="970" y="250" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Task_F3_adjust" bpmnElement="Task_F3_adjust">
+        <dc:Bounds x="1320" y="250" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GW_F3" bpmnElement="Gateway_F3_approval" isMarkerVisible="true">
+        <dc:Bounds x="1567" y="270" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1551" y="235" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_End_F3" bpmnElement="EndEvent_F3">
+        <dc:Bounds x="1660" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1670" y="315" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DNA_F3" bpmnElement="DOR_DNA_F3">
+        <dc:Bounds x="302" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="302" y="212" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_IAQ_F3" bpmnElement="DOR_IAQ">
+        <dc:Bounds x="602" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="609" y="212" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1mx16b3" bpmnElement="DataObjectReference_17j4ewu">
+        <dc:Bounds x="902" y="155" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="910" y="212" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_LBA_F3a" bpmnElement="DOR_LBA_F3a">
+        <dc:Bounds x="1472" y="135" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1448" y="192" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_LBA_F3i" bpmnElement="DOR_LBA_F3i">
+        <dc:Bounds x="1212" y="135" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1212" y="192" width="38" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Ed_start_E6" bpmnElement="SF_F3_start_E6">
+        <di:waypoint x="318" y="290" />
+        <di:waypoint x="380" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E6_E5" bpmnElement="SF_F3_E6_E5">
+        <di:waypoint x="580" y="290" />
+        <di:waypoint x="680" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E5_send" bpmnElement="SF_F3_E5_send">
+        <di:waypoint x="880" y="290" />
+        <di:waypoint x="970" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_no_resend" bpmnElement="SF_F3_no_resend">
+        <di:waypoint x="1587" y="310" />
+        <di:waypoint x="1587" y="430" />
+        <di:waypoint x="1060" y="430" />
+        <di:waypoint x="1060" y="330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1313" y="413" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_send_adjust" bpmnElement="SF_F3_send_adjust">
+        <di:waypoint x="1150" y="290" />
+        <di:waypoint x="1320" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1193" y="297" width="85" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_adjust_gw" bpmnElement="SF_F3_adjust_gw">
+        <di:waypoint x="1500" y="290" />
+        <di:waypoint x="1567" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_approval_yes" bpmnElement="SF_F3_approval_yes">
+        <di:waypoint x="1607" y="290" />
+        <di:waypoint x="1660" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1628" y="273" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_0vxyg0z" bpmnElement="Pool_OGA_F2" isHorizontal="true">
+        <dc:Bounds x="155" y="490" width="1605" height="420" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1kmthu3" bpmnElement="Lane_OGA_F2" isHorizontal="true">
+        <dc:Bounds x="185" y="490" width="1575" height="420" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kn8zvt" bpmnElement="DataObjectReference_1nxneyy" isHorizontal="false">
+        <dc:Bounds x="455" y="775" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="440" y="833" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ztliv0" bpmnElement="Activity_0iwkjts">
+        <dc:Bounds x="615" y="760" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kvn2rb" bpmnElement="Activity_07f19pr">
+        <dc:Bounds x="830" y="760" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0o2lr46" bpmnElement="Gateway_17ie309" isMarkerVisible="true">
+        <dc:Bounds x="1050" y="780" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1037" y="828" width="66" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0scuq5u" bpmnElement="Event_0f3xrhd">
+        <dc:Bounds x="262" y="562" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="246" y="602" width="68" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1osuky8" bpmnElement="Activity_0b1p9ep">
+        <dc:Bounds x="390" y="540" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_01qqb6p" bpmnElement="Activity_1wdvm5s">
+        <dc:Bounds x="615" y="540" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1gqt1ug" bpmnElement="Activity_0kvav8n">
+        <dc:Bounds x="987" y="540" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_103p529" bpmnElement="Event_0eupdqb">
+        <dc:Bounds x="1560" y="562" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1528" y="527" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0990dyg" bpmnElement="Activity_1qvvdo6">
+        <dc:Bounds x="1180" y="760" width="165" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_19q0tnw" bpmnElement="Gateway_0nan39s" isMarkerVisible="true">
+        <dc:Bounds x="1435" y="780" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1416" y="827" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xkrsr0" bpmnElement="DataObjectReference_1bkoiru" isHorizontal="false">
+        <dc:Bounds x="1262" y="655" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1169" y="667" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0v47iaw" bpmnElement="DataObjectReference_0z7loav" isHorizontal="false">
+        <dc:Bounds x="1662" y="655" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1653" y="716" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_0dfreir" bpmnElement="Flow_0fcwfiz">
+        <di:waypoint x="698" y="620" />
+        <di:waypoint x="698" y="760" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_12knk2f" bpmnElement="Flow_0rz7vg9">
+        <di:waypoint x="780" y="800" />
+        <di:waypoint x="830" y="800" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0i36zls" bpmnElement="Flow_1i1n136">
+        <di:waypoint x="995" y="800" />
+        <di:waypoint x="1050" y="800" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_17j8djr" bpmnElement="Flow_1j7g6ji">
+        <di:waypoint x="1070" y="780" />
+        <di:waypoint x="1070" y="620" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1081" y="697" width="8" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1os9ze2" bpmnElement="Flow_1hpy63l">
+        <di:waypoint x="1090" y="800" />
+        <di:waypoint x="1180" y="800" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1129" y="782" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_17107km" bpmnElement="Flow_0i7zpzt">
+        <di:waypoint x="298" y="580" />
+        <di:waypoint x="390" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_062jvo6" bpmnElement="Flow_1lrgpjx">
+        <di:waypoint x="555" y="580" />
+        <di:waypoint x="615" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_015rzsk" bpmnElement="Flow_0q5y7aa">
+        <di:waypoint x="1152" y="570" />
+        <di:waypoint x="1455" y="570" />
+        <di:waypoint x="1455" y="780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0x0otaj" bpmnElement="Flow_1p2ltcq">
+        <di:waypoint x="1475" y="800" />
+        <di:waypoint x="1578" y="800" />
+        <di:waypoint x="1578" y="598" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1v6ykux" bpmnElement="Flow_0hod7mh">
+        <di:waypoint x="1345" y="800" />
+        <di:waypoint x="1435" y="800" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_DNA_E6" bpmnElement="DIA_CA_E6_DNA">
+        <di:waypoint x="338" y="180" />
+        <di:waypoint x="420" y="180" />
+        <di:waypoint x="420" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_E6_IAQ" bpmnElement="DOA_CA_E6_IAQ">
+        <di:waypoint x="450" y="250" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="602" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_IAQ_E5" bpmnElement="DIA_CA_E5_IAQ">
+        <di:waypoint x="638" y="180" />
+        <di:waypoint x="780" y="180" />
+        <di:waypoint x="780" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0l9w4sv_di" bpmnElement="DataInputAssociation_0l9w4sv">
+        <di:waypoint x="320" y="155" />
+        <di:waypoint x="320" y="130" />
+        <di:waypoint x="810" y="130" />
+        <di:waypoint x="810" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1gli698_di" bpmnElement="DataOutputAssociation_1gli698">
+        <di:waypoint x="830" y="250" />
+        <di:waypoint x="830" y="180" />
+        <di:waypoint x="900" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_054dn0z_di" bpmnElement="DataInputAssociation_054dn0z">
+        <di:waypoint x="938" y="180" />
+        <di:waypoint x="1000" y="180" />
+        <di:waypoint x="1000" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1xe44j1_di" bpmnElement="DataInputAssociation_1xe44j1">
+        <di:waypoint x="620" y="155" />
+        <di:waypoint x="620" y="110" />
+        <di:waypoint x="1060" y="110" />
+        <di:waypoint x="1060" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_send_LBAi" bpmnElement="DOA_send_LBA_F3i">
+        <di:waypoint x="1100" y="250" />
+        <di:waypoint x="1100" y="160" />
+        <di:waypoint x="1212" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_LBAi_adjust" bpmnElement="DIA_adjust_LBA_F3i">
+        <di:waypoint x="1248" y="160" />
+        <di:waypoint x="1370" y="160" />
+        <di:waypoint x="1370" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Ed_adjust_LBAa" bpmnElement="DOA_adjust_LBA_F3a">
+        <di:waypoint x="1410" y="250" />
+        <di:waypoint x="1410" y="160" />
+        <di:waypoint x="1472" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14s7pxe_di" bpmnElement="Flow_14s7pxe">
+        <di:waypoint x="1596" y="580" />
+        <di:waypoint x="1670" y="580" />
+        <di:waypoint x="1670" y="550" />
+        <di:waypoint x="1430" y="550" />
+        <di:waypoint x="1430" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0wvuzow" bpmnElement="DataOutputAssociation_0ho874j">
+        <di:waypoint x="473" y="620" />
+        <di:waypoint x="473" y="770" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1gzktqn" bpmnElement="DataInputAssociation_0rhjuco">
+        <di:waypoint x="491" y="800" />
+        <di:waypoint x="615" y="800" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0rjygmu" bpmnElement="DataOutputAssociation_00w6fh4">
+        <di:waypoint x="1152" y="600" />
+        <di:waypoint x="1280" y="600" />
+        <di:waypoint x="1280" y="655" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0i9tl72_di" bpmnElement="DataInputAssociation_0i9tl72">
+        <di:waypoint x="1682" y="655" />
+        <di:waypoint x="1682" y="630" />
+        <di:waypoint x="1594" y="588" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0llqmwa" bpmnElement="DataOutputAssociation_1k48vai">
+        <di:waypoint x="1280" y="760" />
+        <di:waypoint x="1280" y="705" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
