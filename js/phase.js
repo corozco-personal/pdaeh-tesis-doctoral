@@ -370,10 +370,10 @@ function setupPhaseBpmnViewers() {
       const eventBus = viewer.get("eventBus");
       const elementRegistry = viewer.get("elementRegistry");
 
-      // Bounding box y límites de arrastre/zoom
-      const defaultViewbox = Object.assign({}, view.viewbox());
-      const minZoom = defaultViewbox.scale * 0.95;
-      const maxZoom = defaultViewbox.scale * 2.8;
+      // Bounding box y límites estrictos de arrastre/zoom
+      const defaultViewbox = JSON.parse(JSON.stringify(view.viewbox()));
+      const minZoom = defaultViewbox.scale; // No permitir alejar más que la vista por defecto
+      const maxZoom = defaultViewbox.scale * 3.0; // Zoom máximo
 
       if (resetBtn) {
         resetBtn.onclick = () => {
@@ -385,42 +385,60 @@ function setupPhaseBpmnViewers() {
       eventBus.on("canvas.viewbox.changed", (e) => {
         if (isAdjusting) return;
         const vb = e.viewbox;
-        if (!vb || !defaultViewbox.inner) return;
+        if (!vb || !defaultViewbox.inner || !defaultViewbox.outer) return;
 
         let needsAdjustment = false;
         let newScale = vb.scale;
-        if (newScale < minZoom) { newScale = minZoom; needsAdjustment = true; }
-        else if (newScale > maxZoom) { newScale = maxZoom; needsAdjustment = true; }
 
-        const marginX = defaultViewbox.inner.width * 0.15;
-        const marginY = defaultViewbox.inner.height * 0.15;
-        const minX = defaultViewbox.inner.x - marginX;
-        const maxX = defaultViewbox.inner.x + defaultViewbox.inner.width + marginX - vb.width;
-        const minY = defaultViewbox.inner.y - marginY;
-        const maxY = defaultViewbox.inner.y + defaultViewbox.inner.height + marginY - vb.height;
+        // Limitar escala de zoom
+        if (newScale < minZoom) {
+          newScale = minZoom;
+          needsAdjustment = true;
+        } else if (newScale > maxZoom) {
+          newScale = maxZoom;
+          needsAdjustment = true;
+        }
+
+        const width = defaultViewbox.outer.width / newScale;
+        const height = defaultViewbox.outer.height / newScale;
+        const inner = defaultViewbox.inner;
 
         let newX = vb.x;
         let newY = vb.y;
 
-        if (minX <= maxX) {
+        // Eje Horizontal: si cabe en el viewport (ej. tamaño por defecto), fijar en el centro y no permitir mover
+        if (inner.width <= width) {
+          const targetX = inner.x - (width - inner.width) / 2;
+          if (Math.abs(newX - targetX) > 0.5) {
+            newX = targetX;
+            needsAdjustment = true;
+          }
+        } else {
+          // Con zoom ampliado: solo permitir desplazarse dentro del límite del diagrama
+          const minX = inner.x;
+          const maxX = inner.x + inner.width - width;
           if (newX < minX) { newX = minX; needsAdjustment = true; }
           else if (newX > maxX) { newX = maxX; needsAdjustment = true; }
-        } else {
-          newX = defaultViewbox.inner.x - (vb.width - defaultViewbox.inner.width) / 2;
-          needsAdjustment = true;
         }
 
-        if (minY <= maxY) {
+        // Eje Vertical: si cabe en el viewport, fijar en el centro
+        if (inner.height <= height) {
+          const targetY = inner.y - (height - inner.height) / 2;
+          if (Math.abs(newY - targetY) > 0.5) {
+            newY = targetY;
+            needsAdjustment = true;
+          }
+        } else {
+          // Con zoom ampliado: solo permitir desplazarse dentro del límite del diagrama
+          const minY = inner.y;
+          const maxY = inner.y + inner.height - height;
           if (newY < minY) { newY = minY; needsAdjustment = true; }
           else if (newY > maxY) { newY = maxY; needsAdjustment = true; }
-        } else {
-          newY = defaultViewbox.inner.y - (vb.height - defaultViewbox.inner.height) / 2;
-          needsAdjustment = true;
         }
 
         if (needsAdjustment) {
           isAdjusting = true;
-          view.viewbox({ x: newX, y: newY, width: vb.width, height: vb.height });
+          view.viewbox({ x: newX, y: newY, width: width, height: height });
           isAdjusting = false;
         }
       });
