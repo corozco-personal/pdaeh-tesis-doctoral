@@ -2156,66 +2156,10 @@ function setupInteractiveGovernanceDiagram() {
     };
   }
 
-  // Configurar Hotspots de la Opción 2
-  const hotspots = document.querySelectorAll(".bpmn-hotspot");
-  hotspots.forEach(hs => {
-    hs.addEventListener("mouseenter", () => {
-      hs.style.backgroundColor = "rgba(46, 125, 90, 0.22)";
-      hs.style.boxShadow = "0 0 0 2px var(--green)";
-    });
-    hs.addEventListener("mouseleave", () => {
-      hs.style.backgroundColor = "transparent";
-      hs.style.boxShadow = "none";
-    });
-    hs.addEventListener("click", () => {
-      const code = hs.dataset.activityId;
-      if (code) showActivityModal(code);
-    });
-  });
-
-  // Configurar Switcher entre Opción 1 y Opción 2
-  const btnOpt1 = document.getElementById("btnPocOption1");
-  const btnOpt2 = document.getElementById("btnPocOption2");
-  const contBpmn = document.getElementById("pocContainerBpmn");
-  const contOverlay = document.getElementById("pocContainerOverlay");
-
   let viewerInstance = null;
   let bpmnLoaded = false;
 
-  function setView(isOption1) {
-    if (isOption1) {
-      btnOpt1.classList.add("active");
-      btnOpt1.style.background = "var(--green)";
-      btnOpt1.style.color = "#fff";
-
-      btnOpt2.classList.remove("active");
-      btnOpt2.style.background = "transparent";
-      btnOpt2.style.color = "var(--ink-light)";
-
-      contBpmn.style.display = "block";
-      contOverlay.style.display = "none";
-
-      if (!bpmnLoaded) initBpmnViewer();
-    } else {
-      btnOpt2.classList.add("active");
-      btnOpt2.style.background = "var(--green)";
-      btnOpt2.style.color = "#fff";
-
-      btnOpt1.classList.remove("active");
-      btnOpt1.style.background = "transparent";
-      btnOpt1.style.color = "var(--ink-light)";
-
-      contBpmn.style.display = "none";
-      contOverlay.style.display = "block";
-    }
-  }
-
-  if (btnOpt1 && btnOpt2) {
-    btnOpt1.onclick = () => setView(true);
-    btnOpt2.onclick = () => setView(false);
-  }
-
-  // Inicializar visor BPMN Nativo (Opción 1)
+  // Inicializar visor BPMN Nativo
   async function initBpmnViewer() {
     const canvas = document.getElementById("bpmnCanvas");
     if (!canvas || typeof BpmnJS === "undefined") return;
